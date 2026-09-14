@@ -4150,3 +4150,356 @@ body[data-page="guides"] .training-item p {
     }
 
 }
+/* =========================================
+   MOVEMENT GUIDE
+========================================= */
+
+body[data-page="guides"] .distance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .distance-card {
+    padding: 20px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .distance-card:hover {
+    transform: translateY(-2px);
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .distance-card.ideal {
+    border-color: var(--border-red);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(226,29,47,.07),
+            var(--panel)
+        );
+}
+
+
+/* DISTANCE VISUAL */
+
+body[data-page="guides"] .distance-visual {
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    background: #08090b;
+    border: 1px solid var(--border);
+}
+
+body[data-page="guides"] .distance-visual span {
+    color: white;
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: .1em;
+}
+
+body[data-page="guides"] .distance-visual i {
+    display: block;
+
+    height: 1px;
+
+    background: var(--red-dark);
+}
+
+body[data-page="guides"] .distance-visual.far i {
+    width: 70px;
+}
+
+body[data-page="guides"] .distance-visual.ideal-distance i {
+    width: 35px;
+    background: var(--red);
+}
+
+body[data-page="guides"] .distance-visual.close i {
+    width: 12px;
+}
+
+body[data-page="guides"] .distance-label {
+    color: var(--red-light);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .14em;
+}
+
+body[data-page="guides"] .distance-card h3 {
+    margin: 7px 0 6px;
+
+    color: white;
+    font-size: 14px;
+}
+
+body[data-page="guides"] .distance-card p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* MOVEMENT PRINCIPLES */
+
+body[data-page="guides"] .movement-principles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .movement-principle {
+    display: flex;
+    gap: 16px;
+
+    padding: 20px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .movement-principle:hover {
+    transform: translateY(-2px);
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .movement-number {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #08090b;
+    border: 1px solid var(--border);
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .movement-principle h3 {
+    margin: 0 0 6px;
+
+    color: white;
+    font-size: 13px;
+}
+
+body[data-page="guides"] .movement-principle p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* MOVEMENT MIX */
+
+body[data-page="guides"] .movement-mix {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+body[data-page="guides"] .movement-mix-item {
+    padding: 17px;
+
+    background: #0d0f12;
+    border: 1px solid var(--border);
+}
+
+body[data-page="guides"] .movement-mix-item > span {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--red-light);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .13em;
+}
+
+body[data-page="guides"] .movement-mix-item strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: white;
+    font-size: 12px;
+}
+
+body[data-page="guides"] .movement-mix-item p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.55;
+}
+
+
+/* MOVEMENT MISTAKES */
+
+body[data-page="guides"] .movement-mistakes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .movement-mistake {
+    display: flex;
+    gap: 16px;
+
+    padding: 18px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--red-dark);
+
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .movement-mistake:hover {
+    background: var(--panel-light);
+    border-left-color: var(--red);
+}
+
+body[data-page="guides"] .movement-mistake > span {
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .movement-mistake h3 {
+    margin: 0 0 5px;
+
+    color: white;
+    font-size: 13px;
+}
+
+body[data-page="guides"] .movement-mistake p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* DRILLS */
+
+body[data-page="guides"] .movement-drill {
+    display: flex;
+    gap: 20px;
+
+    padding: 19px 5px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+body[data-page="guides"] .movement-drill:last-child {
+    border-bottom: none;
+}
+
+body[data-page="guides"] .drill-number {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #08090b;
+    border: 1px solid var(--border);
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .movement-drill h3 {
+    margin: 0 0 5px;
+
+    color: white;
+    font-size: 12px;
+}
+
+body[data-page="guides"] .movement-drill p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    body[data-page="guides"] .distance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .movement-principles {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .movement-mix {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-page="guides"] .movement-mistakes {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    body[data-page="guides"] .movement-mix {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .movement-principle {
+        padding: 16px;
+    }
+
+    body[data-page="guides"] .movement-mistake {
+        padding: 16px;
+    }
+
+}
