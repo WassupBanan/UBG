@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -18,6 +19,10 @@
 <body>
 
 <div class="wiki-layout">
+
+    <!-- =========================
+         LEFT WIKI SIDEBAR
+    ========================== -->
 
     <aside class="sidebar">
 
@@ -61,6 +66,7 @@
                 Ranked
             </a>
 
+
             <div class="nav-heading">
                 EXPLORE
             </div>
@@ -94,6 +100,7 @@
                 class="play-button"
                 href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
                 target="_blank"
+                rel="noopener noreferrer"
             >
                 PLAY UBG ↗
             </a>
@@ -103,13 +110,22 @@
     </aside>
 
 
+
+    <!-- =========================
+         MAIN WIKI AREA
+    ========================== -->
+
     <main class="main-area">
+
+
+        <!-- TOP BAR -->
 
         <header class="topbar">
 
             <div class="mobile-title">
                 UBG WIKI
             </div>
+
 
             <div class="search-box">
 
@@ -125,15 +141,19 @@
 
             </div>
 
+
             <div class="top-actions">
 
-                <button onclick="window.location='styles.html'">
+                <button
+                    onclick="window.location='styles.html'"
+                >
                     ALL STYLES
                 </button>
 
                 <a
                     href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="top-play"
                 >
                     PLAY
@@ -144,41 +164,53 @@
         </header>
 
 
+
+        <!-- =========================
+             ARTICLE CONTENT
+        ========================== -->
+
         <div class="content-wrapper">
 
-            <div
+
+            <article
                 id="styleArticle"
-                class="article-column"
+                class="article-column wiki-article"
             >
 
-                <!-- JS INSERTS ARTICLE -->
+                <!--
+                    styles.js inserts the article here.
+                -->
 
-            </div>
+            </article>
 
 
-            <aside class="rightbar">
+
+            <!-- =========================
+                 RIGHT WIKI SIDEBAR
+            ========================== -->
+
+            <aside class="rightbar wiki-rightbar">
+
+
+                <!-- JS INFOBOX -->
 
                 <div
                     id="styleInfobox"
                     class="style-infobox"
                 >
-                    <!-- JS INSERTS INFOBOX -->
+                    <!-- styles.js inserts infobox -->
                 </div>
 
 
-                <div class="info-panel">
+
+                <!-- ARTICLE CONTENTS -->
+
+                <div class="info-panel article-contents">
 
                     <div class="panel-title">
-                        STYLE NAVIGATION
+                        CONTENTS
                     </div>
 
-                    <a
-                        href="styles.html"
-                        class="popular-link"
-                    >
-                        <span>←</span>
-                        All Styles
-                    </a>
 
                     <a
                         href="#overview"
@@ -188,20 +220,96 @@
                         Overview
                     </a>
 
+
+                    <a
+                        href="#passive"
+                        class="popular-link"
+                    >
+                        <span>02</span>
+                        Passive
+                    </a>
+
+
+                    <a
+                        href="#ability"
+                        class="popular-link"
+                    >
+                        <span>03</span>
+                        Ability
+                    </a>
+
+
+                    <a
+                        href="#ultimate"
+                        class="popular-link"
+                    >
+                        <span>04</span>
+                        Ultimate
+                    </a>
+
+
                     <a
                         href="#moveset"
                         class="popular-link"
                     >
-                        <span>02</span>
+                        <span>05</span>
                         Moveset
                     </a>
 
+
                     <a
-                        href="#details"
+                        href="#strategy"
                         class="popular-link"
                     >
-                        <span>03</span>
-                        Details
+                        <span>06</span>
+                        Strategy
+                    </a>
+
+
+                    <a
+                        href="#gallery"
+                        class="popular-link"
+                    >
+                        <span>07</span>
+                        Gallery
+                    </a>
+
+                </div>
+
+
+                <!-- WIKI NAVIGATION -->
+
+                <div class="info-panel">
+
+                    <div class="panel-title">
+                        STYLE NAVIGATION
+                    </div>
+
+
+                    <a
+                        href="styles.html"
+                        class="popular-link"
+                    >
+                        <span>←</span>
+                        All Styles
+                    </a>
+
+
+                    <a
+                        href="styles.html"
+                        class="popular-link"
+                    >
+                        <span>🥊</span>
+                        Style List
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="popular-link"
+                    >
+                        <span>⚙</span>
+                        Mechanics
                     </a>
 
                 </div>
@@ -211,12 +319,25 @@
         </div>
 
 
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
         <footer class="wiki-footer">
 
             <div>
-                <strong>UNTITLED BOXING GAME WIKI</strong>
-                <span>Fan-made community project</span>
+
+                <strong>
+                    UNTITLED BOXING GAME WIKI
+                </strong>
+
+                <span>
+                    Fan-made community project
+                </span>
+
             </div>
+
 
             <div>
                 UBG © Roblox / drowningsome
@@ -229,7 +350,41 @@
 </div>
 
 
+
+<!-- =========================
+     STYLE DATABASE
+========================== -->
+
 <script src="styles.js"></script>
+
+
+<!-- =========================
+     SEARCH SHORTCUT
+========================== -->
+
+<script>
+
+document.addEventListener("keydown", function(event) {
+
+    if (
+        (event.ctrlKey || event.metaKey) &&
+        event.key.toLowerCase() === "k"
+    ) {
+
+        event.preventDefault();
+
+        const search =
+            document.getElementById("globalSearch");
+
+        if (search) {
+            search.focus();
+        }
+
+    }
+
+});
+
+</script>
 
 </body>
 
