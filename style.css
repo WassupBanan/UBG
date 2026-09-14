@@ -54,6 +54,7 @@ html {
 
 body {
     margin: 0;
+
     background:
         radial-gradient(
             circle at 80% 0%,
@@ -99,7 +100,7 @@ img {
 
 
 /* =========================================================
-   TOPBAR — MAIN WIKI
+   TOPBAR
 ========================================================= */
 
 .topbar {
@@ -128,7 +129,9 @@ img {
 }
 
 
-/* mobile menu */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 .mobile-menu {
     display: none;
@@ -289,7 +292,6 @@ img {
     padding: 3px 6px;
 
     border: 1px solid var(--border);
-
     border-radius: 3px;
 
     background: #15171b;
@@ -388,7 +390,6 @@ img {
 
 .search-result-info strong {
     color: var(--text);
-
     font-size: 12px;
 }
 
@@ -396,6 +397,7 @@ img {
     color: var(--muted);
 
     font-size: 9px;
+
     text-transform: uppercase;
     letter-spacing: .08em;
 }
@@ -409,6 +411,7 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     gap: 8px;
 
     min-height: 36px;
@@ -430,6 +433,7 @@ img {
 
     font-size: 10px;
     font-weight: 900;
+
     letter-spacing: .1em;
 
     transition:
@@ -469,10 +473,12 @@ img {
 
 .sidebar {
     position: sticky;
+
     top: 64px;
 
     width: 245px;
     min-width: 245px;
+
     height: calc(100vh - 64px);
 
     display: flex;
@@ -497,9 +503,6 @@ img {
 .sidebar::-webkit-scrollbar-thumb {
     background: #292b31;
 }
-
-
-/* sections */
 
 .sidebar-section {
     padding: 24px 13px 0;
@@ -554,7 +557,6 @@ img {
 .sidebar-link:hover,
 .sidebar-sub:hover {
     background: rgba(255,255,255,.035);
-
     color: white;
 }
 
@@ -607,11 +609,13 @@ img {
 .sidebar-note {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     color: var(--muted);
 
     font-size: 9px;
+
     text-transform: uppercase;
     letter-spacing: .08em;
 }
@@ -646,9 +650,10 @@ img {
 
 .wiki-main {
     flex: 1;
+
     min-width: 0;
 
-    max-width: 1400px;
+    max-width: 1500px;
 
     margin: 0 auto;
 
@@ -663,6 +668,7 @@ img {
 .breadcrumb {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     margin-bottom: 22px;
@@ -670,6 +676,7 @@ img {
     color: var(--muted-2);
 
     font-size: 10px;
+
     text-transform: uppercase;
     letter-spacing: .08em;
 }
@@ -733,6 +740,7 @@ img {
 .article-status {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     flex-shrink: 0;
@@ -803,6 +811,7 @@ img {
 .panel-label {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     margin-bottom: 10px;
@@ -829,6 +838,7 @@ img {
 
 .intro-panel h2 {
     font-size: 24px;
+
     letter-spacing: -.025em;
 }
 
@@ -838,6 +848,7 @@ img {
     color: var(--muted);
 
     font-size: 12px;
+
     line-height: 1.8;
 }
 
@@ -881,6 +892,7 @@ img {
     color: white;
 
     font-size: 20px;
+
     letter-spacing: -.025em;
 }
 
@@ -907,7 +919,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(2, minmax(0,1fr));
 
     gap: 12px;
 }
@@ -1031,6 +1043,7 @@ img {
     color: var(--muted);
 
     font-size: 11px;
+
     line-height: 1.55;
 }
 
@@ -1054,8 +1067,7 @@ img {
 .category-card:hover .category-arrow {
     color: var(--red-bright);
 
-    transform:
-        translate(3px,-50%);
+    transform: translate(3px,-50%);
 }
 
 
@@ -1067,7 +1079,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        repeat(4,minmax(0,1fr));
 
     gap: 12px;
 }
@@ -1175,7 +1187,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(0,1fr));
+        repeat(4,minmax(0,1fr));
 
     border: 1px solid var(--border);
 
@@ -1247,7 +1259,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0,1fr));
+        repeat(2,minmax(0,1fr));
 
     gap: 12px;
 }
@@ -1302,6 +1314,7 @@ img {
 .wiki-footer {
     display: flex;
     justify-content: space-between;
+
     gap: 25px;
 
     margin-top: 60px;
@@ -1320,6 +1333,7 @@ img {
     color: var(--muted);
 
     font-size: 9px;
+
     letter-spacing: .12em;
 }
 
@@ -1336,124 +1350,227 @@ img {
    =========================================================
 ========================================================= */
 
-.style-wiki-grid,
-.style-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0,1fr));
-
-    gap: 13px;
+body[data-page="styles"] .wiki-main {
+    max-width: 1500px;
 }
 
-.wiki-filter,
-.style-controls {
+
+/* =========================================================
+   DATABASE PANEL
+========================================================= */
+
+body[data-page="styles"] .wiki-main > .wiki-panel {
+    margin-top: 26px;
+
+    padding: 20px;
+
+    background: #0d0e11;
+
+    border-color: #292b31;
+}
+
+body[data-page="styles"] .panel-label {
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   FILTER CONTROLS
+========================================================= */
+
+body[data-page="styles"] #styleControls {
     display: flex;
     flex-wrap: wrap;
+
     gap: 8px;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px !important;
 }
 
-.wiki-filter button,
-.filter {
-    padding: 7px 11px;
+body[data-page="styles"] .wiki-filter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    border: 1px solid var(--border);
+    min-height: 30px;
+
+    padding: 0 11px;
+
+    border: 1px solid #30333a;
 
     border-radius: 4px;
 
-    background: var(--panel);
+    background: #111318;
 
-    color: var(--muted);
+    color: #858992;
 
-    font-size: 9px;
-    font-weight: 800;
+    font-size: 8px;
+    font-weight: 900;
+
+    letter-spacing: .1em;
 
     cursor: pointer;
 
     transition:
-        border-color var(--transition),
-        color var(--transition),
-        background var(--transition);
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
 }
 
-.wiki-filter button:hover,
-.wiki-filter button.active,
-.filter:hover,
-.filter.active {
-    border-color: var(--red);
-
+body[data-page="styles"] .wiki-filter:hover {
     background: rgba(226,29,47,.08);
 
-    color: white;
+    border-color: #64232b;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
 }
 
-#styleSearch {
-    min-width: 230px;
+body[data-page="styles"] .wiki-filter.active {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(226,29,47,.25),
+            rgba(226,29,47,.08)
+        );
 
-    padding: 9px 11px;
+    border-color: #e21d2f;
 
-    background: #0b0c0f;
+    color: #ffffff;
 
-    border: 1px solid var(--border);
+    box-shadow:
+        inset 0 0 18px rgba(226,29,47,.05);
+}
 
-    border-radius: 4px;
+
+/* =========================================================
+   STYLE SEARCH
+========================================================= */
+
+body[data-page="styles"] #styleSearch {
+    width: 100% !important;
+
+    height: 40px;
+
+    margin-bottom: 14px !important;
+
+    padding: 0 13px !important;
+
+    background: #090a0c !important;
+
+    border: 1px solid #292c32 !important;
+
+    border-radius: 4px !important;
 
     outline: none;
 
-    color: white;
+    color: #f4f4f5;
 
     font-size: 11px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
-#styleSearch:focus {
-    border-color: var(--border-red);
+body[data-page="styles"] #styleSearch::placeholder {
+    color: #656972;
 }
 
-#styleCount,
-.style-count {
-    color: var(--muted);
+body[data-page="styles"] #styleSearch:focus {
+    border-color: #64232b !important;
 
-    font-size: 10px;
+    box-shadow:
+        0 0 0 2px rgba(226,29,47,.05),
+        0 0 25px rgba(226,29,47,.06);
 }
 
 
-/* style card */
+/* =========================================================
+   STYLE COUNT
+========================================================= */
 
-.style-card {
+body[data-page="styles"] #styleCount {
+    margin-bottom: 12px !important;
+
+    color: #676b74 !important;
+
+    font-size: 9px !important;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+}
+
+
+/* =========================================================
+   STYLE GRID
+========================================================= */
+
+body[data-page="styles"] .style-wiki-grid,
+body[data-page="styles"] .style-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   STYLE CARD
+========================================================= */
+
+body[data-page="styles"] .style-card {
     position: relative;
 
     display: flex;
     flex-direction: column;
 
+    min-width: 0;
+    min-height: 0;
+
     overflow: hidden;
 
-    min-height: 245px;
+    background: #101114;
 
-    background: var(--panel);
+    border: 1px solid #292b31;
 
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
+    border-radius: 7px;
 
     transition:
-        transform var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition);
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
 }
 
-.style-card:hover {
-    transform: translateY(-3px);
+body[data-page="styles"] .style-card:hover {
+    transform: translateY(-2px);
 
-    border-color: var(--border-red);
+    border-color: #8d2732;
+
+    background: #121419;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.4);
+        0 12px 30px rgba(0,0,0,.45),
+        0 0 22px rgba(226,29,47,.06);
 }
 
-.style-card-image {
-    height: 155px;
+
+/* =========================================================
+   STYLE CARD IMAGE
+========================================================= */
+
+body[data-page="styles"] .style-card-image {
+    position: relative;
+
+    width: 100%;
+
+    height: 205px;
 
     display: flex;
     align-items: center;
@@ -1463,51 +1580,155 @@ img {
 
     background:
         radial-gradient(
-            circle at center,
-            rgba(226,29,47,.07),
+            circle at 50% 45%,
+            rgba(226,29,47,.035),
             #08090b 72%
         );
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid #292b31;
 }
 
-.style-card-image img {
-    width: 100%;
+body[data-page="styles"] .style-card-image img {
+    width: auto;
     height: 100%;
 
+    max-width: 100%;
+    max-height: 100%;
+
     object-fit: contain;
+
+    flex-shrink: 0;
 }
 
-.style-card-content {
-    padding: 12px;
+
+/* =========================================================
+   STYLE CARD CONTENT
+========================================================= */
+
+body[data-page="styles"] .style-card-content {
+    position: relative;
+
+    min-height: 180px;
+
+    padding: 19px 20px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111216,
+            #0f1013
+        );
 }
 
-.style-card h3 {
-    margin: 5px 0 2px;
 
-    font-size: 15px;
-}
+/* =========================================================
+   CARD RARITY
+========================================================= */
 
-.style-card small {
-    color: var(--muted-2);
+body[data-page="styles"] .style-card-content .rarity,
+body[data-page="styles"] .style-card .rarity {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 28px;
+
+    padding: 0 9px;
+
+    border-radius: 5px;
+
+    background: rgba(226,29,47,.06);
+
+    border: 1px solid rgba(226,29,47,.38);
 
     font-size: 8px;
+    font-weight: 900;
 
-    text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: .08em;
+
+    text-transform: capitalize;
 }
 
-.wip-badge {
+
+/* =========================================================
+   STYLE NAME
+========================================================= */
+
+body[data-page="styles"] .style-card h3 {
+    margin: 12px 0 1px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    letter-spacing: -.025em;
+}
+
+
+/* =========================================================
+   STYLE ID
+========================================================= */
+
+body[data-page="styles"] .style-card small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #676b74;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .12em;
+}
+
+
+/* =========================================================
+   STYLE DESCRIPTION
+========================================================= */
+
+body[data-page="styles"] .style-card p {
+    margin: 15px 0 0;
+
+    color: #92959d;
+
+    font-size: 11px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   WIP BADGE
+========================================================= */
+
+body[data-page="styles"] .style-card .wip-badge {
     position: absolute;
 
-    top: 9px;
-    right: 9px;
+    top: 18px;
+    right: 18px;
 
-    padding: 4px 6px;
+    z-index: 3;
 
-    background: rgba(226,29,47,.9);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    color: white;
+    min-height: 25px;
+
+    padding: 0 8px;
+
+    border: 1px solid rgba(228,184,92,.35);
+
+    border-radius: 4px;
+
+    background: rgba(228,184,92,.07);
+
+    color: #e4b85c;
 
     font-size: 7px;
     font-weight: 900;
@@ -1516,45 +1737,56 @@ img {
 }
 
 
-/* rarity colours */
+/* =========================================================
+   RARITY COLOURS
+========================================================= */
 
-.rarity-uncommon {
-    color: #73d08d;
+body[data-page="styles"] .rarity-uncommon {
+    color: #73d08d !important;
 }
 
-.rarity-rare {
-    color: #5ba9ff;
+body[data-page="styles"] .rarity-rare {
+    color: #5ba9ff !important;
 }
 
-.rarity-mythic {
-    color: #bd73ff;
+body[data-page="styles"] .rarity-mythic {
+    color: #bd73ff !important;
 }
 
-.rarity-legendary {
-    color: var(--gold);
+body[data-page="styles"] .rarity-legendary {
+    color: #e4b85c !important;
+
+    border-color: rgba(228,184,92,.35) !important;
+
+    background: rgba(228,184,92,.055) !important;
 }
 
-.rarity-shiny {
-    color: #ff6fd8;
+body[data-page="styles"] .rarity-shiny {
+    color: #ff6fd8 !important;
+
+    border-color: rgba(255,111,216,.3) !important;
+
+    background: rgba(255,111,216,.04) !important;
 }
 
 
 /* =========================================================
-   =========================================================
-   INDIVIDUAL STYLE PAGE
-   =========================================================
+   CARD IMAGE HOVER
 ========================================================= */
 
+body[data-page="styles"] .style-card:hover .style-card-image {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(226,29,47,.075),
+            #08090b 72%
+        );
+}
 
-/*
-   Your current style.html uses:
-   .wiki-shell
-   .main-content
-   .article-container
-   .style-article
-   .article-sidebar
-*/
 
+/* =========================================================
+   INDIVIDUAL STYLE PAGE
+========================================================= */
 
 .wiki-shell {
     min-height: 100vh;
@@ -1563,9 +1795,6 @@ img {
 
     background: var(--bg);
 }
-
-
-/* style-page sidebar */
 
 .wiki-shell > .sidebar {
     position: sticky;
@@ -1576,7 +1805,9 @@ img {
 }
 
 
-/* alternate sidebar branding */
+/* =========================================================
+   STYLE PAGE SIDEBAR
+========================================================= */
 
 .sidebar-brand {
     display: flex;
@@ -1610,6 +1841,7 @@ img {
     color: var(--muted);
 
     font-size: 8px;
+
     letter-spacing: .12em;
 }
 
@@ -1634,6 +1866,7 @@ img {
 .wiki-status {
     display: flex;
     align-items: center;
+
     gap: 7px;
 
     color: var(--muted);
@@ -1660,6 +1893,7 @@ img {
 
 .main-content {
     flex: 1;
+
     min-width: 0;
 
     background:
@@ -1670,11 +1904,9 @@ img {
         );
 }
 
-
-/* style page topbar */
-
 .main-content > .topbar {
     position: sticky;
+
     top: 0;
 }
 
@@ -1692,6 +1924,7 @@ img {
 .topbar-actions {
     display: flex;
     align-items: center;
+
     gap: 12px;
 
     margin-left: auto;
@@ -1721,10 +1954,12 @@ img {
 }
 
 
-/* article container */
+/* =========================================================
+   ARTICLE CONTAINER
+========================================================= */
 
 .article-container {
-    width: min(1400px, 100%);
+    width: min(1400px,100%);
 
     margin: 0 auto;
 
@@ -1733,7 +1968,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
+        minmax(0,1fr)
         280px;
 
     gap: 38px;
@@ -1744,7 +1979,9 @@ img {
 }
 
 
-/* loading */
+/* =========================================================
+   LOADING
+========================================================= */
 
 .loading-state {
     padding: 50px;
@@ -1768,7 +2005,7 @@ img {
 
     color: white;
 
-    font-size: clamp(34px, 5vw, 56px);
+    font-size: clamp(34px,5vw,56px);
 
     line-height: .95;
 
@@ -1793,11 +2030,9 @@ img {
     color: var(--muted);
 
     font-size: 12px;
+
     line-height: 1.8;
 }
-
-
-/* common article sections */
 
 .article-section,
 .wiki-article-section {
@@ -1813,7 +2048,9 @@ img {
 }
 
 
-/* article hero gif */
+/* =========================================================
+   ARTICLE HERO GIF
+========================================================= */
 
 .article-hero-gif {
     width: 100%;
@@ -1851,7 +2088,7 @@ img {
 
 
 /* =========================================================
-   STYLE INFOBOX
+   INFOBOX
 ========================================================= */
 
 .infobox-container,
@@ -1897,6 +2134,7 @@ img {
     background: rgba(255,255,255,.015);
 
     text-transform: uppercase;
+
     letter-spacing: .08em;
 }
 
@@ -1973,7 +2211,7 @@ img {
 
 
 /* =========================================================
-   STYLE ARTICLE TABLES
+   ARTICLE TABLES
 ========================================================= */
 
 .wiki-data-table,
@@ -2030,7 +2268,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(2, minmax(0,1fr));
+        repeat(2,minmax(0,1fr));
 
     gap: 10px;
 }
@@ -2127,7 +2365,7 @@ img {
 
 
 /* =========================================================
-   ARTICLE LISTS / STRATEGY
+   LISTS / STRATEGY
 ========================================================= */
 
 .wiki-list,
@@ -2165,7 +2403,7 @@ img {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0,1fr));
+        repeat(3,minmax(0,1fr));
 
     gap: 8px;
 }
@@ -2231,7 +2469,7 @@ img {
 
 
 /* =========================================================
-   MISC WIKI ARTICLE COMPATIBILITY
+   WIKI ARTICLE COMPATIBILITY
 ========================================================= */
 
 .wiki-article {
@@ -2247,6 +2485,7 @@ img {
     font-size: 9px;
 
     text-transform: uppercase;
+
     letter-spacing: .08em;
 }
 
@@ -2284,6 +2523,7 @@ img {
 .wiki-section-title {
     display: flex;
     align-items: center;
+
     gap: 9px;
 
     margin-bottom: 15px;
@@ -2322,6 +2562,7 @@ img {
 .wiki-categories {
     display: flex;
     flex-wrap: wrap;
+
     gap: 7px;
 }
 
@@ -2340,7 +2581,7 @@ img {
 
 
 /* =========================================================
-   RESPONSIVE — TABLET
+   RESPONSIVE — 1100px
 ========================================================= */
 
 @media (max-width: 1100px) {
@@ -2352,13 +2593,13 @@ img {
 
     .featured-grid {
         grid-template-columns:
-            repeat(2, minmax(0,1fr));
+            repeat(2,minmax(0,1fr));
     }
 
-    .style-wiki-grid,
-    .style-grid {
+    body[data-page="styles"] .style-wiki-grid,
+    body[data-page="styles"] .style-grid {
         grid-template-columns:
-            repeat(3, minmax(0,1fr));
+            repeat(3,minmax(0,1fr));
     }
 
     .article-container {
@@ -2372,11 +2613,14 @@ img {
         padding-right: 30px;
     }
 
+    body[data-page="styles"] .style-card-image {
+        height: 195px;
+    }
 }
 
 
 /* =========================================================
-   RESPONSIVE — SMALL TABLET
+   RESPONSIVE — 850px
 ========================================================= */
 
 @media (max-width: 850px) {
@@ -2399,7 +2643,7 @@ img {
 
     .quick-facts {
         grid-template-columns:
-            repeat(2, minmax(0,1fr));
+            repeat(2,minmax(0,1fr));
     }
 
     .fact:nth-child(2) {
@@ -2424,7 +2668,7 @@ img {
         display: grid;
 
         grid-template-columns:
-            repeat(2, minmax(0,1fr));
+            repeat(2,minmax(0,1fr));
 
         gap: 12px;
     }
@@ -2433,17 +2677,16 @@ img {
         margin-top: 0;
     }
 
-    .style-wiki-grid,
-    .style-grid {
+    body[data-page="styles"] .style-wiki-grid,
+    body[data-page="styles"] .style-grid {
         grid-template-columns:
-            repeat(2, minmax(0,1fr));
+            repeat(2,minmax(0,1fr));
     }
-
 }
 
 
 /* =========================================================
-   RESPONSIVE — MOBILE
+   RESPONSIVE — 650px
 ========================================================= */
 
 @media (max-width: 650px) {
@@ -2451,8 +2694,6 @@ img {
     body {
         font-size: 13px;
     }
-
-    /* main wiki sidebar */
 
     .wiki-layout {
         display: block;
@@ -2563,7 +2804,8 @@ img {
         flex-direction: column;
     }
 
-    /* style page */
+
+    /* individual style page */
 
     .wiki-shell {
         display: block;
@@ -2635,12 +2877,20 @@ img {
 
     .wiki-gallery {
         grid-template-columns:
-            repeat(2, minmax(0,1fr));
+            repeat(2,minmax(0,1fr));
     }
 
-    .style-wiki-grid,
-    .style-grid {
+    body[data-page="styles"] .style-wiki-grid,
+    body[data-page="styles"] .style-grid {
         grid-template-columns: 1fr;
+    }
+
+    body[data-page="styles"] .style-card-image {
+        height: 220px;
+    }
+
+    body[data-page="styles"] .style-card-content {
+        min-height: 0;
     }
 
     .wiki-data-table {
@@ -2652,7 +2902,6 @@ img {
     .article-sidebar {
         grid-template-columns: 1fr;
     }
-
 }
 
 
@@ -2670,7 +2919,7 @@ img {
         transition-duration: .01ms !important;
 
         animation-duration: .01ms !important;
+
         animation-iteration-count: 1 !important;
     }
-
 }
