@@ -973,12 +973,11 @@ window.UBG_STYLES = styles;
    ========================================================= */
 
 function getStyleImage(style) {
-
     if (!style || !style.animation) {
         return "";
     }
 
-    return `assets/styles/${style.animation}`;
+    return `./assets/styles/${style.animation}`;
 }
 
 
