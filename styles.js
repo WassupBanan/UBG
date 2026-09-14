@@ -42,7 +42,6 @@ const styles = [
         animation: "Basic_Idle.gif"
     },
 
-
     {
         name: "Smash",
         rarity: "Uncommon",
@@ -70,7 +69,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "Smash_Idle.gif"
     },
-
 
     {
         name: "Long Guard",
@@ -100,7 +98,6 @@ const styles = [
         animation: "Long_Guard_Idle.gif"
     },
 
-
     {
         name: "Counter",
         rarity: "Uncommon",
@@ -128,7 +125,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "Counter_Idle.gif"
     },
-
 
     {
         name: "Turtle",
@@ -158,7 +154,6 @@ const styles = [
         animation: "Turtle_Idle.gif",
         shiny: "Nanomachines"
     },
-
 
     /* =====================================================
        RARE
@@ -193,7 +188,6 @@ const styles = [
         shiny: "Drill"
     },
 
-
     {
         name: "Charge",
         rarity: "Rare",
@@ -222,7 +216,6 @@ const styles = [
         animation: "Charge_Idle.gif"
     },
 
-
     {
         name: "Hammer",
         rarity: "Rare",
@@ -250,7 +243,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "Hammer_Idle.gif"
     },
-
 
     {
         name: "Trickster",
@@ -281,7 +273,6 @@ const styles = [
         shiny: "Conman"
     },
 
-
     {
         name: "Dragonfish",
         rarity: "Rare",
@@ -308,7 +299,6 @@ const styles = [
         animation: "Kimura_Idle.gif",
         wip: true
     },
-
 
     /* =====================================================
        MYTHIC
@@ -342,7 +332,6 @@ const styles = [
         animation: "Ippo_Idle.gif"
     },
 
-
     {
         name: "Hitman",
         rarity: "Mythic",
@@ -371,7 +360,6 @@ const styles = [
         animation: "Hitman_Idle.gif"
     },
 
-
     {
         name: "Hands Low",
         rarity: "Mythic",
@@ -399,7 +387,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "Hands_Low_Idle.gif"
     },
-
 
     {
         name: "Wolf",
@@ -430,7 +417,6 @@ const styles = [
         shiny: "Coyote"
     },
 
-
     {
         name: "Bullet",
         rarity: "Mythic",
@@ -458,7 +444,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "Bullet_Idle.gif"
     },
-
 
     {
         name: "Switch Hit",
@@ -488,7 +473,6 @@ const styles = [
         animation: "Switch_Hit_Idle.gif"
     },
 
-
     {
         name: "Surgeon",
         rarity: "Mythic",
@@ -516,7 +500,6 @@ const styles = [
         animation: "Surgeon_meters.png",
         wip: true
     },
-
 
     /* =====================================================
        LEGENDARY
@@ -550,7 +533,6 @@ const styles = [
         animation: "Slugger_Idle.gif"
     },
 
-
     {
         name: "Hawk",
         rarity: "Legendary",
@@ -578,7 +560,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "Hawk_Idle.gif"
     },
-
 
     {
         name: "Ghost",
@@ -609,7 +590,6 @@ const styles = [
         animation: "Ghost_Idle.gif"
     },
 
-
     {
         name: "Iron Fist",
         rarity: "Legendary",
@@ -638,7 +618,6 @@ const styles = [
         animation: "Iron_Fist_Idle.gif"
     },
 
-
     {
         name: "Shotgun",
         rarity: "Legendary",
@@ -666,7 +645,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "Shotgun_Idles.gif"
     },
-
 
     {
         name: "Freedom",
@@ -697,7 +675,6 @@ const styles = [
         animation: "Freedom_Idles.gif"
     },
 
-
     {
         name: "Chronos",
         rarity: "Legendary",
@@ -727,7 +704,6 @@ const styles = [
         shiny: "Godspeed"
     },
 
-
     {
         name: "White Ash",
         rarity: "Legendary",
@@ -755,7 +731,6 @@ const styles = [
         obtain: "Obtained through style spins.",
         animation: "White_Ash_Idle.gif"
     },
-
 
     {
         name: "Supernova",
@@ -785,7 +760,6 @@ const styles = [
         wip: true
     },
 
-
     {
         name: "Deimos",
         rarity: "Legendary",
@@ -812,7 +786,6 @@ const styles = [
         animation: "Deimos_Idle.gif",
         wip: true
     },
-
 
     /* =====================================================
        SHINY
@@ -846,7 +819,6 @@ const styles = [
         wip: true
     },
 
-
     {
         name: "Bald",
         rarity: "Shiny",
@@ -873,7 +845,6 @@ const styles = [
         obtain: "Shiny variant information is currently being developed.",
         animation: "Basic_Idle.gif"
     },
-
 
     {
         name: "Coyote",
@@ -902,7 +873,6 @@ const styles = [
         animation: "Wolf_Idle.gif"
     },
 
-
     {
         name: "Drill",
         rarity: "Shiny",
@@ -929,7 +899,6 @@ const styles = [
         obtain: "Shiny variant information is currently being developed.",
         animation: "Corkscrew_Idle.gif"
     },
-
 
     {
         name: "Nanomachines",
@@ -962,17 +931,18 @@ const styles = [
 
 
 /* =========================================================
-   MAKE DATABASE AVAILABLE TO GLOBAL SEARCH
+   GLOBAL DATABASE
    ========================================================= */
 
 window.UBG_STYLES = styles;
 
 
 /* =========================================================
-   HELPERS
+   GENERAL HELPERS
    ========================================================= */
 
 function getStyleImage(style) {
+
     if (!style || !style.animation) {
         return "";
     }
@@ -992,10 +962,7 @@ function getRarityClass(rarity) {
 
 function escapeHTML(value) {
 
-    if (
-        value === undefined ||
-        value === null
-    ) {
+    if (value === undefined || value === null) {
         return "";
     }
 
@@ -1014,8 +981,22 @@ function escapeAttribute(value) {
 }
 
 
+function getStyleByName(name) {
+
+    if (!name) {
+        return null;
+    }
+
+    return styles.find(style =>
+        String(style.name).toLowerCase() ===
+        String(name).toLowerCase()
+    ) || null;
+
+}
+
+
 /* =========================================================
-   STYLE DATABASE PAGE
+   STYLE LIST PAGE
    ========================================================= */
 
 const styleGrid =
@@ -1034,21 +1015,13 @@ const filterButtons =
 if (styleGrid) {
 
     let currentRarity = "All";
-
     let currentSearch = "";
 
 
-    /* -----------------------------------------------------
-       RENDER STYLE CARDS
-    ----------------------------------------------------- */
-
     function renderStyles() {
 
-        let filtered =
-            [...styles];
+        let filtered = [...styles];
 
-
-        /* rarity */
 
         if (
             currentRarity &&
@@ -1063,8 +1036,6 @@ if (styleGrid) {
         }
 
 
-        /* search */
-
         if (currentSearch) {
 
             const query =
@@ -1074,50 +1045,26 @@ if (styleGrid) {
             filtered =
                 filtered.filter(style => {
 
-                    const name =
-                        String(
-                            style.name || ""
-                        ).toLowerCase();
+                    const values = [
 
+                        style.name,
+                        style.ranked,
+                        style.rarity,
+                        style.description,
+                        style.baseStyle
 
-                    const ranked =
-                        String(
-                            style.ranked || ""
-                        ).toLowerCase();
+                    ];
 
-
-                    const rarity =
-                        String(
-                            style.rarity || ""
-                        ).toLowerCase();
-
-
-                    const description =
-                        String(
-                            style.description || ""
-                        ).toLowerCase();
-
-
-                    const baseStyle =
-                        String(
-                            style.baseStyle || ""
-                        ).toLowerCase();
-
-
-                    return (
-                        name.includes(query) ||
-                        ranked.includes(query) ||
-                        rarity.includes(query) ||
-                        description.includes(query) ||
-                        baseStyle.includes(query)
+                    return values.some(value =>
+                        String(value || "")
+                            .toLowerCase()
+                            .includes(query)
                     );
 
                 });
 
         }
 
-
-        /* count */
 
         if (styleCount) {
 
@@ -1131,37 +1078,30 @@ if (styleGrid) {
         }
 
 
-        /* empty */
-
         if (!filtered.length) {
 
             styleGrid.innerHTML = `
 
-                <div style="
-                    grid-column:1/-1;
-                    padding:50px 20px;
-                    text-align:center;
-                    color:#85858e;
-                ">
+                <div class="style-empty">
 
-                    <div style="
-                        font-size:24px;
-                        margin-bottom:10px;
-                    ">
+                    <div class="style-empty-icon">
                         ◌
                     </div>
 
-                    No styles found.
+                    <strong>No styles found</strong>
+
+                    <span>
+                        Try another search or rarity filter.
+                    </span>
 
                 </div>
 
             `;
 
             return;
+
         }
 
-
-        /* cards */
 
         styleGrid.innerHTML =
             filtered.map(style => {
@@ -1169,11 +1109,8 @@ if (styleGrid) {
                 const image =
                     getStyleImage(style);
 
-
                 const rarity =
-                    getRarityClass(
-                        style.rarity
-                    );
+                    getRarityClass(style.rarity);
 
 
                 return `
@@ -1187,20 +1124,27 @@ if (styleGrid) {
 
                             ${
                                 image
+
                                     ? `
+
                                         <img
                                             src="${escapeAttribute(image)}"
                                             alt="${escapeAttribute(style.name)}"
                                             loading="lazy"
                                             onerror="
                                                 this.style.display='none';
+                                                this.parentElement.classList.add('image-missing');
                                             "
                                         >
+
                                       `
+
                                     : `
+
                                         <div class="image-unavailable">
                                             IMAGE UNAVAILABLE
                                         </div>
+
                                       `
                             }
 
@@ -1208,7 +1152,6 @@ if (styleGrid) {
 
 
                         <div class="style-wiki-info">
-
 
                             <div class="style-wiki-top">
 
@@ -1234,17 +1177,25 @@ if (styleGrid) {
 
 
                             <div class="style-wiki-name">
+
                                 ${escapeHTML(style.name)}
+
                             </div>
 
 
                             ${
                                 style.ranked
+
                                     ? `
+
                                         <div class="style-wiki-ranked">
+
                                             ${escapeHTML(style.ranked)}
+
                                         </div>
+
                                       `
+
                                     : ""
                             }
 
@@ -1261,21 +1212,22 @@ if (styleGrid) {
 
                             ${
                                 style.baseStyle
+
                                     ? `
-                                        <div style="
-                                            margin-top:8px;
-                                            color:#85858e;
-                                            font-size:9px;
-                                        ">
+
+                                        <div class="style-base-label">
+
                                             Base:
-                                            <strong style="color:#c7c7cc;">
+                                            <strong>
                                                 ${escapeHTML(style.baseStyle)}
                                             </strong>
+
                                         </div>
+
                                       `
+
                                     : ""
                             }
-
 
                         </div>
 
@@ -1288,27 +1240,18 @@ if (styleGrid) {
     }
 
 
-    /* -----------------------------------------------------
-       FILTER BUTTONS
-    ----------------------------------------------------- */
-
     filterButtons.forEach(button => {
 
         button.addEventListener(
             "click",
             () => {
 
-                filterButtons.forEach(
-                    btn =>
-                        btn.classList.remove(
-                            "active"
-                        )
+                filterButtons.forEach(btn =>
+                    btn.classList.remove("active")
                 );
 
 
-                button.classList.add(
-                    "active"
-                );
+                button.classList.add("active");
 
 
                 currentRarity =
@@ -1324,10 +1267,6 @@ if (styleGrid) {
     });
 
 
-    /* -----------------------------------------------------
-       SEARCH
-    ----------------------------------------------------- */
-
     if (styleSearch) {
 
         styleSearch.addEventListener(
@@ -1335,8 +1274,7 @@ if (styleGrid) {
             event => {
 
                 currentSearch =
-                    event.target.value
-                        .trim();
+                    event.target.value.trim();
 
 
                 renderStyles();
@@ -1347,49 +1285,34 @@ if (styleGrid) {
     }
 
 
-    /* -----------------------------------------------------
-       URL RARITY FILTER
-       Example:
-       styles.html?rarity=Legendary
-    ----------------------------------------------------- */
-
-    const params =
+    const listParams =
         new URLSearchParams(
             window.location.search
         );
 
 
     const urlRarity =
-        params.get("rarity");
+        listParams.get("rarity");
 
 
     if (urlRarity) {
 
         const matchingButton =
-            [...filterButtons].find(
-                button =>
-                    String(
-                        button.dataset.rarity
-                    ).toLowerCase() ===
-                    String(
-                        urlRarity
-                    ).toLowerCase()
+            [...filterButtons].find(button =>
+                String(button.dataset.rarity || "")
+                    .toLowerCase() ===
+                String(urlRarity).toLowerCase()
             );
 
 
         if (matchingButton) {
 
-            filterButtons.forEach(
-                button =>
-                    button.classList.remove(
-                        "active"
-                    )
+            filterButtons.forEach(button =>
+                button.classList.remove("active")
             );
 
 
-            matchingButton.classList.add(
-                "active"
-            );
+            matchingButton.classList.add("active");
 
 
             currentRarity =
@@ -1400,9 +1323,722 @@ if (styleGrid) {
     }
 
 
-    /* initial render */
-
     renderStyles();
+
+}
+
+
+/* =========================================================
+   RADAR / SPIDER CHART
+   =========================================================
+
+   Numerical stats can be added later to an individual
+   style like this:
+
+       stats: {
+           speed: 8,
+           damage: 7,
+           range: 6,
+           defense: 4,
+           mobility: 9,
+           stamina: 7
+       }
+
+   Values are 0–10.
+
+   IMPORTANT:
+   We do NOT generate numbers from the qualitative
+   "Fast", "Good", "Weak", etc. values because that would
+   create unofficial statistics.
+   ========================================================= */
+
+const radarAxes = [
+
+    {
+        key: "speed",
+        label: "Punch Speed"
+    },
+
+    {
+        key: "damage",
+        label: "Damage"
+    },
+
+    {
+        key: "range",
+        label: "Range"
+    },
+
+    {
+        key: "defense",
+        label: "Defense"
+    },
+
+    {
+        key: "mobility",
+        label: "Mobility"
+    },
+
+    {
+        key: "stamina",
+        label: "Stamina"
+    }
+
+];
+
+
+function hasRadarStats(style) {
+
+    if (
+        !style ||
+        !style.stats ||
+        typeof style.stats !== "object"
+    ) {
+        return false;
+    }
+
+
+    return radarAxes.every(axis => {
+
+        const value =
+            Number(style.stats[axis.key]);
+
+        return (
+            Number.isFinite(value) &&
+            value >= 0 &&
+            value <= 10
+        );
+
+    });
+
+}
+
+
+function polarPoint(
+    center,
+    radius,
+    index,
+    total
+) {
+
+    const angle =
+        -Math.PI / 2 +
+        (index / total) *
+        Math.PI * 2;
+
+
+    return {
+
+        x:
+            center +
+            Math.cos(angle) * radius,
+
+        y:
+            center +
+            Math.sin(angle) * radius
+
+    };
+
+}
+
+
+function pointsToString(points) {
+
+    return points
+        .map(point =>
+            `${point.x.toFixed(2)},${point.y.toFixed(2)}`
+        )
+        .join(" ");
+
+}
+
+
+function renderRadarChart(style) {
+
+    const center = 210;
+    const radius = 125;
+    const total = radarAxes.length;
+
+
+    const gridRings =
+        [0.2, 0.4, 0.6, 0.8, 1];
+
+
+    const gridHTML =
+        gridRings.map(scale => {
+
+            const points =
+                radarAxes.map(
+                    (_, index) =>
+                        polarPoint(
+                            center,
+                            radius * scale,
+                            index,
+                            total
+                        )
+                );
+
+
+            return `
+
+                <polygon
+                    points="${pointsToString(points)}"
+                    class="radar-grid-ring"
+                />
+
+            `;
+
+        }).join("");
+
+
+    const axesHTML =
+        radarAxes.map((axis, index) => {
+
+            const point =
+                polarPoint(
+                    center,
+                    radius,
+                    index,
+                    total
+                );
+
+
+            return `
+
+                <line
+                    x1="${center}"
+                    y1="${center}"
+                    x2="${point.x}"
+                    y2="${point.y}"
+                    class="radar-axis"
+                />
+
+            `;
+
+        }).join("");
+
+
+    const labelsHTML =
+        radarAxes.map((axis, index) => {
+
+            const point =
+                polarPoint(
+                    center,
+                    radius + 35,
+                    index,
+                    total
+                );
+
+
+            let anchor = "middle";
+
+
+            if (point.x < center - 10) {
+                anchor = "end";
+            }
+
+
+            if (point.x > center + 10) {
+                anchor = "start";
+            }
+
+
+            return `
+
+                <text
+                    x="${point.x}"
+                    y="${point.y}"
+                    text-anchor="${anchor}"
+                    dominant-baseline="middle"
+                    class="radar-label"
+                >
+                    ${escapeHTML(axis.label)}
+                </text>
+
+            `;
+
+        }).join("");
+
+
+    const dataAvailable =
+        hasRadarStats(style);
+
+
+    let dataHTML = "";
+
+
+    if (dataAvailable) {
+
+        const dataPoints =
+            radarAxes.map((axis, index) => {
+
+                const value =
+                    Number(style.stats[axis.key]);
+
+
+                return polarPoint(
+                    center,
+                    radius * (value / 10),
+                    index,
+                    total
+                );
+
+            });
+
+
+        dataHTML = `
+
+            <polygon
+                points="${pointsToString(dataPoints)}"
+                class="radar-data"
+            />
+
+            ${dataPoints.map(point => `
+
+                <circle
+                    cx="${point.x}"
+                    cy="${point.y}"
+                    r="4"
+                    class="radar-point"
+                />
+
+            `).join("")}
+
+        `;
+
+    }
+
+
+    return `
+
+        <div class="
+            radar-wrapper
+            ${dataAvailable ? "has-data" : "no-data"}
+        ">
+
+            <div class="radar-chart">
+
+                <svg
+                    viewBox="0 0 420 420"
+                    role="img"
+                    aria-label="${escapeAttribute(style.name)} general statistics radar chart"
+                >
+
+                    ${gridHTML}
+
+                    ${axesHTML}
+
+                    ${dataHTML}
+
+                    ${labelsHTML}
+
+                </svg>
+
+
+                ${
+                    !dataAvailable
+
+                        ? `
+
+                            <div class="radar-no-data">
+
+                                <div class="radar-no-data-icon">
+                                    ?
+                                </div>
+
+                                <strong>
+                                    DATA NOT DOCUMENTED
+                                </strong>
+
+                                <span>
+                                    Verified numerical statistics
+                                    have not been added yet.
+                                </span>
+
+                            </div>
+
+                          `
+
+                        : ""
+                }
+
+            </div>
+
+
+            <div class="radar-scale">
+
+                <span>0</span>
+
+                <span>5</span>
+
+                <span>10</span>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   GENERAL STATS CARD
+   ========================================================= */
+
+function renderGeneralStats(style) {
+
+    return `
+
+        <section
+            class="wiki-general-stats"
+            id="general-stats"
+        >
+
+            <div class="general-stats-header">
+
+                <div>
+
+                    <div class="section-eyebrow">
+                        COMBAT PROFILE
+                    </div>
+
+                    <h2>
+                        General Stats
+                    </h2>
+
+                    <p>
+                        A visual overview of the style's
+                        general combat characteristics.
+                    </p>
+
+                </div>
+
+
+                <div class="stats-scale-badge">
+                    0–10 SCALE
+                </div>
+
+            </div>
+
+
+            <div class="general-stats-content">
+
+                ${renderRadarChart(style)}
+
+
+                <div class="known-stats">
+
+                    <div class="known-stats-title">
+                        DOCUMENTED INFORMATION
+                    </div>
+
+
+                    <div class="known-stat-row">
+
+                        <span>
+                            Health
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(style.hp || "—")}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="known-stat-row">
+
+                        <span>
+                            Dash
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(style.dash || "—")}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="known-stat-row">
+
+                        <span>
+                            Range
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(style.range || "—")}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="known-stat-row">
+
+                        <span>
+                            Block
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(style.block || "—")}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="known-stat-row">
+
+                        <span>
+                            Ultimate
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(style.ultimate || "—")}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stats-note">
+
+                        <span class="stats-note-dot"></span>
+
+                        Numerical combat data will be added
+                        when verified.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    `;
+
+}
+
+
+/* =========================================================
+   MOVESET DATA
+   ========================================================= */
+
+const moveMap = {
+
+    "Basic": {
+        light: "Basic_Lights.gif",
+        heavy: "Basic_Heavies.gif",
+        dash: "Basic_Dashes.gif",
+        ultimate: "Basic-ult-.gif"
+    },
+
+    "Smash": {
+        light: "Smash_Lights.gif",
+        heavy: "Smash_Heavy.gif",
+        dash: "Smash_Dashes.gif"
+    },
+
+    "Long Guard": {
+        light: "LG_Lights.gif",
+        heavy: "LG_Heavy.gif",
+        dash: "LG_Dashes.gif"
+    },
+
+    "Counter": {
+        light: "Counter_Lights.gif",
+        heavy: "Counter_Heavy.gif",
+        dash: "Counter_Dashes.gif"
+    },
+
+    "Turtle": {
+        light: "Turtle_Lights.gif",
+        heavy: "Turtle_Heavy.gif",
+        dash: "Turtle_Dashes.gif"
+    },
+
+    "Corkscrew": {
+        light: "Corkscrew_Lights.gif",
+        heavy: "Corkscrew_Heavy.gif",
+        dash: "Corkscrew_Dashes.gif"
+    },
+
+    "Charge": {
+        light: "Charge_Lights.gif",
+        heavy: "Charge_Heavy.gif",
+        dash: "Charge_Dashes.gif",
+        ability: "Stampede.gif"
+    },
+
+    "Hammer": {
+        light: "Hammer_Lights.gif",
+        heavy: "Hammer_Heavy.gif",
+        dash: "Hammer_Dashes.gif",
+        ability: "Body_Blow.gif"
+    },
+
+    "Trickster": {
+        light: "Trickster_Lights.gif",
+        heavy: "Trickster_Heavy.gif",
+        dash: "Trickster_Dashes.gif"
+    },
+
+    "Dragonfish": {
+        light: "Kimura_Lights.gif",
+        heavy: "Kimura_Heavy.gif",
+        dash: "Kimura_Dashes.gif"
+    },
+
+    "Dempsey": {
+        light: "Ippo_Lights.gif",
+        heavy: "Ippo_Heavy.gif",
+        dash: "Ippo_Dashes.gif",
+        ability: "Dempsey_Roll.gif"
+    },
+
+    "Hitman": {
+        light: "Hitman_Lights.gif",
+        heavy: "Hitman_Heavy.gif",
+        dash: "Hitman_Dashes.gif"
+    },
+
+    "Hands Low": {
+        light: "HL_Lights.gif",
+        heavy: "HL_Heavy.gif",
+        dash: "HL_Dashes.gif"
+    },
+
+    "Wolf": {
+        light: "Wolf_Lights.gif",
+        heavy: "Wolf_Heavy.gif",
+        dash: "Wolf_Dashes.gif",
+        ability: "White_Fang_storage_showcase.gif"
+    },
+
+    "Bullet": {
+        light: "Bullet_Lights.gif",
+        heavy: "Bullet_Heavy.gif",
+        dash: "Bullet_Dashes.gif"
+    },
+
+    "Switch Hit": {
+        light: "SH_Light.gif",
+        heavy: "SH_Heavy.gif",
+        dash: "SH_Dashes.gif",
+        ability: "Static_PD.gif"
+    },
+
+    "Slugger": {
+        light: "Slugger_Lights.gif",
+        heavy: "Slugger_Heavy.gif",
+        dash: "Slugger_Dashes.gif"
+    },
+
+    "Hawk": {
+        light: "Hawk_Lights.gif",
+        heavy: "Hawk_Heavies.gif",
+        dash: "Hawk_Dashes.gif"
+    },
+
+    "Ghost": {
+        light: "Ghost_Lights.gif",
+        heavy: "Ghost_Heavy.gif",
+        dash: "Ghost_Dashes.gif",
+        ability: "Ghost_Jab.gif"
+    },
+
+    "Iron Fist": {
+        light: "IF_Lights.gif",
+        heavy: "IF_Heavy.gif",
+        dash: "IF_Dashes.gif"
+    },
+
+    "Shotgun": {
+        light: "Shotgun_Lights.gif",
+        heavy: "Shotgun_Heavy.gif",
+        dash: "Shotgun_Dashes.gif",
+        ability: "Single_barrage.gif"
+    },
+
+    "Freedom": {
+        light: "Freedom_Lights.gif",
+        heavy: "Freedom_Heavy.gif",
+        dash: "Freedom_Dashes.gif",
+        ability: "Freedom_Switching.gif"
+    },
+
+    "Chronos": {
+        light: "Chronos_Lights.gif",
+        heavy: "Chronos_Heavy.gif",
+        dash: "Chronos_Dashes.gif",
+        ability: "Chronos_Focus_showcase.gif"
+    },
+
+    "White Ash": {
+        light: "WA_Lights.gif",
+        heavy: "WA_Heavy.gif",
+        dash: "WA_Dashes.gif",
+        ability: "Joe_Burn_Showcase.gif",
+        ultimate: "Joe_Ult_Showcase.gif"
+    },
+
+    "Supernova": {
+        light: "AttackPlaceholder.png"
+    },
+
+    "Deimos": {
+        light: "AttackPlaceholder.png"
+    }
+
+};
+
+
+/* =========================================================
+   MOVE PREVIEW
+   ========================================================= */
+
+function movePreview(label, filename) {
+
+    if (!filename) {
+        return "";
+    }
+
+
+    const src =
+        `./assets/styles/${filename}`;
+
+
+    return `
+
+        <div class="wiki-move-card">
+
+            <div class="wiki-move-image">
+
+                <img
+                    src="${escapeAttribute(src)}"
+                    alt="${escapeAttribute(label)}"
+                    loading="lazy"
+                    onerror="
+                        this.style.display='none';
+                        this.parentElement.classList.add('missing');
+                    "
+                >
+
+                <div class="move-missing">
+                    IMAGE UNAVAILABLE
+                </div>
+
+            </div>
+
+
+            <div class="wiki-move-name">
+
+                ${escapeHTML(label)}
+
+            </div>
+
+        </div>
+
+    `;
 
 }
 
@@ -1412,9 +2048,7 @@ if (styleGrid) {
    ========================================================= */
 
 const styleArticle =
-    document.getElementById(
-        "styleArticle"
-    );
+    document.getElementById("styleArticle");
 
 
 if (styleArticle) {
@@ -1430,15 +2064,7 @@ if (styleArticle) {
 
 
     const style =
-        styles.find(item =>
-
-            String(item.name)
-                .toLowerCase() ===
-
-            String(requestedName || "")
-                .toLowerCase()
-
-        );
+        getStyleByName(requestedName);
 
 
     if (!style) {
@@ -1449,56 +2075,26 @@ if (styleArticle) {
 
         styleArticle.innerHTML = `
 
-            <div class="breadcrumb">
+            <div class="style-not-found">
 
-                <a href="index.html">
-                    Home
-                </a>
-
-                <span>
-                    / Styles / Not Found
-                </span>
-
-            </div>
-
-
-            <div class="wiki-panel">
-
-                <div class="panel-label">
-
-                    <span></span>
-
-                    ERROR
-
+                <div class="not-found-code">
+                    404
                 </div>
-
 
                 <h1>
                     Style not found
                 </h1>
 
-
-                <p style="
-                    margin-top:10px;
-                ">
-
-                    The requested style could not
-                    be found in the current UBG
-                    Wiki database.
-
+                <p>
+                    The requested style does not exist
+                    in the current UBG Wiki database.
                 </p>
-
 
                 <a
                     href="styles.html"
-                    class="red-button"
-                    style="
-                        margin-top:18px;
-                    "
+                    class="style-back-button"
                 >
-
-                    Return to Styles
-
+                    ← Return to Styles
                 </a>
 
             </div>
@@ -1518,379 +2114,95 @@ if (styleArticle) {
    ARTICLE RENDERER
    ========================================================= */
 
-/* =========================================================
-   WIKI-STYLE ARTICLE RENDERER
-   ========================================================= */
-
 function renderStyleArticle(style) {
 
-    const image = getStyleImage(style);
+    const image =
+        getStyleImage(style);
 
-    document.title = `${style.name} — UBG Wiki`;
+
+    document.title =
+        `${style.name} — UBG Wiki`;
+
+
+    const moves =
+        moveMap[style.name] || {};
+
+
+    const rarityClass =
+        getRarityClass(style.rarity);
+
+
+    const isShiny =
+        style.rarity === "Shiny";
 
 
     /* -----------------------------------------------------
-       HELPERS
-    ----------------------------------------------------- */
+       LIST HELPERS
+       ----------------------------------------------------- */
 
-    function listHTML(items) {
+    function renderList(items) {
 
-        if (!Array.isArray(items) || !items.length) {
-            return "";
-        }
-
-        return items
-            .map(item => `<li>${escapeHTML(item)}</li>`)
-            .join("");
-
-    }
-
-
-    function sectionHTML(title, content) {
-
-        if (!content) {
-            return "";
-        }
-
-        return `
-            <section class="wiki-article-section">
-
-                <h2>
-                    ${escapeHTML(title)}
-                </h2>
-
-                <div class="wiki-section-content">
-                    ${content}
-                </div>
-
-            </section>
-        `;
-
-    }
-
-
-    function movePreview(label, filename) {
-
-        if (!filename) {
+        if (
+            !Array.isArray(items) ||
+            !items.length
+        ) {
             return `
-                <div class="wiki-move-preview unavailable">
-                    <span>NO IMAGE</span>
-                </div>
+                <p class="wiki-muted">
+                    No information has been documented yet.
+                </p>
             `;
         }
 
-        const src =
-            `./assets/styles/${filename}`;
 
         return `
-            <div class="wiki-move-preview">
 
-                <img
-                    src="${escapeAttribute(src)}"
-                    alt="${escapeAttribute(label)}"
-                    loading="lazy"
-                    onerror="
-                        this.parentElement.classList.add('unavailable');
-                        this.style.display='none';
-                    "
-                >
+            <ul class="wiki-list">
 
-                <span class="wiki-move-label">
-                    ${escapeHTML(label)}
-                </span>
+                ${items.map(item => `
 
-            </div>
+                    <li>
+                        ${escapeHTML(item)}
+                    </li>
+
+                `).join("")}
+
+            </ul>
+
         `;
 
     }
 
 
     /* -----------------------------------------------------
-       LISTS
-    ----------------------------------------------------- */
-
-    const strengthsHTML =
-        listHTML(style.strengths);
-
-    const weaknessesHTML =
-        listHTML(style.weaknesses);
-
-
-    /* -----------------------------------------------------
-       MOVES
+       RELATED STYLE
        ----------------------------------------------------- */
 
-    const moveFiles = {
+    function relatedStyleLink(name) {
 
-        light: null,
-        heavy: null,
-        dash: null,
-        ability: null,
-        ultimate: null
-
-    };
+        const related =
+            getStyleByName(name);
 
 
-    /*
-     * Match the style's known animation files.
-     * These are only used when the file actually exists
-     * in your downloaded assets folder.
-     */
+        if (!related) {
 
-    const moveMap = {
+            return `
+                <span>
+                    ${escapeHTML(name)}
+                </span>
+            `;
 
-        "Basic": {
-            light: "Basic_Lights.gif",
-            heavy: "Basic_Heavies.gif",
-            dash: "Basic_Dashes.gif",
-            ultimate: "Basic-ult-.gif"
-        },
-
-        "Smash": {
-            light: "Smash_Lights.gif",
-            heavy: "Smash_Heavy.gif",
-            dash: "Smash_Dashes.gif"
-        },
-
-        "Long Guard": {
-            light: "LG_Lights.gif",
-            heavy: "LG_Heavy.gif",
-            dash: "LG_Dashes.gif"
-        },
-
-        "Counter": {
-            light: "Counter_Lights.gif",
-            heavy: "Counter_Heavy.gif",
-            dash: "Counter_Dashes.gif"
-        },
-
-        "Turtle": {
-            light: "Turtle_Lights.gif",
-            heavy: "Turtle_Heavy.gif",
-            dash: "Turtle_Dashes.gif"
-        },
-
-        "Corkscrew": {
-            light: "Corkscrew_Lights.gif",
-            heavy: "Corkscrew_Heavy.gif",
-            dash: "Corkscrew_Dashes.gif"
-        },
-
-        "Charge": {
-            light: "Charge_Lights.gif",
-            heavy: "Charge_Heavy.gif",
-            dash: "Charge_Dashes.gif",
-            ability: "Stampede.gif"
-        },
-
-        "Hammer": {
-            light: "Hammer_Lights.gif",
-            heavy: "Hammer_Heavy.gif",
-            dash: "Hammer_Dashes.gif",
-            ability: "Body_Blow.gif"
-        },
-
-        "Trickster": {
-            light: "Trickster_Lights.gif",
-            heavy: "Trickster_Heavy.gif",
-            dash: "Trickster_Dashes.gif"
-        },
-
-        "Dragonfish": {
-            light: "Kimura_Lights.gif",
-            heavy: "Kimura_Heavy.gif",
-            dash: "Kimura_Dashes.gif"
-        },
-
-        "Dempsey": {
-            light: "Ippo_Lights.gif",
-            heavy: "Ippo_Heavy.gif",
-            dash: "Ippo_Dashes.gif",
-            ability: "Dempsey_Roll.gif"
-        },
-
-        "Hitman": {
-            light: "Hitman_Lights.gif",
-            heavy: "Hitman_Heavy.gif",
-            dash: "Hitman_Dashes.gif"
-        },
-
-        "Hands Low": {
-            light: "HL_Lights.gif",
-            heavy: "HL_Heavy.gif",
-            dash: "HL_Dashes.gif"
-        },
-
-        "Wolf": {
-            light: "Wolf_Lights.gif",
-            heavy: "Wolf_Heavy.gif",
-            dash: "Wolf_Dashes.gif",
-            ability: "White_Fang_storage_showcase.gif"
-        },
-
-        "Bullet": {
-            light: "Bullet_Lights.gif",
-            heavy: "Bullet_Heavy.gif",
-            dash: "Bullet_Dashes.gif"
-        },
-
-        "Switch Hit": {
-            light: "SH_Light.gif",
-            heavy: "SH_Heavy.gif",
-            dash: "SH_Dashes.gif",
-            ability: "Static_PD.gif"
-        },
-
-        "Slugger": {
-            light: "Slugger_Lights.gif",
-            heavy: "Slugger_Heavy.gif",
-            dash: "Slugger_Dashes.gif"
-        },
-
-        "Hawk": {
-            light: "Hawk_Lights.gif",
-            heavy: "Hawk_Heavies.gif",
-            dash: "Hawk_Dashes.gif"
-        },
-
-        "Ghost": {
-            light: "Ghost_Lights.gif",
-            heavy: "Ghost_Heavy.gif",
-            dash: "Ghost_Dashes.gif",
-            ability: "Ghost_Jab.gif"
-        },
-
-        "Iron Fist": {
-            light: "IF_Lights.gif",
-            heavy: "IF_Heavy.gif",
-            dash: "IF_Dashes.gif"
-        },
-
-        "Shotgun": {
-            light: "Shotgun_Lights.gif",
-            heavy: "Shotgun_Heavy.gif",
-            dash: "Shotgun_Dashes.gif",
-            ability: "Single_barrage.gif"
-        },
-
-        "Freedom": {
-            light: "Freedom_Lights.gif",
-            heavy: "Freedom_Heavy.gif",
-            dash: "Freedom_Dashes.gif",
-            ability: "Freedom_Switching.gif"
-        },
-
-        "Chronos": {
-            light: "Chronos_Lights.gif",
-            heavy: "Chronos_Heavy.gif",
-            dash: "Chronos_Dashes.gif",
-            ability: "Chronos_Focus_showcase.gif"
-        },
-
-        "White Ash": {
-            light: "WA_Lights.gif",
-            heavy: "WA_Heavy.gif",
-            dash: "WA_Dashes.gif",
-            ability: "Joe_Burn_Showcase.gif",
-            ultimate: "Joe_Ult_Showcase.gif"
-        },
-
-        "Supernova": {
-            light: "AttackPlaceholder.png"
-        },
-
-        "Deimos": {
-            light: "AttackPlaceholder.png"
         }
 
-    };
 
+        return `
 
-    if (moveMap[style.name]) {
+            <a href="
+                style.html?style=${encodeURIComponent(related.name)}
+            ">
 
-        Object.assign(
-            moveFiles,
-            moveMap[style.name]
-        );
+                ${escapeHTML(related.name)}
 
-    }
-
-
-    /* -----------------------------------------------------
-       MOVEMENT SECTION
-       ----------------------------------------------------- */
-
-    let movesetHTML = "";
-
-    if (
-        moveFiles.light ||
-        moveFiles.heavy ||
-        moveFiles.dash ||
-        moveFiles.ability ||
-        moveFiles.ultimate
-    ) {
-
-        movesetHTML = `
-
-            <div class="wiki-moveset-grid">
-
-                ${
-                    moveFiles.light
-                        ? movePreview(
-                            "Light",
-                            moveFiles.light
-                        )
-                        : ""
-                }
-
-                ${
-                    moveFiles.heavy
-                        ? movePreview(
-                            "Heavy",
-                            moveFiles.heavy
-                        )
-                        : ""
-                }
-
-                ${
-                    moveFiles.dash
-                        ? movePreview(
-                            "Dash",
-                            moveFiles.dash
-                        )
-                        : ""
-                }
-
-                ${
-                    moveFiles.ability
-                        ? movePreview(
-                            style.ability || "Ability",
-                            moveFiles.ability
-                        )
-                        : ""
-                }
-
-                ${
-                    moveFiles.ultimate
-                        ? movePreview(
-                            style.ultimateName || "Ultimate",
-                            moveFiles.ultimate
-                        )
-                        : ""
-                }
-
-            </div>
-
-        `;
-
-    } else {
-
-        movesetHTML = `
-
-            <p class="wiki-muted">
-                A complete moveset showcase has not yet
-                been documented for this style.
-            </p>
+            </a>
 
         `;
 
@@ -1898,39 +2210,27 @@ function renderStyleArticle(style) {
 
 
     /* -----------------------------------------------------
-       VARIANT INFORMATION
+       VARIANT INFO
        ----------------------------------------------------- */
 
-    let variantInfo = "";
+    let variantRows = "";
 
 
     if (style.baseStyle) {
 
-        variantInfo += `
+        variantRows += `
 
-            <tr>
+            <div class="infobox-row">
 
-                <th>
+                <span>
                     Base style
-                </th>
+                </span>
 
-                <td>
+                <strong>
+                    ${relatedStyleLink(style.baseStyle)}
+                </strong>
 
-                    <a href="
-                        style.html?style=${encodeURIComponent(
-                            style.baseStyle
-                        )}
-                    ">
-
-                        ${escapeHTML(
-                            style.baseStyle
-                        )}
-
-                    </a>
-
-                </td>
-
-            </tr>
+            </div>
 
         `;
 
@@ -1939,35 +2239,130 @@ function renderStyleArticle(style) {
 
     if (style.shiny) {
 
-        variantInfo += `
+        variantRows += `
 
-            <tr>
+            <div class="infobox-row">
 
-                <th>
+                <span>
                     Shiny
-                </th>
+                </span>
 
-                <td>
+                <strong>
+                    ${relatedStyleLink(style.shiny)}
+                </strong>
 
-                    <a href="
-                        style.html?style=${encodeURIComponent(
-                            style.shiny
-                        )}
-                    ">
-
-                        ${escapeHTML(
-                            style.shiny
-                        )}
-
-                    </a>
-
-                </td>
-
-            </tr>
+            </div>
 
         `;
 
     }
+
+
+    /* -----------------------------------------------------
+       MOVESET
+       ----------------------------------------------------- */
+
+    const moveEntries = [
+
+        ["Light", moves.light],
+        ["Heavy", moves.heavy],
+        ["Dash", moves.dash],
+        [
+            style.ability !== "None"
+                ? style.ability
+                : "Ability",
+            moves.ability
+        ],
+        [
+            style.ultimateName || "Ultimate",
+            moves.ultimate
+        ]
+
+    ];
+
+
+    const availableMoves =
+        moveEntries.filter(
+            entry => entry[1]
+        );
+
+
+    const movesetHTML =
+        availableMoves.length
+
+            ? `
+
+                <div class="wiki-moveset-grid">
+
+                    ${availableMoves.map(entry =>
+                        movePreview(
+                            entry[0],
+                            entry[1]
+                        )
+                    ).join("")}
+
+                </div>
+
+              `
+
+            : `
+
+                <div class="wiki-empty-box">
+
+                    <span class="empty-icon">
+                        ◌
+                    </span>
+
+                    <strong>
+                        Moveset not documented
+                    </strong>
+
+                    <p>
+                        A complete moveset showcase
+                        has not yet been added to this
+                        article.
+                    </p>
+
+                </div>
+
+              `;
+
+
+    /* -----------------------------------------------------
+       WIP
+       ----------------------------------------------------- */
+
+    const wipHTML =
+        style.wip
+
+            ? `
+
+                <div class="wiki-wip">
+
+                    <div class="wip-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            This article is a work in progress
+                        </strong>
+
+                        <p>
+                            Some information on this page has
+                            not yet been fully documented.
+                            Treat incomplete information as
+                            provisional.
+                        </p>
+
+                    </div>
+
+                </div>
+
+              `
+
+            : "";
 
 
     /* -----------------------------------------------------
@@ -1978,14 +2373,14 @@ function renderStyleArticle(style) {
 
         <aside class="wiki-infobox">
 
-            <div class="wiki-infobox-title">
+            <div class="infobox-heading">
 
                 ${escapeHTML(style.name)}
 
             </div>
 
 
-            <div class="wiki-infobox-image">
+            <div class="infobox-image">
 
                 ${
                     image
@@ -2001,9 +2396,9 @@ function renderStyleArticle(style) {
 
                         : `
 
-                            <span>
+                            <div class="infobox-no-image">
                                 IMAGE UNAVAILABLE
-                            </span>
+                            </div>
 
                           `
                 }
@@ -2011,112 +2406,126 @@ function renderStyleArticle(style) {
             </div>
 
 
-            <table>
+            <div class="infobox-basic">
 
-                <tr>
+                <div class="infobox-rarity">
 
-                    <th>
-                        Rarity
-                    </th>
+                    <span class="infobox-label">
+                        RARITY
+                    </span>
 
-                    <td>
-                        <span class="
-                            wiki-rarity
-                            ${getRarityClass(style.rarity)}
-                        ">
-                            ${escapeHTML(style.rarity)}
-                        </span>
-                    </td>
+                    <span class="
+                        wiki-rarity
+                        ${rarityClass}
+                    ">
 
-                </tr>
+                        ${escapeHTML(style.rarity)}
+
+                    </span>
+
+                </div>
 
 
                 ${
                     style.ranked
+
                         ? `
 
-                            <tr>
+                            <div class="infobox-row">
 
-                                <th>
+                                <span>
                                     Ranked
-                                </th>
+                                </span>
 
-                                <td>
-                                    ${escapeHTML(
-                                        style.ranked
-                                    )}
-                                </td>
+                                <strong>
+                                    ${escapeHTML(style.ranked)}
+                                </strong>
 
-                            </tr>
+                            </div>
 
                           `
+
                         : ""
                 }
 
 
-                ${variantInfo}
+                ${variantRows}
+
+            </div>
 
 
-                ${
-                    style.hp
-                        ? `
-                            <tr>
-                                <th>Health</th>
-                                <td>${escapeHTML(style.hp)}</td>
-                            </tr>
-                          `
-                        : ""
-                }
+            <div class="infobox-section-title">
+                DOCUMENTED STATS
+            </div>
 
 
-                ${
-                    style.dash
-                        ? `
-                            <tr>
-                                <th>Dash</th>
-                                <td>${escapeHTML(style.dash)}</td>
-                            </tr>
-                          `
-                        : ""
-                }
+            <div class="infobox-stats">
+
+                <div class="infobox-stat">
+
+                    <span>
+                        Health
+                    </span>
+
+                    <strong>
+                        ${escapeHTML(style.hp || "—")}
+                    </strong>
+
+                </div>
 
 
-                ${
-                    style.range
-                        ? `
-                            <tr>
-                                <th>Range</th>
-                                <td>${escapeHTML(style.range)}</td>
-                            </tr>
-                          `
-                        : ""
-                }
+                <div class="infobox-stat">
+
+                    <span>
+                        Dash
+                    </span>
+
+                    <strong>
+                        ${escapeHTML(style.dash || "—")}
+                    </strong>
+
+                </div>
 
 
-                ${
-                    style.block
-                        ? `
-                            <tr>
-                                <th>Block</th>
-                                <td>${escapeHTML(style.block)}</td>
-                            </tr>
-                          `
-                        : ""
-                }
+                <div class="infobox-stat">
+
+                    <span>
+                        Range
+                    </span>
+
+                    <strong>
+                        ${escapeHTML(style.range || "—")}
+                    </strong>
+
+                </div>
 
 
-                ${
-                    style.ultimate
-                        ? `
-                            <tr>
-                                <th>Ultimate</th>
-                                <td>${escapeHTML(style.ultimate)}</td>
-                            </tr>
-                          `
-                        : ""
-                }
+                <div class="infobox-stat">
 
-            </table>
+                    <span>
+                        Block
+                    </span>
+
+                    <strong>
+                        ${escapeHTML(style.block || "—")}
+                    </strong>
+
+                </div>
+
+
+                <div class="infobox-stat">
+
+                    <span>
+                        Ultimate
+                    </span>
+
+                    <strong>
+                        ${escapeHTML(style.ultimate || "—")}
+                    </strong>
+
+                </div>
+
+            </div>
 
 
             ${
@@ -2124,16 +2533,14 @@ function renderStyleArticle(style) {
 
                     ? `
 
-                        <div class="wiki-infobox-obtain">
+                        <div class="infobox-obtain">
 
-                            <strong>
-                                Obtained
-                            </strong>
+                            <div class="infobox-section-title">
+                                OBTAINED
+                            </div>
 
                             <p>
-                                ${escapeHTML(
-                                    style.obtain
-                                )}
+                                ${escapeHTML(style.obtain)}
                             </p>
 
                         </div>
@@ -2149,43 +2556,26 @@ function renderStyleArticle(style) {
 
 
     /* -----------------------------------------------------
-       WIP
-       ----------------------------------------------------- */
-
-    const wipNotice = style.wip
-
-        ? `
-
-            <div class="wiki-wip">
-
-                <strong>
-                    ⚠ This article is a work in progress
-                </strong>
-
-                <p>
-                    Some information on this page has not
-                    yet been fully documented. Information
-                    marked as incomplete should be treated
-                    as provisional.
-                </p>
-
-            </div>
-
-          `
-
-        : "";
-
-
-    /* -----------------------------------------------------
        ARTICLE
        ----------------------------------------------------- */
 
-    styleArticle.innerHTML = `
+    const article =
+        document.getElementById("styleArticle");
 
-        <div class="wiki-article-wrap">
+
+    if (!article) {
+        return;
+    }
 
 
-            <!-- BREADCRUMB -->
+    article.innerHTML = `
+
+        <div class="style-page">
+
+
+            <!-- =========================================
+                 BREADCRUMB
+                 ========================================= -->
 
             <div class="wiki-breadcrumb">
 
@@ -2201,21 +2591,27 @@ function renderStyleArticle(style) {
 
                 <span>›</span>
 
-                <span>
+                <span class="current">
                     ${escapeHTML(style.name)}
                 </span>
 
             </div>
 
 
+            <!-- =========================================
+                 HEADER
+                 ========================================= -->
 
-            <!-- ARTICLE HEADER -->
+            <header class="style-header">
 
-            <header class="wiki-article-header">
+                <div class="style-header-main">
 
-                <div>
+                    <div class="style-header-kicker">
 
-                    <div class="wiki-article-kicker">
+                        <span class="
+                            rarity-dot
+                            ${rarityClass}
+                        "></span>
 
                         ${escapeHTML(style.rarity)}
                         Style
@@ -2224,9 +2620,7 @@ function renderStyleArticle(style) {
 
 
                     <h1>
-
                         ${escapeHTML(style.name)}
-
                     </h1>
 
 
@@ -2235,14 +2629,34 @@ function renderStyleArticle(style) {
 
                             ? `
 
-                                <div class="wiki-ranked-name">
+                                <div class="style-ranked">
 
                                     Ranked name:
+
                                     <strong>
-                                        ${escapeHTML(
-                                            style.ranked
-                                        )}
+                                        ${escapeHTML(style.ranked)}
                                     </strong>
+
+                                </div>
+
+                              `
+
+                            : ""
+                    }
+
+
+                    ${
+                        style.baseStyle
+
+                            ? `
+
+                                <div class="style-variant-label">
+
+                                    Shiny / Variant of
+
+                                    ${relatedStyleLink(
+                                        style.baseStyle
+                                    )}
 
                                 </div>
 
@@ -2254,48 +2668,16 @@ function renderStyleArticle(style) {
                 </div>
 
 
-                ${
-                    style.wip
-
-                        ? `
-
-                            <span class="wiki-wip-tag">
-                                WIP
-                            </span>
-
-                          `
-
-                        : ""
-                }
-
-            </header>
-
-
-
-            <!-- ARTICLE BODY -->
-
-            <div class="wiki-article-grid">
-
-
-                <!-- MAIN CONTENT -->
-
-                <main class="wiki-main-content">
-
+                <div class="style-header-actions">
 
                     ${
-                        style.description
+                        style.wip
 
                             ? `
 
-                                <p class="
-                                    wiki-lead
-                                ">
-
-                                    ${escapeHTML(
-                                        style.description
-                                    )}
-
-                                </p>
+                                <span class="header-wip">
+                                    WIP
+                                </span>
 
                               `
 
@@ -2303,86 +2685,218 @@ function renderStyleArticle(style) {
                     }
 
 
-                    ${wipNotice}
+                    <a
+                        href="styles.html"
+                        class="header-back"
+                    >
+                        ← All Styles
+                    </a>
 
+                </div>
+
+            </header>
+
+
+            ${wipHTML}
+
+
+            <!-- =========================================
+                 LEAD
+                 ========================================= -->
+
+            <div class="style-lead">
+
+                ${escapeHTML(
+                    style.description ||
+                    "No description has been documented for this style yet."
+                )}
+
+            </div>
+
+
+            <!-- =========================================
+                 ARTICLE + INFOBOX
+                 ========================================= -->
+
+            <div class="style-layout">
+
+
+                <main class="style-main">
+
+
+                    <!-- GENERAL STATS -->
+
+                    ${renderGeneralStats(style)}
 
 
                     <!-- OVERVIEW -->
 
-                    ${sectionHTML(
-                        "Overview",
-                        `
+                    <section
+                        class="wiki-section"
+                        id="overview"
+                    >
+
+                        <div class="wiki-section-heading">
+
+                            <span class="section-number">
+                                01
+                            </span>
+
+                            <div>
+
+                                <div class="section-eyebrow">
+                                    ARTICLE
+                                </div>
+
+                                <h2>
+                                    Overview
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="section-body">
+
                             <p>
                                 ${escapeHTML(
                                     style.description ||
-                                    "No overview has been written for this style yet."
+                                    "No overview has been documented."
                                 )}
                             </p>
-                        `
-                    )}
+
+                        </div>
+
+                    </section>
 
 
+                    <!-- STYLE INFORMATION -->
 
-                    <!-- INFORMATION -->
+                    <section
+                        class="wiki-section"
+                        id="information"
+                    >
 
-                    ${sectionHTML(
-                        "Style information",
-                        `
+                        <div class="wiki-section-heading">
 
-                            <table class="
-                                wiki-data-table
-                            ">
+                            <span class="section-number">
+                                02
+                            </span>
 
-                                <tr>
-                                    <th>Health</th>
-                                    <td>
+                            <div>
+
+                                <div class="section-eyebrow">
+                                    DATA
+                                </div>
+
+                                <h2>
+                                    Style Information
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="section-body">
+
+                            <div class="information-grid">
+
+                                <div class="information-item">
+
+                                    <span>
+                                        Health
+                                    </span>
+
+                                    <strong>
                                         ${escapeHTML(
                                             style.hp || "—"
                                         )}
-                                    </td>
-                                </tr>
+                                    </strong>
 
-                                <tr>
-                                    <th>Dash</th>
-                                    <td>
+                                </div>
+
+
+                                <div class="information-item">
+
+                                    <span>
+                                        Dash
+                                    </span>
+
+                                    <strong>
                                         ${escapeHTML(
                                             style.dash || "—"
                                         )}
-                                    </td>
-                                </tr>
+                                    </strong>
 
-                                <tr>
-                                    <th>Range</th>
-                                    <td>
+                                </div>
+
+
+                                <div class="information-item">
+
+                                    <span>
+                                        Range
+                                    </span>
+
+                                    <strong>
                                         ${escapeHTML(
                                             style.range || "—"
                                         )}
-                                    </td>
-                                </tr>
+                                    </strong>
 
-                                <tr>
-                                    <th>Block</th>
-                                    <td>
+                                </div>
+
+
+                                <div class="information-item">
+
+                                    <span>
+                                        Block
+                                    </span>
+
+                                    <strong>
                                         ${escapeHTML(
                                             style.block || "—"
                                         )}
-                                    </td>
-                                </tr>
+                                    </strong>
 
-                                <tr>
-                                    <th>Ultimate meter</th>
-                                    <td>
+                                </div>
+
+
+                                <div class="information-item">
+
+                                    <span>
+                                        Ultimate Meter
+                                    </span>
+
+                                    <strong>
                                         ${escapeHTML(
                                             style.ultimate || "—"
                                         )}
-                                    </td>
-                                </tr>
+                                    </strong>
 
-                            </table>
+                                </div>
 
-                        `
-                    )}
 
+                                <div class="information-item">
+
+                                    <span>
+                                        Trail
+                                    </span>
+
+                                    <strong>
+                                        ${escapeHTML(
+                                            style.trail || "—"
+                                        )}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
 
 
                     <!-- PASSIVE -->
@@ -2391,26 +2905,65 @@ function renderStyleArticle(style) {
                         style.passive &&
                         style.passive !== "None"
 
-                            ? sectionHTML(
-                                "Passive",
-                                `
-                                    <div class="
-                                        wiki-ability
-                                    ">
+                            ? `
 
-                                        <strong>
-                                            ${escapeHTML(
-                                                style.passive
-                                            )}
-                                        </strong>
+                                <section
+                                    class="wiki-section"
+                                    id="passive"
+                                >
+
+                                    <div class="wiki-section-heading">
+
+                                        <span class="section-number">
+                                            03
+                                        </span>
+
+                                        <div>
+
+                                            <div class="section-eyebrow">
+                                                MECHANIC
+                                            </div>
+
+                                            <h2>
+                                                Passive
+                                            </h2>
+
+                                        </div>
 
                                     </div>
-                                `
-                            )
+
+
+                                    <div class="mechanic-card">
+
+                                        <div class="mechanic-icon">
+                                            P
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                ${escapeHTML(
+                                                    style.passive
+                                                )}
+                                            </strong>
+
+                                            <p>
+                                                Passive information
+                                                for this mechanic can
+                                                be expanded as the wiki
+                                                is documented further.
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </section>
+
+                              `
 
                             : ""
                     }
-
 
 
                     <!-- ABILITY -->
@@ -2419,26 +2972,65 @@ function renderStyleArticle(style) {
                         style.ability &&
                         style.ability !== "None"
 
-                            ? sectionHTML(
-                                "Ability",
-                                `
-                                    <div class="
-                                        wiki-ability
-                                    ">
+                            ? `
 
-                                        <strong>
-                                            ${escapeHTML(
-                                                style.ability
-                                            )}
-                                        </strong>
+                                <section
+                                    class="wiki-section"
+                                    id="ability"
+                                >
+
+                                    <div class="wiki-section-heading">
+
+                                        <span class="section-number">
+                                            04
+                                        </span>
+
+                                        <div>
+
+                                            <div class="section-eyebrow">
+                                                MECHANIC
+                                            </div>
+
+                                            <h2>
+                                                Ability
+                                            </h2>
+
+                                        </div>
 
                                     </div>
-                                `
-                            )
+
+
+                                    <div class="mechanic-card ability-card">
+
+                                        <div class="mechanic-icon">
+                                            A
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                ${escapeHTML(
+                                                    style.ability
+                                                )}
+                                            </strong>
+
+                                            <p>
+                                                Ability information
+                                                can be expanded with
+                                                frame data, mechanics
+                                                and demonstrations.
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                </section>
+
+                              `
 
                             : ""
                     }
-
 
 
                     <!-- ULTIMATE -->
@@ -2446,208 +3038,391 @@ function renderStyleArticle(style) {
                     ${
                         style.ultimateName
 
-                            ? sectionHTML(
-                                "Ultimate",
-                                `
-                                    <div class="
-                                        wiki-ability
-                                        wiki-ultimate
-                                    ">
+                            ? `
 
-                                        <strong>
-                                            ${escapeHTML(
-                                                style.ultimateName
-                                            )}
-                                        </strong>
+                                <section
+                                    class="wiki-section"
+                                    id="ultimate"
+                                >
+
+                                    <div class="wiki-section-heading">
+
+                                        <span class="section-number">
+                                            05
+                                        </span>
+
+                                        <div>
+
+                                            <div class="section-eyebrow">
+                                                ULTIMATE
+                                            </div>
+
+                                            <h2>
+                                                ${escapeHTML(
+                                                    style.ultimateName
+                                                )}
+                                            </h2>
+
+                                        </div>
 
                                     </div>
-                                `
-                            )
+
+
+                                    <div class="ultimate-card">
+
+                                        <div class="ultimate-card-title">
+
+                                            <span class="ultimate-mark">
+                                                U
+                                            </span>
+
+                                            Ultimate
+
+                                        </div>
+
+
+                                        <p>
+                                            Ultimate information for
+                                            this style can be expanded
+                                            with a full showcase and
+                                            mechanical details.
+                                        </p>
+
+                                    </div>
+
+                                </section>
+
+                              `
 
                             : ""
                     }
-
 
 
                     <!-- MOVESET -->
 
-                    ${sectionHTML(
-                        "Moveset",
-                        movesetHTML
-                    )}
+                    <section
+                        class="wiki-section"
+                        id="moveset"
+                    >
 
+                        <div class="wiki-section-heading">
+
+                            <span class="section-number">
+                                06
+                            </span>
+
+                            <div>
+
+                                <div class="section-eyebrow">
+                                    SHOWCASE
+                                </div>
+
+                                <h2>
+                                    Moveset
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="section-body">
+
+                            ${movesetHTML}
+
+                        </div>
+
+                    </section>
 
 
                     <!-- STRENGTHS -->
 
-                    ${
-                        strengthsHTML
+                    <section
+                        class="wiki-section"
+                        id="strengths"
+                    >
 
-                            ? sectionHTML(
-                                "Strengths",
-                                `
-                                    <ul class="
-                                        wiki-list
-                                    ">
+                        <div class="wiki-section-heading">
 
-                                        ${strengthsHTML}
+                            <span class="section-number">
+                                07
+                            </span>
 
-                                    </ul>
-                                `
-                            )
+                            <div>
 
-                            : ""
-                    }
+                                <div class="section-eyebrow">
+                                    ANALYSIS
+                                </div>
 
+                                <h2>
+                                    Strengths
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="section-body">
+
+                            ${renderList(style.strengths)}
+
+                        </div>
+
+                    </section>
 
 
                     <!-- WEAKNESSES -->
 
-                    ${
-                        weaknessesHTML
+                    <section
+                        class="wiki-section"
+                        id="weaknesses"
+                    >
 
-                            ? sectionHTML(
-                                "Weaknesses",
-                                `
-                                    <ul class="
-                                        wiki-list
-                                    ">
+                        <div class="wiki-section-heading">
 
-                                        ${weaknessesHTML}
+                            <span class="section-number">
+                                08
+                            </span>
 
-                                    </ul>
-                                `
-                            )
+                            <div>
 
-                            : ""
-                    }
+                                <div class="section-eyebrow">
+                                    ANALYSIS
+                                </div>
 
+                                <h2>
+                                    Weaknesses
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="section-body">
+
+                            ${renderList(style.weaknesses)}
+
+                        </div>
+
+                    </section>
 
 
                     <!-- STRATEGY -->
 
-                    ${sectionHTML(
-                        "Strategy",
-                        `
+                    <section
+                        class="wiki-section"
+                        id="strategy"
+                    >
+
+                        <div class="wiki-section-heading">
+
+                            <span class="section-number">
+                                09
+                            </span>
+
+                            <div>
+
+                                <div class="section-eyebrow">
+                                    GUIDE
+                                </div>
+
+                                <h2>
+                                    Strategy
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="section-body">
+
                             <p>
-                                ${
-                                    style.description
-                                        ? `
-                                            ${escapeHTML(
-                                                style.name
-                                            )} rewards players
-                                            who understand its
-                                            strengths and avoid
-                                            situations that expose
-                                            its weaknesses.
-                                          `
-                                        : `
-                                            Strategy information
-                                            for this style has not
-                                            yet been documented.
-                                          `
-                                }
+
+                                ${escapeHTML(style.name)}
+                                rewards players who understand
+                                its strengths and avoid situations
+                                that expose its weaknesses.
+
                             </p>
 
-                            <p class="wiki-muted">
-                                Community strategy and matchup
-                                information can be expanded here
-                                as the wiki develops.
-                            </p>
-                        `
-                    )}
 
+                            <div class="strategy-placeholder">
+
+                                <span>
+                                    COMMUNITY GUIDE
+                                </span>
+
+                                <p>
+                                    Matchups, advanced techniques
+                                    and community strategies can be
+                                    documented here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
 
 
                     <!-- OBTAINMENT -->
 
-                    ${
-                        style.obtain
+                    <section
+                        class="wiki-section"
+                        id="obtaining"
+                    >
 
-                            ? sectionHTML(
-                                "Obtaining the style",
-                                `
-                                    <p>
-                                        ${escapeHTML(
-                                            style.obtain
-                                        )}
-                                    </p>
-                                `
-                            )
+                        <div class="wiki-section-heading">
 
-                            : ""
-                    }
+                            <span class="section-number">
+                                10
+                            </span>
 
+                            <div>
+
+                                <div class="section-eyebrow">
+                                    COLLECTION
+                                </div>
+
+                                <h2>
+                                    Obtaining
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="section-body">
+
+                            <p>
+                                ${escapeHTML(
+                                    style.obtain ||
+                                    "Obtaining information has not yet been documented."
+                                )}
+                            </p>
+
+                        </div>
+
+                    </section>
 
 
                     <!-- GALLERY -->
 
-                    ${sectionHTML(
-                        "Gallery",
-                        `
-                            <div class="
-                                wiki-gallery
-                            ">
+                    <section
+                        class="wiki-section"
+                        id="gallery"
+                    >
 
-                                ${
-                                    image
+                        <div class="wiki-section-heading">
 
-                                        ? `
+                            <span class="section-number">
+                                11
+                            </span>
 
-                                            <figure>
+                            <div>
+
+                                <div class="section-eyebrow">
+                                    MEDIA
+                                </div>
+
+                                <h2>
+                                    Gallery
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="gallery-grid">
+
+                            ${
+                                image
+
+                                    ? `
+
+                                        <figure class="gallery-card">
+
+                                            <div class="gallery-image">
 
                                                 <img
                                                     src="${escapeAttribute(image)}"
                                                     alt="${escapeAttribute(style.name)}"
+                                                    loading="lazy"
                                                 >
 
-                                                <figcaption>
-                                                    ${escapeHTML(
-                                                        style.name
-                                                    )} idle animation
-                                                </figcaption>
+                                            </div>
 
-                                            </figure>
+                                            <figcaption>
 
-                                          `
+                                                ${escapeHTML(
+                                                    style.name
+                                                )}
+                                                idle animation
 
-                                        : `
-                                            <p class="wiki-muted">
-                                                No gallery images are
-                                                currently available.
-                                            </p>
-                                          `
-                                }
+                                            </figcaption>
 
-                            </div>
-                        `
-                    )}
+                                        </figure>
 
+                                      `
+
+                                    : `
+
+                                        <div class="wiki-empty-box">
+
+                                            <strong>
+                                                No gallery media
+                                            </strong>
+
+                                        </div>
+
+                                      `
+                            }
+
+                        </div>
+
+                    </section>
 
 
                     <!-- CATEGORIES -->
 
                     <div class="wiki-categories">
 
-                        <strong>
+                        <span>
                             Categories:
-                        </strong>
+                        </span>
+
 
                         <a href="
                             styles.html?rarity=${encodeURIComponent(
                                 style.rarity
                             )}
                         ">
-                            ${escapeHTML(style.rarity)} styles
+
+                            ${escapeHTML(style.rarity)}
+                            styles
+
                         </a>
+
 
                         <a href="styles.html">
                             Styles
                         </a>
 
-                        <a href="index.html">
-                            Untitled Boxing Game
-                        </a>
+
+                        ${
+                            style.wip
+                                ? `
+                                    <span class="category-wip">
+                                        Work in progress
+                                    </span>
+                                  `
+                                : ""
+                        }
 
                     </div>
 
@@ -2655,11 +3430,9 @@ function renderStyleArticle(style) {
                 </main>
 
 
-
                 <!-- INFOBOX -->
 
                 ${infobox}
-
 
             </div>
 
@@ -2667,7 +3440,239 @@ function renderStyleArticle(style) {
 
     `;
 
+
+    /* -----------------------------------------------------
+       CONTENTS
+       ----------------------------------------------------- */
+
+    const contents =
+        document.getElementById(
+            "styleContents"
+        );
+
+
+    if (contents) {
+
+        contents.innerHTML = `
+
+            <div class="contents-title">
+                ON THIS PAGE
+            </div>
+
+
+            <a href="#general-stats">
+                <span>00</span>
+                General Stats
+            </a>
+
+
+            <a href="#overview">
+                <span>01</span>
+                Overview
+            </a>
+
+
+            <a href="#information">
+                <span>02</span>
+                Information
+            </a>
+
+
+            ${
+                style.passive &&
+                style.passive !== "None"
+
+                    ? `
+                        <a href="#passive">
+                            <span>03</span>
+                            Passive
+                        </a>
+                      `
+
+                    : ""
+            }
+
+
+            ${
+                style.ability &&
+                style.ability !== "None"
+
+                    ? `
+                        <a href="#ability">
+                            <span>04</span>
+                            Ability
+                        </a>
+                      `
+
+                    : ""
+            }
+
+
+            <a href="#moveset">
+                <span>06</span>
+                Moveset
+            </a>
+
+
+            <a href="#strengths">
+                <span>07</span>
+                Strengths
+            </a>
+
+
+            <a href="#weaknesses">
+                <span>08</span>
+                Weaknesses
+            </a>
+
+
+            <a href="#strategy">
+                <span>09</span>
+                Strategy
+            </a>
+
+
+            <a href="#obtaining">
+                <span>10</span>
+                Obtaining
+            </a>
+
+
+            <a href="#gallery">
+                <span>11</span>
+                Gallery
+            </a>
+
+        `;
+
+    }
+
 }
+
+
+/* =========================================================
+   GLOBAL SEARCH
+   ========================================================= */
+
+const globalSearch =
+    document.getElementById(
+        "globalSearch"
+    );
+
+
+function performGlobalSearch(query) {
+
+    const value =
+        String(query || "")
+            .trim()
+            .toLowerCase();
+
+
+    if (!value) {
+        return;
+    }
+
+
+    const exact =
+        styles.find(style =>
+            style.name.toLowerCase() === value
+        );
+
+
+    if (exact) {
+
+        window.location.href =
+            `style.html?style=${encodeURIComponent(
+                exact.name
+            )}`;
+
+        return;
+
+    }
+
+
+    const partial =
+        styles.find(style =>
+            style.name.toLowerCase().includes(value)
+        );
+
+
+    if (partial) {
+
+        window.location.href =
+            `style.html?style=${encodeURIComponent(
+                partial.name
+            )}`;
+
+        return;
+
+    }
+
+
+    window.location.href =
+        `styles.html?search=${encodeURIComponent(
+            query
+        )}`;
+
+}
+
+
+if (globalSearch) {
+
+    globalSearch.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                performGlobalSearch(
+                    globalSearch.value
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CTRL / CMD + K
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            (event.ctrlKey || event.metaKey) &&
+            event.key.toLowerCase() === "k"
+        ) {
+
+            event.preventDefault();
+
+
+            const search =
+                document.getElementById(
+                    "globalSearch"
+                );
+
+
+            if (search) {
+
+                search.focus();
+
+                search.select();
+
+            }
+
+        }
+
+    }
+);
 
 
 /* =========================================================
