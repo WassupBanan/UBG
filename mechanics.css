@@ -1,0 +1,1529 @@
+:root {
+  --red: #e53935;
+  --red-dark: #a51f1c;
+  --red-bright: #ff4b47;
+
+  --bg: #090a0c;
+  --bg-soft: #0e1013;
+  --panel: #121418;
+  --panel-light: #181b20;
+  --panel-hover: #1d2026;
+
+  --border: #292d34;
+  --border-red: rgba(229, 57, 53, 0.45);
+
+  --text: #f1f1f1;
+  --text-soft: #b8bbc1;
+  --text-muted: #777b84;
+
+  --sidebar-width: 245px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+
+/* =========================================================
+   MAIN WIKI LAYOUT
+   ========================================================= */
+
+.wiki-layout {
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: var(--sidebar-width);
+
+  display: flex;
+  flex-direction: column;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0d0f12 0%,
+      #090a0c 100%
+    );
+
+  border-right: 1px solid var(--border);
+
+  z-index: 1000;
+}
+
+
+/* LOGO */
+
+.sidebar-logo {
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.logo-mark {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--red-bright),
+      var(--red-dark)
+    );
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  letter-spacing: -0.5px;
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 0 20px rgba(229, 57, 53, 0.18);
+}
+
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.05;
+}
+
+.logo-text strong {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.logo-text span {
+  margin-top: 4px;
+
+  color: var(--text-muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+
+/* NAVIGATION */
+
+.sidebar-nav {
+  flex: 1;
+
+  padding: 22px 12px;
+
+  overflow-y: auto;
+}
+
+
+.nav-heading {
+  margin: 15px 10px 9px;
+
+  color: #666a72;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.nav-heading:first-child {
+  margin-top: 0;
+}
+
+
+.nav-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 43px;
+
+  padding: 0 13px;
+
+  margin-bottom: 3px;
+
+  border-radius: 7px;
+
+  color: #aeb1b7;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+
+.nav-link span {
+  width: 20px;
+
+  text-align: center;
+
+  font-size: 15px;
+}
+
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.045);
+
+  color: white;
+}
+
+
+.nav-link.active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(229, 57, 53, 0.17),
+      rgba(229, 57, 53, 0.035)
+    );
+
+  color: white;
+}
+
+
+.nav-link.active::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 7px;
+  bottom: 7px;
+
+  width: 3px;
+
+  border-radius: 0 3px 3px 0;
+
+  background: var(--red-bright);
+
+  box-shadow:
+    0 0 10px rgba(229, 57, 53, 0.4);
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+  padding: 15px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.wiki-status {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 12px;
+
+  color: var(--text-muted);
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #54c96b;
+
+  box-shadow:
+    0 0 8px rgba(84, 201, 107, 0.5);
+}
+
+
+.play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 39px;
+
+  border-radius: 6px;
+
+  background: var(--red);
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 0.8px;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+
+.play-button:hover {
+  background: var(--red-bright);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN AREA
+   ========================================================= */
+
+.main-area {
+  width: calc(100% - var(--sidebar-width));
+
+  margin-left: var(--sidebar-width);
+
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 0 30px;
+
+  background:
+    rgba(9, 10, 12, 0.94);
+
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+}
+
+
+.mobile-title {
+  display: none;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+
+/* SEARCH */
+
+.search-box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  flex: 1;
+
+  max-width: 650px;
+
+  height: 39px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  background: #111317;
+
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+
+.search-box:focus-within {
+  border-color: rgba(229, 57, 53, 0.65);
+
+  box-shadow:
+    0 0 0 3px rgba(229, 57, 53, 0.08);
+}
+
+
+.search-box > span {
+  margin-left: 13px;
+
+  color: #6d7179;
+
+  font-size: 19px;
+}
+
+
+.search-box input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 100%;
+
+  padding: 0 10px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 12px;
+}
+
+
+.search-box input::placeholder {
+  color: #62666e;
+}
+
+
+.search-box kbd {
+  margin-right: 8px;
+
+  padding: 4px 6px;
+
+  border: 1px solid #30343a;
+
+  border-radius: 4px;
+
+  color: #70747b;
+
+  background: #17191d;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* TOP ACTIONS */
+
+.top-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-left: auto;
+}
+
+
+.top-button,
+.top-play {
+  height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 13px;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.6px;
+}
+
+
+.top-button {
+  border: 1px solid var(--border);
+
+  color: #b9bcc2;
+
+  background: #121419;
+}
+
+
+.top-button:hover {
+  color: white;
+
+  border-color: #3a3e45;
+}
+
+
+.top-play {
+  background: var(--red);
+
+  color: white;
+}
+
+
+.top-play:hover {
+  background: var(--red-bright);
+}
+
+
+/* =========================================================
+   CONTENT WRAPPER
+   ========================================================= */
+
+.content-wrapper {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 34px 38px 60px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    260px;
+
+  gap: 35px;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.mechanics-page {
+  min-width: 0;
+
+  max-width: 1000px;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-bottom: 20px;
+
+  color: #666a72;
+
+  font-size: 11px;
+}
+
+
+.breadcrumb a {
+  color: #8d9198;
+}
+
+
+.breadcrumb a:hover {
+  color: var(--red-bright);
+}
+
+
+.breadcrumb strong {
+  color: #c4c6ca;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-bottom: 30px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+.page-kicker {
+  margin-bottom: 7px;
+
+  color: var(--red-bright);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+.page-header h1 {
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(35px, 4vw, 52px);
+
+  line-height: 1;
+
+  letter-spacing: -1.8px;
+}
+
+
+.page-header p {
+  max-width: 650px;
+
+  margin: 15px 0 0;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+.header-icon {
+  flex-shrink: 0;
+
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border-red);
+
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(229, 57, 53, 0.15),
+      rgba(229, 57, 53, 0.025) 65%
+    );
+
+  color: var(--red-bright);
+
+  font-size: 27px;
+
+  box-shadow:
+    inset 0 0 25px rgba(229, 57, 53, 0.035);
+}
+
+
+/* =========================================================
+   INTRO PANEL
+   ========================================================= */
+
+.intro-panel {
+  margin: 25px 0 42px;
+
+  padding: 21px 23px;
+
+  border-left: 3px solid var(--red);
+
+  border-top: 1px solid var(--border);
+
+  border-right: 1px solid var(--border);
+
+  border-bottom: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      100deg,
+      rgba(229, 57, 53, 0.055),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+
+.intro-panel p {
+  margin: 0;
+
+  color: #bfc2c7;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+.intro-panel p + p {
+  margin-top: 11px;
+}
+
+
+.intro-panel strong {
+  color: white;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.mechanic-section {
+  scroll-margin-top: 95px;
+
+  margin-bottom: 50px;
+}
+
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+
+.section-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 35px;
+  height: 35px;
+
+  border: 1px solid var(--border-red);
+
+  border-radius: 6px;
+
+  color: var(--red-bright);
+
+  background: rgba(229, 57, 53, 0.055);
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+
+.section-heading h2 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 23px;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.4px;
+}
+
+
+.section-heading p {
+  margin: 4px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MECHANIC GRID
+   ========================================================= */
+
+.mechanic-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   MECHANIC CARD
+   ========================================================= */
+
+.mechanic-card {
+  position: relative;
+
+  display: flex;
+
+  min-height: 145px;
+
+  padding: 19px;
+
+  gap: 17px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #14171b,
+      #101216
+    );
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.mechanic-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -50px;
+  bottom: -70px;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(229, 57, 53, 0.08),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+.mechanic-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(229, 57, 53, 0.48);
+
+  background:
+    linear-gradient(
+      135deg,
+      #181b20,
+      #121418
+    );
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28),
+    0 0 25px rgba(229, 57, 53, 0.045);
+}
+
+
+.mechanic-card.featured {
+  border-color:
+    rgba(229, 57, 53, 0.28);
+}
+
+
+/* ICON */
+
+.mechanic-card-icon {
+  position: relative;
+  z-index: 1;
+
+  flex-shrink: 0;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #30343b;
+
+  border-radius: 8px;
+
+  background: #0c0e11;
+
+  font-size: 21px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.mechanic-card:hover .mechanic-card-icon {
+  border-color:
+    rgba(229, 57, 53, 0.45);
+
+  background:
+    rgba(229, 57, 53, 0.08);
+}
+
+
+/* CONTENT */
+
+.mechanic-card-content {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.mechanic-card-content h3 {
+  margin: 1px 0 5px;
+
+  color: white;
+
+  font-size: 15px;
+
+  line-height: 1.3;
+}
+
+
+.mechanic-card-content p {
+  margin: 0;
+
+  color: #8f939b;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+.mechanic-card-content span {
+  margin-top: auto;
+  padding-top: 10px;
+
+  color: var(--red-bright);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+.mechanic-card:hover .mechanic-card-content span {
+  color: #ff625e;
+}
+
+
+/* =========================================================
+   QUICK TIPS
+   ========================================================= */
+
+.quick-tips {
+  margin: 15px 0 38px;
+
+  padding: 20px 22px;
+
+  border: 1px solid var(--border-red);
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(229, 57, 53, 0.08),
+      rgba(229, 57, 53, 0.025)
+    );
+}
+
+
+.quick-tips-title {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+
+.quick-tips-title span {
+  font-size: 15px;
+}
+
+
+.quick-tips p {
+  margin: 0;
+
+  color: #aeb1b7;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+.quick-tips strong {
+  color: white;
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+.page-categories {
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid var(--border);
+
+  color: #666a72;
+
+  font-size: 10px;
+}
+
+
+.page-categories a {
+  padding: 5px 9px;
+
+  border: 1px solid #2b2f35;
+
+  border-radius: 4px;
+
+  background: #111317;
+
+  color: #9a9da4;
+
+  font-size: 10px;
+}
+
+
+.page-categories a:hover {
+  border-color:
+    rgba(229, 57, 53, 0.4);
+
+  color: var(--red-bright);
+}
+
+
+/* =========================================================
+   RIGHT SIDEBAR
+   ========================================================= */
+
+.rightbar {
+  min-width: 0;
+}
+
+
+.side-panel {
+  margin-bottom: 15px;
+
+  padding: 15px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  background: #101216;
+}
+
+
+.side-panel-title {
+  margin-bottom: 11px;
+
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid #272b31;
+
+  color: #737780;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.4px;
+}
+
+
+.side-panel > a {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  min-height: 34px;
+
+  color: #a7aab0;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  border-radius: 4px;
+
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.side-panel > a span {
+  width: 23px;
+
+  color: #62666e;
+
+  font-size: 9px;
+
+  text-align: center;
+}
+
+
+.side-panel > a:hover {
+  padding-left: 4px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+
+.side-panel > a:hover span {
+  color: var(--red-bright);
+}
+
+
+.wiki-note p {
+  margin: 0;
+
+  color: #777b83;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.wiki-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 25px 38px;
+
+  border-top: 1px solid var(--border);
+
+  color: #575b63;
+
+  font-size: 9px;
+}
+
+
+.wiki-footer > div:first-child {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.wiki-footer strong {
+  color: #777b83;
+
+  font-size: 10px;
+
+  letter-spacing: 0.6px;
+}
+
+
+.wiki-footer span {
+  color: #555961;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #292d33;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3f47;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  :root {
+    --sidebar-width: 215px;
+  }
+
+  .content-wrapper {
+    grid-template-columns:
+      minmax(0, 1fr)
+      220px;
+
+    gap: 22px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .mechanic-grid {
+    gap: 9px;
+  }
+
+  .mechanic-card {
+    padding: 15px;
+    gap: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  :root {
+    --sidebar-width: 0px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .main-area {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .mobile-title {
+    display: block;
+  }
+
+  .topbar {
+    padding: 0 20px;
+  }
+
+  .content-wrapper {
+    grid-template-columns: 1fr;
+
+    padding: 28px 22px 50px;
+  }
+
+  .rightbar {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+  .side-panel {
+    margin-bottom: 0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  .topbar {
+    height: 62px;
+
+    gap: 10px;
+
+    padding: 0 13px;
+  }
+
+  .mobile-title {
+    display: none;
+  }
+
+  .search-box {
+    height: 36px;
+  }
+
+  .search-box kbd {
+    display: none;
+  }
+
+  .top-button {
+    display: none;
+  }
+
+  .top-play {
+    height: 34px;
+
+    padding: 0 10px;
+  }
+
+
+  .content-wrapper {
+    display: block;
+
+    padding:
+      22px
+      15px
+      45px;
+  }
+
+
+  .breadcrumb {
+    margin-bottom: 15px;
+  }
+
+
+  .page-header {
+    align-items: flex-start;
+
+    padding-bottom: 22px;
+  }
+
+
+  .page-header h1 {
+    font-size: 36px;
+  }
+
+
+  .page-header p {
+    font-size: 12px;
+  }
+
+
+  .header-icon {
+    width: 48px;
+    height: 48px;
+
+    font-size: 20px;
+  }
+
+
+  .intro-panel {
+    margin: 20px 0 32px;
+
+    padding: 17px;
+
+  }
+
+
+  .mechanic-section {
+    margin-bottom: 37px;
+  }
+
+
+  .section-heading {
+    gap: 10px;
+  }
+
+
+  .section-number {
+    width: 30px;
+    height: 30px;
+  }
+
+
+  .section-heading h2 {
+    font-size: 19px;
+  }
+
+
+  .section-heading p {
+    font-size: 10px;
+  }
+
+
+  .mechanic-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .mechanic-card {
+    min-height: 125px;
+
+    padding: 16px;
+  }
+
+
+  .mechanic-card-icon {
+    width: 42px;
+    height: 42px;
+
+    font-size: 18px;
+  }
+
+
+  .mechanic-card-content h3 {
+    font-size: 14px;
+  }
+
+
+  .mechanic-card-content p {
+    font-size: 10px;
+  }
+
+
+  .rightbar {
+    display: block;
+
+    margin-top: 25px;
+  }
+
+
+  .side-panel {
+    margin-bottom: 10px;
+  }
+
+
+  .wiki-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding:
+      22px
+      15px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .content-wrapper {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .header-icon {
+    display: none;
+  }
+
+  .mechanic-card {
+    gap: 11px;
+  }
+
+}
