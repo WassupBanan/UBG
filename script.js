@@ -1,261 +1,230 @@
-/* ==================================================
-   UBG WEBSITE JAVASCRIPT
-================================================== */
+/* =========================================
+   UBG COMPANION
+   INTERACTION SCRIPT
+========================================= */
 
 
-const intro =
-    document.getElementById("intro");
-
-
-const site =
-    document.getElementById("site");
-
-
-const skip =
-    document.getElementById("skipIntro");
-
-
-const logo =
-    document.querySelector(".intro-logo");
-
-
-const loadingDots =
-    document.getElementById("loadingDots");
-
-
-const soundButton =
-    document.getElementById("soundButton");
-
-
-
-/* ==================================================
+/* =========================================
    INTRO
-================================================== */
+========================================= */
 
+const intro = document.getElementById("intro");
+const skipIntro = document.getElementById("skipIntro");
+const loadingText = document.getElementById("loadingText");
+const loadingDots = document.getElementById("loadingDots");
 
-let finished = false;
+let dots = 0;
 
+const dotInterval = setInterval(() => {
 
-function finishIntro() {
+    dots++;
 
-    if (finished) return;
-
-    finished = true;
-
-
-    intro.style.transition =
-        "opacity .8s ease, transform .8s ease";
-
-
-    intro.style.opacity = "0";
-
-
-    intro.style.transform =
-        "scale(1.04)";
-
-
-    setTimeout(() => {
-
-        intro.remove();
-
-        site.classList.add("visible");
-
-    }, 800);
-
-}
-
-
-
-/* ==================================================
-   LOADING DOTS
-================================================== */
-
-
-let dotCount = 0;
-
-
-setInterval(() => {
-
-    dotCount++;
-
-    if (dotCount > 3) {
-        dotCount = 1;
+    if (dots > 3) {
+        dots = 0;
     }
 
-    loadingDots.textContent =
-        ".".repeat(dotCount);
+    loadingDots.textContent = ".".repeat(dots);
 
 }, 350);
 
 
+function hideIntro() {
 
-/* ==================================================
-   LOGO GLITCH
-================================================== */
+    clearInterval(dotInterval);
 
+    intro.classList.add("hidden");
 
-setTimeout(() => {
-
-    if (finished) return;
-
-
-    logo.style.animation =
-        "glitch .18s linear 4";
-
-
-}, 1700);
-
-
-
-/* ==================================================
-   AUTOMATICALLY FINISH INTRO
-================================================== */
-
-
-setTimeout(() => {
-
-    finishIntro();
-
-}, 3900);
-
-
-
-/* ==================================================
-   SKIP BUTTON
-================================================== */
-
-
-skip.addEventListener(
-    "click",
-    finishIntro
-);
-
-
-
-/* ==================================================
-   ESC KEY
-================================================== */
-
-
-window.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (event.key === "Escape") {
-
-            finishIntro();
-
-        }
-
-    }
-);
-
-
-
-/* ==================================================
-   SOUND
-================================================== */
-
-
-let audioContext = null;
-
-
-function playIntroSound() {
-
-    audioContext =
-        new (
-            window.AudioContext ||
-            window.webkitAudioContext
-        )();
-
-
-    const oscillator =
-        audioContext.createOscillator();
-
-
-    const gain =
-        audioContext.createGain();
-
-
-    oscillator.type = "sine";
-
-
-    oscillator.frequency.setValueAtTime(
-        55,
-        audioContext.currentTime
-    );
-
-
-    oscillator.frequency.exponentialRampToValueAtTime(
-        35,
-        audioContext.currentTime + 1.2
-    );
-
-
-    gain.gain.setValueAtTime(
-        0.0001,
-        audioContext.currentTime
-    );
-
-
-    gain.gain.exponentialRampToValueAtTime(
-        0.08,
-        audioContext.currentTime + 0.03
-    );
-
-
-    gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        audioContext.currentTime + 1.2
-    );
-
-
-    oscillator.connect(gain);
-
-    gain.connect(
-        audioContext.destination
-    );
-
-
-    oscillator.start();
-
-
-    oscillator.stop(
-        audioContext.currentTime + 1.25
-    );
+    setTimeout(() => {
+        intro.style.display = "none";
+    }, 900);
 
 }
 
 
+setTimeout(hideIntro, 3200);
 
-/* ==================================================
-   SOUND BUTTON
-================================================== */
+skipIntro.addEventListener("click", hideIntro);
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+        hideIntro();
+    }
+
+});
 
 
-soundButton.addEventListener(
-    "click",
-    () => {
+/* =========================================
+   RANDOM HUD EFFECT
+========================================= */
 
-        if (!audioContext) {
+const healthBars = document.querySelectorAll(".health-fill");
 
-            playIntroSound();
+setInterval(() => {
 
-            soundButton.innerHTML =
-                "SOUND <span>ON</span>";
+    healthBars.forEach((bar) => {
 
-        }
+        const current = parseFloat(
+            bar.style.width.replace("%", "")
+        );
 
-        else {
+        const change = (Math.random() * 3) - 1.5;
 
-            audioContext.close();
+        let next = current + change;
 
-            audioContext = null;
+        next = Math.max(25, Math.min(100, next));
 
-            soundButton.innerHTML =
-                "SOUND <span>OFF</span>";
+        bar.style.width = `${next}%`;
 
-        }
+    });
 
+}, 1800);
+
+
+/* =========================================
+   ULTIMATE CHARGE
+========================================= */
+
+const ultFill = document.querySelector(".ult-fill");
+const ultPercent = document.querySelector(".ult-percent");
+
+let ultimate = 74;
+
+setInterval(() => {
+
+    ultimate += Math.random() * 0.8;
+
+    if (ultimate >= 100) {
+        ultimate = 0;
+    }
+
+    ultFill.style.width = `${ultimate}%`;
+    ultPercent.textContent = `${Math.floor(ultimate)}%`;
+
+}, 700);
+
+
+/* =========================================
+   SCROLL NAVIGATION
+========================================= */
+
+document.querySelectorAll(".navbar a[href^='#']").forEach(link => {
+
+    link.addEventListener("click", (event) => {
+
+        const target = document.querySelector(
+            link.getAttribute("href")
+        );
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+});
+
+
+/* =========================================
+   STYLE CARD HOVER
+========================================= */
+
+document.querySelectorAll(".style-card").forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.boxShadow =
+            "0 20px 60px rgba(0,0,0,0.45)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.boxShadow = "none";
+
+    });
+
+});
+
+
+/* =========================================
+   INTERSECTION ANIMATION
+========================================= */
+
+const animatedElements = document.querySelectorAll(
+    ".explore-card, .style-card, .mechanic-card, .collection-card, .ranked-panel"
+);
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
     }
 );
+
+
+animatedElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(25px)";
+    element.style.transition =
+        "opacity 0.6s ease, transform 0.6s ease";
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================
+   RANDOM COMBAT FLASH
+========================================= */
+
+const hero = document.querySelector(".hero");
+
+setInterval(() => {
+
+    if (Math.random() > 0.75) {
+
+        hero.animate(
+            [
+                {
+                    transform: "translateX(0)"
+                },
+                {
+                    transform: "translateX(-3px)"
+                },
+                {
+                    transform: "translateX(3px)"
+                },
+                {
+                    transform: "translateX(0)"
+                }
+            ],
+            {
+                duration: 120,
+                iterations: 1
+            }
+        );
+
+    }
+
+}, 2500);
