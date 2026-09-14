@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Styles — UBG Wiki</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="wiki-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-mark">UBG</div>
+
+            <div>
+                <strong>UNTITLED</strong>
+                <span>BOXING GAME</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-heading">NAVIGATION</div>
+
+            <a href="index.html" class="nav-link">
+                <span>⌂</span>
+                Main Page
+            </a>
+
+            <a href="styles.html" class="nav-link active">
+                <span>🥊</span>
+                Styles
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>⚙</span>
+                Mechanics
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>🏆</span>
+                Ranked
+            </a>
+
+            <div class="nav-heading">EXPLORE</div>
+
+            <a href="#" class="nav-link">
+                <span>📖</span>
+                Guides
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>🎒</span>
+                Collection
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>👥</span>
+                Community
+            </a>
+
+            <div class="nav-heading">COLLECTION</div>
+
+            <a href="#" class="nav-link sub">Gloves</a>
+            <a href="#" class="nav-link sub">Emotes</a>
+            <a href="#" class="nav-link sub">Knockdown Animations</a>
+            <a href="#" class="nav-link sub">Maps</a>
+            <a href="#" class="nav-link sub">Ranked Entrances</a>
+            <a href="#" class="nav-link sub">Titles</a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="wiki-status">
+                <span class="status-dot"></span>
+                Fan-made UBG Wiki
+            </div>
+
+            <a
+                class="play-button"
+                href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
+                target="_blank"
+            >
+                PLAY UBG ↗
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-area">
+
+        <header class="topbar">
+
+            <div class="mobile-title">
+                UBG WIKI
+            </div>
+
+            <div class="search-box">
+
+                <span>⌕</span>
+
+                <input
+                    id="styleSearch"
+                    type="text"
+                    placeholder="Search styles..."
+                >
+
+                <kbd>CTRL K</kbd>
+
+            </div>
+
+            <div class="top-actions">
+
+                <button onclick="window.location='index.html'">
+                    MAIN PAGE
+                </button>
+
+                <a
+                    href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
+                    target="_blank"
+                    class="top-play"
+                >
+                    PLAY
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <div class="content-wrapper">
+
+            <div class="article-column styles-column">
+
+                <div class="breadcrumb">
+                    UBG WIKI <span>/</span> STYLES
+                </div>
+
+
+                <section class="article-header">
+
+                    <div>
+
+                        <div class="article-label">
+                            COMBAT SYSTEM
+                        </div>
+
+                        <h1>Styles</h1>
+
+                        <p class="article-intro">
+                            Fighting styles determine how your boxer
+                            attacks, moves and plays.
+                        </p>
+
+                    </div>
+
+                    <div class="style-count">
+                        <strong id="styleCount">32</strong>
+                        <span>STYLES</span>
+                    </div>
+
+                </section>
+
+
+                <!-- FILTERS -->
+                <section class="style-controls">
+
+                    <div class="filter-group">
+
+                        <button
+                            class="filter active"
+                            data-filter="all"
+                        >
+                            ALL
+                        </button>
+
+                        <button
+                            class="filter"
+                            data-filter="Uncommon"
+                        >
+                            UNCOMMON
+                        </button>
+
+                        <button
+                            class="filter"
+                            data-filter="Rare"
+                        >
+                            RARE
+                        </button>
+
+                        <button
+                            class="filter"
+                            data-filter="Mythic"
+                        >
+                            MYTHIC
+                        </button>
+
+                        <button
+                            class="filter"
+                            data-filter="Legendary"
+                        >
+                            LEGENDARY
+                        </button>
+
+                        <button
+                            class="filter"
+                            data-filter="Shiny"
+                        >
+                            SHINY
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <section>
+
+                    <div
+                        id="styleGrid"
+                        class="style-grid"
+                    ></div>
+
+                    <div
+                        id="noResults"
+                        class="no-results"
+                        style="display:none;"
+                    >
+                        <strong>No styles found.</strong>
+                        <span>
+                            Try another search or rarity filter.
+                        </span>
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <aside class="rightbar">
+
+                <div class="info-panel">
+
+                    <div class="panel-title">
+                        RARITIES
+                    </div>
+
+                    <div class="rarity-list">
+
+                        <div>
+                            <span class="rarity-dot uncommon"></span>
+                            Uncommon
+                        </div>
+
+                        <div>
+                            <span class="rarity-dot rare"></span>
+                            Rare
+                        </div>
+
+                        <div>
+                            <span class="rarity-dot mythic"></span>
+                            Mythic
+                        </div>
+
+                        <div>
+                            <span class="rarity-dot legendary"></span>
+                            Legendary
+                        </div>
+
+                        <div>
+                            <span class="rarity-dot shiny"></span>
+                            Shiny
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-panel">
+
+                    <div class="panel-title">
+                        STYLE DATABASE
+                    </div>
+
+                    <p>
+                        Browse the database to view each style's
+                        information, moveset and animations.
+                    </p>
+
+                    <div class="database-stat">
+                        <strong id="databaseCount">32</strong>
+                        <span>DATABASE ENTRIES</span>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <footer class="wiki-footer">
+
+            <div>
+                <strong>UNTITLED BOXING GAME WIKI</strong>
+                <span>Fan-made community project</span>
+            </div>
+
+            <div>
+                UBG © Roblox / drowningsome
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="styles.js"></script>
+
+</body>
+</html>
