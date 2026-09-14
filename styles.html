@@ -20,25 +20,46 @@
 <body data-page="styles">
 
 
+<!-- =====================================================
+     TOPBAR
+===================================================== -->
+
 <header class="topbar">
 
-    <button class="mobile-menu" id="mobileMenu">
+    <button
+        class="mobile-menu"
+        id="mobileMenu"
+        aria-label="Open navigation"
+    >
         ☰
     </button>
 
-    <a href="index.html" class="wiki-brand">
+
+    <a
+        href="index.html"
+        class="wiki-brand"
+    >
 
         <span class="brand-mark">
             UBG
         </span>
 
         <span class="brand-text">
-            <strong>UNTITLED BOXING</strong>
-            <small>FAN WIKI</small>
+
+            <strong>
+                UNTITLED BOXING
+            </strong>
+
+            <small>
+                FAN WIKI
+            </small>
+
         </span>
 
     </a>
 
+
+    <!-- Global search -->
 
     <div class="global-search">
 
@@ -53,7 +74,9 @@
             autocomplete="off"
         >
 
-        <kbd>CTRL K</kbd>
+        <kbd>
+            CTRL K
+        </kbd>
 
         <div
             id="searchResults"
@@ -63,247 +86,391 @@
     </div>
 
 
+    <!-- Play -->
+
     <a
         class="play-button"
         href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
         target="_blank"
         rel="noopener"
     >
-        PLAY UBG <span>↗</span>
+
+        PLAY UBG
+
+        <span>
+            ↗
+        </span>
+
     </a>
 
 </header>
 
 
 
+<!-- =====================================================
+     WIKI LAYOUT
+===================================================== -->
+
 <div class="wiki-layout">
 
 
-<aside class="sidebar" id="sidebar">
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
 
-    <div class="sidebar-section">
-
-        <div class="sidebar-heading">
-            NAVIGATION
-        </div>
-
-        <a href="index.html" class="sidebar-link">
-            <span>⌂</span>
-            Home
-        </a>
-
-        <a href="styles.html" class="sidebar-link active">
-            <span>◈</span>
-            Styles
-        </a>
-
-        <a href="mechanics.html" class="sidebar-link">
-            <span>⚙</span>
-            Mechanics
-        </a>
-
-        <a href="ranked.html" class="sidebar-link">
-            <span>♛</span>
-            Ranked
-        </a>
-
-        <a href="guides.html" class="sidebar-link">
-            <span>▤</span>
-            Guides
-        </a>
-
-        <a href="collection.html" class="sidebar-link">
-            <span>◇</span>
-            Collection
-        </a>
-
-    </div>
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
 
 
-    <div class="sidebar-section">
+        <!-- Navigation -->
 
-        <div class="sidebar-heading">
-            STYLES
-        </div>
+        <div class="sidebar-section">
 
-        <a href="styles.html?rarity=Uncommon" class="sidebar-sub">
-            Uncommon
-        </a>
-
-        <a href="styles.html?rarity=Rare" class="sidebar-sub">
-            Rare
-        </a>
-
-        <a href="styles.html?rarity=Mythic" class="sidebar-sub">
-            Mythic
-        </a>
-
-        <a href="styles.html?rarity=Legendary" class="sidebar-sub">
-            Legendary
-        </a>
-
-        <a href="styles.html?rarity=Shiny" class="sidebar-sub">
-            Shiny
-        </a>
-
-    </div>
-
-</aside>
-
-
-
-<main class="wiki-main">
-
-    <div class="breadcrumb">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <span> / Styles</span>
-
-    </div>
-
-
-    <section class="article-header">
-
-        <div>
-
-            <div class="eyebrow">
-                DATABASE
+            <div class="sidebar-heading">
+                NAVIGATION
             </div>
 
-            <h1>Styles</h1>
 
-            <p>
-                Browse the fighting styles available in
-                Untitled Boxing Game. Filter by rarity,
-                search by name or find a specific ranked style.
-            </p>
+            <a
+                href="index.html"
+                class="sidebar-link"
+            >
+
+                <span>
+                    ⌂
+                </span>
+
+                Home
+
+            </a>
+
+
+            <a
+                href="styles.html"
+                class="sidebar-link active"
+            >
+
+                <span>
+                    ◈
+                </span>
+
+                Styles
+
+            </a>
+
+
+            <a
+                href="mechanics.html"
+                class="sidebar-link"
+            >
+
+                <span>
+                    ⚙
+                </span>
+
+                Mechanics
+
+            </a>
+
+
+            <a
+                href="ranked.html"
+                class="sidebar-link"
+            >
+
+                <span>
+                    ♛
+                </span>
+
+                Ranked
+
+            </a>
+
+
+            <a
+                href="guides.html"
+                class="sidebar-link"
+            >
+
+                <span>
+                    ▤
+                </span>
+
+                Guides
+
+            </a>
+
+
+            <a
+                href="collection.html"
+                class="sidebar-link"
+            >
+
+                <span>
+                    ◇
+                </span>
+
+                Collection
+
+            </a>
 
         </div>
 
-    </section>
 
 
-    <section class="wiki-panel" style="margin-top:26px;">
+        <!-- Style categories -->
 
-        <div class="panel-label">
-            <span></span>
-            STYLE DATABASE
-        </div>
+        <div class="sidebar-section">
+
+            <div class="sidebar-heading">
+                STYLES
+            </div>
 
 
-        <div
-            id="styleControls"
-            style="
-                display:flex;
-                flex-wrap:wrap;
-                gap:8px;
-                margin-bottom:18px;
-            "
-        >
-
-            <button
-                class="wiki-filter active"
-                data-rarity="All"
+            <a
+                href="styles.html?rarity=Uncommon"
+                class="sidebar-sub"
             >
-                ALL
-            </button>
+                Uncommon
+            </a>
 
-            <button
-                class="wiki-filter"
-                data-rarity="Uncommon"
-            >
-                UNCOMMON
-            </button>
 
-            <button
-                class="wiki-filter"
-                data-rarity="Rare"
+            <a
+                href="styles.html?rarity=Rare"
+                class="sidebar-sub"
             >
-                RARE
-            </button>
+                Rare
+            </a>
 
-            <button
-                class="wiki-filter"
-                data-rarity="Mythic"
-            >
-                MYTHIC
-            </button>
 
-            <button
-                class="wiki-filter"
-                data-rarity="Legendary"
+            <a
+                href="styles.html?rarity=Mythic"
+                class="sidebar-sub"
             >
-                LEGENDARY
-            </button>
+                Mythic
+            </a>
 
-            <button
-                class="wiki-filter"
-                data-rarity="Shiny"
+
+            <a
+                href="styles.html?rarity=Legendary"
+                class="sidebar-sub"
             >
-                SHINY
-            </button>
+                Legendary
+            </a>
+
+
+            <a
+                href="styles.html?rarity=Shiny"
+                class="sidebar-sub"
+            >
+                Shiny
+            </a>
 
         </div>
 
-
-        <input
-            id="styleSearch"
-            type="search"
-            placeholder="Search styles..."
-            style="
-                width:100%;
-                padding:12px 13px;
-                background:#0d0d10;
-                border:1px solid #29292f;
-                border-radius:6px;
-                outline:none;
-                color:#f4f4f5;
-                margin-bottom:20px;
-            "
-        >
+    </aside>
 
 
-        <div
-            id="styleCount"
-            style="
-                color:#85858e;
-                font-size:10px;
-                margin-bottom:12px;
-            "
-        ></div>
+
+    <!-- =================================================
+         MAIN
+    ================================================== -->
+
+    <main class="wiki-main">
 
 
-        <div
-            id="styleGrid"
-            class="style-wiki-grid"
-        ></div>
+        <!-- Breadcrumb -->
 
-    </section>
+        <div class="breadcrumb">
 
+            <a href="index.html">
+                Home
+            </a>
 
-    <footer class="wiki-footer">
+            <span>
+                /
+            </span>
 
-        <div>
-            <strong>UBG FAN WIKI</strong>
-            <span>Independent fan project.</span>
+            <span>
+                Styles
+            </span>
+
         </div>
 
-        <div>
-            Untitled Boxing Game is a Roblox experience.
-        </div>
 
-    </footer>
 
-</main>
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <section class="article-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    DATABASE
+                </div>
+
+                <h1>
+                    Styles
+                </h1>
+
+                <p>
+                    Browse the fighting styles available in
+                    Untitled Boxing Game. Filter by rarity,
+                    search by name or find a specific ranked style.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DATABASE
+        ================================================== -->
+
+        <section class="wiki-panel">
+
+
+            <div class="panel-label">
+
+                <span></span>
+
+                STYLE DATABASE
+
+            </div>
+
+
+
+            <!-- Filters -->
+
+            <div id="styleControls">
+
+
+                <button
+                    class="wiki-filter active"
+                    data-rarity="All"
+                >
+                    ALL
+                </button>
+
+
+                <button
+                    class="wiki-filter"
+                    data-rarity="Uncommon"
+                >
+                    UNCOMMON
+                </button>
+
+
+                <button
+                    class="wiki-filter"
+                    data-rarity="Rare"
+                >
+                    RARE
+                </button>
+
+
+                <button
+                    class="wiki-filter"
+                    data-rarity="Mythic"
+                >
+                    MYTHIC
+                </button>
+
+
+                <button
+                    class="wiki-filter"
+                    data-rarity="Legendary"
+                >
+                    LEGENDARY
+                </button>
+
+
+                <button
+                    class="wiki-filter"
+                    data-rarity="Shiny"
+                >
+                    SHINY
+                </button>
+
+            </div>
+
+
+
+            <!-- Search -->
+
+            <input
+                id="styleSearch"
+                type="search"
+                placeholder="Search styles..."
+                autocomplete="off"
+            >
+
+
+
+            <!-- Count -->
+
+            <div id="styleCount"></div>
+
+
+
+            <!-- Cards -->
+
+            <div
+                id="styleGrid"
+                class="style-wiki-grid"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="wiki-footer">
+
+            <div>
+
+                <strong>
+                    UBG FAN WIKI
+                </strong>
+
+                <span>
+                    Independent fan project.
+                </span>
+
+            </div>
+
+
+            <div>
+                Untitled Boxing Game is a Roblox experience.
+            </div>
+
+        </footer>
+
+
+    </main>
 
 </div>
 
 
+
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
 <script src="script.js"></script>
+
 <script src="styles.js"></script>
+
 
 </body>
 </html>
