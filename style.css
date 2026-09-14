@@ -4503,3 +4503,374 @@ body[data-page="guides"] .movement-drill p {
     }
 
 }
+/* =========================================
+   COUNTERING GUIDE
+========================================= */
+
+body[data-page="guides"] .counter-loop {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+body[data-page="guides"] .counter-loop-step {
+    flex: 1;
+    padding: 22px 18px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .counter-loop-step:hover {
+    transform: translateY(-2px);
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .counter-loop-number {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 13px;
+
+    background: #08090b;
+    border: 1px solid var(--border);
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .counter-loop-step > span {
+    color: var(--red-light);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .14em;
+}
+
+body[data-page="guides"] .counter-loop-step h3 {
+    margin: 6px 0;
+
+    color: white;
+    font-size: 15px;
+}
+
+body[data-page="guides"] .counter-loop-step p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+body[data-page="guides"] .counter-loop-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--red);
+    font-size: 18px;
+}
+
+
+/* BAITING */
+
+body[data-page="guides"] .bait-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+body[data-page="guides"] .bait-card {
+    padding: 20px;
+
+    background: #0d0f12;
+    border: 1px solid var(--border);
+
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+body[data-page="guides"] .bait-card:hover {
+    transform: translateY(-2px);
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .bait-card > span {
+    color: var(--red-light);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .14em;
+}
+
+body[data-page="guides"] .bait-card h3 {
+    margin: 7px 0 6px;
+
+    color: white;
+    font-size: 14px;
+}
+
+body[data-page="guides"] .bait-card p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* PATTERNS */
+
+body[data-page="guides"] .pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .pattern-card {
+    padding: 19px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .pattern-card:hover {
+    transform: translateY(-2px);
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .pattern-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+    background: #08090b;
+    border: 1px solid var(--border);
+
+    color: var(--red-light);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .pattern-card h3 {
+    margin: 0 0 6px;
+
+    color: white;
+    font-size: 13px;
+}
+
+body[data-page="guides"] .pattern-card p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* ADAPTATION CHAIN */
+
+body[data-page="guides"] .adaptation-chain {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 24px;
+    padding: 17px;
+
+    overflow-x: auto;
+
+    background: #08090b;
+    border: 1px solid var(--border);
+}
+
+body[data-page="guides"] .adaptation-chain > div:not(.adaptation-arrow) {
+    min-width: 105px;
+
+    text-align: center;
+}
+
+body[data-page="guides"] .adaptation-chain span {
+    display: block;
+    margin-bottom: 6px;
+
+    color: var(--red-light);
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: .13em;
+}
+
+body[data-page="guides"] .adaptation-chain strong {
+    color: white;
+    font-size: 10px;
+}
+
+body[data-page="guides"] .adaptation-arrow {
+    color: var(--red);
+    font-size: 16px;
+}
+
+
+/* COUNTER MISTAKES */
+
+body[data-page="guides"] .counter-mistakes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .counter-mistake {
+    display: flex;
+    gap: 16px;
+
+    padding: 18px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--red-dark);
+
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .counter-mistake:hover {
+    background: var(--panel-light);
+    border-left-color: var(--red);
+}
+
+body[data-page="guides"] .counter-mistake > span {
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .counter-mistake h3 {
+    margin: 0 0 5px;
+
+    color: white;
+    font-size: 13px;
+}
+
+body[data-page="guides"] .counter-mistake p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* TRAINING */
+
+body[data-page="guides"] .counter-training {
+    display: flex;
+    flex-direction: column;
+}
+
+body[data-page="guides"] .counter-training-row {
+    display: flex;
+    gap: 20px;
+
+    padding: 18px 5px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+body[data-page="guides"] .counter-training-row:last-child {
+    border-bottom: none;
+}
+
+body[data-page="guides"] .counter-training-row > span {
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .counter-training-row strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: white;
+    font-size: 12px;
+}
+
+body[data-page="guides"] .counter-training-row p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    body[data-page="guides"] .counter-loop {
+        flex-direction: column;
+    }
+
+    body[data-page="guides"] .counter-loop-arrow {
+        transform: rotate(90deg);
+    }
+
+    body[data-page="guides"] .pattern-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-page="guides"] .counter-mistakes {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    body[data-page="guides"] .bait-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .pattern-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .counter-loop-step {
+        padding: 18px;
+    }
+
+    body[data-page="guides"] .counter-mistake {
+        padding: 16px;
+    }
+
+}
