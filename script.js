@@ -1,231 +1,261 @@
-/* =========================================================
-   UBG FAN WIKI
-   Global JavaScript
-   ========================================================= */
+/* ==================================================
+   UBG WEBSITE JAVASCRIPT
+================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* -----------------------------------------------------
-       MOBILE SIDEBAR
-    ----------------------------------------------------- */
+const intro =
+    document.getElementById("intro");
 
-    const mobileMenu = document.getElementById("mobileMenu");
-    const sidebar = document.getElementById("sidebar");
 
-    if (mobileMenu && sidebar) {
+const site =
+    document.getElementById("site");
 
-        mobileMenu.addEventListener("click", () => {
-            sidebar.classList.toggle("open");
-        });
 
-        document.addEventListener("click", (event) => {
+const skip =
+    document.getElementById("skipIntro");
 
-            if (
-                window.innerWidth <= 650 &&
-                sidebar.classList.contains("open") &&
-                !sidebar.contains(event.target) &&
-                !mobileMenu.contains(event.target)
-            ) {
-                sidebar.classList.remove("open");
-            }
 
-        });
+const logo =
+    document.querySelector(".intro-logo");
+
+
+const loadingDots =
+    document.getElementById("loadingDots");
+
+
+const soundButton =
+    document.getElementById("soundButton");
+
+
+
+/* ==================================================
+   INTRO
+================================================== */
+
+
+let finished = false;
+
+
+function finishIntro() {
+
+    if (finished) return;
+
+    finished = true;
+
+
+    intro.style.transition =
+        "opacity .8s ease, transform .8s ease";
+
+
+    intro.style.opacity = "0";
+
+
+    intro.style.transform =
+        "scale(1.04)";
+
+
+    setTimeout(() => {
+
+        intro.remove();
+
+        site.classList.add("visible");
+
+    }, 800);
+
+}
+
+
+
+/* ==================================================
+   LOADING DOTS
+================================================== */
+
+
+let dotCount = 0;
+
+
+setInterval(() => {
+
+    dotCount++;
+
+    if (dotCount > 3) {
+        dotCount = 1;
     }
 
+    loadingDots.textContent =
+        ".".repeat(dotCount);
 
-    /* -----------------------------------------------------
-       GLOBAL SEARCH
-    ----------------------------------------------------- */
-
-    const searchInput = document.getElementById("globalSearch");
-    const searchResults = document.getElementById("searchResults");
-
-    if (searchInput && searchResults) {
-
-        searchInput.addEventListener("input", () => {
-
-            const query = searchInput.value
-                .trim()
-                .toLowerCase();
-
-            if (!query) {
-                searchResults.classList.remove("show");
-                searchResults.innerHTML = "";
-                return;
-            }
-
-            /*
-             * styles.js exposes the style database as
-             * window.UBG_STYLES.
-             */
-
-            const database = window.UBG_STYLES || [];
-
-            const results = database
-                .filter(style => {
-
-                    const name =
-                        style.name?.toLowerCase() || "";
-
-                    const ranked =
-                        style.ranked?.toLowerCase() || "";
-
-                    const rarity =
-                        style.rarity?.toLowerCase() || "";
-
-                    return (
-                        name.includes(query) ||
-                        ranked.includes(query) ||
-                        rarity.includes(query)
-                    );
-                })
-                .slice(0, 7);
+}, 350);
 
 
-            if (!results.length) {
 
-                searchResults.innerHTML = `
-                    <div style="
-                        padding:12px;
-                        color:#85858e;
-                        font-size:11px;
-                    ">
-                        No results found.
-                    </div>
-                `;
-
-                searchResults.classList.add("show");
-
-                return;
-            }
+/* ==================================================
+   LOGO GLITCH
+================================================== */
 
 
-            searchResults.innerHTML = results
-                .map(style => {
+setTimeout(() => {
 
-                    const image =
-                        style.animation
-                            ? `assets/styles/${style.animation}`
-                            : "";
-
-                    return `
-                        <a
-                            class="search-result"
-                            href="style.html?style=${encodeURIComponent(style.name)}"
-                        >
-
-                            <div class="search-result-image">
-                                ${
-                                    image
-                                        ? `<img src="${image}" alt="">`
-                                        : ""
-                                }
-                            </div>
-
-                            <div class="search-result-info">
-
-                                <strong>
-                                    ${style.name}
-                                </strong>
-
-                                <span>
-                                    ${style.rarity}
-                                    ${
-                                        style.ranked
-                                            ? ` · ${style.ranked}`
-                                            : ""
-                                    }
-                                </span>
-
-                            </div>
-
-                        </a>
-                    `;
-                })
-                .join("");
-
-            searchResults.classList.add("show");
-        });
+    if (finished) return;
 
 
-        document.addEventListener("click", event => {
-
-            if (!searchInput.contains(event.target) &&
-                !searchResults.contains(event.target)) {
-
-                searchResults.classList.remove("show");
-
-            }
-
-        });
+    logo.style.animation =
+        "glitch .18s linear 4";
 
 
-        /* CTRL + K */
+}, 1700);
 
-        document.addEventListener("keydown", event => {
 
-            if (
-                (event.ctrlKey || event.metaKey) &&
-                event.key.toLowerCase() === "k"
-            ) {
 
-                event.preventDefault();
+/* ==================================================
+   AUTOMATICALLY FINISH INTRO
+================================================== */
 
-                searchInput.focus();
 
-            }
+setTimeout(() => {
 
-        });
+    finishIntro();
+
+}, 3900);
+
+
+
+/* ==================================================
+   SKIP BUTTON
+================================================== */
+
+
+skip.addEventListener(
+    "click",
+    finishIntro
+);
+
+
+
+/* ==================================================
+   ESC KEY
+================================================== */
+
+
+window.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key === "Escape") {
+
+            finishIntro();
+
+        }
 
     }
+);
 
 
-    /* -----------------------------------------------------
-       ACTIVE SIDEBAR LINK
-    ----------------------------------------------------- */
 
-    const currentPage =
-        document.body.dataset.page;
+/* ==================================================
+   SOUND
+================================================== */
 
-    document
-        .querySelectorAll(".sidebar-link")
-        .forEach(link => {
 
-            const href =
-                link.getAttribute("href");
+let audioContext = null;
 
-            if (!href) return;
 
-            const page =
-                href.split("/").pop();
+function playIntroSound() {
 
-            const current =
-                window.location.pathname
-                    .split("/")
-                    .pop() || "index.html";
+    audioContext =
+        new (
+            window.AudioContext ||
+            window.webkitAudioContext
+        )();
 
-            if (
-                (currentPage === "home" &&
-                    page === "index.html") ||
 
-                (currentPage === "styles" &&
-                    page === "styles.html") ||
+    const oscillator =
+        audioContext.createOscillator();
 
-                (currentPage === "mechanics" &&
-                    page === "mechanics.html") ||
 
-                (currentPage === "ranked" &&
-                    page === "ranked.html") ||
+    const gain =
+        audioContext.createGain();
 
-                (currentPage === "guides" &&
-                    page === "guides.html") ||
 
-                (currentPage === "collection" &&
-                    page === "collection.html")
-            ) {
-                link.classList.add("active");
-            }
+    oscillator.type = "sine";
 
-        });
 
-});
+    oscillator.frequency.setValueAtTime(
+        55,
+        audioContext.currentTime
+    );
+
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+        35,
+        audioContext.currentTime + 1.2
+    );
+
+
+    gain.gain.setValueAtTime(
+        0.0001,
+        audioContext.currentTime
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.08,
+        audioContext.currentTime + 0.03
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        audioContext.currentTime + 1.2
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(
+        audioContext.destination
+    );
+
+
+    oscillator.start();
+
+
+    oscillator.stop(
+        audioContext.currentTime + 1.25
+    );
+
+}
+
+
+
+/* ==================================================
+   SOUND BUTTON
+================================================== */
+
+
+soundButton.addEventListener(
+    "click",
+    () => {
+
+        if (!audioContext) {
+
+            playIntroSound();
+
+            soundButton.innerHTML =
+                "SOUND <span>ON</span>";
+
+        }
+
+        else {
+
+            audioContext.close();
+
+            audioContext = null;
+
+            soundButton.innerHTML =
+                "SOUND <span>OFF</span>";
+
+        }
+
+    }
+);
