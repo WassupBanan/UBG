@@ -1404,3 +1404,242 @@ img {
         height: 55px;
     }
 }
+/* =========================================================
+   STYLE DATABASE
+   ========================================================= */
+
+.wiki-filter {
+    padding: 8px 11px;
+
+    background: #101014;
+
+    border: 1px solid var(--border);
+
+    border-radius: 5px;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+
+    transition: var(--transition);
+}
+
+.wiki-filter:hover {
+    border-color: #4a4a52;
+
+    color: white;
+}
+
+.wiki-filter.active {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: white;
+
+    box-shadow:
+        0 5px 18px rgba(225, 43, 56, 0.16);
+}
+
+
+.style-wiki-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(210px, 1fr));
+
+    gap: 10px;
+}
+
+
+.style-wiki-card {
+    display: block;
+
+    overflow: hidden;
+
+    background: #111114;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.style-wiki-card:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(225, 43, 56, 0.55);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.28),
+        0 0 22px rgba(225, 43, 56, 0.05);
+}
+
+
+.style-wiki-image {
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(225, 43, 56, 0.08),
+            transparent 65%
+        ),
+        #0b0b0e;
+
+    border-bottom: 1px solid var(--border);
+
+    overflow: hidden;
+}
+
+.style-wiki-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.style-wiki-info {
+    padding: 13px;
+}
+
+
+.style-wiki-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.style-wiki-name {
+    margin-top: 7px;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+.style-wiki-ranked {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+.style-wiki-description {
+    margin-top: 10px;
+
+    min-height: 34px;
+
+    color: #85858e;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* rarity badges */
+
+.rarity-uncommon {
+    color: #65d59a;
+
+    background: rgba(85, 201, 138, 0.1);
+
+    border: 1px solid rgba(85, 201, 138, 0.2);
+}
+
+.rarity-rare {
+    color: #66adff;
+
+    background: rgba(92, 168, 255, 0.1);
+
+    border: 1px solid rgba(92, 168, 255, 0.2);
+}
+
+.rarity-mythic {
+    color: #c084ff;
+
+    background: rgba(182, 124, 255, 0.1);
+
+    border: 1px solid rgba(182, 124, 255, 0.2);
+}
+
+.rarity-legendary {
+    color: #ff5964;
+
+    background: rgba(225, 43, 56, 0.1);
+
+    border: 1px solid rgba(225, 43, 56, 0.22);
+}
+
+.rarity-shiny {
+    color: #ffe47a;
+
+    background: rgba(240, 185, 77, 0.1);
+
+    border: 1px solid rgba(240, 185, 77, 0.22);
+}
+
+
+.wip-tag {
+    padding: 3px 5px;
+
+    color: #ffb45b;
+
+    background: rgba(255, 180, 91, 0.08);
+
+    border: 1px solid rgba(255, 180, 91, 0.2);
+
+    border-radius: 3px;
+
+    font-size: 7px;
+    font-weight: 900;
+}
+
+
+/* mobile */
+
+@media (max-width: 600px) {
+
+    .style-wiki-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .style-wiki-image {
+        height: 130px;
+    }
+
+}
+
+
+@media (max-width: 390px) {
+
+    .style-wiki-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
