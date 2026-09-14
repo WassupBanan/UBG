@@ -1,8 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -10,312 +12,496 @@
 
     <title>Style — UBG Wiki</title>
 
+    <meta
+        name="description"
+        content="Fighting style information for Untitled Boxing Game."
+    >
+
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
 
-<div class="wiki-shell">
+<body data-page="style">
 
-    <!-- =================================================
-         SIDEBAR
-         ================================================= -->
+    <!-- =====================================================
+         TOP BAR
+         ===================================================== -->
 
-    <aside class="sidebar">
+    <header class="topbar">
 
-        <div class="sidebar-brand">
+        <button
+            class="mobile-menu"
+            id="mobileMenu"
+            aria-label="Open navigation"
+        >
+            ☰
+        </button>
 
-            <div class="brand-mark">
+
+        <a
+            href="index.html"
+            class="wiki-brand"
+        >
+
+            <span class="brand-mark">
                 UBG
-            </div>
+            </span>
 
-            <div class="brand-text">
-                <strong>UNTITLED</strong>
-                <span>BOXING GAME WIKI</span>
-            </div>
+            <span class="brand-text">
 
-        </div>
-
-
-        <nav class="sidebar-navigation">
-
-            <div class="sidebar-heading">
-                NAVIGATION
-            </div>
-
-            <a href="index.html" class="sidebar-link">
-                <span>⌂</span>
-                Main Page
-            </a>
-
-            <a href="styles.html" class="sidebar-link active">
-                <span>🥊</span>
-                Styles
-            </a>
-
-            <a href="#" class="sidebar-link">
-                <span>⚙</span>
-                Mechanics
-            </a>
-
-            <a href="#" class="sidebar-link">
-                <span>🏆</span>
-                Ranked
-            </a>
-
-
-            <div class="sidebar-heading">
-                EXPLORE
-            </div>
-
-            <a href="#" class="sidebar-link">
-                <span>📖</span>
-                Guides
-            </a>
-
-            <a href="#" class="sidebar-link">
-                <span>🎒</span>
-                Collection
-            </a>
-
-            <a href="#" class="sidebar-link">
-                <span>👥</span>
-                Community
-            </a>
-
-        </nav>
-
-
-        <div class="sidebar-footer">
-
-            <div class="wiki-status">
-                <span></span>
-                Fan-made UBG Wiki
-            </div>
-
-            <a
-                href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="play-button"
-            >
-                PLAY UBG
-                <span>↗</span>
-            </a>
-
-        </div>
-
-    </aside>
-
-
-
-    <!-- =================================================
-         MAIN
-         ================================================= -->
-
-    <main class="main-content">
-
-        <!-- TOP BAR -->
-
-        <header class="topbar">
-
-            <div class="topbar-title">
-                UBG WIKI
-            </div>
-
-
-            <div class="global-search">
-
-                <span>⌕</span>
-
-                <input
-                    id="globalSearch"
-                    type="text"
-                    placeholder="Search the UBG Wiki..."
-                >
-
-                <kbd>CTRL K</kbd>
-
-            </div>
-
-
-            <div class="topbar-actions">
-
-                <a href="styles.html">
-                    ALL STYLES
-                </a>
-
-                <a
-                    href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="top-play"
-                >
-                    PLAY
-                </a>
-
-            </div>
-
-        </header>
-
-
-
-        <!-- ARTICLE -->
-
-        <div class="article-container">
-
-            <article
-                id="styleArticle"
-                class="style-article"
-            >
-
-                <div class="loading-state">
-                    Loading style...
-                </div>
-
-            </article>
-
-
-            <!-- RIGHT SIDEBAR -->
-
-            <aside class="article-sidebar">
-
-                <div
-                    id="styleInfobox"
-                    class="infobox-container"
-                >
-                </div>
-
-
-                <div class="side-panel">
-
-                    <div class="side-panel-title">
-                        CONTENTS
-                    </div>
-
-                    <a href="#overview">
-                        <span>01</span>
-                        Overview
-                    </a>
-
-                    <a href="#stats">
-                        <span>02</span>
-                        General stats
-                    </a>
-
-                    <a href="#passive">
-                        <span>03</span>
-                        Passive
-                    </a>
-
-                    <a href="#ability">
-                        <span>04</span>
-                        Ability
-                    </a>
-
-                    <a href="#ultimate">
-                        <span>05</span>
-                        Ultimate
-                    </a>
-
-                    <a href="#moveset">
-                        <span>06</span>
-                        Moveset
-                    </a>
-
-                    <a href="#strategy">
-                        <span>07</span>
-                        Strategy
-                    </a>
-
-                    <a href="#gallery">
-                        <span>08</span>
-                        Gallery
-                    </a>
-
-                </div>
-
-
-                <div class="side-panel">
-
-                    <div class="side-panel-title">
-                        STYLE NAVIGATION
-                    </div>
-
-                    <a href="styles.html">
-                        <span>←</span>
-                        All Styles
-                    </a>
-
-                    <a href="styles.html">
-                        <span>🥊</span>
-                        Style List
-                    </a>
-
-                </div>
-
-            </aside>
-
-        </div>
-
-
-
-        <!-- FOOTER -->
-
-        <footer class="wiki-footer">
-
-            <div>
                 <strong>
-                    UNTITLED BOXING GAME WIKI
+                    UNTITLED BOXING
                 </strong>
 
+                <small>
+                    FAN WIKI
+                </small>
+
+            </span>
+
+        </a>
+
+
+        <!-- GLOBAL SEARCH -->
+
+        <div class="global-search">
+
+            <span class="search-icon">
+                ⌕
+            </span>
+
+            <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search the UBG Wiki..."
+                autocomplete="off"
+            >
+
+            <kbd>
+                CTRL K
+            </kbd>
+
+            <div
+                id="searchResults"
+                class="search-results"
+            ></div>
+
+        </div>
+
+
+        <!-- PLAY -->
+
+        <a
+            class="play-button"
+            href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            PLAY UBG
+            <span>↗</span>
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PAGE LAYOUT
+         ===================================================== -->
+
+    <div class="wiki-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+            <!-- NAVIGATION -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-heading">
+                    NAVIGATION
+                </div>
+
+
+                <a
+                    href="index.html"
+                    class="sidebar-link"
+                >
+                    <span>⌂</span>
+                    Home
+                </a>
+
+
+                <a
+                    href="styles.html"
+                    class="sidebar-link active"
+                >
+                    <span>◈</span>
+                    Styles
+                </a>
+
+
+                <a
+                    href="mechanics.html"
+                    class="sidebar-link"
+                >
+                    <span>⚙</span>
+                    Mechanics
+                </a>
+
+
+                <a
+                    href="ranked.html"
+                    class="sidebar-link"
+                >
+                    <span>♛</span>
+                    Ranked
+                </a>
+
+
+                <a
+                    href="guides.html"
+                    class="sidebar-link"
+                >
+                    <span>▤</span>
+                    Guides
+                </a>
+
+
+                <a
+                    href="collection.html"
+                    class="sidebar-link"
+                >
+                    <span>◇</span>
+                    Collection
+                </a>
+
+            </div>
+
+
+
+            <!-- STYLE CATEGORIES -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-heading">
+                    STYLES
+                </div>
+
+
+                <a
+                    href="styles.html?rarity=Uncommon"
+                    class="sidebar-sub"
+                >
+                    Uncommon
+                </a>
+
+
+                <a
+                    href="styles.html?rarity=Rare"
+                    class="sidebar-sub"
+                >
+                    Rare
+                </a>
+
+
+                <a
+                    href="styles.html?rarity=Mythic"
+                    class="sidebar-sub"
+                >
+                    Mythic
+                </a>
+
+
+                <a
+                    href="styles.html?rarity=Legendary"
+                    class="sidebar-sub"
+                >
+                    Legendary
+                </a>
+
+
+                <a
+                    href="styles.html?rarity=Shiny"
+                    class="sidebar-sub"
+                >
+                    Shiny
+                </a>
+
+            </div>
+
+
+
+            <!-- COMMUNITY -->
+
+            <div class="sidebar-section">
+
+                <div class="sidebar-heading">
+                    COMMUNITY
+                </div>
+
+
+                <a
+                    href="#"
+                    class="sidebar-link"
+                >
+                    <span>◉</span>
+                    Community
+                </a>
+
+
+                <a
+                    href="#"
+                    class="sidebar-link"
+                >
+                    <span>?</span>
+                    Help
+                </a>
+
+            </div>
+
+
+
+            <!-- SIDEBAR FOOTER -->
+
+            <div class="sidebar-bottom">
+
+                <div class="sidebar-note">
+
+                    <span class="red-dot"></span>
+
+                    Fan-made project
+
+                </div>
+
+
+                <div class="sidebar-version">
+
+                    UBG Wiki Redesign
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+
+        <main class="wiki-main">
+
+
+            <!-- BREADCRUMB -->
+
+            <div class="breadcrumb">
+
+                <a href="index.html">
+                    Home
+                </a>
+
                 <span>
-                    Fan-made community project
+                    /
                 </span>
+
+                <a href="styles.html">
+                    Styles
+                </a>
+
+                <span>
+                    /
+                </span>
+
+                <span>
+                    Style
+                </span>
+
             </div>
 
-            <div>
-                UBG © Roblox / drowningsome
+
+
+            <!-- =================================================
+                 ARTICLE + RIGHT SIDEBAR
+                 ================================================= -->
+
+            <div class="article-container">
+
+
+                <!-- =============================================
+                     STYLE ARTICLE
+                     ============================================= -->
+
+                <article
+                    id="styleArticle"
+                    class="style-article"
+                >
+
+                    <div class="loading-state">
+
+                        Loading style...
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =============================================
+                     ARTICLE SIDEBAR
+                     ============================================= -->
+
+                <aside class="article-sidebar">
+
+
+                    <!-- INFOBOX -->
+
+                    <div
+                        id="styleInfobox"
+                        class="infobox-container"
+                    >
+                    </div>
+
+
+
+                    <!-- CONTENTS -->
+
+                    <div class="side-panel">
+
+                        <div class="side-panel-title">
+                            CONTENTS
+                        </div>
+
+
+                        <a href="#overview">
+                            <span>01</span>
+                            Overview
+                        </a>
+
+
+                        <a href="#stats">
+                            <span>02</span>
+                            General stats
+                        </a>
+
+
+                        <a href="#passive">
+                            <span>03</span>
+                            Passive
+                        </a>
+
+
+                        <a href="#ability">
+                            <span>04</span>
+                            Ability
+                        </a>
+
+
+                        <a href="#ultimate">
+                            <span>05</span>
+                            Ultimate
+                        </a>
+
+
+                        <a href="#moveset">
+                            <span>06</span>
+                            Moveset
+                        </a>
+
+
+                        <a href="#strategy">
+                            <span>07</span>
+                            Strategy
+                        </a>
+
+
+                        <a href="#gallery">
+                            <span>08</span>
+                            Gallery
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- STYLE NAVIGATION -->
+
+                    <div class="side-panel">
+
+                        <div class="side-panel-title">
+                            STYLE NAVIGATION
+                        </div>
+
+
+                        <a href="styles.html">
+                            <span>←</span>
+                            All Styles
+                        </a>
+
+
+                        <a href="styles.html">
+                            <span>◈</span>
+                            Style List
+                        </a>
+
+                    </div>
+
+                </aside>
+
             </div>
 
-        </footer>
-
-    </main>
-
-</div>
 
 
-<script src="styles.js"></script>
+            <!-- =================================================
+                 FOOTER
+                 ================================================= -->
+
+            <footer class="wiki-footer">
+
+                <div>
+
+                    <strong>
+                        UBG FAN WIKI
+                    </strong>
+
+                    <span>
+                        Independent fan project.
+                    </span>
+
+                </div>
 
 
-<script>
+                <div>
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+                    Untitled Boxing Game is a Roblox experience.
 
-        if (
-            (event.ctrlKey || event.metaKey) &&
-            event.key.toLowerCase() === "k"
-        ) {
+                </div>
 
-            event.preventDefault();
+            </footer>
 
-            const search =
-                document.getElementById(
-                    "globalSearch"
-                );
+        </main>
 
-            if (search) {
-                search.focus();
-            }
+    </div>
 
-        }
 
-    }
-);
 
-</script>
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
+
+    <script src="styles.js"></script>
 
 </body>
+
 </html>
+```
