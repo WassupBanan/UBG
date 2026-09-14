@@ -3819,3 +3819,334 @@ body[data-page="guides"] .guide-back a:hover {
     }
 
 }
+/* =========================================
+   COMBAT FUNDAMENTALS GUIDE
+========================================= */
+
+body[data-page="guides"] .guide-large-text {
+    color: white !important;
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+}
+
+body[data-page="guides"] .combat-principles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .combat-principle {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .combat-principle:hover {
+    transform: translateY(-2px);
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .principle-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #08090b;
+    border: 1px solid var(--border);
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .combat-principle h3 {
+    margin: 0 0 6px;
+    color: white;
+    font-size: 13px;
+}
+
+body[data-page="guides"] .combat-principle p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* DEFENCE */
+
+body[data-page="guides"] .defence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+body[data-page="guides"] .defence-card {
+    padding: 20px;
+
+    background: #0d0f12;
+    border: 1px solid var(--border);
+
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .defence-card:hover {
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .defence-card > span {
+    color: var(--red-light);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .15em;
+}
+
+body[data-page="guides"] .defence-card h3 {
+    margin: 7px 0 6px;
+    color: white;
+    font-size: 14px;
+}
+
+body[data-page="guides"] .defence-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* PUNISH FLOW */
+
+body[data-page="guides"] .punish-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+body[data-page="guides"] .punish-step {
+    flex: 1;
+
+    padding: 20px 16px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+body[data-page="guides"] .punish-step > span {
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .punish-step h3 {
+    margin: 0 0 6px;
+    color: white;
+    font-size: 14px;
+}
+
+body[data-page="guides"] .punish-step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+body[data-page="guides"] .punish-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--red);
+}
+
+
+/* ADAPTATION */
+
+body[data-page="guides"] .adapt-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .adapt-card {
+    position: relative;
+
+    padding: 21px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .adapt-card:hover {
+    transform: translateY(-2px);
+    background: var(--panel-light);
+    border-color: var(--border-red);
+}
+
+body[data-page="guides"] .adapt-card::after {
+    content: "";
+
+    position: absolute;
+    right: -40px;
+    bottom: -50px;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(226,29,47,.09),
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+body[data-page="guides"] .adapt-label {
+    color: var(--red-light);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .14em;
+}
+
+body[data-page="guides"] .adapt-card h3 {
+    margin: 7px 0 6px;
+    color: white;
+    font-size: 15px;
+}
+
+body[data-page="guides"] .adapt-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* TRAINING LIST */
+
+body[data-page="guides"] .training-list {
+    display: flex;
+    flex-direction: column;
+}
+
+body[data-page="guides"] .training-item {
+    display: flex;
+    gap: 20px;
+
+    padding: 18px 5px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+body[data-page="guides"] .training-item:last-child {
+    border-bottom: none;
+}
+
+body[data-page="guides"] .training-item > span {
+    flex-shrink: 0;
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+}
+
+body[data-page="guides"] .training-item strong {
+    display: block;
+    margin-bottom: 5px;
+
+    color: white;
+    font-size: 12px;
+}
+
+body[data-page="guides"] .training-item p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    body[data-page="guides"] .combat-principles {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .defence-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .punish-flow {
+        flex-direction: column;
+    }
+
+    body[data-page="guides"] .punish-line {
+        transform: rotate(90deg);
+    }
+
+    body[data-page="guides"] .adapt-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    body[data-page="guides"] .combat-principle {
+        padding: 16px;
+    }
+
+    body[data-page="guides"] .principle-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    body[data-page="guides"] .defence-card {
+        padding: 17px;
+    }
+
+    body[data-page="guides"] .training-item {
+        gap: 13px;
+    }
+
+}
