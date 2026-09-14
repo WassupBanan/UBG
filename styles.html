@@ -4,86 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Styles — UBG Companion</title>
+    <title>Styles | Untitled Boxing Game</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="styles-page">
 
-    <!-- NAVIGATION -->
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <span>UNTITLED</span>
+            <strong>BOXING GAME</strong>
+        </div>
 
-    <header class="navbar">
-
-        <a href="index.html" class="logo">
-            <span>UBG</span>
-            <small>COMPANION</small>
-        </a>
-
-        <nav>
+        <div class="nav-links">
             <a href="index.html">HOME</a>
             <a href="styles.html" class="active">STYLES</a>
-            <a href="mechanics.html">MECHANICS</a>
-            <a href="ranked.html">RANKED</a>
-            <a href="guides.html">GUIDES</a>
-            <a href="#collection">COLLECTION</a>
-            <a href="#community">COMMUNITY</a>
-        </nav>
+            <a href="#">MECHANICS</a>
+            <a href="#">RANKED</a>
+            <a href="#">GUIDES</a>
+            <a href="#">COLLECTION</a>
+            <a href="#">COMMUNITY</a>
+        </div>
 
         <a
+            class="play-button"
             href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
             target="_blank"
-            class="play-button"
         >
             PLAY UBG
         </a>
+    </nav>
 
-    </header>
 
-
+    <!-- HEADER -->
     <main>
 
-        <!-- HEADER -->
+        <section class="styles-header">
 
-        <section class="database-header">
-
-            <div class="database-header-content">
-
-                <span class="section-label">FIGHTING STYLES</span>
-
-                <h1>
-                    FIND YOUR
-                    <strong>STYLE.</strong>
-                </h1>
-
-                <p>
-                    Explore the fighting styles of Untitled Boxing Game,
-                    from basic fundamentals to the rarest styles in the game.
-                </p>
-
-                <div class="style-count">
-                    <strong>32</strong>
-                    <span>OBTAINABLE STYLES</span>
-                </div>
-
+            <div class="section-label">
+                FIGHTING STYLES
             </div>
+
+            <h1>
+                CHOOSE YOUR
+                <span>STYLE.</span>
+            </h1>
+
+            <p>
+                Every fighting style in Untitled Boxing Game,
+                from basic fundamentals to the rarest Shiny styles.
+            </p>
 
         </section>
 
 
-        <!-- RARITY INFORMATION -->
-
+        <!-- RARITY WARNING -->
         <section class="rarity-warning">
 
             <div class="warning-icon">!</div>
 
             <div>
-                <strong>RARITY DOES NOT DETERMINE POWER.</strong>
+                <strong>RARITY DOES NOT DETERMINE POWER</strong>
 
                 <p>
-                    Every style is viable. Higher rarity styles tend to have
-                    more specialized mechanics, but rarity alone does not
-                    determine how strong a style is.
+                    Every style is viable. Higher rarity styles tend
+                    to have more specialized mechanics.
                 </p>
             </div>
 
@@ -91,34 +78,33 @@
 
 
         <!-- FILTERS -->
+        <section class="style-browser">
 
-        <section class="styles-database">
-
-            <div class="database-toolbar">
+            <div class="style-toolbar">
 
                 <div class="rarity-filters">
 
-                    <button class="filter active" data-filter="all">
+                    <button class="rarity-filter active" data-rarity="all">
                         ALL
                     </button>
 
-                    <button class="filter" data-filter="uncommon">
+                    <button class="rarity-filter" data-rarity="Uncommon">
                         UNCOMMON
                     </button>
 
-                    <button class="filter" data-filter="rare">
+                    <button class="rarity-filter" data-rarity="Rare">
                         RARE
                     </button>
 
-                    <button class="filter" data-filter="mythic">
+                    <button class="rarity-filter" data-rarity="Mythic">
                         MYTHIC
                     </button>
 
-                    <button class="filter" data-filter="legendary">
+                    <button class="rarity-filter" data-rarity="Legendary">
                         LEGENDARY
                     </button>
 
-                    <button class="filter" data-filter="shiny">
+                    <button class="rarity-filter" data-rarity="Shiny">
                         SHINY
                     </button>
 
@@ -139,16 +125,23 @@
             </div>
 
 
-            <div id="styleGrid" class="style-database-grid">
-                <!-- JavaScript generates styles here -->
+            <!-- STYLE COUNT -->
+            <div class="style-count">
+                SHOWING <span id="styleCount">32</span> STYLES
             </div>
 
-            <div id="noResults" class="no-results">
 
-                <strong>NO STYLES FOUND</strong>
+            <!-- DATABASE -->
+            <div id="styleGrid" class="style-grid"></div>
+
+
+            <!-- NO RESULTS -->
+            <div id="noResults" class="no-results hidden">
+
+                <h2>NO STYLE FOUND</h2>
 
                 <p>
-                    Try another style name or rarity.
+                    Try another name or rarity.
                 </p>
 
             </div>
@@ -156,69 +149,68 @@
         </section>
 
 
-        <!-- SPIN INFORMATION -->
-
+        <!-- SPIN CHANCES -->
         <section class="spin-section">
 
-            <div class="section-heading">
-
-                <div>
-                    <span class="section-label">SPIN SYSTEM</span>
-                    <h2>KNOW YOUR ODDS</h2>
-                </div>
-
+            <div class="section-label">
+                SPIN SYSTEM
             </div>
 
+            <h2>
+                KNOW YOUR
+                <span>ODDS.</span>
+            </h2>
 
             <div class="spin-grid">
 
                 <div class="spin-card">
-
-                    <span>UNCOMMON</span>
+                    <div class="spin-rarity uncommon">UNCOMMON</div>
                     <strong>63%</strong>
-
+                    <small>STANDARD SPIN</small>
                 </div>
 
                 <div class="spin-card">
-
-                    <span>RARE</span>
+                    <div class="spin-rarity rare">RARE</div>
                     <strong>27%</strong>
-
+                    <small>STANDARD SPIN</small>
                 </div>
 
                 <div class="spin-card">
-
-                    <span>MYTHIC</span>
+                    <div class="spin-rarity mythic">MYTHIC</div>
                     <strong>9%</strong>
-
+                    <small>STANDARD SPIN</small>
                 </div>
 
                 <div class="spin-card">
-
-                    <span>LEGENDARY</span>
+                    <div class="spin-rarity legendary">LEGENDARY</div>
                     <strong>1%</strong>
-
+                    <small>STANDARD SPIN</small>
                 </div>
 
-                <div class="spin-card shiny-spin">
-
-                    <span>SHINY</span>
+                <div class="spin-card">
+                    <div class="spin-rarity shiny">SHINY</div>
                     <strong>0.015%</strong>
-
-                    <small>1 IN 6,666</small>
-
+                    <small>STANDARD SPIN</small>
                 </div>
 
             </div>
 
+            <div class="spin-notes">
 
-            <div class="pity-info">
+                <p>
+                    <strong>LEGENDARY PITY:</strong>
+                    At least one Legendary style every 100 spins.
+                </p>
 
-                <strong>LEGENDARY PITY</strong>
+                <p>
+                    <strong>SHINY SHARDS:</strong>
+                    500 Shiny Shards can be consumed to obtain a Shiny style.
+                </p>
 
-                <span>
-                    At least 1 Legendary every 100 spins.
-                </span>
+                <p>
+                    <strong>LUCKY SPIN:</strong>
+                    75% Mythic · 25% Legendary · 0.15% Shiny
+                </p>
 
             </div>
 
@@ -227,29 +219,10 @@
     </main>
 
 
-    <footer>
-
-        <div class="footer-logo">
-            UBG
-        </div>
-
-        <p>
-            A fan-made companion website for Untitled Boxing Game.
-        </p>
-
-        <small>
-            This website is not affiliated with or endorsed by
-            drowningsome or Roblox.
-        </small>
-
-    </footer>
-
-
-    <!-- STYLE DETAIL MODAL -->
-
+    <!-- STYLE MODAL -->
     <div id="styleModal" class="style-modal">
 
-        <div class="modal-backdrop"></div>
+        <div class="style-modal-overlay"></div>
 
         <div class="style-modal-content">
 
@@ -257,13 +230,25 @@
                 ×
             </button>
 
-            <div id="styleDetail">
-                <!-- Generated by styles.js -->
-            </div>
+            <div id="modalContent"></div>
 
         </div>
 
     </div>
+
+
+    <footer class="site-footer">
+
+        <div>
+            <strong>UNTITLED BOXING GAME</strong>
+            <p>Fan-made companion website.</p>
+        </div>
+
+        <div>
+            Not affiliated with drowningsome or Roblox.
+        </div>
+
+    </footer>
 
 
     <script src="styles.js"></script>
