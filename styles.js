@@ -3,929 +3,682 @@
    FAN WIKI — STYLES DATABASE
    ========================================================= */
 
-
-/* =========================================================
-   STYLE DATABASE
-   ========================================================= */
-
 const styles = [
 
-    /* =====================================================
-       UNCOMMON
-       ===================================================== */
+  /* =========================
+     UNCOMMON
+     ========================= */
 
-    {
-        name: "Basic",
-        rarity: "Uncommon",
-        ranked: "BASIC",
-        hp: 100,
-        dash: "Average",
-        range: "Good",
-        block: "Good",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "None",
-        ultimateName: "Full Force Uppercut",
-        description:
-            "A straightforward all-rounder with balanced fundamentals. Basic is simple to understand and provides a reliable foundation for learning the game.",
-        strengths: [
-            "Balanced overall performance",
-            "Easy to learn",
-            "Reliable fundamentals"
-        ],
-        weaknesses: [
-            "No major specialized mechanic",
-            "Can be outperformed by specialized styles"
-        ],
-        obtain: "Available as the basic starting style.",
-        animation: "Basic_Idle.gif"
-    },
+  {
+    name: "Basic",
+    rarity: "Uncommon",
+    ranked: "BASIC",
+    hp: 100,
+    dash: "Average",
+    range: "Good",
+    block: "Good",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "None",
+    ultimateName: "Full Force Uppercut",
+    animation: "Basic_Idle.gif",
+    description: "The default boxing style. A balanced style with no major strengths or weaknesses.",
+    strengths: "Balanced and easy to learn.",
+    weaknesses: "Has no specialised advantages.",
+    obtain: "Available by default."
+  },
 
-    {
-        name: "Smash",
-        rarity: "Uncommon",
-        ranked: "SENDO",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "None",
-        ultimateName: "Smash",
-        description:
-            "A pressure-oriented boxing style focused on powerful, aggressive attacks.",
-        strengths: [
-            "Strong offensive pressure",
-            "Good close-range presence",
-            "Powerful attacks"
-        ],
-        weaknesses: [
-            "Less effective when forced to play defensively",
-            "Requires good positioning"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Smash_Idle.gif"
-    },
+  {
+    name: "Smash",
+    rarity: "Uncommon",
+    ranked: "SENDO",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "None",
+    ultimateName: "Smash",
+    animation: "Smash_Idle.gif",
+    description: "A straightforward power-focused style based around heavy punches.",
+    strengths: "Strong offensive pressure.",
+    weaknesses: "Less specialised than higher rarity styles.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Long Guard",
-        rarity: "Uncommon",
-        ranked: "LONGGUARD",
-        hp: 100,
-        dash: "Average",
-        range: "Long",
-        block: "Good",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "None",
-        ultimateName: "Long Guard Ultimate",
-        description:
-            "A defensive style built around maintaining distance and controlling the opponent with an extended guard.",
-        strengths: [
-            "Strong defensive presence",
-            "Excellent range",
-            "Good spacing control"
-        ],
-        weaknesses: [
-            "Less comfortable at close range",
-            "Requires good spacing"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Long_Guard_Idle.gif"
-    },
+  {
+    name: "Long Guard",
+    rarity: "Uncommon",
+    ranked: "LONGGUARD",
+    hp: 100,
+    dash: "Average",
+    range: "Long",
+    block: "Good",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "None",
+    ultimateName: "Long Guard Ultimate",
+    animation: "Long_Guard_Idle.gif",
+    description: "A defensive style that uses long-range punches and a strong guard.",
+    strengths: "Excellent range and defensive potential.",
+    weaknesses: "Can struggle against close-range pressure.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Counter",
-        rarity: "Uncommon",
-        ranked: "MIYATA",
-        hp: 100,
-        dash: "Fast",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "None",
-        ultimateName: "Counter Ultimate",
-        description:
-            "A precision-oriented counter-punching style that rewards reading the opponent and punishing their mistakes.",
-        strengths: [
-            "Excellent counter-punching potential",
-            "Rewards precise timing",
-            "Strong against predictable opponents"
-        ],
-        weaknesses: [
-            "Requires good reactions",
-            "Less effective when the opponent refuses to commit"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Counter_Idle.gif"
-    },
+  {
+    name: "Counter",
+    rarity: "Uncommon",
+    ranked: "MIYATA",
+    hp: 100,
+    dash: "Fast",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "None",
+    ultimateName: "Counter Ultimate",
+    animation: "Counter_Idle.gif",
+    description: "A counter-focused style that rewards accurate timing.",
+    strengths: "Fast movement and strong counterplay.",
+    weaknesses: "Requires good timing and prediction.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Turtle",
-        rarity: "Uncommon",
-        ranked: "NANOMACHINES",
-        hp: 100,
-        dash: "Slow",
-        range: "Average",
-        block: "Excellent",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "None",
-        ultimateName: "Turtle Ultimate",
-        description:
-            "A defensive style centered around blocking, patience and surviving the opponent's pressure.",
-        strengths: [
-            "Strong defensive capabilities",
-            "Excellent block",
-            "Good for patient players"
-        ],
-        weaknesses: [
-            "Lower mobility",
-            "Can struggle to create pressure"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Turtle_Idle.gif",
-        shiny: "Nanomachines"
-    },
+  {
+    name: "Turtle",
+    rarity: "Uncommon",
+    ranked: "NANOMACHINES",
+    hp: 100,
+    dash: "Slow",
+    range: "Average",
+    block: "Excellent",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "None",
+    ultimateName: "Turtle Ultimate",
+    animation: "Turtle_Idle.gif",
+    shiny: "Nanomachines",
+    description: "A highly defensive style focused on blocking and surviving pressure.",
+    strengths: "Excellent defence.",
+    weaknesses: "Slow movement.",
+    obtain: "Spin for the style."
+  },
 
-    /* =====================================================
-       RARE
-       ===================================================== */
+  /* =========================
+     RARE
+     ========================= */
 
-    {
-        name: "Corkscrew",
-        rarity: "Rare",
-        ranked: "DATE",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "None",
-        ultimateName: "Corkscrew Ultimate",
-        description:
-            "A boxing style centered around rotational punching mechanics and solid fundamentals.",
-        strengths: [
-            "Balanced offense",
-            "Reliable punching",
-            "Good fundamentals"
-        ],
-        weaknesses: [
-            "No extreme specialization",
-            "Requires consistent fundamentals"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Corkscrew_Idle.gif",
-        shiny: "Drill"
-    },
+  {
+    name: "Corkscrew",
+    rarity: "Rare",
+    ranked: "DATE",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "None",
+    ultimateName: "Corkscrew Ultimate",
+    animation: "Corkscrew_Idle.gif",
+    shiny: "Drill",
+    description: "A style centred around powerful corkscrew punches.",
+    strengths: "Reliable offensive pressure.",
+    weaknesses: "Does not specialise heavily in defence or mobility.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Charge",
-        rarity: "Rare",
-        ranked: "CHARGE",
-        hp: 100,
-        dash: "Fast",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Charge",
-        ultimateName: "Stampede",
-        description:
-            "An aggressive style designed around closing distance and overwhelming opponents with forward pressure.",
-        strengths: [
-            "Strong forward pressure",
-            "Excellent gap closing",
-            "Aggressive playstyle"
-        ],
-        weaknesses: [
-            "Can be predictable when constantly advancing",
-            "Requires careful stamina management"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Charge_Idle.gif"
-    },
+  {
+    name: "Charge",
+    rarity: "Rare",
+    ranked: "CHARGE",
+    hp: 100,
+    dash: "Fast",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Charge",
+    ultimateName: "Stampede",
+    animation: "Charge_Idle.gif",
+    description: "An aggressive style built around charging toward opponents.",
+    strengths: "Fast and aggressive.",
+    weaknesses: "Can become predictable when constantly rushing.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Hammer",
-        rarity: "Rare",
-        ranked: "HAMMER",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Body Blow",
-        ultimateName: "Hammer Ultimate",
-        description:
-            "A heavy-hitting boxing style focused on delivering powerful punches and breaking through defenses.",
-        strengths: [
-            "Strong heavy attacks",
-            "Good close-range pressure",
-            "Powerful damage potential"
-        ],
-        weaknesses: [
-            "Can be slower than technical styles",
-            "Requires commitment to attacks"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Hammer_Idle.gif"
-    },
+  {
+    name: "Hammer",
+    rarity: "Rare",
+    ranked: "HAMMER",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Body Blow",
+    ultimateName: "Hammer Ultimate",
+    animation: "Hammer_Idle.gif",
+    description: "A heavy-hitting style that focuses on powerful body attacks.",
+    strengths: "Strong body pressure.",
+    weaknesses: "Average mobility.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Trickster",
-        rarity: "Rare",
-        ranked: "AOKI",
-        hp: 100,
-        dash: "Fast",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Trick",
-        ultimateName: "Trickster Ultimate",
-        description:
-            "An unorthodox style built around unpredictable movement and unusual attack patterns.",
-        strengths: [
-            "Unpredictable movement",
-            "Good mobility",
-            "Can confuse opponents"
-        ],
-        weaknesses: [
-            "Requires creativity",
-            "Can be difficult to use consistently"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Trickster_Idle.gif",
-        shiny: "Conman"
-    },
+  {
+    name: "Trickster",
+    rarity: "Rare",
+    ranked: "AOKI",
+    hp: 100,
+    dash: "Fast",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Trick",
+    ultimateName: "Trickster Ultimate",
+    animation: "Trickster_Idle.gif",
+    shiny: "Conman",
+    description: "A deceptive style designed around unpredictable movement.",
+    strengths: "Fast and difficult to predict.",
+    weaknesses: "Requires good movement and mind games.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Dragonfish",
-        rarity: "Rare",
-        ranked: "DRAGONFISH",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Dragonfish",
-        ultimateName: "Dragonfish Ultimate",
-        description:
-            "A specialized style represented by the Dragonfish moveset.",
-        strengths: [
-            "Distinctive moveset",
-            "Specialized offensive options"
-        ],
-        weaknesses: [
-            "Requires familiarity with its mechanics"
-        ],
-        obtain: "Style information is currently being developed.",
-        animation: "Kimura_Idle.gif",
-        wip: true
-    },
+  {
+    name: "Dragonfish",
+    rarity: "Rare",
+    ranked: "DRAGONFISH",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Dragonfish",
+    ultimateName: "Dragonfish Ultimate",
+    animation: "Kimura_Idle.gif",
+    wip: true,
+    description: "A style currently being documented.",
+    strengths: "Data currently incomplete.",
+    weaknesses: "Data currently incomplete.",
+    obtain: "Spin for the style."
+  },
 
-    /* =====================================================
-       MYTHIC
-       ===================================================== */
+  /* =========================
+     MYTHIC
+     ========================= */
 
-    {
-        name: "Dempsey",
-        rarity: "Mythic",
-        ranked: "IPPO",
-        hp: 100,
-        dash: "Fast",
-        range: "Short",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Dempsey Roll",
-        ability: "Dempsey Roll",
-        ultimateName: "Dempsey Ultimate",
-        description:
-            "An in-fighting style based around aggressive movement, rolling and close-range combinations.",
-        strengths: [
-            "Excellent close-range pressure",
-            "Strong offensive movement",
-            "Effective combination potential"
-        ],
-        weaknesses: [
-            "Needs to fight at close range",
-            "Can struggle against strong spacing"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Ippo_Idle.gif"
-    },
+  {
+    name: "Dempsey",
+    rarity: "Mythic",
+    ranked: "IPPO",
+    hp: 100,
+    dash: "Fast",
+    range: "Short",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Dempsey Roll",
+    ability: "Dempsey Roll",
+    ultimateName: "Dempsey Ultimate",
+    animation: "Ippo_Idle.gif",
+    description: "A pressure-heavy style based around the famous Dempsey Roll.",
+    strengths: "Fast movement and strong pressure.",
+    weaknesses: "Short range.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Hitman",
-        rarity: "Mythic",
-        ranked: "HITMAN",
-        hp: 100,
-        dash: "Fast",
-        range: "Long",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Flicker",
-        ultimateName: "Hitman Ultimate",
-        description:
-            "A long-range technical style focused on fast punches and controlling opponents from a distance.",
-        strengths: [
-            "Excellent range",
-            "Fast attacks",
-            "Strong neutral game"
-        ],
-        weaknesses: [
-            "Requires good spacing",
-            "Can struggle when pressured at close range"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Hitman_Idle.gif"
-    },
+  {
+    name: "Hitman",
+    rarity: "Mythic",
+    ranked: "HITMAN",
+    hp: 100,
+    dash: "Fast",
+    range: "Long",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Flicker",
+    ultimateName: "Hitman Ultimate",
+    animation: "Hitman_Idle.gif",
+    description: "A long-range style that specialises in fast flicker punches.",
+    strengths: "Fast attacks and long range.",
+    weaknesses: "Requires spacing and precision.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Hands Low",
-        rarity: "Mythic",
-        ranked: "SAEKI",
-        hp: 100,
-        dash: "Very Fast",
-        range: "Average",
-        block: "Weak",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Hands Low",
-        ultimateName: "Hands Low Ultimate",
-        description:
-            "A highly mobile technical style that trades conventional defense for speed and evasive movement.",
-        strengths: [
-            "Excellent mobility",
-            "Fast attacks",
-            "Strong evasive potential"
-        ],
-        weaknesses: [
-            "Weak conventional defense",
-            "Punishable when movement is mistimed"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Hands_Low_Idle.gif"
-    },
+  {
+    name: "Hands Low",
+    rarity: "Mythic",
+    ranked: "SAEKI",
+    hp: 100,
+    dash: "Very Fast",
+    range: "Average",
+    block: "Weak",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Hands Low",
+    ultimateName: "Hands Low Ultimate",
+    animation: "Hands_Low_Idle.gif",
+    description: "An extremely mobile style that keeps its hands low.",
+    strengths: "Very fast movement.",
+    weaknesses: "Weak defence.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Wolf",
-        rarity: "Mythic",
-        ranked: "VOLG",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Good",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "White Fang",
-        ultimateName: "Wolf Ultimate",
-        description:
-            "A balanced technical style with strong fundamentals and the White Fang mechanic.",
-        strengths: [
-            "Strong fundamentals",
-            "Good defensive options",
-            "Versatile gameplay"
-        ],
-        weaknesses: [
-            "Requires good timing",
-            "Can be difficult to master"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Wolf_Idle.gif",
-        shiny: "Coyote"
-    },
+  {
+    name: "Wolf",
+    rarity: "Mythic",
+    ranked: "VOLG",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Good",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "White Fang",
+    ultimateName: "Wolf Ultimate",
+    animation: "Wolf_Idle.gif",
+    shiny: "Coyote",
+    description: "A balanced style with strong defensive capabilities and the White Fang ability.",
+    strengths: "Good defence and reliable attacks.",
+    weaknesses: "Does not excel in one specific category.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Bullet",
-        rarity: "Mythic",
-        ranked: "BULLET",
-        hp: 100,
-        dash: "Very Fast",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Bullet",
-        ultimateName: "Bullet Ultimate",
-        description:
-            "A speed-focused style built around exceptionally fast punches and rapid offensive pressure.",
-        strengths: [
-            "Extremely fast attacks",
-            "Excellent offensive pressure",
-            "Strong punish potential"
-        ],
-        weaknesses: [
-            "Requires fast reactions",
-            "Mistakes can be heavily punished"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Bullet_Idle.gif"
-    },
+  {
+    name: "Bullet",
+    rarity: "Mythic",
+    ranked: "BULLET",
+    hp: 100,
+    dash: "Very Fast",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Bullet",
+    ultimateName: "Bullet Ultimate",
+    animation: "Bullet_Idle.gif",
+    description: "An extremely fast style focused on rapid attacks.",
+    strengths: "Very high speed.",
+    weaknesses: "Average range and defence.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Switch Hit",
-        rarity: "Mythic",
-        ranked: "SWITCHHIT",
-        hp: 100,
-        dash: "Fast",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Switch Stance",
-        ability: "Switch Hit",
-        ultimateName: "Switch Hit Ultimate",
-        description:
-            "An adaptable style that changes its offensive approach by switching between stances.",
-        strengths: [
-            "Adaptable offense",
-            "Multiple attack angles",
-            "Strong matchup flexibility"
-        ],
-        weaknesses: [
-            "Requires knowledge of both sides",
-            "Can be difficult to master"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Switch_Hit_Idle.gif"
-    },
+  {
+    name: "Switch Hit",
+    rarity: "Mythic",
+    ranked: "SWITCHHIT",
+    hp: 100,
+    dash: "Fast",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Switch Stance",
+    ability: "Switch Hit",
+    ultimateName: "Switch Hit Ultimate",
+    animation: "Switch_Hit_Idle.gif",
+    description: "A flexible style built around switching stances.",
+    strengths: "Versatile and adaptable.",
+    weaknesses: "Requires familiarity with both stances.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Surgeon",
-        rarity: "Mythic",
-        ranked: "SURGEON",
-        hp: 100,
-        dash: "Fast",
-        range: "Good",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Surgical Precision",
-        ability: "Surgeon",
-        ultimateName: "Surgeon Ultimate",
-        description:
-            "A precision-focused style represented by its specialized meter and technical moveset.",
-        strengths: [
-            "Precision-based gameplay",
-            "Strong technical options"
-        ],
-        weaknesses: [
-            "Requires mechanical knowledge",
-            "Some information is still being developed"
-        ],
-        obtain: "Style information is currently being developed.",
-        animation: "Surgeon_meters.png",
-        wip: true
-    },
+  {
+    name: "Surgeon",
+    rarity: "Mythic",
+    ranked: "SURGEON",
+    hp: 100,
+    dash: "Fast",
+    range: "Good",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Surgical Precision",
+    ability: "Surgeon",
+    ultimateName: "Surgeon Ultimate",
+    animation: "Surgeon_meters.png",
+    wip: true,
+    description: "A style currently being documented.",
+    strengths: "Fast movement and good range.",
+    weaknesses: "Data currently incomplete.",
+    obtain: "Spin for the style."
+  },
 
-    /* =====================================================
-       LEGENDARY
-       ===================================================== */
+  /* =========================
+     LEGENDARY
+     ========================= */
 
-    {
-        name: "Slugger",
-        rarity: "Legendary",
-        ranked: "TAKAMURA",
-        hp: 100,
-        dash: "Slow",
-        range: "Average",
-        block: "Good",
-        ultimate: "50%",
-        trail: "None",
-        passive: "None",
-        ability: "Slugger",
-        ultimateName: "Slugger Ultimate",
-        description:
-            "A powerful style focused on devastating punches and punishing opponents with clean reads.",
-        strengths: [
-            "High damage potential",
-            "Powerful heavy attacks",
-            "Excellent punishment"
-        ],
-        weaknesses: [
-            "Lower mobility",
-            "Requires accurate reads"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Slugger_Idle.gif"
-    },
+  {
+    name: "Slugger",
+    rarity: "Legendary",
+    ranked: "TAKAMURA",
+    hp: 100,
+    dash: "Slow",
+    range: "Average",
+    block: "Good",
+    ultimate: "50%",
+    trail: "None",
+    passive: "None",
+    ability: "Slugger",
+    ultimateName: "Slugger Ultimate",
+    animation: "Slugger_Idle.gif",
+    description: "A powerful legendary style focused on heavy slugging punches.",
+    strengths: "Strong power and good defence.",
+    weaknesses: "Slow movement.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Hawk",
-        rarity: "Legendary",
-        ranked: "HAWK",
-        hp: 100,
-        dash: "Fast",
-        range: "Average",
-        block: "Weak",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Rage",
-        ability: "Swayback",
-        ultimateName: "Hawk Ultimate",
-        description:
-            "An unorthodox, aggressive style built around instinctive movement, pressure and unique evasive mechanics.",
-        strengths: [
-            "Strong offensive pressure",
-            "Unique evasive movement",
-            "High offensive potential"
-        ],
-        weaknesses: [
-            "Weak conventional defense",
-            "Requires strong offensive timing"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Hawk_Idle.gif"
-    },
+  {
+    name: "Hawk",
+    rarity: "Legendary",
+    ranked: "HAWK",
+    hp: 100,
+    dash: "Fast",
+    range: "Average",
+    block: "Weak",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Rage",
+    ability: "Swayback",
+    ultimateName: "Hawk Ultimate",
+    animation: "Hawk_Idle.gif",
+    description: "A fast and aggressive style that relies on evasive movement.",
+    strengths: "Fast and highly aggressive.",
+    weaknesses: "Weak defence.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Ghost",
-        rarity: "Legendary",
-        ranked: "GHOST",
-        hp: 100,
-        dash: "Mediocre",
-        range: "Average",
-        block: "Weak",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Dim Highlights",
-        ability: "Ghost Jab",
-        ultimateName: "Ghost Ultimate",
-        description:
-            "A deceptive and evasive style built around movement, timing and precision. Ghost rewards players who can read attacks and create openings.",
-        strengths: [
-            "Strong evasive potential",
-            "Excellent counter opportunities",
-            "Good movement"
-        ],
-        weaknesses: [
-            "Weak block",
-            "Requires precise timing",
-            "Mistimed movement can be punished"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Ghost_Idle.gif"
-    },
+  {
+    name: "Ghost",
+    rarity: "Legendary",
+    ranked: "GHOST",
+    hp: 100,
+    dash: "Mediocre",
+    range: "Average",
+    block: "Weak",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Dim Highlights",
+    ability: "Ghost Jab",
+    ultimateName: "Ghost Ultimate",
+    animation: "Ghost_Idle.gif",
+    description: "A deceptive style built around ghostly movement and attacks.",
+    strengths: "Unique evasive mechanics.",
+    weaknesses: "Weak defence.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Iron Fist",
-        rarity: "Legendary",
-        ranked: "IRONFIST",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Good",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Iron Fist",
-        ability: "Iron Fist",
-        ultimateName: "Iron Fist Ultimate",
-        description:
-            "A hard-hitting style built around powerful fundamentals and relentless punching.",
-        strengths: [
-            "Powerful attacks",
-            "Reliable fundamentals",
-            "Strong pressure"
-        ],
-        weaknesses: [
-            "Less specialized mobility",
-            "Requires good positioning"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Iron_Fist_Idle.gif"
-    },
+  {
+    name: "Iron Fist",
+    rarity: "Legendary",
+    ranked: "IRONFIST",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Good",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Iron Fist",
+    ability: "Iron Fist",
+    ultimateName: "Iron Fist Ultimate",
+    animation: "Iron_Fist_Idle.gif",
+    description: "A sturdy legendary style focused around powerful punches.",
+    strengths: "Good defence and reliable damage.",
+    weaknesses: "Average mobility.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Shotgun",
-        rarity: "Legendary",
-        ranked: "SHOTGUN",
-        hp: 100,
-        dash: "Fast",
-        range: "Long",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Prodigy",
-        ability: "Barrage",
-        ultimateName: "Shotgun Ultimate",
-        description:
-            "A rapid-fire boxing style focused on repeated, accurate punches and overwhelming offensive volume.",
-        strengths: [
-            "Excellent punching speed",
-            "Strong ranged pressure",
-            "High offensive volume"
-        ],
-        weaknesses: [
-            "Requires accurate execution",
-            "Can be punished between attacks"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Shotgun_Idles.gif"
-    },
+  {
+    name: "Shotgun",
+    rarity: "Legendary",
+    ranked: "SHOTGUN",
+    hp: 100,
+    dash: "Fast",
+    range: "Long",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Prodigy",
+    ability: "Barrage",
+    ultimateName: "Shotgun Ultimate",
+    animation: "Shotgun_Idles.gif",
+    description: "A fast legendary style capable of overwhelming opponents with barrages.",
+    strengths: "Fast movement and long range.",
+    weaknesses: "Average defence.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Freedom",
-        rarity: "Legendary",
-        ranked: "FREEDOM",
-        hp: 80,
-        dash: "Variable",
-        range: "Variable",
-        block: "Variable",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Style Switching",
-        ability: "Switching",
-        ultimateName: "Freedom Ultimate",
-        description:
-            "An adaptable style that can change its fighting approach through different modes.",
-        strengths: [
-            "Extremely adaptable",
-            "Multiple combat approaches",
-            "Can respond to different opponents"
-        ],
-        weaknesses: [
-            "Lower base health",
-            "Requires knowledge of multiple modes",
-            "High learning curve"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Freedom_Idles.gif"
-    },
+  {
+    name: "Freedom",
+    rarity: "Legendary",
+    ranked: "FREEDOM",
+    hp: 80,
+    dash: "Variable",
+    range: "Variable",
+    block: "Variable",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Style Switching",
+    ability: "Switching",
+    ultimateName: "Freedom Ultimate",
+    animation: "Freedom_Idles.gif",
+    description: "A unique style that allows the player to switch between different styles.",
+    strengths: "Extremely versatile.",
+    weaknesses: "Stats and playstyle vary depending on the current form.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Chronos",
-        rarity: "Legendary",
-        ranked: "CHRONOS",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Focus",
-        ability: "Chronos",
-        ultimateName: "Chronos Ultimate",
-        description:
-            "A time-themed style centered around controlling the pace of combat and manipulating exchanges.",
-        strengths: [
-            "Unique time-based mechanics",
-            "Strong control potential",
-            "Rewards precise timing"
-        ],
-        weaknesses: [
-            "Requires mechanical knowledge",
-            "Mistimed abilities can be punished"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "Chronos_Idle.gif",
-        shiny: "Godspeed"
-    },
+  {
+    name: "Chronos",
+    rarity: "Legendary",
+    ranked: "CHRONOS",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Focus",
+    ability: "Chronos",
+    ultimateName: "Chronos Ultimate",
+    animation: "Chronos_Idle.gif",
+    shiny: "Godspeed",
+    description: "A legendary style centred around timing and Focus.",
+    strengths: "Strong timing-based mechanics.",
+    weaknesses: "Requires precise execution.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "White Ash",
-        rarity: "Legendary",
-        ranked: "JOE",
-        hp: 100,
-        dash: "Fast",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "White Ash",
-        ability: "Burn",
-        ultimateName: "Joe Ultimate",
-        description:
-            "A style inspired by Joe, built around determination, pressure and a unique burn mechanic.",
-        strengths: [
-            "Strong offensive potential",
-            "Unique burn mechanics",
-            "Rewards aggressive play"
-        ],
-        weaknesses: [
-            "Requires careful management of its mechanics",
-            "Can be difficult to master"
-        ],
-        obtain: "Obtained through style spins.",
-        animation: "White_Ash_Idle.gif"
-    },
+  {
+    name: "White Ash",
+    rarity: "Legendary",
+    ranked: "JOE",
+    hp: 100,
+    dash: "Fast",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "White Ash",
+    ability: "Burn",
+    ultimateName: "Joe Ultimate",
+    animation: "White_Ash_Idle.gif",
+    description: "A legendary style based around Joe's burning determination.",
+    strengths: "Fast and aggressive.",
+    weaknesses: "Requires careful management of pressure.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Supernova",
-        rarity: "Legendary",
-        ranked: "SUPERNOVA",
-        hp: 100,
-        dash: "Fast",
-        range: "Good",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Supernova",
-        ability: "Supernova",
-        ultimateName: "Supernova Ultimate",
-        description:
-            "A specialized legendary style with unique stamina and meter mechanics.",
-        strengths: [
-            "Specialized mechanics",
-            "Strong offensive potential"
-        ],
-        weaknesses: [
-            "Requires knowledge of its unique mechanics",
-            "Information is still being developed"
-        ],
-        obtain: "Style information is currently being developed.",
-        animation: "Supernova_Idle.gif",
-        wip: true
-    },
+  {
+    name: "Supernova",
+    rarity: "Legendary",
+    ranked: "SUPERNOVA",
+    hp: 100,
+    dash: "Fast",
+    range: "Good",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Supernova",
+    ability: "Supernova",
+    ultimateName: "Supernova Ultimate",
+    animation: "Supernova_Idle.gif",
+    wip: true,
+    description: "A legendary style currently being documented.",
+    strengths: "Fast movement and good range.",
+    weaknesses: "Data currently incomplete.",
+    obtain: "Spin for the style."
+  },
 
-    {
-        name: "Deimos",
-        rarity: "Legendary",
-        ranked: "MONSTROSITY",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Deimos",
-        ability: "Deimos",
-        ultimateName: "Deimos Ultimate",
-        description:
-            "A powerful specialized style currently under development.",
-        strengths: [
-            "Unique style identity",
-            "Specialized offensive potential"
-        ],
-        weaknesses: [
-            "Moveset information is still being developed"
-        ],
-        obtain: "Style information is currently being developed.",
-        animation: "Deimos_Idle.gif",
-        wip: true
-    },
+  {
+    name: "Deimos",
+    rarity: "Legendary",
+    ranked: "MONSTROSITY",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Deimos",
+    ability: "Deimos",
+    ultimateName: "Deimos Ultimate",
+    animation: "Deimos_Idle.gif",
+    wip: true,
+    description: "A legendary style currently being documented.",
+    strengths: "Data currently incomplete.",
+    weaknesses: "Data currently incomplete.",
+    obtain: "Spin for the style."
+  },
 
-    /* =====================================================
-       SHINY
-       ===================================================== */
+  /* =========================
+     SHINY
+     ========================= */
 
-    {
-        name: "Godspeed",
-        rarity: "Shiny",
-        ranked: "GODSPEED",
-        baseStyle: "Chronos",
-        hp: 100,
-        dash: "Very Fast",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Shiny Variant",
-        ability: "Godspeed",
-        ultimateName: "Godspeed Ultimate",
-        description:
-            "A shiny variant associated with Chronos.",
-        strengths: [
-            "Shiny variant",
-            "Associated with Chronos"
-        ],
-        weaknesses: [
-            "Shiny-specific mechanics are still being documented"
-        ],
-        obtain: "Shiny variant information is currently being developed.",
-        animation: "Chronos_Idle.gif",
-        wip: true
-    },
+  {
+    name: "Godspeed",
+    rarity: "Shiny",
+    ranked: "GODSPEED",
+    baseStyle: "Chronos",
+    hp: 100,
+    dash: "Very Fast",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Shiny Variant",
+    ability: "Godspeed",
+    ultimateName: "Godspeed Ultimate",
+    animation: "Chronos_Idle.gif",
+    wip: true,
+    description: "A shiny variant of Chronos.",
+    strengths: "Very fast movement.",
+    weaknesses: "Data currently incomplete.",
+    obtain: "Obtain as a shiny variant."
+  },
 
-    {
-        name: "Bald",
-        rarity: "Shiny",
-        ranked: "BALD",
-        baseStyle: "Basic",
-        hp: 100,
-        dash: "Average",
-        range: "Good",
-        block: "Good",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Shiny Variant",
-        ability: "None",
-        ultimateName: "Full Force Uppercut",
-        description:
-            "A shiny variant associated with Basic.",
-        strengths: [
-            "Shiny variant of Basic",
-            "Familiar underlying fundamentals"
-        ],
-        weaknesses: [
-            "Shiny-specific mechanics are still being documented"
-        ],
-        obtain: "Shiny variant information is currently being developed.",
-        animation: "Basic_Idle.gif"
-    },
+  {
+    name: "Bald",
+    rarity: "Shiny",
+    ranked: "BALD",
+    baseStyle: "Basic",
+    hp: 100,
+    dash: "Average",
+    range: "Good",
+    block: "Good",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Shiny Variant",
+    ability: "None",
+    ultimateName: "Full Force Uppercut",
+    animation: "Basic_Idle.gif",
+    description: "A shiny variant of Basic.",
+    strengths: "Balanced.",
+    weaknesses: "No specialised advantages.",
+    obtain: "Obtain as a shiny variant."
+  },
 
-    {
-        name: "Coyote",
-        rarity: "Shiny",
-        ranked: "COYOTE",
-        baseStyle: "Wolf",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Good",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Shiny Variant",
-        ability: "White Fang",
-        ultimateName: "Wolf Ultimate",
-        description:
-            "A shiny variant associated with Wolf.",
-        strengths: [
-            "Shiny variant of Wolf",
-            "Associated with White Fang mechanics"
-        ],
-        weaknesses: [
-            "Shiny-specific mechanics are still being documented"
-        ],
-        obtain: "Shiny variant information is currently being developed.",
-        animation: "Wolf_Idle.gif"
-    },
+  {
+    name: "Coyote",
+    rarity: "Shiny",
+    ranked: "COYOTE",
+    baseStyle: "Wolf",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Good",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Shiny Variant",
+    ability: "White Fang",
+    ultimateName: "Wolf Ultimate",
+    animation: "Wolf_Idle.gif",
+    description: "A shiny variant of Wolf.",
+    strengths: "Good defence.",
+    weaknesses: "Average mobility.",
+    obtain: "Obtain as a shiny variant."
+  },
 
-    {
-        name: "Drill",
-        rarity: "Shiny",
-        ranked: "DRILL",
-        baseStyle: "Corkscrew",
-        hp: 100,
-        dash: "Average",
-        range: "Average",
-        block: "Average",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Shiny Variant",
-        ability: "Corkscrew",
-        ultimateName: "Corkscrew Ultimate",
-        description:
-            "A shiny variant associated with Corkscrew.",
-        strengths: [
-            "Shiny variant of Corkscrew",
-            "Retains the style's core identity"
-        ],
-        weaknesses: [
-            "Shiny-specific mechanics are still being documented"
-        ],
-        obtain: "Shiny variant information is currently being developed.",
-        animation: "Corkscrew_Idle.gif"
-    },
+  {
+    name: "Drill",
+    rarity: "Shiny",
+    ranked: "DRILL",
+    baseStyle: "Corkscrew",
+    hp: 100,
+    dash: "Average",
+    range: "Average",
+    block: "Average",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Shiny Variant",
+    ability: "Corkscrew",
+    ultimateName: "Corkscrew Ultimate",
+    animation: "Corkscrew_Idle.gif",
+    description: "A shiny variant of Corkscrew.",
+    strengths: "Reliable offensive pressure.",
+    weaknesses: "Average overall stats.",
+    obtain: "Obtain as a shiny variant."
+  },
 
-    {
-        name: "Nanomachines",
-        rarity: "Shiny",
-        ranked: "NANOMACHINES",
-        baseStyle: "Turtle",
-        hp: 100,
-        dash: "Slow",
-        range: "Average",
-        block: "Excellent",
-        ultimate: "50%",
-        trail: "None",
-        passive: "Shiny Variant",
-        ability: "None",
-        ultimateName: "Turtle Ultimate",
-        description:
-            "A shiny variant associated with Turtle.",
-        strengths: [
-            "Shiny variant of Turtle",
-            "Strong defensive identity"
-        ],
-        weaknesses: [
-            "Shiny-specific mechanics are still being documented"
-        ],
-        obtain: "Shiny variant information is currently being developed.",
-        animation: "Turtle_Idle.gif"
-    }
+  {
+    name: "Nanomachines",
+    rarity: "Shiny",
+    ranked: "NANOMACHINES",
+    baseStyle: "Turtle",
+    hp: 100,
+    dash: "Slow",
+    range: "Average",
+    block: "Excellent",
+    ultimate: "50%",
+    trail: "None",
+    passive: "Shiny Variant",
+    ability: "None",
+    ultimateName: "Turtle Ultimate",
+    animation: "Turtle_Idle.gif",
+    description: "A shiny variant of Turtle.",
+    strengths: "Excellent defence.",
+    weaknesses: "Slow movement.",
+    obtain: "Obtain as a shiny variant."
+  }
 
 ];
 
@@ -938,2614 +691,1053 @@ window.UBG_STYLES = styles;
 
 
 /* =========================================================
-   GENERAL HELPERS
+   HELPERS
    ========================================================= */
 
 function getStyleImage(style) {
-
-    if (!style || !style.animation) {
-        return "";
-    }
-
-    return `./assets/styles/${style.animation}`;
+  return `./assets/styles/${style.animation}`;
 }
-
 
 function getRarityClass(rarity) {
-
-    return `rarity-${String(rarity || "")
-        .toLowerCase()
-        .replace(/\s+/g, "-")}`;
-
+  return rarity
+    .toLowerCase()
+    .replace(/\s+/g, "-");
 }
-
 
 function escapeHTML(value) {
-
-    if (value === undefined || value === null) {
-        return "";
-    }
-
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
-
 
 function escapeAttribute(value) {
-    return escapeHTML(value);
-}
-
-
-function getStyleByName(name) {
-
-    if (!name) {
-        return null;
-    }
-
-    return styles.find(style =>
-        String(style.name).toLowerCase() ===
-        String(name).toLowerCase()
-    ) || null;
-
+  return escapeHTML(value);
 }
 
 
 /* =========================================================
-   STYLE LIST PAGE
+   STYLES LIST PAGE
    ========================================================= */
 
-const styleGrid =
-    document.getElementById("styleGrid");
+function renderStyleGrid(filter = "all", searchTerm = "") {
 
-const styleSearch =
-    document.getElementById("styleSearch");
+  const grid = document.getElementById("styleGrid");
 
-const styleCount =
-    document.getElementById("styleCount");
+  if (!grid) return;
 
-const filterButtons =
-    document.querySelectorAll(".wiki-filter");
+  const search = searchTerm.trim().toLowerCase();
 
+  let filtered = styles.filter(style => {
 
-if (styleGrid) {
+    const rarityMatch =
+      filter === "all" ||
+      style.rarity.toLowerCase() === filter.toLowerCase();
 
-    let currentRarity = "All";
-    let currentSearch = "";
+    const searchMatch =
+      !search ||
+      style.name.toLowerCase().includes(search) ||
+      style.ranked.toLowerCase().includes(search) ||
+      style.rarity.toLowerCase().includes(search);
 
+    return rarityMatch && searchMatch;
+  });
 
-    function renderStyles() {
+  grid.innerHTML = filtered.map(style => {
 
-        let filtered = [...styles];
-
-
-        if (
-            currentRarity &&
-            currentRarity !== "All"
-        ) {
-
-            filtered =
-                filtered.filter(style =>
-                    style.rarity === currentRarity
-                );
-
-        }
-
-
-        if (currentSearch) {
-
-            const query =
-                currentSearch.toLowerCase();
-
-
-            filtered =
-                filtered.filter(style => {
-
-                    const values = [
-
-                        style.name,
-                        style.ranked,
-                        style.rarity,
-                        style.description,
-                        style.baseStyle
-
-                    ];
-
-                    return values.some(value =>
-                        String(value || "")
-                            .toLowerCase()
-                            .includes(query)
-                    );
-
-                });
-
-        }
-
-
-        if (styleCount) {
-
-            styleCount.textContent =
-                `${filtered.length} style${
-                    filtered.length === 1
-                        ? ""
-                        : "s"
-                }`;
-
-        }
-
-
-        if (!filtered.length) {
-
-            styleGrid.innerHTML = `
-
-                <div class="style-empty">
-
-                    <div class="style-empty-icon">
-                        ◌
-                    </div>
-
-                    <strong>No styles found</strong>
-
-                    <span>
-                        Try another search or rarity filter.
-                    </span>
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        styleGrid.innerHTML =
-            filtered.map(style => {
-
-                const image =
-                    getStyleImage(style);
-
-                const rarity =
-                    getRarityClass(style.rarity);
-
-
-                return `
-
-                    <a
-                        class="style-wiki-card"
-                        href="style.html?style=${encodeURIComponent(style.name)}"
-                    >
-
-                        <div class="style-wiki-image">
-
-                            ${
-                                image
-
-                                    ? `
-
-                                        <img
-                                            src="${escapeAttribute(image)}"
-                                            alt="${escapeAttribute(style.name)}"
-                                            loading="lazy"
-                                            onerror="
-                                                this.style.display='none';
-                                                this.parentElement.classList.add('image-missing');
-                                            "
-                                        >
-
-                                      `
-
-                                    : `
-
-                                        <div class="image-unavailable">
-                                            IMAGE UNAVAILABLE
-                                        </div>
-
-                                      `
-                            }
-
-                        </div>
-
-
-                        <div class="style-wiki-info">
-
-                            <div class="style-wiki-top">
-
-                                <span class="
-                                    rarity
-                                    ${rarity}
-                                ">
-                                    ${escapeHTML(style.rarity)}
-                                </span>
-
-
-                                ${
-                                    style.wip
-                                        ? `
-                                            <span class="wip-tag">
-                                                WIP
-                                            </span>
-                                          `
-                                        : ""
-                                }
-
-                            </div>
-
-
-                            <div class="style-wiki-name">
-
-                                ${escapeHTML(style.name)}
-
-                            </div>
-
-
-                            ${
-                                style.ranked
-
-                                    ? `
-
-                                        <div class="style-wiki-ranked">
-
-                                            ${escapeHTML(style.ranked)}
-
-                                        </div>
-
-                                      `
-
-                                    : ""
-                            }
-
-
-                            <div class="style-wiki-description">
-
-                                ${escapeHTML(
-                                    style.description ||
-                                    "No description available."
-                                )}
-
-                            </div>
-
-
-                            ${
-                                style.baseStyle
-
-                                    ? `
-
-                                        <div class="style-base-label">
-
-                                            Base:
-                                            <strong>
-                                                ${escapeHTML(style.baseStyle)}
-                                            </strong>
-
-                                        </div>
-
-                                      `
-
-                                    : ""
-                            }
-
-                        </div>
-
-                    </a>
-
-                `;
-
-            }).join("");
-
-    }
-
-
-    filterButtons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                filterButtons.forEach(btn =>
-                    btn.classList.remove("active")
-                );
-
-
-                button.classList.add("active");
-
-
-                currentRarity =
-                    button.dataset.rarity ||
-                    "All";
-
-
-                renderStyles();
-
-            }
-        );
-
-    });
-
-
-    if (styleSearch) {
-
-        styleSearch.addEventListener(
-            "input",
-            event => {
-
-                currentSearch =
-                    event.target.value.trim();
-
-
-                renderStyles();
-
-            }
-        );
-
-    }
-
-
-    const listParams =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const urlRarity =
-        listParams.get("rarity");
-
-
-    if (urlRarity) {
-
-        const matchingButton =
-            [...filterButtons].find(button =>
-                String(button.dataset.rarity || "")
-                    .toLowerCase() ===
-                String(urlRarity).toLowerCase()
-            );
-
-
-        if (matchingButton) {
-
-            filterButtons.forEach(button =>
-                button.classList.remove("active")
-            );
-
-
-            matchingButton.classList.add("active");
-
-
-            currentRarity =
-                matchingButton.dataset.rarity;
-
-        }
-
-    }
-
-
-    renderStyles();
-
-}
-
-
-/* =========================================================
-   RADAR / SPIDER CHART
-   =========================================================
-
-   Numerical stats can be added later to an individual
-   style like this:
-
-       stats: {
-           speed: 8,
-           damage: 7,
-           range: 6,
-           defense: 4,
-           mobility: 9,
-           stamina: 7
-       }
-
-   Values are 0–10.
-
-   IMPORTANT:
-   We do NOT generate numbers from the qualitative
-   "Fast", "Good", "Weak", etc. values because that would
-   create unofficial statistics.
-   ========================================================= */
-
-const radarAxes = [
-
-    {
-        key: "speed",
-        label: "Punch Speed"
-    },
-
-    {
-        key: "damage",
-        label: "Damage"
-    },
-
-    {
-        key: "range",
-        label: "Range"
-    },
-
-    {
-        key: "defense",
-        label: "Defense"
-    },
-
-    {
-        key: "mobility",
-        label: "Mobility"
-    },
-
-    {
-        key: "stamina",
-        label: "Stamina"
-    }
-
-];
-
-
-function hasRadarStats(style) {
-
-    if (
-        !style ||
-        !style.stats ||
-        typeof style.stats !== "object"
-    ) {
-        return false;
-    }
-
-
-    return radarAxes.every(axis => {
-
-        const value =
-            Number(style.stats[axis.key]);
-
-        return (
-            Number.isFinite(value) &&
-            value >= 0 &&
-            value <= 10
-        );
-
-    });
-
-}
-
-
-function polarPoint(
-    center,
-    radius,
-    index,
-    total
-) {
-
-    const angle =
-        -Math.PI / 2 +
-        (index / total) *
-        Math.PI * 2;
-
-
-    return {
-
-        x:
-            center +
-            Math.cos(angle) * radius,
-
-        y:
-            center +
-            Math.sin(angle) * radius
-
-    };
-
-}
-
-
-function pointsToString(points) {
-
-    return points
-        .map(point =>
-            `${point.x.toFixed(2)},${point.y.toFixed(2)}`
-        )
-        .join(" ");
-
-}
-
-
-function renderRadarChart(style) {
-
-    const center = 210;
-    const radius = 125;
-    const total = radarAxes.length;
-
-
-    const gridRings =
-        [0.2, 0.4, 0.6, 0.8, 1];
-
-
-    const gridHTML =
-        gridRings.map(scale => {
-
-            const points =
-                radarAxes.map(
-                    (_, index) =>
-                        polarPoint(
-                            center,
-                            radius * scale,
-                            index,
-                            total
-                        )
-                );
-
-
-            return `
-
-                <polygon
-                    points="${pointsToString(points)}"
-                    class="radar-grid-ring"
-                />
-
-            `;
-
-        }).join("");
-
-
-    const axesHTML =
-        radarAxes.map((axis, index) => {
-
-            const point =
-                polarPoint(
-                    center,
-                    radius,
-                    index,
-                    total
-                );
-
-
-            return `
-
-                <line
-                    x1="${center}"
-                    y1="${center}"
-                    x2="${point.x}"
-                    y2="${point.y}"
-                    class="radar-axis"
-                />
-
-            `;
-
-        }).join("");
-
-
-    const labelsHTML =
-        radarAxes.map((axis, index) => {
-
-            const point =
-                polarPoint(
-                    center,
-                    radius + 35,
-                    index,
-                    total
-                );
-
-
-            let anchor = "middle";
-
-
-            if (point.x < center - 10) {
-                anchor = "end";
-            }
-
-
-            if (point.x > center + 10) {
-                anchor = "start";
-            }
-
-
-            return `
-
-                <text
-                    x="${point.x}"
-                    y="${point.y}"
-                    text-anchor="${anchor}"
-                    dominant-baseline="middle"
-                    class="radar-label"
-                >
-                    ${escapeHTML(axis.label)}
-                </text>
-
-            `;
-
-        }).join("");
-
-
-    const dataAvailable =
-        hasRadarStats(style);
-
-
-    let dataHTML = "";
-
-
-    if (dataAvailable) {
-
-        const dataPoints =
-            radarAxes.map((axis, index) => {
-
-                const value =
-                    Number(style.stats[axis.key]);
-
-
-                return polarPoint(
-                    center,
-                    radius * (value / 10),
-                    index,
-                    total
-                );
-
-            });
-
-
-        dataHTML = `
-
-            <polygon
-                points="${pointsToString(dataPoints)}"
-                class="radar-data"
-            />
-
-            ${dataPoints.map(point => `
-
-                <circle
-                    cx="${point.x}"
-                    cy="${point.y}"
-                    r="4"
-                    class="radar-point"
-                />
-
-            `).join("")}
-
-        `;
-
-    }
-
+    const image = getStyleImage(style);
 
     return `
+      <a
+        class="style-card"
+        href="style.html?style=${encodeURIComponent(style.name)}"
+      >
 
-        <div class="
-            radar-wrapper
-            ${dataAvailable ? "has-data" : "no-data"}
-        ">
+        <div class="style-card-image">
+          <img
+            src="${escapeAttribute(image)}"
+            alt="${escapeAttribute(style.name)}"
+            loading="lazy"
+          >
+        </div>
 
-            <div class="radar-chart">
+        <div class="style-card-info">
 
-                <svg
-                    viewBox="0 0 420 420"
-                    role="img"
-                    aria-label="${escapeAttribute(style.name)} general statistics radar chart"
-                >
+          <div class="style-card-top">
+            <span class="rarity-badge ${getRarityClass(style.rarity)}">
+              ${escapeHTML(style.rarity)}
+            </span>
 
-                    ${gridHTML}
+            ${style.wip ? `<span class="wip-badge">WIP</span>` : ""}
+          </div>
 
-                    ${axesHTML}
+          <h3>${escapeHTML(style.name)}</h3>
 
-                    ${dataHTML}
-
-                    ${labelsHTML}
-
-                </svg>
-
-
-                ${
-                    !dataAvailable
-
-                        ? `
-
-                            <div class="radar-no-data">
-
-                                <div class="radar-no-data-icon">
-                                    ?
-                                </div>
-
-                                <strong>
-                                    DATA NOT DOCUMENTED
-                                </strong>
-
-                                <span>
-                                    Verified numerical statistics
-                                    have not been added yet.
-                                </span>
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
-
-            </div>
-
-
-            <div class="radar-scale">
-
-                <span>0</span>
-
-                <span>5</span>
-
-                <span>10</span>
-
-            </div>
+          <p>${escapeHTML(style.ranked)}</p>
 
         </div>
 
+      </a>
     `;
 
+  }).join("");
+
+  const count = document.getElementById("styleCount");
+
+  if (count) {
+    count.textContent =
+      `${filtered.length} style${filtered.length === 1 ? "" : "s"}`;
+  }
 }
 
 
 /* =========================================================
-   GENERAL STATS CARD
+   STYLE FILTERS
    ========================================================= */
 
-function renderGeneralStats(style) {
+function setupStyleFilters() {
 
-    return `
+  const searchInput = document.getElementById("styleSearch");
 
-        <section
-            class="wiki-general-stats"
-            id="general-stats"
-        >
+  if (searchInput) {
 
-            <div class="general-stats-header">
+    searchInput.addEventListener("input", () => {
 
-                <div>
+      const activeFilter =
+        document.querySelector(".wiki-filter.active");
 
-                    <div class="section-eyebrow">
-                        COMBAT PROFILE
-                    </div>
+      const filter =
+        activeFilter?.dataset.filter || "all";
 
-                    <h2>
-                        General Stats
-                    </h2>
+      renderStyleGrid(
+        filter,
+        searchInput.value
+      );
 
-                    <p>
-                        A visual overview of the style's
-                        general combat characteristics.
-                    </p>
+    });
 
-                </div>
+  }
 
+  document.querySelectorAll(".wiki-filter").forEach(button => {
 
-                <div class="stats-scale-badge">
-                    0–10 SCALE
-                </div>
+    button.addEventListener("click", () => {
 
-            </div>
+      document.querySelectorAll(".wiki-filter")
+        .forEach(item => item.classList.remove("active"));
 
+      button.classList.add("active");
 
-            <div class="general-stats-content">
+      renderStyleGrid(
+        button.dataset.filter || "all",
+        searchInput?.value || ""
+      );
 
-                ${renderRadarChart(style)}
+    });
 
-
-                <div class="known-stats">
-
-                    <div class="known-stats-title">
-                        DOCUMENTED INFORMATION
-                    </div>
-
-
-                    <div class="known-stat-row">
-
-                        <span>
-                            Health
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(style.hp || "—")}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="known-stat-row">
-
-                        <span>
-                            Dash
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(style.dash || "—")}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="known-stat-row">
-
-                        <span>
-                            Range
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(style.range || "—")}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="known-stat-row">
-
-                        <span>
-                            Block
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(style.block || "—")}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="known-stat-row">
-
-                        <span>
-                            Ultimate
-                        </span>
-
-                        <strong>
-                            ${escapeHTML(style.ultimate || "—")}
-                        </strong>
-
-                    </div>
-
-
-                    <div class="stats-note">
-
-                        <span class="stats-note-dot"></span>
-
-                        Numerical combat data will be added
-                        when verified.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    `;
+  });
 
 }
 
 
 /* =========================================================
-   MOVESET DATA
-   ========================================================= */
-
-const moveMap = {
-
-    "Basic": {
-        light: "Basic_Lights.gif",
-        heavy: "Basic_Heavies.gif",
-        dash: "Basic_Dashes.gif",
-        ultimate: "Basic-ult-.gif"
-    },
-
-    "Smash": {
-        light: "Smash_Lights.gif",
-        heavy: "Smash_Heavy.gif",
-        dash: "Smash_Dashes.gif"
-    },
-
-    "Long Guard": {
-        light: "LG_Lights.gif",
-        heavy: "LG_Heavy.gif",
-        dash: "LG_Dashes.gif"
-    },
-
-    "Counter": {
-        light: "Counter_Lights.gif",
-        heavy: "Counter_Heavy.gif",
-        dash: "Counter_Dashes.gif"
-    },
-
-    "Turtle": {
-        light: "Turtle_Lights.gif",
-        heavy: "Turtle_Heavy.gif",
-        dash: "Turtle_Dashes.gif"
-    },
-
-    "Corkscrew": {
-        light: "Corkscrew_Lights.gif",
-        heavy: "Corkscrew_Heavy.gif",
-        dash: "Corkscrew_Dashes.gif"
-    },
-
-    "Charge": {
-        light: "Charge_Lights.gif",
-        heavy: "Charge_Heavy.gif",
-        dash: "Charge_Dashes.gif",
-        ability: "Stampede.gif"
-    },
-
-    "Hammer": {
-        light: "Hammer_Lights.gif",
-        heavy: "Hammer_Heavy.gif",
-        dash: "Hammer_Dashes.gif",
-        ability: "Body_Blow.gif"
-    },
-
-    "Trickster": {
-        light: "Trickster_Lights.gif",
-        heavy: "Trickster_Heavy.gif",
-        dash: "Trickster_Dashes.gif"
-    },
-
-    "Dragonfish": {
-        light: "Kimura_Lights.gif",
-        heavy: "Kimura_Heavy.gif",
-        dash: "Kimura_Dashes.gif"
-    },
-
-    "Dempsey": {
-        light: "Ippo_Lights.gif",
-        heavy: "Ippo_Heavy.gif",
-        dash: "Ippo_Dashes.gif",
-        ability: "Dempsey_Roll.gif"
-    },
-
-    "Hitman": {
-        light: "Hitman_Lights.gif",
-        heavy: "Hitman_Heavy.gif",
-        dash: "Hitman_Dashes.gif"
-    },
-
-    "Hands Low": {
-        light: "HL_Lights.gif",
-        heavy: "HL_Heavy.gif",
-        dash: "HL_Dashes.gif"
-    },
-
-    "Wolf": {
-        light: "Wolf_Lights.gif",
-        heavy: "Wolf_Heavy.gif",
-        dash: "Wolf_Dashes.gif",
-        ability: "White_Fang_storage_showcase.gif"
-    },
-
-    "Bullet": {
-        light: "Bullet_Lights.gif",
-        heavy: "Bullet_Heavy.gif",
-        dash: "Bullet_Dashes.gif"
-    },
-
-    "Switch Hit": {
-        light: "SH_Light.gif",
-        heavy: "SH_Heavy.gif",
-        dash: "SH_Dashes.gif",
-        ability: "Static_PD.gif"
-    },
-
-    "Slugger": {
-        light: "Slugger_Lights.gif",
-        heavy: "Slugger_Heavy.gif",
-        dash: "Slugger_Dashes.gif"
-    },
-
-    "Hawk": {
-        light: "Hawk_Lights.gif",
-        heavy: "Hawk_Heavies.gif",
-        dash: "Hawk_Dashes.gif"
-    },
-
-    "Ghost": {
-        light: "Ghost_Lights.gif",
-        heavy: "Ghost_Heavy.gif",
-        dash: "Ghost_Dashes.gif",
-        ability: "Ghost_Jab.gif"
-    },
-
-    "Iron Fist": {
-        light: "IF_Lights.gif",
-        heavy: "IF_Heavy.gif",
-        dash: "IF_Dashes.gif"
-    },
-
-    "Shotgun": {
-        light: "Shotgun_Lights.gif",
-        heavy: "Shotgun_Heavy.gif",
-        dash: "Shotgun_Dashes.gif",
-        ability: "Single_barrage.gif"
-    },
-
-    "Freedom": {
-        light: "Freedom_Lights.gif",
-        heavy: "Freedom_Heavy.gif",
-        dash: "Freedom_Dashes.gif",
-        ability: "Freedom_Switching.gif"
-    },
-
-    "Chronos": {
-        light: "Chronos_Lights.gif",
-        heavy: "Chronos_Heavy.gif",
-        dash: "Chronos_Dashes.gif",
-        ability: "Chronos_Focus_showcase.gif"
-    },
-
-    "White Ash": {
-        light: "WA_Lights.gif",
-        heavy: "WA_Heavy.gif",
-        dash: "WA_Dashes.gif",
-        ability: "Joe_Burn_Showcase.gif",
-        ultimate: "Joe_Ult_Showcase.gif"
-    },
-
-    "Supernova": {
-        light: "AttackPlaceholder.png"
-    },
-
-    "Deimos": {
-        light: "AttackPlaceholder.png"
-    }
-
-};
-
-
-/* =========================================================
-   MOVE PREVIEW
-   ========================================================= */
-
-function movePreview(label, filename) {
-
-    if (!filename) {
-        return "";
-    }
-
-
-    const src =
-        `./assets/styles/${filename}`;
-
-
-    return `
-
-        <div class="wiki-move-card">
-
-            <div class="wiki-move-image">
-
-                <img
-                    src="${escapeAttribute(src)}"
-                    alt="${escapeAttribute(label)}"
-                    loading="lazy"
-                    onerror="
-                        this.style.display='none';
-                        this.parentElement.classList.add('missing');
-                    "
-                >
-
-                <div class="move-missing">
-                    IMAGE UNAVAILABLE
-                </div>
-
-            </div>
-
-
-            <div class="wiki-move-name">
-
-                ${escapeHTML(label)}
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* =========================================================
-   STYLE ARTICLE PAGE
-   ========================================================= */
-
-const styleArticle =
-    document.getElementById("styleArticle");
-
-
-if (styleArticle) {
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const requestedName =
-        params.get("style");
-
-
-    const style =
-        getStyleByName(requestedName);
-
-
-    if (!style) {
-
-        document.title =
-            "Style Not Found — UBG Wiki";
-
-
-        styleArticle.innerHTML = `
-
-            <div class="style-not-found">
-
-                <div class="not-found-code">
-                    404
-                </div>
-
-                <h1>
-                    Style not found
-                </h1>
-
-                <p>
-                    The requested style does not exist
-                    in the current UBG Wiki database.
-                </p>
-
-                <a
-                    href="styles.html"
-                    class="style-back-button"
-                >
-                    ← Return to Styles
-                </a>
-
-            </div>
-
-        `;
-
-    } else {
-
-        renderStyleArticle(style);
-
-    }
-
-}
-
-
-/* =========================================================
-   ARTICLE RENDERER
+   STYLE ARTICLE
    ========================================================= */
 
 function renderStyleArticle(style) {
 
-    const image =
-        getStyleImage(style);
+  const article =
+    document.getElementById("styleArticle");
+
+  if (!article || !style) return;
 
 
-    document.title =
-        `${style.name} — UBG Wiki`;
+  const moveMap = {
 
+    "Basic": {
+      light: "Basic_Lights.gif",
+      heavy: "Basic_Heavies.gif",
+      dash: "Basic_Dashes.gif",
+      ultimate: "Basic-ult-.gif"
+    },
 
-    const moves =
-        moveMap[style.name] || {};
+    "Smash": {
+      light: "Smash_Lights.gif",
+      heavy: "Smash_Heavy.gif",
+      dash: "Smash_Dashes.gif"
+    },
 
+    "Long Guard": {
+      light: "LG_Lights.gif",
+      heavy: "LG_Heavy.gif",
+      dash: "LG_Dashes.gif"
+    },
 
-    const rarityClass =
-        getRarityClass(style.rarity);
+    "Counter": {
+      light: "Counter_Lights.gif",
+      heavy: "Counter_Heavy.gif",
+      dash: "Counter_Dashes.gif"
+    },
 
+    "Turtle": {
+      light: "Turtle_Lights.gif",
+      heavy: "Turtle_Heavy.gif",
+      dash: "Turtle_Dashes.gif"
+    },
 
-    const isShiny =
-        style.rarity === "Shiny";
+    "Corkscrew": {
+      light: "Corkscrew_Lights.gif",
+      heavy: "Corkscrew_Heavy.gif",
+      dash: "Corkscrew_Dashes.gif"
+    },
 
+    "Charge": {
+      light: "Charge_Lights.gif",
+      heavy: "Charge_Heavy.gif",
+      dash: "Charge_Dashes.gif",
+      ability: "Stampede.gif"
+    },
 
-    /* -----------------------------------------------------
-       LIST HELPERS
-       ----------------------------------------------------- */
+    "Hammer": {
+      light: "Hammer_Lights.gif",
+      heavy: "Hammer_Heavy.gif",
+      dash: "Hammer_Dashes.gif",
+      ability: "Body_Blow.gif"
+    },
 
-    function renderList(items) {
+    "Trickster": {
+      light: "Trickster_Lights.gif",
+      heavy: "Trickster_Heavy.gif",
+      dash: "Trickster_Dashes.gif"
+    },
 
-        if (
-            !Array.isArray(items) ||
-            !items.length
-        ) {
-            return `
-                <p class="wiki-muted">
-                    No information has been documented yet.
-                </p>
-            `;
-        }
+    "Dragonfish": {
+      light: "Kimura_Lights.gif",
+      heavy: "Kimura_Heavy.gif",
+      dash: "Kimura_Dashes.gif"
+    },
 
+    "Dempsey": {
+      light: "Ippo_Lights.gif",
+      heavy: "Ippo_Heavy.gif",
+      dash: "Ippo_Dashes.gif",
+      ability: "Dempsey_Roll.gif"
+    },
 
-        return `
+    "Hitman": {
+      light: "Hitman_Lights.gif",
+      heavy: "Hitman_Heavy.gif",
+      dash: "Hitman_Dashes.gif"
+    },
 
-            <ul class="wiki-list">
+    "Hands Low": {
+      light: "HL_Lights.gif",
+      heavy: "HL_Heavy.gif",
+      dash: "HL_Dashes.gif"
+    },
 
-                ${items.map(item => `
+    "Wolf": {
+      light: "Wolf_Lights.gif",
+      heavy: "Wolf_Heavy.gif",
+      dash: "Wolf_Dashes.gif",
+      ability: "White_Fang_storage_showcase.gif"
+    },
 
-                    <li>
-                        ${escapeHTML(item)}
-                    </li>
+    "Bullet": {
+      light: "Bullet_Lights.gif",
+      heavy: "Bullet_Heavy.gif",
+      dash: "Bullet_Dashes.gif"
+    },
 
-                `).join("")}
+    "Switch Hit": {
+      light: "SH_Light.gif",
+      heavy: "SH_Heavy.gif",
+      dash: "SH_Dashes.gif",
+      ability: "Static_PD.gif"
+    },
 
-            </ul>
+    "Slugger": {
+      light: "Slugger_Lights.gif",
+      heavy: "Slugger_Heavy.gif",
+      dash: "Slugger_Dashes.gif"
+    },
 
-        `;
+    "Hawk": {
+      light: "Hawk_Lights.gif",
+      heavy: "Hawk_Heavies.gif",
+      dash: "Hawk_Dashes.gif"
+    },
 
+    "Ghost": {
+      light: "Ghost_Lights.gif",
+      heavy: "Ghost_Heavy.gif",
+      dash: "Ghost_Dashes.gif",
+      ability: "Ghost_Jab.gif"
+    },
+
+    "Iron Fist": {
+      light: "IF_Lights.gif",
+      heavy: "IF_Heavy.gif",
+      dash: "IF_Dashes.gif"
+    },
+
+    "Shotgun": {
+      light: "Shotgun_Lights.gif",
+      heavy: "Shotgun_Heavy.gif",
+      dash: "Shotgun_Dashes.gif",
+      ability: "Single_barrage.gif"
+    },
+
+    "Freedom": {
+      light: "Freedom_Lights.gif",
+      heavy: "Freedom_Heavy.gif",
+      dash: "Freedom_Dashes.gif",
+      ability: "Freedom_Switching.gif"
+    },
+
+    "Chronos": {
+      light: "Chronos_Lights.gif",
+      heavy: "Chronos_Heavy.gif",
+      dash: "Chronos_Dashes.gif",
+      ability: "Chronos_Focus_showcase.gif"
+    },
+
+    "White Ash": {
+      light: "WA_Lights.gif",
+      heavy: "WA_Heavy.gif",
+      dash: "WA_Dashes.gif",
+      ability: "Joe_Burn_Showcase.gif",
+      ultimate: "Joe_Ult_Showcase.gif"
+    },
+
+    "Supernova": {
+      light: "AttackPlaceholder.png"
+    },
+
+    "Deimos": {
+      light: "AttackPlaceholder.png"
     }
 
+  };
 
-    /* -----------------------------------------------------
-       RELATED STYLE
-       ----------------------------------------------------- */
 
-    function relatedStyleLink(name) {
+  const moves =
+    moveMap[style.name] || {};
 
-        const related =
-            getStyleByName(name);
 
+  function moveCard(label, filename) {
 
-        if (!related) {
+    if (!filename) return "";
 
-            return `
-                <span>
-                    ${escapeHTML(name)}
-                </span>
-            `;
+    return `
+      <div class="move-card">
 
-        }
+        <div class="move-title">
+          ${escapeHTML(label)}
+        </div>
 
+        <div class="move-preview">
+          <img
+            src="./assets/styles/${escapeAttribute(filename)}"
+            alt="${escapeAttribute(style.name)} ${escapeAttribute(label)}"
+            loading="lazy"
+            onerror="this.parentElement.parentElement.style.display='none'"
+          >
+        </div>
 
-        return `
+      </div>
+    `;
+  }
 
-            <a href="
-                style.html?style=${encodeURIComponent(related.name)}
-            ">
 
-                ${escapeHTML(related.name)}
+  const previousIndex =
+    Math.max(0, styles.indexOf(style) - 1);
 
-            </a>
+  const nextIndex =
+    Math.min(styles.length - 1, styles.indexOf(style) + 1);
 
-        `;
+  const previousStyle =
+    styles[previousIndex];
 
-    }
+  const nextStyle =
+    styles[nextIndex];
 
 
-    /* -----------------------------------------------------
-       VARIANT INFO
-       ----------------------------------------------------- */
+  article.innerHTML = `
 
-    let variantRows = "";
+    <div class="style-page">
 
+      <div class="style-breadcrumb">
 
-    if (style.baseStyle) {
+        <a href="index.html">Main Page</a>
 
-        variantRows += `
+        <span>›</span>
 
-            <div class="infobox-row">
+        <a href="styles.html">Styles</a>
 
-                <span>
-                    Base style
-                </span>
+        <span>›</span>
 
-                <strong>
-                    ${relatedStyleLink(style.baseStyle)}
-                </strong>
+        <strong>${escapeHTML(style.name)}</strong>
 
-            </div>
+      </div>
 
-        `;
 
-    }
+      <header class="style-header">
 
+        <div>
 
-    if (style.shiny) {
+          <div class="style-header-meta">
 
-        variantRows += `
+            <span class="rarity-badge ${getRarityClass(style.rarity)}">
+              ${escapeHTML(style.rarity)}
+            </span>
 
-            <div class="infobox-row">
-
-                <span>
-                    Shiny
-                </span>
-
-                <strong>
-                    ${relatedStyleLink(style.shiny)}
-                </strong>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* -----------------------------------------------------
-       MOVESET
-       ----------------------------------------------------- */
-
-    const moveEntries = [
-
-        ["Light", moves.light],
-        ["Heavy", moves.heavy],
-        ["Dash", moves.dash],
-        [
-            style.ability !== "None"
-                ? style.ability
-                : "Ability",
-            moves.ability
-        ],
-        [
-            style.ultimateName || "Ultimate",
-            moves.ultimate
-        ]
-
-    ];
-
-
-    const availableMoves =
-        moveEntries.filter(
-            entry => entry[1]
-        );
-
-
-    const movesetHTML =
-        availableMoves.length
-
-            ? `
-
-                <div class="wiki-moveset-grid">
-
-                    ${availableMoves.map(entry =>
-                        movePreview(
-                            entry[0],
-                            entry[1]
-                        )
-                    ).join("")}
-
-                </div>
-
-              `
-
-            : `
-
-                <div class="wiki-empty-box">
-
-                    <span class="empty-icon">
-                        ◌
-                    </span>
-
-                    <strong>
-                        Moveset not documented
-                    </strong>
-
-                    <p>
-                        A complete moveset showcase
-                        has not yet been added to this
-                        article.
-                    </p>
-
-                </div>
-
-              `;
-
-
-    /* -----------------------------------------------------
-       WIP
-       ----------------------------------------------------- */
-
-    const wipHTML =
-        style.wip
-
-            ? `
-
-                <div class="wiki-wip">
-
-                    <div class="wip-icon">
-                        !
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            This article is a work in progress
-                        </strong>
-
-                        <p>
-                            Some information on this page has
-                            not yet been fully documented.
-                            Treat incomplete information as
-                            provisional.
-                        </p>
-
-                    </div>
-
-                </div>
-
-              `
-
-            : "";
-
-
-    /* -----------------------------------------------------
-       INFOBOX
-       ----------------------------------------------------- */
-
-    const infobox = `
-
-        <aside class="wiki-infobox">
-
-            <div class="infobox-heading">
-
-                ${escapeHTML(style.name)}
-
-            </div>
-
-
-            <div class="infobox-image">
-
-                ${
-                    image
-
-                        ? `
-
-                            <img
-                                src="${escapeAttribute(image)}"
-                                alt="${escapeAttribute(style.name)}"
-                            >
-
-                          `
-
-                        : `
-
-                            <div class="infobox-no-image">
-                                IMAGE UNAVAILABLE
-                            </div>
-
-                          `
-                }
-
-            </div>
-
-
-            <div class="infobox-basic">
-
-                <div class="infobox-rarity">
-
-                    <span class="infobox-label">
-                        RARITY
-                    </span>
-
-                    <span class="
-                        wiki-rarity
-                        ${rarityClass}
-                    ">
-
-                        ${escapeHTML(style.rarity)}
-
-                    </span>
-
-                </div>
-
-
-                ${
-                    style.ranked
-
-                        ? `
-
-                            <div class="infobox-row">
-
-                                <span>
-                                    Ranked
-                                </span>
-
-                                <strong>
-                                    ${escapeHTML(style.ranked)}
-                                </strong>
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
-
-
-                ${variantRows}
-
-            </div>
-
-
-            <div class="infobox-section-title">
-                DOCUMENTED STATS
-            </div>
-
-
-            <div class="infobox-stats">
-
-                <div class="infobox-stat">
-
-                    <span>
-                        Health
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(style.hp || "—")}
-                    </strong>
-
-                </div>
-
-
-                <div class="infobox-stat">
-
-                    <span>
-                        Dash
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(style.dash || "—")}
-                    </strong>
-
-                </div>
-
-
-                <div class="infobox-stat">
-
-                    <span>
-                        Range
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(style.range || "—")}
-                    </strong>
-
-                </div>
-
-
-                <div class="infobox-stat">
-
-                    <span>
-                        Block
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(style.block || "—")}
-                    </strong>
-
-                </div>
-
-
-                <div class="infobox-stat">
-
-                    <span>
-                        Ultimate
-                    </span>
-
-                    <strong>
-                        ${escapeHTML(style.ultimate || "—")}
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            ${
-                style.obtain
-
-                    ? `
-
-                        <div class="infobox-obtain">
-
-                            <div class="infobox-section-title">
-                                OBTAINED
-                            </div>
-
-                            <p>
-                                ${escapeHTML(style.obtain)}
-                            </p>
-
-                        </div>
-
-                      `
-
-                    : ""
+            ${style.wip
+              ? `<span class="wip-badge">WORK IN PROGRESS</span>`
+              : ""
             }
 
-        </aside>
+          </div>
 
-    `;
+          <h1>${escapeHTML(style.name)}</h1>
 
-
-    /* -----------------------------------------------------
-       ARTICLE
-       ----------------------------------------------------- */
-
-    const article =
-        document.getElementById("styleArticle");
-
-
-    if (!article) {
-        return;
-    }
-
-
-    article.innerHTML = `
-
-        <div class="style-page">
-
-
-            <!-- =========================================
-                 BREADCRUMB
-                 ========================================= -->
-
-            <div class="wiki-breadcrumb">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <span>›</span>
-
-                <a href="styles.html">
-                    Styles
-                </a>
-
-                <span>›</span>
-
-                <span class="current">
-                    ${escapeHTML(style.name)}
-                </span>
-
-            </div>
-
-
-            <!-- =========================================
-                 HEADER
-                 ========================================= -->
-
-            <header class="style-header">
-
-                <div class="style-header-main">
-
-                    <div class="style-header-kicker">
-
-                        <span class="
-                            rarity-dot
-                            ${rarityClass}
-                        "></span>
-
-                        ${escapeHTML(style.rarity)}
-                        Style
-
-                    </div>
-
-
-                    <h1>
-                        ${escapeHTML(style.name)}
-                    </h1>
-
-
-                    ${
-                        style.ranked
-
-                            ? `
-
-                                <div class="style-ranked">
-
-                                    Ranked name:
-
-                                    <strong>
-                                        ${escapeHTML(style.ranked)}
-                                    </strong>
-
-                                </div>
-
-                              `
-
-                            : ""
-                    }
-
-
-                    ${
-                        style.baseStyle
-
-                            ? `
-
-                                <div class="style-variant-label">
-
-                                    Shiny / Variant of
-
-                                    ${relatedStyleLink(
-                                        style.baseStyle
-                                    )}
-
-                                </div>
-
-                              `
-
-                            : ""
-                    }
-
-                </div>
-
-
-                <div class="style-header-actions">
-
-                    ${
-                        style.wip
-
-                            ? `
-
-                                <span class="header-wip">
-                                    WIP
-                                </span>
-
-                              `
-
-                            : ""
-                    }
-
-
-                    <a
-                        href="styles.html"
-                        class="header-back"
-                    >
-                        ← All Styles
-                    </a>
-
-                </div>
-
-            </header>
-
-
-            ${wipHTML}
-
-
-            <!-- =========================================
-                 LEAD
-                 ========================================= -->
-
-            <div class="style-lead">
-
-                ${escapeHTML(
-                    style.description ||
-                    "No description has been documented for this style yet."
-                )}
-
-            </div>
-
-
-            <!-- =========================================
-                 ARTICLE + INFOBOX
-                 ========================================= -->
-
-            <div class="style-layout">
-
-
-                <main class="style-main">
-
-
-                    <!-- GENERAL STATS -->
-
-                    ${renderGeneralStats(style)}
-
-
-                    <!-- OVERVIEW -->
-
-                    <section
-                        class="wiki-section"
-                        id="overview"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                01
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    ARTICLE
-                                </div>
-
-                                <h2>
-                                    Overview
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="section-body">
-
-                            <p>
-                                ${escapeHTML(
-                                    style.description ||
-                                    "No overview has been documented."
-                                )}
-                            </p>
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- STYLE INFORMATION -->
-
-                    <section
-                        class="wiki-section"
-                        id="information"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                02
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    DATA
-                                </div>
-
-                                <h2>
-                                    Style Information
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="section-body">
-
-                            <div class="information-grid">
-
-                                <div class="information-item">
-
-                                    <span>
-                                        Health
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.hp || "—"
-                                        )}
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="information-item">
-
-                                    <span>
-                                        Dash
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.dash || "—"
-                                        )}
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="information-item">
-
-                                    <span>
-                                        Range
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.range || "—"
-                                        )}
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="information-item">
-
-                                    <span>
-                                        Block
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.block || "—"
-                                        )}
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="information-item">
-
-                                    <span>
-                                        Ultimate Meter
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.ultimate || "—"
-                                        )}
-                                    </strong>
-
-                                </div>
-
-
-                                <div class="information-item">
-
-                                    <span>
-                                        Trail
-                                    </span>
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.trail || "—"
-                                        )}
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- PASSIVE -->
-
-                    ${
-                        style.passive &&
-                        style.passive !== "None"
-
-                            ? `
-
-                                <section
-                                    class="wiki-section"
-                                    id="passive"
-                                >
-
-                                    <div class="wiki-section-heading">
-
-                                        <span class="section-number">
-                                            03
-                                        </span>
-
-                                        <div>
-
-                                            <div class="section-eyebrow">
-                                                MECHANIC
-                                            </div>
-
-                                            <h2>
-                                                Passive
-                                            </h2>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="mechanic-card">
-
-                                        <div class="mechanic-icon">
-                                            P
-                                        </div>
-
-                                        <div>
-
-                                            <strong>
-                                                ${escapeHTML(
-                                                    style.passive
-                                                )}
-                                            </strong>
-
-                                            <p>
-                                                Passive information
-                                                for this mechanic can
-                                                be expanded as the wiki
-                                                is documented further.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </section>
-
-                              `
-
-                            : ""
-                    }
-
-
-                    <!-- ABILITY -->
-
-                    ${
-                        style.ability &&
-                        style.ability !== "None"
-
-                            ? `
-
-                                <section
-                                    class="wiki-section"
-                                    id="ability"
-                                >
-
-                                    <div class="wiki-section-heading">
-
-                                        <span class="section-number">
-                                            04
-                                        </span>
-
-                                        <div>
-
-                                            <div class="section-eyebrow">
-                                                MECHANIC
-                                            </div>
-
-                                            <h2>
-                                                Ability
-                                            </h2>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="mechanic-card ability-card">
-
-                                        <div class="mechanic-icon">
-                                            A
-                                        </div>
-
-                                        <div>
-
-                                            <strong>
-                                                ${escapeHTML(
-                                                    style.ability
-                                                )}
-                                            </strong>
-
-                                            <p>
-                                                Ability information
-                                                can be expanded with
-                                                frame data, mechanics
-                                                and demonstrations.
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                </section>
-
-                              `
-
-                            : ""
-                    }
-
-
-                    <!-- ULTIMATE -->
-
-                    ${
-                        style.ultimateName
-
-                            ? `
-
-                                <section
-                                    class="wiki-section"
-                                    id="ultimate"
-                                >
-
-                                    <div class="wiki-section-heading">
-
-                                        <span class="section-number">
-                                            05
-                                        </span>
-
-                                        <div>
-
-                                            <div class="section-eyebrow">
-                                                ULTIMATE
-                                            </div>
-
-                                            <h2>
-                                                ${escapeHTML(
-                                                    style.ultimateName
-                                                )}
-                                            </h2>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="ultimate-card">
-
-                                        <div class="ultimate-card-title">
-
-                                            <span class="ultimate-mark">
-                                                U
-                                            </span>
-
-                                            Ultimate
-
-                                        </div>
-
-
-                                        <p>
-                                            Ultimate information for
-                                            this style can be expanded
-                                            with a full showcase and
-                                            mechanical details.
-                                        </p>
-
-                                    </div>
-
-                                </section>
-
-                              `
-
-                            : ""
-                    }
-
-
-                    <!-- MOVESET -->
-
-                    <section
-                        class="wiki-section"
-                        id="moveset"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                06
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    SHOWCASE
-                                </div>
-
-                                <h2>
-                                    Moveset
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="section-body">
-
-                            ${movesetHTML}
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- STRENGTHS -->
-
-                    <section
-                        class="wiki-section"
-                        id="strengths"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                07
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    ANALYSIS
-                                </div>
-
-                                <h2>
-                                    Strengths
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="section-body">
-
-                            ${renderList(style.strengths)}
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- WEAKNESSES -->
-
-                    <section
-                        class="wiki-section"
-                        id="weaknesses"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                08
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    ANALYSIS
-                                </div>
-
-                                <h2>
-                                    Weaknesses
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="section-body">
-
-                            ${renderList(style.weaknesses)}
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- STRATEGY -->
-
-                    <section
-                        class="wiki-section"
-                        id="strategy"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                09
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    GUIDE
-                                </div>
-
-                                <h2>
-                                    Strategy
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="section-body">
-
-                            <p>
-
-                                ${escapeHTML(style.name)}
-                                rewards players who understand
-                                its strengths and avoid situations
-                                that expose its weaknesses.
-
-                            </p>
-
-
-                            <div class="strategy-placeholder">
-
-                                <span>
-                                    COMMUNITY GUIDE
-                                </span>
-
-                                <p>
-                                    Matchups, advanced techniques
-                                    and community strategies can be
-                                    documented here.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- OBTAINMENT -->
-
-                    <section
-                        class="wiki-section"
-                        id="obtaining"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                10
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    COLLECTION
-                                </div>
-
-                                <h2>
-                                    Obtaining
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="section-body">
-
-                            <p>
-                                ${escapeHTML(
-                                    style.obtain ||
-                                    "Obtaining information has not yet been documented."
-                                )}
-                            </p>
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- GALLERY -->
-
-                    <section
-                        class="wiki-section"
-                        id="gallery"
-                    >
-
-                        <div class="wiki-section-heading">
-
-                            <span class="section-number">
-                                11
-                            </span>
-
-                            <div>
-
-                                <div class="section-eyebrow">
-                                    MEDIA
-                                </div>
-
-                                <h2>
-                                    Gallery
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="gallery-grid">
-
-                            ${
-                                image
-
-                                    ? `
-
-                                        <figure class="gallery-card">
-
-                                            <div class="gallery-image">
-
-                                                <img
-                                                    src="${escapeAttribute(image)}"
-                                                    alt="${escapeAttribute(style.name)}"
-                                                    loading="lazy"
-                                                >
-
-                                            </div>
-
-                                            <figcaption>
-
-                                                ${escapeHTML(
-                                                    style.name
-                                                )}
-                                                idle animation
-
-                                            </figcaption>
-
-                                        </figure>
-
-                                      `
-
-                                    : `
-
-                                        <div class="wiki-empty-box">
-
-                                            <strong>
-                                                No gallery media
-                                            </strong>
-
-                                        </div>
-
-                                      `
-                            }
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- CATEGORIES -->
-
-                    <div class="wiki-categories">
-
-                        <span>
-                            Categories:
-                        </span>
-
-
-                        <a href="
-                            styles.html?rarity=${encodeURIComponent(
-                                style.rarity
-                            )}
-                        ">
-
-                            ${escapeHTML(style.rarity)}
-                            styles
-
-                        </a>
-
-
-                        <a href="styles.html">
-                            Styles
-                        </a>
-
-
-                        ${
-                            style.wip
-                                ? `
-                                    <span class="category-wip">
-                                        Work in progress
-                                    </span>
-                                  `
-                                : ""
-                        }
-
-                    </div>
-
-
-                </main>
-
-
-                <!-- INFOBOX -->
-
-                ${infobox}
-
-            </div>
+          <div class="style-subtitle">
+            ${escapeHTML(style.ranked)}
+          </div>
 
         </div>
 
-    `;
+        <div class="style-header-actions">
+
+          <a href="styles.html" class="article-button">
+            ← All Styles
+          </a>
+
+          <a
+            href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="article-button primary"
+          >
+            Play UBG ↗
+          </a>
+
+        </div>
+
+      </header>
 
 
-    /* -----------------------------------------------------
-       CONTENTS
-       ----------------------------------------------------- */
-
-    const contents =
-        document.getElementById(
-            "styleContents"
-        );
+      <div class="style-layout">
 
 
-    if (contents) {
+        <article class="style-content">
 
-        contents.innerHTML = `
 
-            <div class="contents-title">
-                ON THIS PAGE
+          <div class="style-lead">
+
+            <div class="style-lead-image">
+
+              <img
+                src="${escapeAttribute(getStyleImage(style))}"
+                alt="${escapeAttribute(style.name)}"
+              >
+
+            </div>
+
+            <div class="style-lead-text">
+
+              <p>
+                ${escapeHTML(style.description)}
+              </p>
+
+              ${style.baseStyle
+                ? `
+                  <p class="style-variant-note">
+                    Shiny variant of
+                    <a href="style.html?style=${encodeURIComponent(style.baseStyle)}">
+                      ${escapeHTML(style.baseStyle)}
+                    </a>.
+                  </p>
+                `
+                : ""
+              }
+
+            </div>
+
+          </div>
+
+
+          ${style.wip ? `
+
+            <div class="wip-notice">
+
+              <strong>⚠ Work in progress</strong>
+
+              <p>
+                Information on this page is still being documented.
+                Some values, descriptions, or mechanics may be incomplete.
+              </p>
+
+            </div>
+
+          ` : ""}
+
+
+          <section id="overview" class="wiki-section">
+
+            <h2>Overview</h2>
+
+            <p>
+              ${escapeHTML(style.description)}
+            </p>
+
+            <p>
+              <strong>${escapeHTML(style.name)}</strong>
+              is classified as a
+              <strong>${escapeHTML(style.rarity)}</strong>
+              style in Untitled Boxing Game.
+            </p>
+
+          </section>
+
+
+          <section id="stats" class="wiki-section">
+
+            <h2>Style information</h2>
+
+            <div class="stat-table">
+
+              <div class="stat-row">
+                <span>Health</span>
+                <strong>${escapeHTML(style.hp)}</strong>
+              </div>
+
+              <div class="stat-row">
+                <span>Dash</span>
+                <strong>${escapeHTML(style.dash)}</strong>
+              </div>
+
+              <div class="stat-row">
+                <span>Range</span>
+                <strong>${escapeHTML(style.range)}</strong>
+              </div>
+
+              <div class="stat-row">
+                <span>Block</span>
+                <strong>${escapeHTML(style.block)}</strong>
+              </div>
+
+              <div class="stat-row">
+                <span>Ultimate</span>
+                <strong>${escapeHTML(style.ultimate)}</strong>
+              </div>
+
+            </div>
+
+          </section>
+
+
+          ${style.passive && style.passive !== "None" ? `
+
+            <section id="passive" class="wiki-section">
+
+              <h2>Passive</h2>
+
+              <div class="ability-box">
+
+                <div class="ability-name">
+                  ${escapeHTML(style.passive)}
+                </div>
+
+                <p>
+                  This style has the
+                  <strong>${escapeHTML(style.passive)}</strong>
+                  passive.
+                </p>
+
+              </div>
+
+            </section>
+
+          ` : ""}
+
+
+          ${style.ability && style.ability !== "None" ? `
+
+            <section id="ability" class="wiki-section">
+
+              <h2>Ability</h2>
+
+              <div class="ability-box">
+
+                <div class="ability-name">
+                  ${escapeHTML(style.ability)}
+                </div>
+
+                <p>
+                  The main ability available to this style.
+                </p>
+
+              </div>
+
+            </section>
+
+          ` : ""}
+
+
+          ${style.ultimateName ? `
+
+            <section id="ultimate" class="wiki-section">
+
+              <h2>Ultimate</h2>
+
+              <div class="ability-box ultimate-box">
+
+                <div class="ability-name">
+                  ${escapeHTML(style.ultimateName)}
+                </div>
+
+                <p>
+                  This style's ultimate ability.
+                </p>
+
+                <div class="ultimate-meter">
+                  Ultimate requirement:
+                  <strong>${escapeHTML(style.ultimate)}</strong>
+                </div>
+
+              </div>
+
+              ${moves.ultimate
+                ? moveCard("Ultimate", moves.ultimate)
+                : ""
+              }
+
+            </section>
+
+          ` : ""}
+
+
+          <section id="moveset" class="wiki-section">
+
+            <h2>Moveset</h2>
+
+            <div class="move-grid">
+
+              ${moveCard("Light Punches", moves.light)}
+
+              ${moveCard("Heavy Punches", moves.heavy)}
+
+              ${moveCard("Dash", moves.dash)}
+
+              ${moveCard("Ability", moves.ability)}
+
+              ${moves.ultimate
+                ? moveCard("Ultimate", moves.ultimate)
+                : ""
+              }
+
+            </div>
+
+            ${Object.keys(moves).length === 0 ? `
+
+              <p class="missing-data">
+                Move animations have not yet been documented.
+              </p>
+
+            ` : ""}
+
+          </section>
+
+
+          <section id="strengths" class="wiki-section">
+
+            <h2>Strengths</h2>
+
+            <div class="strength-box">
+
+              <p>
+                ${escapeHTML(style.strengths)}
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <section id="weaknesses" class="wiki-section">
+
+            <h2>Weaknesses</h2>
+
+            <div class="weakness-box">
+
+              <p>
+                ${escapeHTML(style.weaknesses)}
+              </p>
+
+            </div>
+
+          </section>
+
+
+          <section id="strategy" class="wiki-section">
+
+            <h2>Strategy</h2>
+
+            <p>
+              Strategy information for
+              <strong>${escapeHTML(style.name)}</strong>
+              is currently being documented.
+            </p>
+
+          </section>
+
+
+          <section id="obtaining" class="wiki-section">
+
+            <h2>Obtaining</h2>
+
+            <div class="obtain-box">
+
+              ${escapeHTML(style.obtain)}
+
+            </div>
+
+          </section>
+
+
+          <section id="gallery" class="wiki-section">
+
+            <h2>Gallery</h2>
+
+            <div class="gallery-grid">
+
+              <div class="gallery-item">
+
+                <img
+                  src="${escapeAttribute(getStyleImage(style))}"
+                  alt="${escapeAttribute(style.name)}"
+                  loading="lazy"
+                >
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <div class="style-categories">
+
+            <span>Category:</span>
+
+            <a href="styles.html?rarity=${encodeURIComponent(style.rarity)}">
+              ${escapeHTML(style.rarity)} Styles
+            </a>
+
+            ${style.baseStyle
+              ? `
+                <a href="style.html?style=${encodeURIComponent(style.baseStyle)}">
+                  Shiny Variants
+                </a>
+              `
+              : ""
+            }
+
+          </div>
+
+
+          <div class="style-pagination">
+
+            <a
+              href="style.html?style=${encodeURIComponent(previousStyle.name)}"
+              class="pagination-card"
+            >
+
+              <span>← Previous Style</span>
+
+              <strong>
+                ${escapeHTML(previousStyle.name)}
+              </strong>
+
+            </a>
+
+
+            <a
+              href="style.html?style=${encodeURIComponent(nextStyle.name)}"
+              class="pagination-card next"
+            >
+
+              <span>Next Style →</span>
+
+              <strong>
+                ${escapeHTML(nextStyle.name)}
+              </strong>
+
+            </a>
+
+          </div>
+
+
+        </article>
+
+
+        <aside class="style-side">
+
+
+          <div class="wiki-infobox">
+
+            <div class="infobox-title">
+              ${escapeHTML(style.name)}
+            </div>
+
+            <div class="infobox-image">
+
+              <img
+                src="${escapeAttribute(getStyleImage(style))}"
+                alt="${escapeAttribute(style.name)}"
+              >
+
             </div>
 
 
-            <a href="#general-stats">
-                <span>00</span>
-                General Stats
-            </a>
+            <div class="infobox-row">
+
+              <span>Rarity</span>
+
+              <strong class="${getRarityClass(style.rarity)}">
+                ${escapeHTML(style.rarity)}
+              </strong>
+
+            </div>
 
 
-            <a href="#overview">
-                <span>01</span>
-                Overview
-            </a>
+            <div class="infobox-row">
+
+              <span>Ranked</span>
+
+              <strong>
+                ${escapeHTML(style.ranked)}
+              </strong>
+
+            </div>
 
 
-            <a href="#information">
-                <span>02</span>
-                Information
-            </a>
+            ${style.baseStyle ? `
+
+              <div class="infobox-row">
+
+                <span>Base style</span>
+
+                <a href="style.html?style=${encodeURIComponent(style.baseStyle)}">
+                  ${escapeHTML(style.baseStyle)}
+                </a>
+
+              </div>
+
+            ` : ""}
 
 
-            ${
-                style.passive &&
-                style.passive !== "None"
+            <div class="infobox-row">
 
-                    ? `
-                        <a href="#passive">
-                            <span>03</span>
-                            Passive
-                        </a>
-                      `
+              <span>Health</span>
 
-                    : ""
+              <strong>
+                ${escapeHTML(style.hp)}
+              </strong>
+
+            </div>
+
+
+            <div class="infobox-row">
+
+              <span>Dash</span>
+
+              <strong>
+                ${escapeHTML(style.dash)}
+              </strong>
+
+            </div>
+
+
+            <div class="infobox-row">
+
+              <span>Range</span>
+
+              <strong>
+                ${escapeHTML(style.range)}
+              </strong>
+
+            </div>
+
+
+            <div class="infobox-row">
+
+              <span>Block</span>
+
+              <strong>
+                ${escapeHTML(style.block)}
+              </strong>
+
+            </div>
+
+
+            <div class="infobox-row">
+
+              <span>Ultimate</span>
+
+              <strong>
+                ${escapeHTML(style.ultimate)}
+              </strong>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="wiki-side-panel">
+
+            <div class="side-panel-title">
+              CONTENTS
+            </div>
+
+            <a href="#overview">Overview</a>
+            <a href="#stats">Style information</a>
+
+            ${style.passive && style.passive !== "None"
+              ? `<a href="#passive">Passive</a>`
+              : ""
             }
 
-
-            ${
-                style.ability &&
-                style.ability !== "None"
-
-                    ? `
-                        <a href="#ability">
-                            <span>04</span>
-                            Ability
-                        </a>
-                      `
-
-                    : ""
+            ${style.ability && style.ability !== "None"
+              ? `<a href="#ability">Ability</a>`
+              : ""
             }
 
+            <a href="#ultimate">Ultimate</a>
+            <a href="#moveset">Moveset</a>
+            <a href="#strengths">Strengths</a>
+            <a href="#weaknesses">Weaknesses</a>
+            <a href="#strategy">Strategy</a>
+            <a href="#obtaining">Obtaining</a>
+            <a href="#gallery">Gallery</a>
 
-            <a href="#moveset">
-                <span>06</span>
-                Moveset
+          </div>
+
+
+          <div class="wiki-side-panel">
+
+            <div class="side-panel-title">
+              STYLE NAVIGATION
+            </div>
+
+            <a href="styles.html">
+              ← All Styles
             </a>
 
-
-            <a href="#strengths">
-                <span>07</span>
-                Strengths
+            <a href="styles.html">
+              🥊 Style List
             </a>
 
-
-            <a href="#weaknesses">
-                <span>08</span>
-                Weaknesses
+            <a href="#">
+              ⚙ Mechanics
             </a>
 
-
-            <a href="#strategy">
-                <span>09</span>
-                Strategy
-            </a>
+          </div>
 
 
-            <a href="#obtaining">
-                <span>10</span>
-                Obtaining
-            </a>
+        </aside>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
 
 
-            <a href="#gallery">
-                <span>11</span>
-                Gallery
-            </a>
+/* =========================================================
+   LOAD STYLE ARTICLE
+   ========================================================= */
 
-        `;
+function loadStyleArticle() {
 
-    }
+  const article =
+    document.getElementById("styleArticle");
+
+  if (!article) return;
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const requestedStyle =
+    params.get("style");
+
+  if (!requestedStyle) {
+
+    article.innerHTML = `
+
+      <div class="missing-style">
+
+        <h1>Style not found</h1>
+
+        <p>
+          No style was specified.
+        </p>
+
+        <a href="styles.html">
+          ← Return to Styles
+        </a>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  const style =
+    styles.find(
+      item =>
+        item.name.toLowerCase() ===
+        requestedStyle.toLowerCase()
+    );
+
+
+  if (!style) {
+
+    article.innerHTML = `
+
+      <div class="missing-style">
+
+        <h1>Style not found</h1>
+
+        <p>
+          The style
+          <strong>${escapeHTML(requestedStyle)}</strong>
+          could not be found in the database.
+        </p>
+
+        <a href="styles.html">
+          ← Return to Styles
+        </a>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  document.title =
+    `${style.name} — UBG Wiki`;
+
+  renderStyleArticle(style);
 
 }
 
@@ -3554,127 +1746,128 @@ function renderStyleArticle(style) {
    GLOBAL SEARCH
    ========================================================= */
 
-const globalSearch =
-    document.getElementById(
-        "globalSearch"
-    );
+function setupGlobalSearch() {
+
+  const search =
+    document.getElementById("globalSearch");
+
+  if (!search) return;
 
 
-function performGlobalSearch(query) {
+  search.addEventListener("keydown", event => {
 
-    const value =
-        String(query || "")
-            .trim()
-            .toLowerCase();
+    if (event.key !== "Enter") return;
 
+    const query =
+      search.value.trim().toLowerCase();
 
-    if (!value) {
-        return;
-    }
+    if (!query) return;
 
 
     const exact =
-        styles.find(style =>
-            style.name.toLowerCase() === value
-        );
-
-
-    if (exact) {
-
-        window.location.href =
-            `style.html?style=${encodeURIComponent(
-                exact.name
-            )}`;
-
-        return;
-
-    }
+      styles.find(
+        style =>
+          style.name.toLowerCase() === query
+      );
 
 
     const partial =
-        styles.find(style =>
-            style.name.toLowerCase().includes(value)
-        );
+      exact ||
+      styles.find(
+        style =>
+          style.name.toLowerCase().includes(query)
+      );
 
 
     if (partial) {
 
-        window.location.href =
-            `style.html?style=${encodeURIComponent(
-                partial.name
-            )}`;
+      window.location.href =
+        `style.html?style=${encodeURIComponent(partial.name)}`;
 
-        return;
+    } else {
+
+      window.location.href =
+        `styles.html?search=${encodeURIComponent(query)}`;
 
     }
 
-
-    window.location.href =
-        `styles.html?search=${encodeURIComponent(
-            query
-        )}`;
-
-}
-
-
-if (globalSearch) {
-
-    globalSearch.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Enter") {
-
-                event.preventDefault();
-
-                performGlobalSearch(
-                    globalSearch.value
-                );
-
-            }
-
-        }
-    );
+  });
 
 }
 
 
 /* =========================================================
-   CTRL / CMD + K
+   URL FILTERS FOR STYLES PAGE
    ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    event => {
+function loadStyleFiltersFromURL() {
 
-        if (
-            (event.ctrlKey || event.metaKey) &&
-            event.key.toLowerCase() === "k"
-        ) {
-
-            event.preventDefault();
+  if (!document.getElementById("styleGrid")) {
+    return;
+  }
 
 
-            const search =
-                document.getElementById(
-                    "globalSearch"
-                );
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const rarity =
+    params.get("rarity");
+
+  const search =
+    params.get("search") || "";
 
 
-            if (search) {
+  const searchInput =
+    document.getElementById("styleSearch");
 
-                search.focus();
 
-                search.select();
+  if (searchInput) {
+    searchInput.value = search;
+  }
 
-            }
 
-        }
+  let filter = "all";
 
-    }
-);
+
+  if (rarity) {
+
+    filter =
+      rarity.toLowerCase();
+
+    document
+      .querySelectorAll(".wiki-filter")
+      .forEach(button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.filter?.toLowerCase() === filter
+        );
+
+      });
+
+  }
+
+
+  renderStyleGrid(
+    filter,
+    search
+  );
+
+}
 
 
 /* =========================================================
-   END OF STYLES.JS
+   INITIALISE
    ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  setupStyleFilters();
+
+  loadStyleFiltersFromURL();
+
+  loadStyleArticle();
+
+  setupGlobalSearch();
+
+});
