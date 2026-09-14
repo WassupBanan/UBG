@@ -4,147 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Untitled Boxing Game</title>
+    <title>Untitled Boxing Game | Companion</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         UBG INTRO
-    ========================== -->
+    <!-- =========================================
+         INTRO
+    ========================================== -->
 
-    <section id="intro" class="intro">
+    <div id="intro">
 
         <div class="intro-noise"></div>
-        <div class="intro-vignette"></div>
-        <div class="intro-red"></div>
 
         <div class="intro-content">
 
-            <div class="micro-copy">
-                A FAN-MADE VISUAL REVAMP
-            </div>
+            <div class="intro-small">A FAN-MADE COMPANION</div>
 
-            <img
-                src="assets/ubg-logo.png"
-                class="intro-logo"
-                alt="Untitled Boxing Game"
-            >
+            <div class="logo-container">
+                <div class="logo-text">UNTITLED</div>
+                <div class="logo-text logo-red">BOXING GAME</div>
+            </div>
 
             <div class="intro-line"></div>
 
-            <div class="loading-wrap">
-                <span>LOADING</span>
-                <span id="loadingDots">.</span>
+            <div class="loading">
+                <span id="loadingText">LOADING</span>
+                <span id="loadingDots">...</span>
             </div>
 
         </div>
 
-        <button id="skipIntro" class="skip">
-            SKIP INTRO <span>ESC</span>
-        </button>
+        <button id="skipIntro">SKIP INTRO [ESC]</button>
 
-    </section>
+    </div>
 
 
-    <!-- =========================
-         MAIN WEBSITE
-    ========================== -->
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
 
-    <main id="site" class="site">
+    <header class="navbar">
 
-        <div class="grain"></div>
+        <a href="#" class="nav-logo">
+            <span>UBG</span>
+            <small>COMPANION</small>
+        </a>
 
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#styles">STYLES</a>
+            <a href="#mechanics">MECHANICS</a>
+            <a href="#ranked">RANKED</a>
+            <a href="#guides">GUIDES</a>
+            <a href="#collection">COLLECTION</a>
+        </nav>
 
-        <!-- NAVIGATION -->
+        <a
+            class="play-button"
+            href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
+            target="_blank"
+        >
+            PLAY UBG
+        </a>
 
-        <header class="nav">
-
-            <a href="#" class="brand">
-
-                <span class="brand-mark">
-                    UBG
-                </span>
-
-                <span class="brand-text">
-                    UNTITLED<br>
-                    BOXING GAME
-                </span>
-
-            </a>
-
-
-            <nav>
-
-                <a href="#styles">
-                    STYLES
-                </a>
-
-                <a href="#guides">
-                    GUIDES
-                </a>
-
-                <a href="#updates">
-                    UPDATES
-                </a>
-
-                <a href="#about">
-                    ABOUT
-                </a>
-
-            </nav>
+    </header>
 
 
-            <button id="soundButton" class="sound">
-                SOUND <span>OFF</span>
-            </button>
+    <main>
 
-        </header>
-
-
-
-        <!-- =========================
+        <!-- =========================================
              HERO
-        ========================== -->
+        ========================================== -->
 
-        <section class="hero">
+        <section id="home" class="hero">
 
-            <div class="hero-bg"></div>
-
+            <div class="hero-background"></div>
             <div class="hero-grid"></div>
 
+            <div class="hero-content">
 
-            <div class="hero-copy">
-
-                <p class="eyebrow">
-                    WELCOME TO THE RING
-                </p>
+                <div class="eyebrow">
+                    <span class="red-dot"></span>
+                    THE ULTIMATE UBG COMPANION
+                </div>
 
                 <h1>
-                    UNTITLED<br>
+                    UNTITLED
                     <span>BOXING GAME</span>
                 </h1>
 
                 <p class="hero-description">
-
-                    A redesigned community hub for
-                    styles, fighters, guides, updates
-                    and everything UBG.
-
+                    Styles. Mechanics. Ranked. Cosmetics.
+                    Everything you need to know about the world of UBG.
                 </p>
 
+                <div class="hero-buttons">
 
-                <div class="hero-actions">
+                    <a
+                        class="btn btn-primary"
+                        href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
+                        target="_blank"
+                    >
+                        PLAY UBG
+                    </a>
 
-                    <a href="#styles" class="primary">
+                    <a class="btn btn-secondary" href="#styles">
                         EXPLORE STYLES
-                        <span>→</span>
-                    </a>
-
-                    <a href="#updates" class="secondary">
-                        LATEST UPDATES
                     </a>
 
                 </div>
@@ -152,257 +120,775 @@
             </div>
 
 
-            <div class="hero-side">
+            <!-- GAME HUD -->
 
-                <div class="vertical-label">
-                    THE FIGHT STARTS HERE
+            <div class="fight-hud">
+
+                <div class="fighter fighter-left">
+
+                    <div class="fighter-name">
+                        <span>PLAYER</span>
+                        <strong>GHOST</strong>
+                    </div>
+
+                    <div class="health">
+                        <div class="health-fill" style="width:82%"></div>
+                    </div>
+
+                    <div class="stamina">
+                        <div class="stamina-fill" style="width:68%"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="round-display">
+
+                    <span>ROUND</span>
+                    <strong>1</strong>
+                    <small>01:37</small>
+
+                </div>
+
+
+                <div class="fighter fighter-right">
+
+                    <div class="fighter-name">
+                        <span>OPPONENT</span>
+                        <strong>HAWK</strong>
+                    </div>
+
+                    <div class="health">
+                        <div class="health-fill enemy" style="width:61%"></div>
+                    </div>
+
+                    <div class="stamina">
+                        <div class="stamina-fill enemy-stamina" style="width:44%"></div>
+                    </div>
+
                 </div>
 
             </div>
 
 
-            <div class="corner corner-tl"></div>
-            <div class="corner corner-br"></div>
+            <div class="ult-meter">
+
+                <div class="ult-label">
+                    ULTIMATE
+                </div>
+
+                <div class="ult-bar">
+                    <div class="ult-fill"></div>
+                </div>
+
+                <div class="ult-percent">
+                    74%
+                </div>
+
+            </div>
 
         </section>
 
 
+        <!-- =========================================
+             EXPLORE
+        ========================================== -->
 
-        <!-- =========================
+        <section class="section explore">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">01</span>
+                    <h2>EXPLORE UBG</h2>
+                </div>
+
+                <p>
+                    Learn how the game works, improve your fundamentals,
+                    and climb the ranks.
+                </p>
+
+            </div>
+
+
+            <div class="explore-grid">
+
+                <a href="#styles" class="explore-card styles-card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://static.wikitide.net/ubgwiki/thumb/6/65/StyleIcon.png/300px-StyleIcon.png"
+                            alt="Styles"
+                        >
+                    </div>
+
+                    <div class="card-content">
+                        <span>01 / COMBAT</span>
+                        <h3>STYLES</h3>
+                        <p>Discover all 32 obtainable fighting styles.</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+
+                <a href="#mechanics" class="explore-card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://static.wikitide.net/ubgwiki/thumb/a/a2/MechanicsIcon.png/300px-MechanicsIcon.png"
+                            alt="Mechanics"
+                        >
+                    </div>
+
+                    <div class="card-content">
+                        <span>02 / FUNDAMENTALS</span>
+                        <h3>MECHANICS</h3>
+                        <p>Master blocking, dashing, counters, PDs and more.</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+
+                <a href="#ranked" class="explore-card ranked-card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://static.wikitide.net/ubgwiki/thumb/d/dd/Ranked_mode_Icon.png/300px-Ranked_mode_Icon.png"
+                            alt="Ranked"
+                        >
+                    </div>
+
+                    <div class="card-content">
+                        <span>03 / COMPETITIVE</span>
+                        <h3>RANKED</h3>
+                        <p>Track RT, ranks, leagues and rewards.</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+
+                <a href="#guides" class="explore-card">
+
+                    <div class="card-image">
+                        <img
+                            src="https://static.wikitide.net/ubgwiki/thumb/d/d6/Tips_and_Tricks.png/300px-Tips_and_Tricks.png"
+                            alt="Tips and Tricks"
+                        >
+                    </div>
+
+                    <div class="card-content">
+                        <span>04 / IMPROVEMENT</span>
+                        <h3>GUIDES</h3>
+                        <p>Mindgames, conditioning and practical advice.</p>
+                    </div>
+
+                    <span class="arrow">→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
              STYLES
-        ========================== -->
+        ========================================== -->
 
-        <section id="styles" class="section">
-
-            <div class="section-heading">
-
-                <span>01</span>
-
-                <h2>
-                    FIGHTING STYLES
-                </h2>
-
-            </div>
-
-
-            <div class="cards">
-
-
-                <article class="card featured">
-
-                    <div class="card-number">
-                        01
-                    </div>
-
-                    <div class="card-content">
-
-                        <p>
-                            STYLE DATABASE
-                        </p>
-
-                        <h3>
-                            FIND<br>
-                            YOUR FIGHT
-                        </h3>
-
-                        <a href="#">
-                            VIEW STYLES →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        02
-                    </div>
-
-                    <div class="card-content">
-
-                        <p>
-                            GUIDES
-                        </p>
-
-                        <h3>
-                            LEARN<br>
-                            THE META
-                        </h3>
-
-                        <a href="#">
-                            READ GUIDES →
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-
-                <article class="card">
-
-                    <div class="card-number">
-                        03
-                    </div>
-
-                    <div class="card-content">
-
-                        <p>
-                            COMMUNITY
-                        </p>
-
-                        <h3>
-                            STEP<br>
-                            INTO THE RING
-                        </h3>
-
-                        <a href="#">
-                            EXPLORE →
-                        </a>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             COMMUNITY STRIP
-        ========================== -->
-
-        <section id="guides" class="strip">
-
-            <div>
-
-                <span class="strip-label">
-                    COMMUNITY HUB
-                </span>
-
-                <h2>
-                    EVERYTHING UBG.<br>
-                    ONE PLACE.
-                </h2>
-
-            </div>
-
-
-            <p>
-
-                Built to replace the cluttered
-                wiki experience with something
-                that actually feels like the game.
-
-            </p>
-
-        </section>
-
-
-
-        <!-- =========================
-             UPDATES
-        ========================== -->
-
-        <section id="updates" class="section updates">
+        <section id="styles" class="section styles-section">
 
             <div class="section-heading">
 
-                <span>02</span>
+                <div>
+                    <span class="section-number">02</span>
+                    <h2>FEATURED STYLES</h2>
+                </div>
 
-                <h2>
-                    LATEST
-                </h2>
+                <a href="#" class="text-link">
+                    VIEW ALL 32 →
+                </a>
 
             </div>
 
 
-            <div class="update-list">
+            <div class="style-grid">
 
 
-                <a href="#" class="update">
+                <article class="style-card legendary">
 
-                    <span>
-                        PATCH NOTES
-                    </span>
+                    <div class="style-rarity">LEGENDARY</div>
 
-                    <strong>
-                        Latest game changes
-                    </strong>
+                    <div class="style-art ghost-art">
+                        <span>GHOST</span>
+                    </div>
 
-                    <b>
-                        →
-                    </b>
+                    <div class="style-info">
 
-                </a>
+                        <div>
+                            <h3>GHOST</h3>
+                            <span>RICARDO MARTINEZ</span>
+                        </div>
+
+                        <div class="style-rank">GHOST</div>
+
+                    </div>
+
+                    <div class="stat-bars">
+
+                        <div>
+                            <span>RANGE</span>
+                            <div><i style="width:78%"></i></div>
+                        </div>
+
+                        <div>
+                            <span>SPEED</span>
+                            <div><i style="width:91%"></i></div>
+                        </div>
+
+                        <div>
+                            <span>BLOCK</span>
+                            <div><i style="width:43%"></i></div>
+                        </div>
+
+                    </div>
+
+                </article>
 
 
-                <a href="#" class="update">
+                <article class="style-card legendary hawk">
 
-                    <span>
-                        NEWS
-                    </span>
+                    <div class="style-rarity">LEGENDARY</div>
 
-                    <strong>
-                        Community announcements
-                    </strong>
+                    <div class="style-art hawk-art">
+                        <span>HAWK</span>
+                    </div>
 
-                    <b>
-                        →
-                    </b>
+                    <div class="style-info">
 
-                </a>
+                        <div>
+                            <h3>HAWK</h3>
+                            <span>BRYAN HAWK</span>
+                        </div>
+
+                        <div class="style-rank">HAWK</div>
+
+                    </div>
+
+                    <div class="stat-bars">
+
+                        <div>
+                            <span>RANGE</span>
+                            <div><i style="width:57%"></i></div>
+                        </div>
+
+                        <div>
+                            <span>SPEED</span>
+                            <div><i style="width:70%"></i></div>
+                        </div>
+
+                        <div>
+                            <span>BLOCK</span>
+                            <div><i style="width:27%"></i></div>
+                        </div>
+
+                    </div>
+
+                </article>
 
 
-                <a href="#" class="update">
+                <article class="style-card legendary white-ash">
 
-                    <span>
-                        GUIDES
-                    </span>
+                    <div class="style-rarity">LEGENDARY</div>
 
-                    <strong>
-                        New techniques & combos
-                    </strong>
+                    <div class="style-art ash-art">
+                        <span>WHITE ASH</span>
+                    </div>
 
-                    <b>
-                        →
-                    </b>
+                    <div class="style-info">
 
-                </a>
+                        <div>
+                            <h3>WHITE ASH</h3>
+                            <span>JOE YABUKI</span>
+                        </div>
+
+                        <div class="style-rank">JOE</div>
+
+                    </div>
+
+                    <div class="stock-display">
+                        <span>STOCKS</span>
+                        <strong>4</strong>
+                    </div>
+
+                </article>
+
+
+                <article class="style-card legendary chronos">
+
+                    <div class="style-rarity">LEGENDARY</div>
+
+                    <div class="style-art chronos-art">
+                        <span>CHRONOS</span>
+                    </div>
+
+                    <div class="style-info">
+
+                        <div>
+                            <h3>CHRONOS</h3>
+                            <span>MANABU ITAGAKI</span>
+                        </div>
+
+                        <div class="style-rank">TIME</div>
+
+                    </div>
+
+                    <div class="focus-display">
+                        <span>FOCUS</span>
+                        <strong>READY</strong>
+                    </div>
+
+                </article>
 
             </div>
 
         </section>
 
 
+        <!-- =========================================
+             RANKED
+        ========================================== -->
 
-        <!-- =========================
-             FOOTER
-        ========================== -->
+        <section id="ranked" class="ranked-section">
 
-        <footer id="about">
+            <div class="ranked-bg"></div>
 
-            <div class="footer-logo">
-                UBG
+            <div class="ranked-content">
+
+                <div class="section-heading light">
+
+                    <div>
+                        <span class="section-number">03</span>
+                        <h2>RANKED MODE</h2>
+                    </div>
+
+                    <p>
+                        15 ranks. 5 leagues. One climb.
+                    </p>
+
+                </div>
+
+
+                <div class="ranked-panel">
+
+                    <div class="current-rank">
+
+                        <span class="rank-label">CURRENT RANK</span>
+
+                        <div class="rank-icon">
+                            III
+                        </div>
+
+                        <h3>WORLD CHAMPION</h3>
+
+                        <div class="rt">
+                            <strong>21,842</strong>
+                            <span>RT</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="rank-progress">
+
+                        <div class="progress-header">
+
+                            <span>WORLD CHAMPION</span>
+                            <span>UNIFIED CHAMPION</span>
+
+                        </div>
+
+                        <div class="rank-progress-bar">
+                            <div></div>
+                        </div>
+
+                        <div class="progress-footer">
+                            <span>21,500</span>
+                            <strong>230 points to next rank</strong>
+                            <span>23,000</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="rank-ladder">
+
+                    <div class="league bronze">
+                        <span>BRONZE</span>
+                        <strong>1 — 3</strong>
+                    </div>
+
+                    <div class="league silver">
+                        <span>SILVER</span>
+                        <strong>1 — 3</strong>
+                    </div>
+
+                    <div class="league gold">
+                        <span>GOLD</span>
+                        <strong>1 — 3</strong>
+                    </div>
+
+                    <div class="league diamond">
+                        <span>DIAMOND</span>
+                        <strong>1 — 3</strong>
+                    </div>
+
+                    <div class="league champion">
+                        <span>CHAMPION</span>
+                        <strong>1 — 3</strong>
+                    </div>
+
+                </div>
+
             </div>
 
-            <div>
-                FAN-MADE WEBSITE CONCEPT
+        </section>
+
+
+        <!-- =========================================
+             MECHANICS
+        ========================================== -->
+
+        <section id="mechanics" class="section mechanics-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">04</span>
+                    <h2>COMBAT SYSTEM</h2>
+                </div>
+
+                <p>
+                    Understanding UBG's mechanics is the first step
+                    toward becoming a better fighter.
+                </p>
+
             </div>
 
-            <div>
-                NOT AFFILIATED WITH ROBLOX
-                OR THE UBG DEVELOPERS
+
+            <div class="mechanic-grid">
+
+                <div class="mechanic-card">
+
+                    <div class="mechanic-icon">⚡</div>
+
+                    <h3>PERFECT DODGE</h3>
+
+                    <p>
+                        Dodge in the opposite direction of an incoming
+                        punch to trigger a Perfect Dodge.
+                    </p>
+
+                    <span>~ 6 SECOND COOLDOWN</span>
+
+                </div>
+
+
+                <div class="mechanic-card">
+
+                    <div class="mechanic-icon">◈</div>
+
+                    <h3>COUNTERS</h3>
+
+                    <p>
+                        Strike an opponent during their attack windup
+                        to deal increased damage.
+                    </p>
+
+                    <span>+25% BASE DAMAGE</span>
+
+                </div>
+
+
+                <div class="mechanic-card">
+
+                    <div class="mechanic-icon">↯</div>
+
+                    <h3>FEINTS</h3>
+
+                    <p>
+                        Cancel the beginning of one attack into another
+                        to manipulate your opponent's reactions.
+                    </p>
+
+                    <span>MINDGAME TOOL</span>
+
+                </div>
+
+
+                <div class="mechanic-card">
+
+                    <div class="mechanic-icon">▰</div>
+
+                    <h3>STAMINA</h3>
+
+                    <p>
+                        Attacks and dashes consume stamina. Running out
+                        leaves you vulnerable.
+                    </p>
+
+                    <span>WATCH YOUR BAR</span>
+
+                </div>
+
             </div>
 
-        </footer>
+        </section>
+
+
+        <!-- =========================================
+             GUIDES
+        ========================================== -->
+
+        <section id="guides" class="section guides-section">
+
+            <div class="guide-banner">
+
+                <div class="guide-image">
+                    <img
+                        src="https://static.wikitide.net/ubgwiki/thumb/d/d6/Tips_and_Tricks.png/300px-Tips_and_Tricks.png"
+                        alt=""
+                    >
+                </div>
+
+                <div>
+
+                    <span class="section-number">05 / GUIDES</span>
+
+                    <h2>
+                        PLAY THE PLAYER,
+                        <span>NOT JUST THE STYLE.</span>
+                    </h2>
+
+                    <p>
+                        UBG is more than reactions. Read habits,
+                        condition your opponent, and adapt.
+                    </p>
+
+                    <a href="#" class="btn btn-secondary">
+                        READ GUIDES
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             COLLECTION
+        ========================================== -->
+
+        <section id="collection" class="section collection-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">06</span>
+                    <h2>COLLECTION</h2>
+                </div>
+
+                <p>
+                    Cosmetics, rewards and everything else
+                    worth collecting.
+                </p>
+
+            </div>
+
+
+            <div class="collection-grid">
+
+                <div class="collection-card">
+
+                    <img
+                        src="https://static.wikitide.net/ubgwiki/thumb/f/fa/Gloves_Icon.png/200px-Gloves_Icon.png"
+                        alt=""
+                    >
+
+                    <span>COLLECTION</span>
+                    <h3>GLOVES</h3>
+
+                    <strong>RARITIES • UNUSUALS</strong>
+
+                </div>
+
+
+                <div class="collection-card">
+
+                    <img
+                        src="https://static.wikitide.net/ubgwiki/thumb/f/fb/Emotes_Icon.png/200px-Emotes_Icon.png"
+                        alt=""
+                    >
+
+                    <span>COLLECTION</span>
+                    <h3>EMOTES</h3>
+
+                    <strong>75+ EMOTES</strong>
+
+                </div>
+
+
+                <div class="collection-card">
+
+                    <img
+                        src="https://static.wikitide.net/ubgwiki/thumb/1/1c/Knockdown_animations_Icon.png/200px-Knockdown_animations_Icon.png"
+                        alt=""
+                    >
+
+                    <span>COLLECTION</span>
+                    <h3>KNOCKDOWNS</h3>
+
+                    <strong>17 ANIMATIONS</strong>
+
+                </div>
+
+
+                <div class="collection-card">
+
+                    <img
+                        src="https://static.wikitide.net/ubgwiki/thumb/5/5b/Maps_Icon.png/200px-Maps_Icon.png"
+                        alt=""
+                    >
+
+                    <span>COLLECTION</span>
+                    <h3>MAPS</h3>
+
+                    <strong>45 MAPS</strong>
+
+                </div>
+
+
+                <div class="collection-card">
+
+                    <img
+                        src="https://static.wikitide.net/ubgwiki/thumb/8/87/Ranked_Entrances_Icon.png/200px-Ranked_Entrances_Icon.png"
+                        alt=""
+                    >
+
+                    <span>COLLECTION</span>
+                    <h3>ENTRANCES</h3>
+
+                    <strong>6 WALKOUTS</strong>
+
+                </div>
+
+
+                <div class="collection-card">
+
+                    <img
+                        src="https://static.wikitide.net/ubgwiki/thumb/2/23/Titles_Icon.png/200px-Titles_Icon.png"
+                        alt=""
+                    >
+
+                    <span>COLLECTION</span>
+                    <h3>TITLES</h3>
+
+                    <strong>180+ TITLES</strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             COMMUNITY
+        ========================================== -->
+
+        <section class="community-section">
+
+            <div class="community-content">
+
+                <span class="section-number">07 / COMMUNITY</span>
+
+                <h2>
+                    STEP INTO
+                    <span>THE RING.</span>
+                </h2>
+
+                <p>
+                    Find the community, official resources,
+                    and everything happening around UBG.
+                </p>
+
+                <div class="community-links">
+
+                    <a href="https://discord.com/invite/ubg" target="_blank">
+                        DISCORD
+                    </a>
+
+                    <a
+                        href="https://www.reddit.com/r/untitledboxinggame"
+                        target="_blank"
+                    >
+                        REDDIT
+                    </a>
+
+                    <a
+                        href="https://trello.com/b/bMT3ZPu4/official-untitled-boxing-game-trello"
+                        target="_blank"
+                    >
+                        TRELLO
+                    </a>
+
+                    <a
+                        href="https://x.com/drowningsome"
+                        target="_blank"
+                    >
+                        DEVELOPER
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            UBG
+        </div>
+
+        <div>
+            <strong>UNTITLED BOXING GAME COMPANION</strong>
+            <p>
+                Fan-made project. Not affiliated with Roblox,
+                drowningsome, or the UBG Wiki Team.
+            </p>
+        </div>
+
+        <div class="footer-right">
+            <span>STYLE • FIGHT • ADAPT</span>
+        </div>
+
+    </footer>
 
 
     <script src="script.js"></script>
