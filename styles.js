@@ -763,7 +763,7 @@ function renderStyleGrid(filter = "all", searchTerm = "") {
           >
         </div>
 
-        <div class="style-card-info">
+        <div class="style-card-content">
 
           <div class="style-card-top">
             <span class="rarity-badge ${getRarityClass(style.rarity)}">
@@ -775,7 +775,9 @@ function renderStyleGrid(filter = "all", searchTerm = "") {
 
           <h3>${escapeHTML(style.name)}</h3>
 
-          <p>${escapeHTML(style.ranked)}</p>
+          <small>${escapeHTML(style.ranked)}</small>
+
+          <p>${escapeHTML(style.description)}</p>
 
         </div>
 
@@ -830,7 +832,7 @@ function setupStyleFilters() {
       button.classList.add("active");
 
       renderStyleGrid(
-        button.dataset.filter || "all",
+        button.dataset.rarity || "all",
         searchInput?.value || ""
       );
 

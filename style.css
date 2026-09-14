@@ -1570,7 +1570,7 @@ body[data-page="styles"] .style-card-image {
 
     width: 100%;
 
-    height: 205px;
+    height: 210px;
 
     display: flex;
     align-items: center;
@@ -1578,12 +1578,7 @@ body[data-page="styles"] .style-card-image {
 
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(226,29,47,.035),
-            #08090b 72%
-        );
+    background: #090a0d;
 
     border-bottom: 1px solid #292b31;
 }
@@ -1608,9 +1603,9 @@ body[data-page="styles"] .style-card-image img {
 body[data-page="styles"] .style-card-content {
     position: relative;
 
-    min-height: 180px;
+    min-height: 215px;
 
-    padding: 19px 20px 20px;
+    padding: 19px 20px 21px;
 
     background:
         linear-gradient(
@@ -1618,6 +1613,35 @@ body[data-page="styles"] .style-card-content {
             #111216,
             #0f1013
         );
+}
+
+body[data-page="styles"] .style-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 29px;
+    gap: 8px;
+}
+
+body[data-page="styles"] .style-card .rarity-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 29px;
+    padding: 0 9px;
+    border: 1px solid rgba(226,29,47,.42);
+    border-radius: 5px;
+    background: rgba(226,29,47,.08);
+    color: #ff4658;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: capitalize;
+}
+
+body[data-page="styles"] .style-card .rarity-badge.rarity-legendary {
+    border-color: rgba(226,29,47,.42) !important;
+    background: rgba(226,29,47,.08) !important;
+    color: #ff4658 !important;
 }
 
 
@@ -1654,7 +1678,7 @@ body[data-page="styles"] .style-card .rarity {
 ========================================================= */
 
 body[data-page="styles"] .style-card h3 {
-    margin: 12px 0 1px;
+    margin: 13px 0 2px;
 
     color: #ffffff;
 
@@ -1674,11 +1698,11 @@ body[data-page="styles"] .style-card h3 {
 body[data-page="styles"] .style-card small {
     display: block;
 
-    margin-top: 4px;
+    margin-top: 0;
 
     color: #676b74;
 
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 700;
 
     text-transform: uppercase;
@@ -1696,9 +1720,9 @@ body[data-page="styles"] .style-card p {
 
     color: #92959d;
 
-    font-size: 11px;
+    font-size: 12px;
 
-    line-height: 1.65;
+    line-height: 1.55;
 }
 
 
