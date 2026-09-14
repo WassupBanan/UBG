@@ -1,12 +1,18 @@
 /* =========================================================
    UBG FAN WIKI
    Main stylesheet
-   ========================================================= */
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 :root {
     --bg: #09090b;
     --bg-soft: #0d0d10;
     --sidebar: #101013;
+
     --panel: #141417;
     --panel-2: #19191d;
     --panel-3: #1f1f24;
@@ -42,7 +48,7 @@
 
 /* =========================================================
    RESET
-   ========================================================= */
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -93,10 +99,11 @@ img {
 
 /* =========================================================
    TOP BAR
-   ========================================================= */
+========================================================= */
 
 .topbar {
     position: fixed;
+
     z-index: 1000;
 
     top: 0;
@@ -116,7 +123,7 @@ img {
 }
 
 
-/* red accent line */
+/* Red accent line */
 
 .topbar::after {
     content: "";
@@ -129,17 +136,18 @@ img {
     width: 220px;
     height: 2px;
 
-    background: linear-gradient(
-        90deg,
-        var(--red-bright),
-        transparent
-    );
+    background:
+        linear-gradient(
+            90deg,
+            var(--red-bright),
+            transparent
+        );
 }
 
 
 /* =========================================================
    BRAND
-   ========================================================= */
+========================================================= */
 
 .wiki-brand {
     width: var(--sidebar-width);
@@ -163,11 +171,12 @@ img {
 
     margin-right: 11px;
 
-    background: linear-gradient(
-        145deg,
-        var(--red-bright),
-        var(--red)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            var(--red-bright),
+            var(--red)
+        );
 
     border-radius: 7px;
 
@@ -175,6 +184,7 @@ img {
 
     font-size: 13px;
     font-weight: 900;
+
     letter-spacing: -0.5px;
 
     box-shadow:
@@ -199,13 +209,14 @@ img {
 
     font-size: 8px;
     font-weight: 800;
+
     letter-spacing: 1.7px;
 }
 
 
 /* =========================================================
    SEARCH
-   ========================================================= */
+========================================================= */
 
 .global-search {
     position: relative;
@@ -217,7 +228,6 @@ img {
 
 .global-search input {
     width: 100%;
-
     height: 40px;
 
     padding: 0 80px 0 40px;
@@ -225,7 +235,6 @@ img {
     background: #101014;
 
     border: 1px solid var(--border);
-
     border-radius: 7px;
 
     outline: none;
@@ -274,7 +283,6 @@ img {
     background: #1c1c21;
 
     border: 1px solid var(--border);
-
     border-radius: 4px;
 
     color: var(--muted);
@@ -285,7 +293,7 @@ img {
 
 /* =========================================================
    SEARCH RESULTS
-   ========================================================= */
+========================================================= */
 
 .search-results {
     position: absolute;
@@ -301,7 +309,6 @@ img {
     background: #141417;
 
     border: 1px solid var(--border);
-
     border-radius: 8px;
 
     box-shadow:
@@ -315,6 +322,7 @@ img {
 .search-result {
     display: flex;
     align-items: center;
+
     gap: 12px;
 
     padding: 9px;
@@ -370,7 +378,7 @@ img {
 
 /* =========================================================
    PLAY BUTTON
-   ========================================================= */
+========================================================= */
 
 .play-button {
     margin-left: auto;
@@ -378,6 +386,7 @@ img {
 
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     padding: 9px 14px;
@@ -390,6 +399,7 @@ img {
 
     font-size: 10px;
     font-weight: 900;
+
     letter-spacing: 0.7px;
 
     transition: var(--transition);
@@ -407,7 +417,7 @@ img {
 
 /* =========================================================
    MOBILE MENU
-   ========================================================= */
+========================================================= */
 
 .mobile-menu {
     display: none;
@@ -420,7 +430,6 @@ img {
     background: transparent;
 
     border: 1px solid var(--border);
-
     border-radius: 6px;
 
     color: var(--text);
@@ -431,7 +440,7 @@ img {
 
 /* =========================================================
    LAYOUT
-   ========================================================= */
+========================================================= */
 
 .wiki-layout {
     display: flex;
@@ -442,7 +451,7 @@ img {
 
 /* =========================================================
    SIDEBAR
-   ========================================================= */
+========================================================= */
 
 .sidebar {
     position: fixed;
@@ -475,6 +484,7 @@ img {
 
     font-size: 9px;
     font-weight: 900;
+
     letter-spacing: 1.4px;
 }
 
@@ -567,6 +577,7 @@ img {
 .sidebar-note {
     display: flex;
     align-items: center;
+
     gap: 7px;
 
     color: var(--muted);
@@ -597,7 +608,7 @@ img {
 
 /* =========================================================
    MAIN
-   ========================================================= */
+========================================================= */
 
 .wiki-main {
     width: calc(100% - var(--sidebar-width));
@@ -612,7 +623,7 @@ img {
 
 /* =========================================================
    BREADCRUMB
-   ========================================================= */
+========================================================= */
 
 .breadcrumb {
     margin-bottom: 20px;
@@ -629,7 +640,7 @@ img {
 
 /* =========================================================
    ARTICLE HEADER
-   ========================================================= */
+========================================================= */
 
 .article-header {
     display: flex;
@@ -648,6 +659,7 @@ img {
 
     font-size: 9px;
     font-weight: 900;
+
     letter-spacing: 2px;
 }
 
@@ -676,6 +688,7 @@ img {
 .article-status {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     padding: 7px 10px;
@@ -690,6 +703,7 @@ img {
 
     font-size: 9px;
     font-weight: 900;
+
     letter-spacing: 1px;
 }
 
@@ -705,7 +719,7 @@ img {
 
 /* =========================================================
    PANELS
-   ========================================================= */
+========================================================= */
 
 .wiki-panel {
     padding: 22px;
@@ -724,9 +738,9 @@ img {
 }
 
 .intro-panel {
-    margin-top: 26px;
-
     position: relative;
+
+    margin-top: 26px;
 
     overflow: hidden;
 }
@@ -752,6 +766,7 @@ img {
 .panel-label {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     margin-bottom: 13px;
@@ -760,6 +775,7 @@ img {
 
     font-size: 9px;
     font-weight: 900;
+
     letter-spacing: 1.5px;
 }
 
@@ -789,7 +805,7 @@ img {
 
 /* =========================================================
    SECTIONS
-   ========================================================= */
+========================================================= */
 
 .content-section {
     margin-top: 42px;
@@ -812,6 +828,7 @@ img {
 
     font-size: 8px;
     font-weight: 900;
+
     letter-spacing: 1.7px;
 }
 
@@ -835,7 +852,7 @@ img {
 
 /* =========================================================
    CATEGORY GRID
-   ========================================================= */
+========================================================= */
 
 .category-grid {
     display: grid;
@@ -930,6 +947,7 @@ img {
 
 .category-content {
     position: relative;
+
     z-index: 1;
 }
 
@@ -938,6 +956,7 @@ img {
 
     font-size: 8px;
     font-weight: 900;
+
     letter-spacing: 1.2px;
 }
 
@@ -981,7 +1000,7 @@ img {
 
 /* =========================================================
    FEATURED STYLES
-   ========================================================= */
+========================================================= */
 
 .featured-grid {
     display: grid;
@@ -1050,6 +1069,7 @@ img {
 
     font-size: 7px;
     font-weight: 900;
+
     letter-spacing: 1px;
 }
 
@@ -1075,13 +1095,14 @@ img {
     color: var(--muted);
 
     font-size: 9px;
+
     letter-spacing: 1px;
 }
 
 
 /* =========================================================
    QUICK FACTS
-   ========================================================= */
+========================================================= */
 
 .quick-facts {
     display: grid;
@@ -1098,6 +1119,7 @@ img {
 .fact {
     display: flex;
     align-items: center;
+
     gap: 12px;
 
     padding: 16px;
@@ -1150,7 +1172,7 @@ img {
 
 /* =========================================================
    ABOUT
-   ========================================================= */
+========================================================= */
 
 .about-grid {
     display: grid;
@@ -1213,13 +1235,14 @@ img {
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 .wiki-footer {
     display: flex;
     justify-content: space-between;
 
     margin-top: 60px;
+
     padding-top: 22px;
 
     border-top: 1px solid var(--border);
@@ -1232,6 +1255,7 @@ img {
 .wiki-footer div:first-child {
     display: flex;
     flex-direction: column;
+
     gap: 4px;
 }
 
@@ -1244,7 +1268,7 @@ img {
 
 /* =========================================================
    RESPONSIVE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 1100px) {
 
@@ -1330,9 +1354,8 @@ img {
 
         transform: translateX(-100%);
 
-        transition: transform 0.25s ease;
-
-        z-index: 900;
+        transition:
+            transform 0.25s ease;
     }
 
     .sidebar.open {
@@ -1352,6 +1375,7 @@ img {
 
     .article-header {
         flex-direction: column;
+
         gap: 18px;
     }
 
@@ -1375,6 +1399,7 @@ img {
 
     .wiki-footer {
         flex-direction: column;
+
         gap: 10px;
     }
 }
@@ -1404,9 +1429,11 @@ img {
         height: 55px;
     }
 }
+
+
 /* =========================================================
    STYLE DATABASE
-   ========================================================= */
+========================================================= */
 
 .wiki-filter {
     padding: 8px 11px;
@@ -1423,6 +1450,7 @@ img {
 
     font-size: 9px;
     font-weight: 900;
+
     letter-spacing: 0.8px;
 
     transition: var(--transition);
@@ -1445,16 +1473,17 @@ img {
         0 5px 18px rgba(225, 43, 56, 0.16);
 }
 
-
 .style-wiki-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fill, minmax(210px, 1fr));
+        repeat(
+            auto-fill,
+            minmax(210px, 1fr)
+        );
 
     gap: 10px;
 }
-
 
 .style-wiki-card {
     display: block;
@@ -1476,14 +1505,12 @@ img {
 .style-wiki-card:hover {
     transform: translateY(-3px);
 
-    border-color:
-        rgba(225, 43, 56, 0.55);
+    border-color: rgba(225, 43, 56, 0.55);
 
     box-shadow:
         0 12px 30px rgba(0, 0, 0, 0.28),
         0 0 22px rgba(225, 43, 56, 0.05);
 }
-
 
 .style-wiki-image {
     height: 150px;
@@ -1512,11 +1539,9 @@ img {
     object-fit: contain;
 }
 
-
 .style-wiki-info {
     padding: 13px;
 }
-
 
 .style-wiki-top {
     display: flex;
@@ -1525,7 +1550,6 @@ img {
 
     gap: 8px;
 }
-
 
 .style-wiki-name {
     margin-top: 7px;
@@ -1536,7 +1560,6 @@ img {
     font-weight: 800;
 }
 
-
 .style-wiki-ranked {
     margin-top: 3px;
 
@@ -1546,7 +1569,6 @@ img {
 
     letter-spacing: 1px;
 }
-
 
 .style-wiki-description {
     margin-top: 10px;
@@ -1561,7 +1583,9 @@ img {
 }
 
 
-/* rarity badges */
+/* =========================================================
+   RARITY BADGES
+========================================================= */
 
 .rarity-uncommon {
     color: #65d59a;
@@ -1603,7 +1627,6 @@ img {
     border: 1px solid rgba(240, 185, 77, 0.22);
 }
 
-
 .wip-tag {
     padding: 3px 5px;
 
@@ -1620,26 +1643,751 @@ img {
 }
 
 
-/* mobile */
+/* =========================================================
+   STYLE DATABASE — MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
     .style-wiki-grid {
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
     }
 
     .style-wiki-image {
         height: 130px;
     }
-
 }
-
 
 @media (max-width: 390px) {
 
     .style-wiki-grid {
         grid-template-columns: 1fr;
     }
+}
 
+
+/* =========================================================
+   WIKI ARTICLE — MEDIAWIKI STYLE
+========================================================= */
+
+.wiki-article-wrap {
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.wiki-breadcrumb {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    font-size: 13px;
+
+    color: #888b94;
+}
+
+.wiki-breadcrumb a {
+    color: #d9d9df;
+
+    text-decoration: none;
+}
+
+.wiki-breadcrumb a:hover {
+    color: #ff4652;
+
+    text-decoration: underline;
+}
+
+.wiki-breadcrumb span:nth-child(2),
+.wiki-breadcrumb span:nth-child(4) {
+    color: #555861;
+}
+
+
+/* =========================================================
+   ARTICLE HEADER
+========================================================= */
+
+.wiki-article-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding-bottom: 14px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #303239;
+}
+
+.wiki-article-kicker {
+    margin-bottom: 5px;
+
+    color: #ff4652;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+.wiki-article-header h1 {
+    margin: 0;
+
+    color: #f2f2f4;
+
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+}
+
+.wiki-ranked-name {
+    margin-top: 8px;
+
+    color: #858892;
+
+    font-size: 13px;
+}
+
+.wiki-ranked-name strong {
+    color: #d8d8dd;
+}
+
+.wiki-wip-tag {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border: 1px solid #8d6530;
+
+    border-radius: 3px;
+
+    background: rgba(255, 180, 91, 0.08);
+
+    color: #ffb45b;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MAIN WIKI GRID
+========================================================= */
+
+.wiki-article-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        285px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   MAIN ARTICLE
+========================================================= */
+
+.wiki-main-content {
+    min-width: 0;
+
+    color: #c8c9cf;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+.wiki-main-content p {
+    margin: 0 0 14px;
+}
+
+.wiki-lead {
+    margin-bottom: 24px !important;
+
+    color: #d5d6da;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.wiki-article-section {
+    margin-top: 30px;
+}
+
+.wiki-article-section h2 {
+    position: relative;
+
+    margin: 0 0 12px;
+
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid #34363d;
+
+    color: #eeeeef;
+
+    font-size: 23px;
+
+    font-weight: 600;
+}
+
+.wiki-article-section h2::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: 48px;
+    height: 2px;
+
+    background: #ff4652;
+}
+
+.wiki-section-content {
+    color: #c4c5cb;
+}
+
+
+/* =========================================================
+   DATA TABLE
+========================================================= */
+
+.wiki-data-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    border: 1px solid #34363d;
+
+    background: #17181c;
+}
+
+.wiki-data-table tr {
+    border-bottom: 1px solid #2d2f35;
+}
+
+.wiki-data-table tr:last-child {
+    border-bottom: none;
+}
+
+.wiki-data-table th {
+    width: 38%;
+
+    padding: 10px 13px;
+
+    text-align: left;
+
+    background: #202126;
+
+    color: #e1e1e5;
+
+    font-weight: 600;
+}
+
+.wiki-data-table td {
+    padding: 10px 13px;
+
+    color: #bfc0c7;
+}
+
+
+/* =========================================================
+   ABILITY BOX
+========================================================= */
+
+.wiki-ability {
+    display: inline-block;
+
+    min-width: 200px;
+
+    padding: 10px 14px;
+
+    border-left: 3px solid #ff4652;
+
+    background: #191a1f;
+
+    color: #e5e5e8;
+}
+
+.wiki-ultimate {
+    border-left-color: #ff4652;
+}
+
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+.wiki-list {
+    margin: 0;
+
+    padding-left: 25px;
+}
+
+.wiki-list li {
+    margin: 5px 0;
+}
+
+.wiki-list li::marker {
+    color: #ff4652;
+}
+
+
+/* =========================================================
+   MOVESET
+========================================================= */
+
+.wiki-moveset-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+}
+
+.wiki-move-preview {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 130px;
+
+    border: 1px solid #363840;
+
+    background: #111216;
+}
+
+.wiki-move-preview img {
+    display: block;
+
+    width: 100%;
+    height: 130px;
+
+    object-fit: contain;
+
+    background: #0b0c0f;
+}
+
+.wiki-move-label {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 7px 9px;
+
+    background: rgba(8, 9, 12, 0.9);
+
+    border-top: 1px solid #35363c;
+
+    color: #eeeeef;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.wiki-move-preview.unavailable {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #676a73;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   INFOBOX
+========================================================= */
+
+.wiki-infobox {
+    width: 100%;
+
+    border: 1px solid #383a42;
+
+    background: #18191d;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25);
+
+    font-size: 13px;
+}
+
+.wiki-infobox-title {
+    padding: 10px;
+
+    background: #24252a;
+
+    border-bottom: 1px solid #3b3d45;
+
+    color: #f2f2f3;
+
+    text-align: center;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.wiki-infobox-image {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 190px;
+
+    padding: 10px;
+
+    border-bottom: 1px solid #35373e;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111216,
+            #191a1e
+        );
+}
+
+.wiki-infobox-image img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 190px;
+
+    object-fit: contain;
+}
+
+.wiki-infobox-image span {
+    color: #676a72;
+
+    font-size: 10px;
+}
+
+.wiki-infobox table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.wiki-infobox tr {
+    border-bottom: 1px solid #2e3036;
+}
+
+.wiki-infobox tr:last-child {
+    border-bottom: none;
+}
+
+.wiki-infobox th {
+    width: 42%;
+
+    padding: 8px 9px;
+
+    background: #202126;
+
+    color: #cfd0d5;
+
+    text-align: left;
+
+    font-weight: 600;
+}
+
+.wiki-infobox td {
+    padding: 8px 9px;
+
+    color: #babbc1;
+}
+
+.wiki-infobox td a {
+    color: #ff4652;
+
+    text-decoration: none;
+}
+
+.wiki-infobox td a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RARITY
+========================================================= */
+
+.wiki-rarity {
+    font-weight: 700;
+}
+
+.wiki-rarity.rarity-uncommon {
+    color: #bfc2c9;
+}
+
+.wiki-rarity.rarity-rare {
+    color: #4fa3ff;
+}
+
+.wiki-rarity.rarity-mythic {
+    color: #c27cff;
+}
+
+.wiki-rarity.rarity-legendary {
+    color: #ff9b4a;
+}
+
+.wiki-rarity.rarity-shiny {
+    color: #ffe47a;
+}
+
+
+/* =========================================================
+   INFOBOX OBTAINMENT
+========================================================= */
+
+.wiki-infobox-obtain {
+    padding: 11px;
+
+    border-top: 1px solid #35373e;
+
+    background: #141519;
+}
+
+.wiki-infobox-obtain strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #ff4652;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+}
+
+.wiki-infobox-obtain p {
+    margin: 0;
+
+    color: #aaaab1;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   WIP NOTICE
+========================================================= */
+
+.wiki-wip {
+    margin: 20px 0;
+
+    padding: 13px 15px;
+
+    border: 1px solid #76572f;
+
+    border-left: 4px solid #ffb45b;
+
+    background: rgba(255, 180, 91, 0.06);
+}
+
+.wiki-wip strong {
+    color: #ffb45b;
+}
+
+.wiki-wip p {
+    margin: 5px 0 0;
+
+    color: #bdb7ae;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MUTED TEXT
+========================================================= */
+
+.wiki-muted {
+    color: #777a83 !important;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.wiki-gallery {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+.wiki-gallery figure {
+    width: 240px;
+
+    margin: 0;
+
+    border: 1px solid #373941;
+
+    background: #15161a;
+}
+
+.wiki-gallery img {
+    display: block;
+
+    width: 100%;
+    height: 150px;
+
+    object-fit: contain;
+
+    background: #0d0e11;
+}
+
+.wiki-gallery figcaption {
+    padding: 7px 9px;
+
+    color: #92949c;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.wiki-categories {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 45px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #33353c;
+
+    color: #777a82;
+
+    font-size: 12px;
+}
+
+.wiki-categories strong {
+    color: #a6a7ad;
+}
+
+.wiki-categories a {
+    padding: 4px 8px;
+
+    border: 1px solid #373941;
+
+    background: #1a1b20;
+
+    color: #aaaab2;
+
+    text-decoration: none;
+}
+
+.wiki-categories a:hover {
+    border-color: #ff4652;
+
+    color: #ff4652;
+}
+
+
+/* =========================================================
+   RESPONSIVE ARTICLE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .wiki-article-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wiki-infobox {
+        order: -1;
+    }
+
+    .wiki-infobox-image {
+        min-height: 160px;
+    }
+
+    .wiki-infobox-image img {
+        max-height: 160px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .wiki-article-header {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .wiki-article-header h1 {
+        font-size: 30px;
+    }
+
+    .wiki-moveset-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .wiki-moveset-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wiki-gallery figure {
+        width: 100%;
+    }
 }
