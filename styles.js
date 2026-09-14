@@ -1,30 +1,20 @@
-/* =========================================================
-   UBG COMPANION — STYLE DATABASE
-   ========================================================= */
-
 const styles = [
 
-    /* =========================
-       UNCOMMON
-    ========================= */
+    // =========================
+    // UNCOMMON
+    // =========================
 
     {
-        id: "basic",
         name: "Basic",
         rarity: "Uncommon",
         ranked: "BASIC",
         shiny: "Bald",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Good",
         block: "Good",
         ultimate: "50%",
         trail: "White",
-
-        description:
-            "A straightforward all-rounder with no true exploitable weaknesses. Basic is beginner-friendly while still remaining useful in experienced hands.",
-
-        archetype: "All-Rounder",
 
         passive: "None",
 
@@ -32,37 +22,31 @@ const styles = [
 
         ultimateName: "Full Force Uppercut",
 
-        light:
-            "Left → Right. Good damage, average speed and stamina.",
+        description:
+            "A straightforward all-rounder with no true exploitable weaknesses. Basic is designed to be beginner-friendly while still remaining viable.",
 
-        heavy:
-            "Always Right. Average damage, speed and stamina.",
+        strengths:
+            "Balanced stats, reliable attacks, and simple fundamentals.",
 
-        dash:
-            "Average endlag, long distance and moderate side dash.",
+        weaknesses:
+            "Does not specialize heavily in any particular area.",
 
-        notes:
-            "One of the most straightforward styles in UBG."
+        animation:
+            "Basic_Idle.gif"
     },
 
 
     {
-        id: "smash",
         name: "Smash",
         rarity: "Uncommon",
         ranked: "SENDO",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Good",
         ultimate: "50%",
         trail: "Red",
-
-        description:
-            "A versatile infighter built around powerful individual attacks and heavy block damage.",
-
-        archetype: "Infighter",
 
         passive: "None",
 
@@ -70,113 +54,95 @@ const styles = [
 
         ultimateName: "Smash Punch Finisher",
 
-        light:
-            "Left → Right. Good damage with average speed and stamina.",
+        description:
+            "A versatile infighter centered around powerful individual attacks and excellent block damage.",
 
-        heavy:
-            "Always Left. Great damage, slow speed and mediocre stamina.",
+        strengths:
+            "Excellent heavy punch damage and strong block damage.",
 
-        dash:
-            "Slightly long endlag, long distance and steep side dash.",
+        weaknesses:
+            "Slow attacks and weaker mobility make it easier to avoid outside of Perfect Dodges.",
 
-        notes:
-            "Smash has the strongest single-attack block damage among the documented uncommon styles, but its slower movement and attacks can make it easier to avoid."
+        animation:
+            "Smash_Idle.gif"
     },
 
 
     {
-        id: "long-guard",
         name: "Long Guard",
         rarity: "Uncommon",
         ranked: "LONGGUARD",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Great",
         block: "Good",
         ultimate: "50%",
-        trail: "Light Blue",
-
-        description:
-            "An outboxer with increased range and access to whiff counters.",
-
-        archetype: "Outboxer",
+        trail: "Light-Blue",
 
         passive: "Whiff Counter",
 
-        ability: "Whiff Counter",
+        ability: "None",
 
         ultimateName: "1-1-2",
 
-        light:
-            "Left → Right. Mediocre damage, good speed and average-plus stamina.",
+        description:
+            "An outboxer built around increased range and speed. Long Guard is the only style with whiff counters.",
 
-        heavy:
-            "Left → Right. Good damage with average speed and stamina.",
+        strengths:
+            "Excellent range, strong whiff punishment, and safer neutral play.",
 
-        dash:
-            "Short endlag, average distance and wide side dash.",
+        weaknesses:
+            "Lower light and block damage and more expensive dashes.",
 
-        notes:
-            "The only documented style with whiff counters. It sacrifices damage and block pressure for range and safety."
+        animation:
+            "Long_Guard_Idle.gif"
     },
 
 
     {
-        id: "counter",
         name: "Counter",
         rarity: "Uncommon",
         ranked: "MIYATA",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Mediocre",
         ultimate: "50%",
         trail: "Pink / Purple",
 
-        description:
-            "The archetypical counterpuncher. Its attacks become significantly more threatening when used as counters.",
-
-        archetype: "Counterpuncher",
-
-        passive: "Counter Damage Bonus",
+        passive: "Counter Bonus",
 
         ability: "None",
 
         ultimateName: "Jolt Blow",
 
-        light:
-            "Left → Right. Poor base damage, great speed and great stamina. Great on Counter.",
+        description:
+            "An archetypical counterpunching style built around high-risk, high-reward counter attacks.",
 
-        heavy:
-            "Always Right. Mediocre base damage, good speed and great stamina. Fantastic on Counter.",
+        strengths:
+            "Excellent counter damage and strong stamina.",
 
-        dash:
-            "Short endlag, average distance and wide side dash.",
+        weaknesses:
+            "Poor base damage and weak block damage.",
 
-        notes:
-            "A high-risk, high-reward style that rewards reading the opponent."
+        animation:
+            "Counter_Idle.gif"
     },
 
 
     {
-        id: "turtle",
         name: "Turtle",
         rarity: "Uncommon",
-        ranked: "—",
+        ranked: "NANOMACHINES",
         shiny: "Nanomachines",
         hp: "100",
-        dashes: "Awful",
+        dash: "Awful",
         range: "Average",
         block: "Fantastic",
         ultimate: "45%",
-        trail: "Light Green",
-
-        description:
-            "A defensive style built around an unusually strong block and persistent block regeneration.",
-
-        archetype: "Defensive",
+        trail: "Light-Green",
 
         passive: "Turtle Block",
 
@@ -184,79 +150,67 @@ const styles = [
 
         ultimateName: "One Centimetre Punch",
 
-        light:
-            "Left → Right. Mediocre damage, average speed and stamina.",
+        description:
+            "A defensive style with one of the strongest blocks in the game.",
 
-        heavy:
-            "Always Right. Mediocre damage, average speed and stamina.",
+        strengths:
+            "Fantastic block strength and permanent block regeneration.",
 
-        dash:
-            "Very long endlag, very short distance and moderate side dash.",
+        weaknesses:
+            "Extremely poor dash mobility and short dash distance.",
 
-        notes:
-            "Turtle's block regeneration is slower, but it never completely stops regenerating."
+        animation:
+            "Turtle_Idle.gif"
     },
 
 
-    /* =========================
-       RARE
-    ========================= */
+    // =========================
+    // RARE
+    // =========================
 
     {
-        id: "corkscrew",
         name: "Corkscrew",
         rarity: "Rare",
         ranked: "DATE",
         shiny: "Drill",
         hp: "100",
-        dashes: "Good",
+        dash: "Good",
         range: "Average",
         block: "Mediocre",
         ultimate: "50%",
         trail: "Indigo",
 
-        description:
-            "A style with strong regeneration and a powerful Corkscrew heavy attack.",
-
-        archetype: "Pressure",
-
-        passive: "Faster health and block regeneration",
+        passive: "Faster Health and Block Regeneration",
 
         ability: "Corkscrew",
 
         ultimateName: "Heartbreak Shot",
 
-        light:
-            "Left → Right. Good damage, average speed and great stamina.",
+        description:
+            "A pressure-oriented style with strong raw attacks and improved regeneration.",
 
-        heavy:
-            "Always Right. Good damage, mediocre speed and average stamina.",
+        strengths:
+            "Good damage, stamina, and regeneration.",
 
-        dash:
-            "Short endlag, long distance and steep side dash.",
+        weaknesses:
+            "Slow Corkscrew windup and significant endlag.",
 
-        notes:
-            "The Corkscrew has a slow windup and significant endlag, but strong raw damage."
+        animation:
+            "Corkscrew_Idle.gif"
     },
 
 
     {
-        id: "charge",
         name: "Charge",
         rarity: "Rare",
         ranked: "CHARGE",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Good",
         ultimate: "50%",
         trail: "Orange",
-
-        description:
-            "A forward-pressure style that builds charge through landed punches.",
-
-        archetype: "Pressure",
 
         passive: "Cannot Backdash",
 
@@ -264,37 +218,31 @@ const styles = [
 
         ultimateName: "Raging Bull",
 
-        light:
-            "Left → Right. Average-plus damage, average speed and great stamina.",
+        description:
+            "A pressure style that builds its ability by landing punches before unleashing Stampede.",
 
-        heavy:
-            "Always Left. Average-plus damage, average speed and stamina.",
+        strengths:
+            "Strong body blows, long dash distance, and powerful pressure.",
 
-        dash:
-            "Average endlag, long distance and steep side dash.",
+        weaknesses:
+            "Cannot backdash and has a steep side-dash angle.",
 
-        notes:
-            "Stampede has strong range and knockback. A blocked Stampede stuns the opponent."
+        animation:
+            "Charge_Idle.gif"
     },
 
 
     {
-        id: "hammer",
         name: "Hammer",
         rarity: "Rare",
         ranked: "HAMMER",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Mediocre",
+        dash: "Mediocre",
         range: "Average",
         block: "Good",
         ultimate: "50%",
-        trail: "Greenish Yellow",
-
-        description:
-            "A pressure-oriented style that uses Body Blow to drain stamina and break guards.",
-
-        archetype: "Infighter",
+        trail: "Greenish-Yellow",
 
         passive: "None",
 
@@ -302,269 +250,229 @@ const styles = [
 
         ultimateName: "Guard Crusher",
 
-        light:
-            "Left → Right. Good damage, average speed and stamina.",
+        description:
+            "A pressure-oriented style whose Body Blow can drain stamina and break guard.",
 
-        heavy:
-            "Always Right. Average damage, mediocre speed and average stamina.",
+        strengths:
+            "Strong block pressure and stamina control.",
 
-        dash:
-            "Slightly long endlag, short distance and wide side dash.",
+        weaknesses:
+            "Mediocre mobility and short dash distance.",
 
-        notes:
-            "Body Blow charges by landing or blocking punches and can break the opponent's guard."
+        animation:
+            "Hammer_Idle.gif"
     },
 
 
     {
-        id: "trickster",
         name: "Trickster",
         rarity: "Rare",
         ranked: "AOKI",
         shiny: "Conman",
         hp: "100",
-        dashes: "Fantastic",
+        dash: "Fantastic",
         range: "Average",
         block: "Mediocre",
         ultimate: "55%",
         trail: "Green",
 
-        description:
-            "A highly mobile style centered around unusual movement and a unique double dash.",
-
-        archetype: "Trickster",
-
-        passive: "Unique dash and heavy sound effects",
+        passive: "Unique Dash and Heavy SFX",
 
         ability: "Double Dasher",
 
         ultimateName: "Look-Away Frog Punch",
 
-        light:
-            "Left → Right. Good damage, mediocre speed and average stamina.",
+        description:
+            "A highly mobile style centered around deceptive movement and unusual dash mechanics.",
 
-        heavy:
-            "Always Right mechanically. Good damage, mediocre speed and good stamina.",
+        strengths:
+            "Fantastic mobility, wide side dashes, and strong stamina.",
 
-        dash:
-            "Double Dasher. No traditional endlag, mediocre distance and wide side dash.",
+        weaknesses:
+            "Poor block strength and slower attacks.",
 
-        notes:
-            "The visual animation of the heavy can show both hands despite the mechanical direction."
+        animation:
+            "Trickster_Idle.gif"
     },
 
 
     {
-        id: "dragonfish",
         name: "Dragonfish",
         rarity: "Rare",
         ranked: "DRAGONFISH",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Below Average",
         ultimate: "50%",
         trail: "Teal",
 
-        description:
-            "A WIP style based on the reworked Kimura. Dragonfish builds a meter that can weaken an opponent's defensive movement.",
-
-        archetype: "WIP",
-
         passive: "Submerge",
 
         ability: "Dragonfish Blow",
 
-        ultimateName: "Unknown",
+        ultimateName: "WIP",
 
-        light:
-            "Left → Right. Average damage, speed and stamina.",
+        description:
+            "A reworked style originating from Kimura. Submerge builds a meter that weakens the opponent's block and retreating ability.",
 
-        heavy:
-            "Always Right. Average damage, speed and stamina.",
+        strengths:
+            "Well-rounded attacks with a powerful meter-based heavy attack.",
 
-        dash:
-            "Short endlag, long distance and moderate side dash.",
+        weaknesses:
+            "Some mechanics and counterplay remain WIP.",
 
-        notes:
-            "WIP. Dragonfish Blow requires the meter to reach the required threshold. Strategy and counterplay remain WIP."
+        animation:
+            "Kimura_Idle.gif",
+
+        wip: true
     },
 
 
-    /* =========================
-       MYTHIC
-    ========================= */
+    // =========================
+    // MYTHIC
+    // =========================
 
     {
-        id: "dempsey",
         name: "Dempsey",
         rarity: "Mythic",
         ranked: "IPPO",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Good",
+        dash: "Good",
         range: "Average",
         block: "Average",
         ultimate: "55%",
         trail: "Gold",
 
-        description:
-            "A pressure-heavy style inspired by Ippo and centered around the Dempsey Roll.",
-
-        archetype: "Pressure",
-
-        passive: "No Backdash",
+        passive: "Cannot Backdash",
 
         ability: "Dempsey Roll",
 
         ultimateName: "Tiger Crusher",
 
-        light:
-            "Left → Right → Right. Good damage with average speed and stamina.",
+        description:
+            "A relentless pressure style based around the Dempsey Roll and weaving movement.",
 
-        heavy:
-            "Left → Right. Average damage.",
+        strengths:
+            "Excellent mobility, strong pressure, and huge charged Roll damage.",
 
-        dash:
-            "Short endlag, long distance and steep side dash.",
+        weaknesses:
+            "Cannot block while rolling and can be punished during predictable movement.",
 
-        notes:
-            "The Dempsey Roll charges through landed punches. It can provide powerful movement and attack options, but cannot block while revving."
+        animation:
+            "Ippo_Idle.gif"
     },
 
 
     {
-        id: "hitman",
         name: "Hitman",
         rarity: "Mythic",
         ranked: "HITMAN",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Poor",
+        dash: "Poor",
         range: "Fantastic",
         block: "Weak",
         ultimate: "55%",
         trail: "Purple",
 
-        description:
-            "A long-range style built around extreme reach and disjointed attacks.",
-
-        archetype: "Outboxer",
-
-        passive: "None",
+        passive: "Disjointed Attacks",
 
         ability: "None",
 
         ultimateName: "Nightmare Barrage",
 
-        light:
-            "Always Left. Good damage, great speed and good stamina.",
+        description:
+            "A long-range style focused heavily on disjointed attacks and exceptional range.",
 
-        heavy:
-            "Always Right. Average damage, speed and stamina.",
+        strengths:
+            "Fantastic range and fast light attacks.",
 
-        dash:
-            "Slightly long endlag, very short distance and wide side dash.",
+        weaknesses:
+            "Poor mobility and weak blocking.",
 
-        notes:
-            "Hitman compensates for poor movement with exceptional range."
+        animation:
+            "Hitman_Idle.gif"
     },
 
 
     {
-        id: "hands-low",
         name: "Hands Low",
         rarity: "Mythic",
         ranked: "SAEKI",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Great",
+        dash: "Great",
         range: "Average",
         block: "Mediocre",
         ultimate: "45%",
         trail: "Pink / Purple",
 
-        description:
-            "A highly mobile counter-focused style with faster ultimate generation.",
+        passive: "Faster Ultimate Charge + Blindness",
 
-        archetype: "Counterpuncher",
-
-        passive: "Faster Ultimate Charge",
-
-        ability: "Blindness",
+        ability: "Double Dasher",
 
         ultimateName: "Blinding Rush",
 
-        light:
-            "Left → Right. Poor damage, great speed and good stamina.",
+        description:
+            "A highly mobile counter-oriented style whose ultimate applies Blindness.",
 
-        heavy:
-            "Left → Right. Average damage, good speed and average stamina.",
+        strengths:
+            "Great mobility, fast attacks, and faster ultimate charging.",
 
-        dash:
-            "Double Dasher. Mediocre distance and wide side dash.",
+        weaknesses:
+            "Poor light damage and increased counter damage intake.",
 
-        notes:
-            "The ultimate applies Blindness for 10 seconds and covers the right side of the opponent's screen."
+        animation:
+            "Hands_Low_Idle.gif"
     },
 
 
     {
-        id: "wolf",
         name: "Wolf",
         rarity: "Mythic",
         ranked: "VOLG",
         shiny: "Coyote",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Good",
         ultimate: "50%",
-        trail: "Bluish White",
-
-        description:
-            "A style built around the White Fang, allowing the Heavy sequence to combine two powerful attacks.",
-
-        archetype: "Combo",
+        trail: "Bluish-White",
 
         passive: "White Fang",
 
         ability: "Fang Storage",
 
-        ultimateName: "True White Fang",
+        ultimateName: "WIP",
 
-        light:
-            "Left → Right. Average damage, good speed and average stamina.",
+        description:
+            "A two-hit heavy style that can store its Overhand after an Uppercut.",
 
-        heavy:
-            "Uppercut always Left, Overhand always Right. Together they deal great damage.",
+        strengths:
+            "Excellent combined heavy speed and damage.",
 
-        dash:
-            "Average endlag, long distance and steep side dash.",
+        weaknesses:
+            "Individual heavy attacks are weak without their combination.",
 
-        notes:
-            "Fang Storage can queue the Overhand at the end of a blockstring after an Uppercut."
+        animation:
+            "Wolf_Idle.gif"
     },
 
 
     {
-        id: "bullet",
         name: "Bullet",
         rarity: "Mythic",
         ranked: "BULLET",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Poor",
+        dash: "Poor",
         range: "Average",
         block: "Good",
         ultimate: "50%",
         trail: "Red",
-
-        description:
-            "A counter-focused style with an extremely fast Light attack after an opponent dashes.",
-
-        archetype: "Counterpuncher",
 
         passive: "Bullet Jab",
 
@@ -572,75 +480,63 @@ const styles = [
 
         ultimateName: "Cheating Combo",
 
-        light:
-            "Left → Right. Mediocre base damage, with Bullet Jab becoming near-instant.",
+        description:
+            "A counter-focused style with a near-instant Light attack after an opponent dashes.",
 
-        heavy:
-            "Left → Right. Average damage, mediocre speed and average stamina.",
+        strengths:
+            "Extremely powerful counter Heavy and strong stamina.",
 
-        dash:
-            "Slightly long endlag, average distance and moderate side dash.",
+        weaknesses:
+            "Poor mobility and significant counter damage intake.",
 
-        notes:
-            "Thunderbolt is an extremely powerful counterhit Heavy."
+        animation:
+            "Bullet_Idle.gif"
     },
 
 
     {
-        id: "switch-hit",
         name: "Switch Hit",
         rarity: "Mythic",
         ranked: "SWITCHHIT",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Poor",
+        dash: "Poor",
         range: "Average",
         block: "Mediocre",
         ultimate: "50%",
         trail: "Dark Purple",
 
-        description:
-            "An ambidextrous style whose attack directions change depending on lateral movement.",
-
-        archetype: "Technical",
-
         passive: "Ambidextrous",
 
         ability: "Static",
 
-        ultimateName: "Unknown",
+        ultimateName: "WIP",
 
-        light:
-            "Orthodox: Left. Southpaw: Right.",
+        description:
+            "A stance-switching style that changes attack directions depending on lateral movement.",
 
-        heavy:
-            "Orthodox: Right. Southpaw: Left.",
+        strengths:
+            "Flexible attack directions and Static's ability to interrupt Perfect Dodges.",
 
-        dash:
-            "Slightly long endlag, long distance and moderate side dash.",
+        weaknesses:
+            "Poor mobility and mediocre blocking.",
 
-        notes:
-            "Static charges when the opponent dashes and can invert controls while disrupting Perfect Dodges."
+        animation:
+            "Switch_Hit_Idle.gif"
     },
 
 
     {
-        id: "surgeon",
         name: "Surgeon",
         rarity: "Mythic",
         ranked: "SURGEON",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Good",
         ultimate: "40%",
         trail: "White / Feathers",
-
-        description:
-            "A technical style that uses Pinpoint to apply stacking debuffs to different parts of the opponent.",
-
-        archetype: "Technical",
 
         passive: "Pinpoint",
 
@@ -648,193 +544,163 @@ const styles = [
 
         ultimateName: "Sedated",
 
-        light:
-            "Left → Left → Right. Mediocre damage, good speed and average-plus stamina.",
+        description:
+            "A technical style that targets the Head, Chest, and Liver to stack different debuffs.",
 
-        heavy:
-            "Right Head/Chest, Left Liver.",
+        strengths:
+            "Strong debuff management and targeted pressure.",
 
-        dash:
-            "Movement is above average.",
+        weaknesses:
+            "Requires careful management of Pinpoint modes.",
 
-        notes:
-            "Pinpoint cycles between Head, Chest and Liver. Debuffs decay through true damage and knockdowns."
+        animation:
+            "Surgeon_meters.png"
     },
 
 
-    /* =========================
-       LEGENDARY
-    ========================= */
+    // =========================
+    // LEGENDARY
+    // =========================
 
     {
-        id: "slugger",
         name: "Slugger",
         rarity: "Legendary",
         ranked: "TAKAMURA",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Mediocre",
+        dash: "Mediocre",
         range: "Average",
         block: "Weak",
         ultimate: "50%",
         trail: "Red / Black",
 
-        description:
-            "A heavy-hitting style built around charging its Heavy attack.",
-
-        archetype: "Power",
-
-        passive: "Heavy Charge",
+        passive: "Charged Heavy",
 
         ability: "Heavy Charge",
 
         ultimateName: "Rage",
 
-        light:
-            "Right → Left → Left. Fantastic damage, slow speed and average stamina.",
+        description:
+            "A devastating power style built around charging Heavy attacks.",
 
-        heavy:
-            "Always Right. Good uncharged damage and Fantastic charged damage.",
+        strengths:
+            "Fantastic damage and powerful charged attacks.",
 
-        dash:
-            "Slightly long endlag, long distance and wide side dash.",
+        weaknesses:
+            "Slow attacks, weak block, and mediocre mobility.",
 
-        notes:
-            "Holding Heavy increases its damage."
+        animation:
+            "Slugger_Idle.gif"
     },
 
 
     {
-        id: "hawk",
         name: "Hawk",
         rarity: "Legendary",
         ranked: "HAWK",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Weak",
         ultimate: "50%",
         trail: "Red / Black",
 
-        description:
-            "A pressure style built around Rage, Swayback, and increasingly dangerous offensive states.",
-
-        archetype: "Pressure",
-
-        passive: "Rage Meter",
+        passive: "Rage Meter + Swayback",
 
         ability: "Swayback",
 
-        ultimateName: "Unknown",
+        ultimateName: "WIP",
 
-        light:
-            "Style-dependent. Movement and attacks change with Rage states.",
+        description:
+            "A style built around Rage, Swayback, and multiple increasingly powerful modes.",
 
-        heavy:
-            "Style-dependent. Movement and attacks change with Rage states.",
+        strengths:
+            "Strong movement and powerful Rage-based pressure.",
 
-        dash:
-            "Average movement in the standard states.",
+        weaknesses:
+            "Weak blocking and reliance on Rage management.",
 
-        notes:
-            "Rage progresses through Base, Bloodlust, and Ecstasy. Swayback allows a dodge from idle."
+        animation:
+            "Hawk_Idle.gif"
     },
 
 
     {
-        id: "ghost",
         name: "Ghost",
         rarity: "Legendary",
         ranked: "GHOST",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Mediocre",
+        dash: "Mediocre",
         range: "Average",
         block: "Weak",
         ultimate: "50%",
         trail: "Gold / None",
 
-        description:
-            "A precision-oriented style that hides its attack highlights and builds toward the powerful Ghost Jab.",
-
-        archetype: "Precision",
-
         passive: "Dim Highlights",
 
         ability: "Ghost Jab",
 
-        ultimateName: "Unknown",
+        ultimateName: "WIP",
 
-        light:
-            "Always Left. Average damage, great speed and average stamina.",
+        description:
+            "A fast, deceptive style built around Ghost Jab and powerful speed.",
 
-        heavy:
-            "Always Right. Average damage, speed and stamina.",
+        strengths:
+            "Great Light speed and long dash distance.",
 
-        dash:
-            "Average endlag, long distance and wide side dash.",
+        weaknesses:
+            "Weak block and Ghost Jab can punish its user when missed or blocked.",
 
-        notes:
-            "Ghost Jab is a near-instant combo starter, but missing or hitting block can leave Ghost vulnerable."
+        animation:
+            "Ghost_Idle.gif"
     },
 
 
     {
-        id: "iron-fist",
         name: "Iron Fist",
         rarity: "Legendary",
         ranked: "IRONFIST",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Poor",
+        dash: "Poor",
         range: "Average",
         block: "Good",
         ultimate: "75%",
         trail: "White",
 
-        description:
-            "A devastating power style that sacrifices health to deliver extremely powerful Heavy attacks.",
-
-        archetype: "Power",
-
         passive: "Heavy Self-Damage",
 
-        ability: "None",
+        ability: "Iron Heavy",
 
         ultimateName: "No Ribs Survived",
 
-        light:
-            "Left → Right. Great damage, mediocre speed and average stamina.",
+        description:
+            "A high-risk power style with enormous Heavy damage at the cost of damaging its own user.",
 
-        heavy:
-            "Left → Right. Fantastic damage, very slow speed and poor stamina.",
+        strengths:
+            "Fantastic Heavy damage and the highest ultimate charge requirement.",
 
-        dash:
-            "Long endlag, short distance and steep side dash.",
+        weaknesses:
+            "Very slow attacks, poor stamina, poor dashes, and self-damage.",
 
-        notes:
-            "Raw Heavy attacks damage the user. The current version does not slow the player."
+        animation:
+            "Iron_Fist_Idle.gif"
     },
 
 
     {
-        id: "shotgun",
         name: "Shotgun",
         rarity: "Legendary",
         ranked: "SHOTGUN",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Good",
+        dash: "Good",
         range: "Average",
         block: "Mediocre",
         ultimate: "45–55%",
         trail: "Magenta",
-
-        description:
-            "A rhythm-based style featuring Speed-O-Meter, Barrage, Prodigy, and Rhythm Hell.",
-
-        archetype: "Rhythm",
 
         passive: "Rhythm Hell",
 
@@ -842,756 +708,758 @@ const styles = [
 
         ultimateName: "FNF Rhythm",
 
-        light:
-            "Left → Right. Great speed and great stamina.",
+        description:
+            "A rhythm-focused style with two modes: Barrage and Prodigy.",
 
-        heavy:
-            "Right normally, Left in Prodigy.",
+        strengths:
+            "Great speed and stamina with powerful Barrage pressure.",
 
-        dash:
-            "Good movement with different behavior between Base and Prodigy.",
+        weaknesses:
+            "Self-damage, rhythm requirements, and significant counter intake.",
 
-        notes:
-            "Ultimate strength depends on rhythm grade: S +5%, A +4%, B +2%, C +1%, D -5%."
+        animation:
+            "Shotgun_Idles.gif"
     },
 
 
     {
-        id: "freedom",
         name: "Freedom",
         rarity: "Legendary",
         ranked: "FREEDOM",
-        shiny: "—",
+        shiny: "None",
         hp: "80 × 3 Stocks",
-        dashes: "Fantastic / Average / Good",
-        range: "Average / Fantastic",
-        block: "Weak / Below Average / Good",
+        dash: "Fantastic",
+        range: "Average",
+        block: "Weak",
         ultimate: "50%",
-        trail: "Varies",
-
-        description:
-            "A multi-form style that can switch between Whirlwind, Flicker, and Smash.",
-
-        archetype: "Multi-Style",
+        trail: "Variable",
 
         passive: "Whirlwind Swayback",
 
-        ability: "Form Switching",
+        ability: "Style Switching",
 
-        ultimateName: "Unknown",
+        ultimateName: "WIP",
 
-        light:
-            "Changes depending on the selected form.",
+        description:
+            "A three-stock style capable of switching between Whirlwind, Flicker, and Smash.",
 
-        heavy:
-            "Changes depending on the selected form.",
+        strengths:
+            "Extremely flexible movement and three distinct modes.",
 
-        dash:
-            "Whirlwind, Flicker, and Smash each have different movement characteristics.",
+        weaknesses:
+            "Each mode has different weaknesses and Freedom requires active switching.",
 
-        notes:
-            "Freedom has three stocks and supports Chainswitching and Wesker Tech on PC."
+        animation:
+            "Freedom_Idles.gif"
     },
 
 
     {
-        id: "chronos",
         name: "Chronos",
         rarity: "Legendary",
         ranked: "CHRONOS",
         shiny: "Godspeed",
         hp: "90",
-        dashes: "Great / Fantastic Focus",
+        dash: "Great",
         range: "Average",
         block: "Mediocre",
-        ultimate: "45% / 50% Focus",
-
+        ultimate: "45–50%",
         trail: "Gold",
-
-        description:
-            "A time-manipulation style built around Focus, movement control, and precise timing.",
-
-        archetype: "Technical",
 
         passive: "Focus",
 
-        ability: "Time Manipulation",
+        ability: "Time Focus",
 
-        ultimateName: "Unknown",
+        ultimateName: "WIP",
 
-        light:
-            "Movement and attack speed improve during Focus.",
+        description:
+            "A time-manipulation style that uses Focus to increase movement and offensive pressure while weakening the opponent.",
 
-        heavy:
-            "Focused Heavy receives significant counter-related benefits.",
+        strengths:
+            "Exceptional Focus movement and powerful time-based pressure.",
 
-        dash:
-            "Above-average movement, becoming well above average during Focus.",
+        weaknesses:
+            "Focus drains over time and can be cancelled by taking damage or being knocked down.",
 
-        notes:
-            "Focus drains over time and can be recharged through actions such as emotes, Perfect Dodges, and counters."
+        animation:
+            "Chronos_Idle.gif"
     },
 
 
     {
-        id: "white-ash",
         name: "White Ash",
         rarity: "Legendary",
         ranked: "JOE",
-        shiny: "—",
+        shiny: "None",
         hp: "70 × 4 Stocks",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
-        block: "Good / None Burn",
-        ultimate: "30% / 10% fail",
-
+        block: "Good",
+        ultimate: "30% / 10%",
         trail: "Light Blue",
-
-        description:
-            "A four-stock style centered around Burn, escalating damage, and the Cross Counter ultimate.",
-
-        archetype: "High Risk",
 
         passive: "Burn",
 
-        ability: "Burn",
+        ability: "Cross Counter",
 
         ultimateName: "Cross Counter",
 
-        light:
-            "Changes as Burn increases.",
+        description:
+            "A four-stock style that grows stronger through Burn while its health deteriorates.",
 
-        heavy:
-            "Changes as Burn increases.",
+        strengths:
+            "Large total health pool, strong Burn buffs, and powerful counterplay.",
 
-        dash:
-            "Average, with Burn affecting movement properties.",
+        weaknesses:
+            "Cannot normally block or backdash during Burn and continuously loses HP.",
 
-        notes:
-            "White Ash cannot normally block or backdash while Burn is active. Its ultimate uses a QTE."
+        animation:
+            "White_Ash_Idle.gif"
     },
 
 
     {
-        id: "supernova",
         name: "Supernova",
         rarity: "Legendary",
         ranked: "SUPERNOVA",
-        shiny: "—",
+        shiny: "None",
         hp: "100",
-        dashes: "Great",
+        dash: "Great",
         range: "Average",
         block: "Mediocre",
         ultimate: "50%",
         trail: "Teal",
 
-        description:
-            "A newer WIP style built around CTE, Starstruck, Comet, and Eject/Re-entry.",
-
-        archetype: "WIP",
-
         passive: "CTE",
 
         ability: "Starstruck",
 
-        ultimateName: "Unknown",
+        ultimateName: "WIP",
 
-        light:
-            "WIP.",
+        description:
+            "A newer style centered around Starstruck, Comet, and Eject/Re-entry mechanics.",
 
-        heavy:
-            "WIP.",
+        strengths:
+            "Strong movement and meter-based mechanics.",
 
-        dash:
-            "WIP.",
+        weaknesses:
+            "Several mechanics remain WIP.",
 
-        notes:
-            "WIP. Missing attack and ultimate details remain intentionally undisclosed."
+        animation:
+            "Supernova_Idle.gif",
+
+        wip: true
     },
 
 
     {
-        id: "deimos",
         name: "Deimos",
         rarity: "Legendary",
         ranked: "MONSTROSITY",
-        shiny: "—",
+        shiny: "None",
         hp: "90",
-        dashes: "?",
-        range: "?",
-        block: "?",
-        ultimate: "35% / 65% Monstrosity",
+        dash: "WIP",
+        range: "WIP",
+        block: "WIP",
+        ultimate: "35% / 65%",
         trail: "Red / Black",
 
+        passive: "Bleed",
+
+        ability: "Terror",
+
+        ultimateName: "Pinnacle of Violence",
+
         description:
-            "A WIP horror-themed style built around Bleed, Terror, and Monstrosity.",
+            "A WIP horror-themed style based around Bleed stacks, Terror, and the Monstrosity transformation.",
 
-        archetype: "WIP",
+        strengths:
+            "WIP.",
 
-        passive: "BLEED / TERROR",
+        weaknesses:
+            "WIP.",
 
-        ability: "Monstrosity",
+        animation:
+            "Deimos_Idle.gif",
 
-        ultimateName: "Pinnacle of Violence / Last Question and Final Answer",
-
-        light:
-            "?",
-
-        heavy:
-            "?",
-
-        dash:
-            "?",
-
-        notes:
-            "WIP. Strategy and counterplay are currently not confirmed."
+        wip: true
     },
 
 
-    /* =========================
-       SHINY
-    ========================= */
+    // =========================
+    // SHINY
+    // =========================
 
     {
-        id: "godspeed",
         name: "Godspeed",
         rarity: "Shiny",
         ranked: "GODSPEEDSHINY",
-        shiny: "Godspeed",
+        baseStyle: "Chronos",
         hp: "90",
-        dashes: "Great / Fantastic Focus",
+        dash: "Great",
         range: "Average",
         block: "Mediocre",
-        ultimate: "45% / 50% Focus",
+        ultimate: "45–50%",
         trail: "Dark Blue / White",
 
+        passive: "Chronos Focus",
+
+        ability: "Godspeed",
+
+        ultimateName: "WIP",
+
         description:
-            "The Shiny variant of Chronos, inspired by Killua Zoldyck.",
+            "Chronos's Shiny variant, inspired by Killua Zoldyck from Hunter × Hunter.",
 
-        archetype: "Shiny",
+        strengths:
+            "Retains Chronos's Focus mechanics with a distinctive Godspeed visual identity.",
 
-        passive: "Chronos Base Mechanics",
+        weaknesses:
+            "Godspeed mechanics are WIP.",
 
-        ability: "Godspeed / Focus",
+        obtain:
+            "1 in 666,700 / Guaranteed Legendary Shards",
 
-        ultimateName: "Unknown",
+        animation:
+            "Chronos_Idle.gif",
 
-        light:
-            "Based on Chronos.",
-
-        heavy:
-            "Based on Chronos.",
-
-        dash:
-            "Based on Chronos.",
-
-        notes:
-            "Godspeed is WIP. It features a yo-yo and glowing Godspeed/Focus accessories."
+        wip: true
     },
 
 
     {
-        id: "bald",
         name: "Bald",
         rarity: "Shiny",
         ranked: "BALDSHINY",
-        shiny: "Bald",
+        baseStyle: "Basic",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Good",
         block: "Good",
         ultimate: "50%",
         trail: "White",
 
-        description:
-            "The Shiny variant of Basic, inspired by Saitama.",
-
-        archetype: "Shiny",
-
-        passive: "Basic Base Mechanics",
+        passive: "Basic",
 
         ability: "None",
 
         ultimateName: "Death Punch",
 
-        light:
-            "Based on Basic.",
+        description:
+            "Basic's Shiny variant inspired by Saitama from One Punch Man.",
 
-        heavy:
-            "Straight punches with a Saitama-inspired Heavy.",
+        strengths:
+            "Retains Basic's reliable all-rounder design.",
 
-        dash:
-            "Based on Basic.",
+        weaknesses:
+            "Retains Basic's lack of specialization.",
 
-        notes:
-            "Bald is unspinnable and can be obtained through Uncommon Shards."
+        obtain:
+            "Unspinnable / 1 in 2 Uncommon Shards",
+
+        animation:
+            "Basic_Idle.gif"
     },
 
 
     {
-        id: "coyote",
         name: "Coyote",
         rarity: "Shiny",
         ranked: "COYOTESHINY",
-        shiny: "Coyote",
+        baseStyle: "Wolf",
         hp: "100",
-        dashes: "Average",
+        dash: "Average",
         range: "Average",
         block: "Good",
         ultimate: "50%",
-        trail: "Bluish White",
+        trail: "Bluish-White",
 
-        description:
-            "The Shiny variant of Wolf, inspired by Coyote Starrk from Bleach.",
+        passive: "White Fang",
 
-        archetype: "Shiny",
-
-        passive: "Wolf Base Mechanics",
-
-        ability: "White Fang",
+        ability: "Fang Storage",
 
         ultimateName: "Cero Metralleta",
 
-        light:
-            "Based on Wolf.",
+        description:
+            "Wolf's Shiny variant based on Coyote Starrk from Bleach.",
 
-        heavy:
-            "Based on Wolf, with Coyote-inspired visual attacks.",
+        strengths:
+            "Retains Wolf's powerful two-hit Heavy system.",
 
-        dash:
-            "Based on Wolf.",
+        weaknesses:
+            "Retains Wolf's reliance on combining its Heavy attacks.",
 
-        notes:
-            "Coyote was the first Shiny style and has a voiced ultimate."
+        obtain:
+            "Unspinnable / Guaranteed Mythic Shards",
+
+        animation:
+            "Wolf_Idle.gif"
     },
 
 
     {
-        id: "drill",
         name: "Drill",
         rarity: "Shiny",
         ranked: "DRILLSHINY",
-        shiny: "Drill",
+        baseStyle: "Corkscrew",
         hp: "100",
-        dashes: "Good",
+        dash: "Good",
         range: "Average",
         block: "Mediocre",
         ultimate: "50%",
         trail: "Pink",
 
-        description:
-            "The Shiny variant of Corkscrew, inspired by Kasane Teto.",
-
-        archetype: "Shiny",
-
-        passive: "Corkscrew Base Mechanics",
+        passive: "Faster Health and Block Regeneration",
 
         ability: "Corkscrew",
 
         ultimateName: "Can You Believe It?",
 
-        light:
-            "Based on Corkscrew.",
+        description:
+            "Corkscrew's Shiny variant based on Kasane Teto.",
 
-        heavy:
-            "Uses a baguette as part of the attack animation.",
+        strengths:
+            "Retains Corkscrew's strong raw attacks and regeneration.",
 
-        dash:
-            "Based on Corkscrew.",
+        weaknesses:
+            "Retains Corkscrew's windup and endlag.",
 
-        notes:
-            "The style features a dancing R6 animation at 30 FPS."
+        obtain:
+            "1 in 24,700 / Rare Shards",
+
+        animation:
+            "Corkscrew_Idle.gif"
     },
 
 
     {
-        id: "nanomachines",
         name: "Nanomachines",
         rarity: "Shiny",
-        ranked: "NANOSHINY",
-        shiny: "Nanomachines",
+        ranked: "NANOMACHINES",
+        baseStyle: "Turtle",
         hp: "100",
-        dashes: "Awful",
+        dash: "Awful",
         range: "Average",
         block: "Fantastic",
         ultimate: "45%",
         trail: "Red / Black",
 
-        description:
-            "The Shiny variant of Turtle, inspired by Senator Steven Armstrong.",
-
-        archetype: "Shiny",
-
         passive: "Turtle Block",
 
-        ability: "Nanomachines",
+        ability: "None",
 
         ultimateName: "Nanomachines, Son",
 
-        light:
-            "Based on Turtle.",
+        description:
+            "Turtle's Shiny variant based on Senator Steven Armstrong from Metal Gear Rising: Revengeance.",
 
-        heavy:
-            "Based on Turtle with Armstrong-inspired visual attacks.",
+        strengths:
+            "Retains Turtle's exceptional defensive capabilities.",
 
-        dash:
-            "Based on Turtle.",
+        weaknesses:
+            "Retains Turtle's extremely poor mobility.",
 
-        notes:
-            "The style uses mechanical visual effects while blocking."
+        obtain:
+            "1 in 10,600 / 1 in 2 Uncommon Shards",
+
+        animation:
+            "Turtle_Idle.gif"
     }
 
 ];
 
 
-/* =========================================================
-   DOM ELEMENTS
-   ========================================================= */
+// =====================================================
+// ELEMENTS
+// =====================================================
 
-const styleGrid = document.getElementById("styleGrid");
+const grid = document.getElementById("styleGrid");
 const searchInput = document.getElementById("styleSearch");
-const filters = document.querySelectorAll(".filter");
+const countDisplay = document.getElementById("styleCount");
 const noResults = document.getElementById("noResults");
 
 const modal = document.getElementById("styleModal");
-const modalContent = document.getElementById("styleDetail");
+const modalContent = document.getElementById("modalContent");
 const closeModal = document.getElementById("closeModal");
 
-
-/* =========================================================
-   STYLE CARD
-   ========================================================= */
-
-function createStyleCard(style) {
-
-    const card = document.createElement("article");
-
-    card.className = `database-style-card rarity-${style.rarity.toLowerCase()}`;
-
-    card.innerHTML = `
-
-        <div class="database-card-top">
-
-            <span class="database-rarity">
-                ${style.rarity}
-            </span>
-
-            <span class="database-ranked">
-                ${style.ranked}
-            </span>
-
-        </div>
+let currentRarity = "all";
 
 
-        <div class="database-card-main">
+// =====================================================
+// RARITY HELPERS
+// =====================================================
 
-            <div class="style-symbol">
-                ${style.name.charAt(0)}
-            </div>
-
-            <div>
-
-                <h3>${style.name}</h3>
-
-                <span class="style-archetype">
-                    ${style.archetype}
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <p class="database-description">
-            ${style.description}
-        </p>
-
-
-        <div class="mini-stats">
-
-            <div>
-                <span>HP</span>
-                <strong>${style.hp}</strong>
-            </div>
-
-            <div>
-                <span>DASH</span>
-                <strong>${style.dashes}</strong>
-            </div>
-
-            <div>
-                <span>RANGE</span>
-                <strong>${style.range}</strong>
-            </div>
-
-            <div>
-                <span>BLOCK</span>
-                <strong>${style.block}</strong>
-            </div>
-
-        </div>
-
-
-        <button class="view-style">
-            VIEW STYLE →
-        </button>
-
-    `;
-
-    card
-        .querySelector(".view-style")
-        .addEventListener("click", () => openStyle(style));
-
-    return card;
+function rarityClass(rarity) {
+    return rarity.toLowerCase();
 }
 
 
-/* =========================================================
-   RENDER
-   ========================================================= */
+// =====================================================
+// RENDER STYLES
+// =====================================================
 
-function renderStyles(filter = "all", search = "") {
+function renderStyles() {
 
-    styleGrid.innerHTML = "";
+    const searchTerm =
+        searchInput.value
+            .trim()
+            .toLowerCase();
 
-    const searchTerm = search.toLowerCase().trim();
+    const filteredStyles = styles.filter(style => {
 
-    const filtered = styles.filter(style => {
+        const rarityMatch =
+            currentRarity === "all" ||
+            style.rarity === currentRarity;
 
-        const matchesFilter =
-            filter === "all" ||
-            style.rarity.toLowerCase() === filter;
-
-        const matchesSearch =
+        const searchMatch =
             style.name.toLowerCase().includes(searchTerm) ||
             style.ranked.toLowerCase().includes(searchTerm) ||
-            style.archetype.toLowerCase().includes(searchTerm);
+            (style.baseStyle &&
+                style.baseStyle.toLowerCase().includes(searchTerm));
 
-        return matchesFilter && matchesSearch;
-
+        return rarityMatch && searchMatch;
     });
 
 
-    filtered.forEach(style => {
+    grid.innerHTML = "";
 
-        styleGrid.appendChild(
-            createStyleCard(style)
-        );
+    countDisplay.textContent =
+        filteredStyles.length;
+
+
+    if (filteredStyles.length === 0) {
+
+        noResults.classList.remove("hidden");
+
+        return;
+    }
+
+    noResults.classList.add("hidden");
+
+
+    filteredStyles.forEach(style => {
+
+        const card = document.createElement("article");
+
+        card.className =
+            `style-card rarity-${rarityClass(style.rarity)}`;
+
+        card.innerHTML = `
+
+            <div class="style-card-top">
+
+                <span class="style-rarity">
+                    ${style.rarity}
+                </span>
+
+                ${
+                    style.wip
+                        ? `<span class="wip-badge">WIP</span>`
+                        : ""
+                }
+
+            </div>
+
+
+            <div class="style-visual">
+
+                <div class="style-glow"></div>
+
+                <div class="style-placeholder">
+
+                    <span>
+                        ${style.name
+                            .substring(0, 1)
+                            .toUpperCase()}
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="style-card-body">
+
+                <h2>
+                    ${style.name}
+                </h2>
+
+                <div class="ranked-name">
+                    ${style.ranked}
+                </div>
+
+                ${
+                    style.baseStyle
+                        ? `
+                            <div class="base-style">
+                                BASE: ${style.baseStyle}
+                            </div>
+                          `
+                        : ""
+                }
+
+
+                <div class="mini-stats">
+
+                    <div>
+                        <small>HP</small>
+                        <strong>${style.hp}</strong>
+                    </div>
+
+                    <div>
+                        <small>DASH</small>
+                        <strong>${style.dash}</strong>
+                    </div>
+
+                    <div>
+                        <small>RANGE</small>
+                        <strong>${style.range}</strong>
+                    </div>
+
+                    <div>
+                        <small>BLOCK</small>
+                        <strong>${style.block}</strong>
+                    </div>
+
+                </div>
+
+
+                <button class="view-style">
+                    VIEW STYLE
+                </button>
+
+            </div>
+        `;
+
+
+        card
+            .querySelector(".view-style")
+            .addEventListener("click", () => {
+
+                openStyle(style);
+
+            });
+
+
+        grid.appendChild(card);
 
     });
 
-
-    noResults.style.display =
-        filtered.length === 0 ? "block" : "none";
 }
 
 
-/* =========================================================
-   FILTERS
-   ========================================================= */
-
-let currentFilter = "all";
-
-filters.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        filters.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        currentFilter =
-            button.dataset.filter;
-
-        renderStyles(
-            currentFilter,
-            searchInput.value
-        );
-
-    });
-
-});
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-searchInput.addEventListener("input", () => {
-
-    renderStyles(
-        currentFilter,
-        searchInput.value
-    );
-
-});
-
-
-/* =========================================================
-   STYLE DETAIL
-   ========================================================= */
+// =====================================================
+// OPEN MODAL
+// =====================================================
 
 function openStyle(style) {
 
     modalContent.innerHTML = `
 
-        <div class="detail-header">
+        <div class="modal-header">
 
             <div>
 
-                <span class="database-rarity">
+                <span class="modal-rarity rarity-${rarityClass(style.rarity)}">
                     ${style.rarity}
                 </span>
 
-                <h2>${style.name}</h2>
+                <h1>
+                    ${style.name}
+                </h1>
 
-                <span class="detail-ranked">
+                <p class="modal-ranked">
                     ${style.ranked}
-                </span>
-
-            </div>
-
-            <div class="detail-symbol">
-                ${style.name.charAt(0)}
-            </div>
-
-        </div>
-
-
-        <p class="detail-description">
-            ${style.description}
-        </p>
-
-
-        <div class="detail-stats">
-
-            <div>
-                <span>HEALTH</span>
-                <strong>${style.hp}</strong>
-            </div>
-
-            <div>
-                <span>DASHES</span>
-                <strong>${style.dashes}</strong>
-            </div>
-
-            <div>
-                <span>RANGE</span>
-                <strong>${style.range}</strong>
-            </div>
-
-            <div>
-                <span>BLOCK</span>
-                <strong>${style.block}</strong>
-            </div>
-
-            <div>
-                <span>ULTIMATE</span>
-                <strong>${style.ultimate}</strong>
-            </div>
-
-            <div>
-                <span>TRAIL</span>
-                <strong>${style.trail}</strong>
-            </div>
-
-        </div>
-
-
-        <div class="detail-columns">
-
-            <div class="detail-section">
-
-                <span>ARCHETYPE</span>
-
-                <h3>
-                    ${style.archetype}
-                </h3>
-
-            </div>
-
-
-            <div class="detail-section">
-
-                <span>PASSIVE</span>
-
-                <h3>
-                    ${style.passive}
-                </h3>
-
-            </div>
-
-
-            <div class="detail-section">
-
-                <span>ABILITY</span>
-
-                <h3>
-                    ${style.ability}
-                </h3>
-
-            </div>
-
-
-            <div class="detail-section">
-
-                <span>ULTIMATE</span>
-
-                <h3>
-                    ${style.ultimateName}
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="move-sections">
-
-            <div>
-
-                <span>LIGHT ATTACK</span>
-
-                <p>
-                    ${style.light}
                 </p>
 
             </div>
 
-
-            <div>
-
-                <span>HEAVY ATTACK</span>
-
-                <p>
-                    ${style.heavy}
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <span>DASH</span>
-
-                <p>
-                    ${style.dash}
-                </p>
-
-            </div>
+            ${
+                style.baseStyle
+                    ? `
+                        <div class="modal-base">
+                            BASE STYLE
+                            <strong>${style.baseStyle}</strong>
+                        </div>
+                      `
+                    : ""
+            }
 
         </div>
 
 
-        <div class="style-notes">
+        ${
+            style.wip
+                ? `
+                    <div class="modal-wip">
+                        ⚠ THIS STYLE CONTAINS WIP INFORMATION
+                    </div>
+                  `
+                : ""
+        }
 
-            <span>NOTES</span>
 
-            <p>
-                ${style.notes}
-            </p>
+        <div class="modal-layout">
+
+
+            <div class="modal-visual">
+
+                <div class="modal-style-symbol">
+                    ${style.name.substring(0, 1)}
+                </div>
+
+                <div class="modal-trail">
+                    TRAIL
+                    <strong>${style.trail}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="modal-information">
+
+
+                <section>
+
+                    <h3>
+                        OVERVIEW
+                    </h3>
+
+                    <p>
+                        ${style.description}
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        CORE STATS
+                    </h3>
+
+                    <div class="stat-grid">
+
+                        <div class="stat-box">
+                            <small>HEALTH</small>
+                            <strong>${style.hp}</strong>
+                        </div>
+
+                        <div class="stat-box">
+                            <small>DASH</small>
+                            <strong>${style.dash}</strong>
+                        </div>
+
+                        <div class="stat-box">
+                            <small>RANGE</small>
+                            <strong>${style.range}</strong>
+                        </div>
+
+                        <div class="stat-box">
+                            <small>BLOCK</small>
+                            <strong>${style.block}</strong>
+                        </div>
+
+                        <div class="stat-box">
+                            <small>ULTIMATE</small>
+                            <strong>${style.ultimate}</strong>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        PASSIVE
+                    </h3>
+
+                    <p>
+                        ${style.passive}
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        ABILITY
+                    </h3>
+
+                    <p>
+                        ${style.ability}
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        ULTIMATE
+                    </h3>
+
+                    <p>
+                        <strong>
+                            ${style.ultimateName}
+                        </strong>
+                    </p>
+
+                </section>
+
+
+                <div class="strength-weakness">
+
+                    <div>
+
+                        <h3>
+                            STRENGTHS
+                        </h3>
+
+                        <p>
+                            ${style.strengths}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            WEAKNESSES
+                        </h3>
+
+                        <p>
+                            ${style.weaknesses}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                ${
+                    style.obtain
+                        ? `
+                            <section>
+
+                                <h3>
+                                    OBTAINMENT
+                                </h3>
+
+                                <p>
+                                    ${style.obtain}
+                                </p>
+
+                            </section>
+                          `
+                        : ""
+                }
+
+            </div>
 
         </div>
 
@@ -1603,18 +1471,11 @@ function openStyle(style) {
 }
 
 
-/* =========================================================
-   CLOSE MODAL
-   ========================================================= */
+// =====================================================
+// CLOSE MODAL
+// =====================================================
 
-closeModal.addEventListener("click", closeStyle);
-
-document
-    .querySelector(".modal-backdrop")
-    .addEventListener("click", closeStyle);
-
-
-function closeStyle() {
+function closeStyleModal() {
 
     modal.classList.remove("open");
 
@@ -1623,21 +1484,77 @@ function closeStyle() {
 }
 
 
-/* =========================================================
-   ESCAPE
-   ========================================================= */
+closeModal.addEventListener(
+    "click",
+    closeStyleModal
+);
 
-document.addEventListener("keydown", event => {
 
-    if (event.key === "Escape") {
-        closeStyle();
+document
+    .querySelector(".style-modal-overlay")
+    .addEventListener(
+        "click",
+        closeStyleModal
+    );
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Escape") {
+
+            closeStyleModal();
+
+        }
+
     }
+);
 
-});
+
+// =====================================================
+// FILTERS
+// =====================================================
+
+document
+    .querySelectorAll(".rarity-filter")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(".rarity-filter")
+                    .forEach(btn =>
+                        btn.classList.remove("active")
+                    );
+
+                button.classList.add("active");
+
+                currentRarity =
+                    button.dataset.rarity;
+
+                renderStyles();
+
+            }
+        );
+
+    });
 
 
-/* =========================================================
-   INITIALIZE
-   ========================================================= */
+// =====================================================
+// SEARCH
+// =====================================================
+
+searchInput.addEventListener(
+    "input",
+    renderStyles
+);
+
+
+// =====================================================
+// INITIAL RENDER
+// =====================================================
 
 renderStyles();
