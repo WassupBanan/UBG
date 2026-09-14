@@ -1,121 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Style — Untitled Boxing Game Wiki</title>
-
     <meta
-        name="description"
-        content="Untitled Boxing Game Wiki — Style information, movesets, mechanics and guides."
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
+
+    <title>Style — UBG Wiki</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="ubg-wiki">
+<div class="wiki-shell">
 
-    <!-- =========================================================
-         LEFT WIKI SIDEBAR
-    ========================================================== -->
+    <!-- =================================================
+         SIDEBAR
+         ================================================= -->
 
-    <aside class="wiki-sidebar">
+    <aside class="sidebar">
 
-        <div class="wiki-logo">
-            <div class="wiki-logo-box">UBG</div>
+        <div class="sidebar-brand">
 
-            <div class="wiki-logo-text">
+            <div class="brand-mark">
+                UBG
+            </div>
+
+            <div class="brand-text">
                 <strong>UNTITLED</strong>
                 <span>BOXING GAME WIKI</span>
             </div>
+
         </div>
 
-        <div class="sidebar-divider"></div>
 
-        <nav class="wiki-navigation">
+        <nav class="sidebar-navigation">
 
-            <div class="navigation-title">
+            <div class="sidebar-heading">
                 NAVIGATION
             </div>
 
-            <a href="index.html" class="navigation-link">
-                <span class="navigation-icon">⌂</span>
-                <span>Main Page</span>
+            <a href="index.html" class="sidebar-link">
+                <span>⌂</span>
+                Main Page
             </a>
 
-            <a href="styles.html" class="navigation-link active">
-                <span class="navigation-icon">🥊</span>
-                <span>Styles</span>
+            <a href="styles.html" class="sidebar-link active">
+                <span>🥊</span>
+                Styles
             </a>
 
-            <a href="#" class="navigation-link">
-                <span class="navigation-icon">⚙</span>
-                <span>Mechanics</span>
+            <a href="#" class="sidebar-link">
+                <span>⚙</span>
+                Mechanics
             </a>
 
-            <a href="#" class="navigation-link">
-                <span class="navigation-icon">🏆</span>
-                <span>Ranked</span>
+            <a href="#" class="sidebar-link">
+                <span>🏆</span>
+                Ranked
             </a>
 
 
-            <div class="navigation-title navigation-title-spaced">
+            <div class="sidebar-heading">
                 EXPLORE
             </div>
 
-            <a href="#" class="navigation-link">
-                <span class="navigation-icon">📖</span>
-                <span>Guides</span>
+            <a href="#" class="sidebar-link">
+                <span>📖</span>
+                Guides
             </a>
 
-            <a href="#" class="navigation-link">
-                <span class="navigation-icon">🎒</span>
-                <span>Collection</span>
+            <a href="#" class="sidebar-link">
+                <span>🎒</span>
+                Collection
             </a>
 
-            <a href="#" class="navigation-link">
-                <span class="navigation-icon">👥</span>
-                <span>Community</span>
-            </a>
-
-
-            <div class="navigation-title navigation-title-spaced">
-                OTHER
-            </div>
-
-            <a href="#" class="navigation-link">
-                <span class="navigation-icon">📝</span>
-                <span>Updates</span>
-            </a>
-
-            <a href="#" class="navigation-link">
-                <span class="navigation-icon">❓</span>
-                <span>Help</span>
+            <a href="#" class="sidebar-link">
+                <span>👥</span>
+                Community
             </a>
 
         </nav>
 
 
-        <div class="sidebar-bottom">
+        <div class="sidebar-footer">
 
             <div class="wiki-status">
-                <span class="status-dot"></span>
-
-                <div>
-                    <strong>Fan-made Wiki</strong>
-                    <span>Community project</span>
-                </div>
+                <span></span>
+                Fan-made UBG Wiki
             </div>
 
             <a
                 href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="sidebar-play"
+                class="play-button"
             >
                 PLAY UBG
                 <span>↗</span>
@@ -126,30 +108,30 @@
     </aside>
 
 
-    <!-- =========================================================
-         MAIN WIKI AREA
-    ========================================================== -->
 
-    <div class="wiki-page">
+    <!-- =================================================
+         MAIN
+         ================================================= -->
+
+    <main class="main-content">
 
         <!-- TOP BAR -->
 
-        <header class="wiki-topbar">
+        <header class="topbar">
 
-            <div class="mobile-wiki-title">
+            <div class="topbar-title">
                 UBG WIKI
             </div>
 
 
-            <div class="wiki-search">
+            <div class="global-search">
 
-                <span class="search-symbol">⌕</span>
+                <span>⌕</span>
 
                 <input
                     id="globalSearch"
                     type="text"
                     placeholder="Search the UBG Wiki..."
-                    autocomplete="off"
                 >
 
                 <kbd>CTRL K</kbd>
@@ -159,18 +141,17 @@
 
             <div class="topbar-actions">
 
-                <a href="styles.html" class="topbar-link">
-                    STYLES
+                <a href="styles.html">
+                    ALL STYLES
                 </a>
 
                 <a
                     href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="topbar-play"
+                    class="top-play"
                 >
-                    PLAY UBG
-                    <span>↗</span>
+                    PLAY
                 </a>
 
             </div>
@@ -178,171 +159,112 @@
         </header>
 
 
-        <!-- =====================================================
-             ARTICLE
-        ====================================================== -->
 
-        <main class="wiki-content">
+        <!-- ARTICLE -->
 
-            <div class="wiki-breadcrumb">
-
-                <a href="index.html">
-                    UBG Wiki
-                </a>
-
-                <span>›</span>
-
-                <a href="styles.html">
-                    Styles
-                </a>
-
-                <span>›</span>
-
-                <span id="breadcrumbStyle">
-                    Style
-                </span>
-
-            </div>
-
-
-            <!--
-                styles.js renders the complete article here.
-            -->
+        <div class="article-container">
 
             <article
                 id="styleArticle"
-                class="wiki-article"
+                class="style-article"
             >
+
+                <div class="loading-state">
+                    Loading style...
+                </div>
+
             </article>
 
 
-            <!-- =================================================
-                 RIGHT INFORMATION COLUMN
-            ================================================== -->
+            <!-- RIGHT SIDEBAR -->
 
-            <aside class="wiki-side-column">
-
-                <!-- Dynamic style infobox -->
+            <aside class="article-sidebar">
 
                 <div
                     id="styleInfobox"
-                    class="style-infobox"
+                    class="infobox-container"
                 >
                 </div>
 
 
-                <!-- Table of contents -->
+                <div class="side-panel">
 
-                <div class="side-box">
-
-                    <div class="side-box-heading">
+                    <div class="side-panel-title">
                         CONTENTS
                     </div>
 
-                    <div class="side-box-body">
+                    <a href="#overview">
+                        <span>01</span>
+                        Overview
+                    </a>
 
-                        <a href="#overview" class="toc-link">
-                            <span>01</span>
-                            Overview
-                        </a>
+                    <a href="#stats">
+                        <span>02</span>
+                        General stats
+                    </a>
 
-                        <a href="#style-information" class="toc-link">
-                            <span>02</span>
-                            Style information
-                        </a>
+                    <a href="#passive">
+                        <span>03</span>
+                        Passive
+                    </a>
 
-                        <a href="#passive" class="toc-link">
-                            <span>03</span>
-                            Passive
-                        </a>
+                    <a href="#ability">
+                        <span>04</span>
+                        Ability
+                    </a>
 
-                        <a href="#ability" class="toc-link">
-                            <span>04</span>
-                            Ability
-                        </a>
+                    <a href="#ultimate">
+                        <span>05</span>
+                        Ultimate
+                    </a>
 
-                        <a href="#ultimate" class="toc-link">
-                            <span>05</span>
-                            Ultimate
-                        </a>
+                    <a href="#moveset">
+                        <span>06</span>
+                        Moveset
+                    </a>
 
-                        <a href="#moveset" class="toc-link">
-                            <span>06</span>
-                            Moveset
-                        </a>
+                    <a href="#strategy">
+                        <span>07</span>
+                        Strategy
+                    </a>
 
-                        <a href="#strengths" class="toc-link">
-                            <span>07</span>
-                            Strengths
-                        </a>
-
-                        <a href="#weaknesses" class="toc-link">
-                            <span>08</span>
-                            Weaknesses
-                        </a>
-
-                        <a href="#strategy" class="toc-link">
-                            <span>09</span>
-                            Strategy
-                        </a>
-
-                        <a href="#gallery" class="toc-link">
-                            <span>10</span>
-                            Gallery
-                        </a>
-
-                    </div>
+                    <a href="#gallery">
+                        <span>08</span>
+                        Gallery
+                    </a>
 
                 </div>
 
 
-                <!-- Wiki navigation -->
+                <div class="side-panel">
 
-                <div class="side-box">
-
-                    <div class="side-box-heading">
+                    <div class="side-panel-title">
                         STYLE NAVIGATION
                     </div>
 
-                    <div class="side-box-body">
+                    <a href="styles.html">
+                        <span>←</span>
+                        All Styles
+                    </a>
 
-                        <a href="styles.html" class="side-navigation-link">
-                            <span>←</span>
-                            All Styles
-                        </a>
-
-                        <a href="styles.html" class="side-navigation-link">
-                            <span>🥊</span>
-                            Style List
-                        </a>
-
-                        <a href="#" class="side-navigation-link">
-                            <span>⚙</span>
-                            Mechanics
-                        </a>
-
-                        <a href="#" class="side-navigation-link">
-                            <span>🏆</span>
-                            Ranked
-                        </a>
-
-                    </div>
+                    <a href="styles.html">
+                        <span>🥊</span>
+                        Style List
+                    </a>
 
                 </div>
 
             </aside>
 
-        </main>
+        </div>
 
 
-        <!-- =====================================================
-             FOOTER
-        ====================================================== -->
+
+        <!-- FOOTER -->
 
         <footer class="wiki-footer">
 
-            <div class="footer-main">
-
+            <div>
                 <strong>
                     UNTITLED BOXING GAME WIKI
                 </strong>
@@ -350,77 +272,48 @@
                 <span>
                     Fan-made community project
                 </span>
-
             </div>
 
-            <div class="footer-right">
+            <div>
                 UBG © Roblox / drowningsome
             </div>
 
         </footer>
 
-    </div>
+    </main>
 
 </div>
 
-
-<!-- =============================================================
-     SCRIPTS
-============================================================== -->
 
 <script src="styles.js"></script>
 
 
 <script>
-/*
-    Global Wiki Search Shortcut
-    CTRL + K
-*/
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener(
+    "keydown",
+    function(event) {
 
-    if (
-        (event.ctrlKey || event.metaKey) &&
-        event.key.toLowerCase() === "k"
-    ) {
+        if (
+            (event.ctrlKey || event.metaKey) &&
+            event.key.toLowerCase() === "k"
+        ) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        const search =
-            document.getElementById("globalSearch");
+            const search =
+                document.getElementById(
+                    "globalSearch"
+                );
 
-        if (search) {
-            search.focus();
+            if (search) {
+                search.focus();
+            }
+
         }
 
     }
-
-});
-
-
-/*
-    Update breadcrumb when the style article has loaded.
-*/
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const params =
-        new URLSearchParams(window.location.search);
-
-    const styleName =
-        params.get("style");
-
-    const breadcrumb =
-        document.getElementById("breadcrumbStyle");
-
-    if (styleName && breadcrumb) {
-
-        breadcrumb.textContent =
-            styleName;
-
-    }
-
-});
+);
 
 </script>
 
