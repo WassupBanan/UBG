@@ -1,11 +1,11 @@
 /* =========================================================
-   UBG WIKI — STYLE PAGE
-   Cleaned + organized version
+   UBG WIKI — STYLE.CSS
+   Complete replacement
    ========================================================= */
 
 
 /* =========================================================
-   1. RESET / GLOBAL
+   1. RESET
    ========================================================= */
 
 * {
@@ -52,11 +52,10 @@ img {
 
 
 /* =========================================================
-   2. MAIN WIKI LAYOUT
+   2. MAIN LAYOUT
    ========================================================= */
 
 .wiki-layout {
-    display: flex;
     min-height: 100vh;
     background:
         radial-gradient(
@@ -69,7 +68,7 @@ img {
 
 
 /* =========================================================
-   3. LEFT SIDEBAR
+   3. SIDEBAR
    ========================================================= */
 
 .sidebar {
@@ -88,8 +87,16 @@ img {
     background: #101012;
     border-right: 1px solid #29292e;
 
-    z-index: 100;
+    z-index: 1000;
+
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
+
+/* =========================================================
+   4. SIDEBAR LOGO
+   ========================================================= */
 
 .sidebar-logo {
     display: flex;
@@ -109,13 +116,16 @@ img {
     align-items: center;
     justify-content: center;
 
+    flex-shrink: 0;
+
     background: linear-gradient(
         135deg,
         #ff3347,
         #b80f20
     );
 
-    color: white;
+    color: #ffffff;
+
     font-size: 14px;
     font-weight: 900;
 
@@ -129,8 +139,10 @@ img {
     display: block;
 
     color: #ffffff;
+
     font-size: 13px;
     font-weight: 900;
+
     letter-spacing: 0.08em;
 }
 
@@ -140,14 +152,16 @@ img {
     margin-top: 2px;
 
     color: #77777f;
+
     font-size: 10px;
     font-weight: 700;
+
     letter-spacing: 0.1em;
 }
 
 
 /* =========================================================
-   4. SIDEBAR NAVIGATION
+   5. SIDEBAR NAVIGATION
    ========================================================= */
 
 .sidebar-nav {
@@ -161,6 +175,7 @@ img {
 
     font-size: 10px;
     font-weight: 800;
+
     letter-spacing: 0.12em;
 }
 
@@ -193,6 +208,8 @@ img {
     align-items: center;
     justify-content: center;
 
+    flex-shrink: 0;
+
     font-size: 15px;
 }
 
@@ -223,16 +240,18 @@ img {
     width: 3px;
 
     background: #e52a3d;
+
     border-radius: 0 3px 3px 0;
 }
 
 
 /* =========================================================
-   5. SIDEBAR BOTTOM
+   6. SIDEBAR BOTTOM
    ========================================================= */
 
 .sidebar-bottom {
     margin-top: auto;
+    padding-top: 20px;
 }
 
 .wiki-status {
@@ -244,12 +263,15 @@ img {
     padding: 0 8px;
 
     color: #707078;
+
     font-size: 11px;
 }
 
 .status-dot {
     width: 7px;
     height: 7px;
+
+    flex-shrink: 0;
 
     background: #35c76f;
 
@@ -263,6 +285,7 @@ img {
     display: block;
 
     width: 100%;
+
     padding: 11px 14px;
 
     background: linear-gradient(
@@ -271,11 +294,13 @@ img {
         #b91529
     );
 
-    color: white;
+    color: #ffffff;
 
     text-align: center;
+
     font-size: 12px;
     font-weight: 800;
+
     letter-spacing: 0.05em;
 
     border-radius: 7px;
@@ -295,7 +320,7 @@ img {
 
 
 /* =========================================================
-   6. MAIN AREA
+   7. MAIN AREA
    ========================================================= */
 
 .main-area {
@@ -303,25 +328,29 @@ img {
     min-height: 100vh;
 
     margin-left: 250px;
+
+    overflow-x: hidden;
 }
 
 
 /* =========================================================
-   7. TOP BAR
+   8. TOPBAR
    ========================================================= */
 
 .topbar {
     position: sticky;
     top: 0;
 
-    height: 68px;
+    width: 100%;
+    min-height: 68px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 
-    padding: 0 30px;
+    padding: 12px 30px;
 
     background: rgba(11, 11, 13, 0.94);
 
@@ -329,20 +358,21 @@ img {
 
     backdrop-filter: blur(14px);
 
-    z-index: 50;
+    z-index: 500;
 }
 
 .mobile-title {
     display: none;
 
     color: #ffffff;
+
     font-size: 14px;
     font-weight: 900;
 }
 
 
 /* =========================================================
-   8. SEARCH
+   9. SEARCH
    ========================================================= */
 
 .search-box {
@@ -355,6 +385,7 @@ img {
     padding: 9px 12px;
 
     background: #151518;
+
     border: 1px solid #29292e;
     border-radius: 7px;
 
@@ -362,6 +393,8 @@ img {
 }
 
 .search-box > span {
+    flex-shrink: 0;
+
     font-size: 19px;
 }
 
@@ -371,10 +404,12 @@ img {
     min-width: 0;
 
     background: transparent;
+
     border: 0;
     outline: none;
 
     color: #ffffff;
+
     font-size: 13px;
 }
 
@@ -383,9 +418,12 @@ img {
 }
 
 .search-box kbd {
+    flex-shrink: 0;
+
     padding: 3px 6px;
 
     background: #202025;
+
     border: 1px solid #303037;
     border-radius: 4px;
 
@@ -397,19 +435,22 @@ img {
 
 
 /* =========================================================
-   9. TOP ACTIONS
+   10. TOP ACTIONS
    ========================================================= */
 
 .top-actions {
     display: flex;
     align-items: center;
     gap: 8px;
+
+    flex-shrink: 0;
 }
 
 .top-actions button {
     padding: 9px 12px;
 
     background: #151518;
+
     border: 1px solid #303037;
     border-radius: 6px;
 
@@ -417,11 +458,12 @@ img {
 
     font-size: 10px;
     font-weight: 800;
+
     letter-spacing: 0.05em;
 }
 
 .top-actions button:hover {
-    color: white;
+    color: #ffffff;
     border-color: #45454d;
 }
 
@@ -429,12 +471,14 @@ img {
     padding: 9px 14px;
 
     background: #e52a3d;
+
     border-radius: 6px;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 10px;
     font-weight: 900;
+
     letter-spacing: 0.05em;
 
     transition: filter 0.2s ease;
@@ -446,17 +490,20 @@ img {
 
 
 /* =========================================================
-   10. CONTENT
+   11. CONTENT WRAPPER
    ========================================================= */
 
 .content-wrapper {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
-    gap: 30px;
-
+    width: 100%;
     max-width: 1400px;
 
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+
+    gap: 30px;
+
     margin: 0 auto;
+
     padding: 34px 34px 60px;
 }
 
@@ -466,10 +513,12 @@ img {
 
 
 /* =========================================================
-   11. WIKI ARTICLE
+   12. ARTICLE
    ========================================================= */
 
 .wiki-article {
+    min-width: 0;
+
     color: #d8d8dc;
 }
 
@@ -479,13 +528,14 @@ img {
 
 
 /* =========================================================
-   12. BREADCRUMB
+   13. BREADCRUMB
    ========================================================= */
 
 .wiki-breadcrumb {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+
     gap: 7px;
 
     margin-bottom: 18px;
@@ -509,7 +559,7 @@ img {
 
 
 /* =========================================================
-   13. ARTICLE HEADER
+   14. ARTICLE HEADER
    ========================================================= */
 
 .wiki-article-header {
@@ -525,6 +575,7 @@ img {
 
     font-size: 10px;
     font-weight: 900;
+
     letter-spacing: 0.14em;
     text-transform: uppercase;
 }
@@ -534,7 +585,9 @@ img {
 
     font-size: clamp(32px, 4vw, 46px);
     font-weight: 900;
+
     line-height: 1.05;
+
     letter-spacing: -0.035em;
 }
 
@@ -554,6 +607,7 @@ img {
     padding: 5px 9px;
 
     background: rgba(220, 30, 45, 0.1);
+
     border: 1px solid rgba(220, 30, 45, 0.28);
     border-radius: 5px;
 
@@ -561,18 +615,23 @@ img {
 
     font-size: 9px;
     font-weight: 900;
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
 
 /* =========================================================
-   14. ARTICLE GRID
+   15. ARTICLE GRID
    ========================================================= */
 
 .wiki-article-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 260px;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        260px;
+
     gap: 28px;
 
     margin-top: 28px;
@@ -584,7 +643,7 @@ img {
 
 
 /* =========================================================
-   15. ARTICLE SECTIONS
+   16. ARTICLE SECTIONS
    ========================================================= */
 
 .wiki-article-section {
@@ -599,6 +658,7 @@ img {
 
     font-size: 21px;
     font-weight: 850;
+
     line-height: 1.2;
 
     border-bottom: 1px solid #2b2b30;
@@ -619,6 +679,7 @@ img {
     color: #a9a9b1;
 
     font-size: 14px;
+
     line-height: 1.8;
 }
 
@@ -628,7 +689,7 @@ img {
 
 
 /* =========================================================
-   16. ARTICLE LISTS
+   17. ARTICLE LISTS
    ========================================================= */
 
 .wiki-article-section ul,
@@ -651,7 +712,7 @@ img {
 
 
 /* =========================================================
-   17. LEAD / OVERVIEW
+   18. LEAD TEXT
    ========================================================= */
 
 .wiki-lead {
@@ -663,12 +724,13 @@ img {
     color: #c0c0c7;
 
     font-size: 15px;
+
     line-height: 1.85;
 }
 
 
 /* =========================================================
-   18. DATA TABLE
+   19. DATA TABLE
    ========================================================= */
 
 .wiki-data-table {
@@ -681,7 +743,6 @@ img {
     background: #111114;
 
     border: 1px solid #2b2b30;
-    border-radius: 6px;
 
     overflow: hidden;
 }
@@ -719,7 +780,7 @@ img {
 
 
 /* =========================================================
-   19. ABILITY / MOVE BOXES
+   20. ABILITY BOX
    ========================================================= */
 
 .wiki-ability {
@@ -755,12 +816,45 @@ img {
 
 
 /* =========================================================
-   20. MOVESET GRID
+   21. HERO PREVIEW
+   ========================================================= */
+
+.style-hero-preview {
+    margin-bottom: 24px;
+    padding: 18px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(220, 30, 45, 0.12),
+            transparent 65%
+        ),
+        #101012;
+
+    border: 1px solid #2c2c31;
+    border-radius: 8px;
+}
+
+.style-hero-preview img {
+    width: 100%;
+    max-height: 360px;
+
+    margin: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   22. MOVESET
    ========================================================= */
 
 .wiki-moveset-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 12px;
 
     margin-top: 15px;
@@ -777,6 +871,7 @@ img {
 
 .wiki-move-card img {
     width: 100%;
+
     aspect-ratio: 16 / 9;
 
     object-fit: contain;
@@ -805,38 +900,7 @@ img {
 
 
 /* =========================================================
-   21. IMAGE / HERO PREVIEW
-   ========================================================= */
-
-.style-hero-preview {
-    margin-bottom: 24px;
-
-    padding: 18px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(220, 30, 45, 0.12),
-            transparent 65%
-        ),
-        #101012;
-
-    border: 1px solid #2c2c31;
-    border-radius: 8px;
-}
-
-.style-hero-preview img {
-    width: 100%;
-    max-height: 360px;
-
-    object-fit: contain;
-
-    margin: auto;
-}
-
-
-/* =========================================================
-   22. WIP NOTICE
+   23. WIP NOTICE
    ========================================================= */
 
 .wiki-wip-notice {
@@ -874,12 +938,15 @@ img {
 
 
 /* =========================================================
-   23. STRENGTHS / WEAKNESSES
+   24. STRENGTHS / WEAKNESSES
    ========================================================= */
 
 .wiki-columns {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 14px;
 }
 
@@ -913,12 +980,15 @@ img {
 
 
 /* =========================================================
-   24. GALLERY
+   25. GALLERY
    ========================================================= */
 
 .wiki-gallery {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
     gap: 10px;
 
     margin-top: 15px;
@@ -935,6 +1005,7 @@ img {
 
 .wiki-gallery-item img {
     width: 100%;
+
     aspect-ratio: 16 / 10;
 
     object-fit: contain;
@@ -952,12 +1023,13 @@ img {
 
 
 /* =========================================================
-   25. CATEGORIES
+   26. CATEGORIES
    ========================================================= */
 
 .wiki-categories {
     display: flex;
     flex-wrap: wrap;
+
     gap: 7px;
 
     margin-top: 30px;
@@ -970,6 +1042,7 @@ img {
     padding: 5px 9px;
 
     background: #151518;
+
     border: 1px solid #303037;
     border-radius: 4px;
 
@@ -980,12 +1053,13 @@ img {
 
 .wiki-category:hover {
     color: #ffffff;
+
     border-color: #e52a3d;
 }
 
 
 /* =========================================================
-   26. RIGHT SIDEBAR
+   27. RIGHT SIDEBAR
    ========================================================= */
 
 .rightbar {
@@ -995,6 +1069,7 @@ img {
 .wiki-rightbar {
     display: flex;
     flex-direction: column;
+
     gap: 16px;
 }
 
@@ -1014,17 +1089,19 @@ img {
 
     font-size: 10px;
     font-weight: 900;
+
     letter-spacing: 0.1em;
 }
 
 
 /* =========================================================
-   27. CONTENTS LINKS
+   28. CONTENT LINKS
    ========================================================= */
 
 .popular-link {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     padding: 8px 0;
@@ -1055,7 +1132,7 @@ img {
 
 
 /* =========================================================
-   28. STYLE INFOBOX
+   29. INFOBOX
    ========================================================= */
 
 .style-infobox {
@@ -1064,6 +1141,7 @@ img {
     background: #111114;
 
     border: 1px solid #303037;
+
     border-radius: 7px;
 }
 
@@ -1104,6 +1182,7 @@ img {
 
 .wiki-infobox-row {
     display: grid;
+
     grid-template-columns: 42% 58%;
 
     border-top: 1px solid #242429;
@@ -1138,7 +1217,7 @@ img {
 
 
 /* =========================================================
-   29. RARITY COLORS
+   30. RARITY
    ========================================================= */
 
 .rarity-uncommon {
@@ -1171,38 +1250,44 @@ img {
 
     font-size: 9px;
     font-weight: 900;
+
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
 .rarity-badge.rarity-uncommon {
     background: rgba(168, 168, 173, 0.1);
+
     border: 1px solid rgba(168, 168, 173, 0.25);
 }
 
 .rarity-badge.rarity-rare {
     background: rgba(77, 166, 255, 0.1);
+
     border: 1px solid rgba(77, 166, 255, 0.25);
 }
 
 .rarity-badge.rarity-mythic {
     background: rgba(208, 92, 255, 0.1);
+
     border: 1px solid rgba(208, 92, 255, 0.25);
 }
 
 .rarity-badge.rarity-legendary {
     background: rgba(255, 179, 44, 0.1);
+
     border: 1px solid rgba(255, 179, 44, 0.25);
 }
 
 .rarity-badge.rarity-shiny {
     background: rgba(98, 231, 212, 0.1);
+
     border: 1px solid rgba(98, 231, 212, 0.25);
 }
 
 
 /* =========================================================
-   30. ARTICLE LINKS
+   31. ARTICLE LINKS
    ========================================================= */
 
 .wiki-main-content a {
@@ -1211,18 +1296,20 @@ img {
 
 .wiki-main-content a:hover {
     color: #ff7a85;
+
     text-decoration: underline;
 }
 
 
 /* =========================================================
-   31. FOOTER
+   32. FOOTER
    ========================================================= */
 
 .wiki-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 
     padding: 25px 34px;
@@ -1250,7 +1337,7 @@ img {
 
 
 /* =========================================================
-   32. SCROLLBAR
+   33. SCROLLBAR
    ========================================================= */
 
 ::-webkit-scrollbar {
@@ -1263,6 +1350,7 @@ img {
 
 ::-webkit-scrollbar-thumb {
     background: #303037;
+
     border-radius: 10px;
 }
 
@@ -1272,17 +1360,18 @@ img {
 
 
 /* =========================================================
-   33. SELECTION
+   34. TEXT SELECTION
    ========================================================= */
 
 ::selection {
     background: rgba(229, 42, 61, 0.3);
+
     color: #ffffff;
 }
 
 
 /* =========================================================
-   34. RESPONSIVE — TABLET
+   35. TABLET — 1100PX
    ========================================================= */
 
 @media (max-width: 1100px) {
@@ -1292,17 +1381,15 @@ img {
     }
 
     .wiki-article-grid {
-        grid-template-columns: minmax(0, 1fr) 240px;
-    }
-
-    .rightbar {
-        max-width: none;
+        grid-template-columns:
+            minmax(0, 1fr)
+            240px;
     }
 }
 
 
 /* =========================================================
-   35. RESPONSIVE — SMALL TABLET
+   36. TABLET — 900PX
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -1313,6 +1400,7 @@ img {
 
     .main-area {
         width: calc(100% - 210px);
+
         margin-left: 210px;
     }
 
@@ -1326,7 +1414,10 @@ img {
 
     .wiki-rightbar {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
         align-items: start;
     }
 
@@ -1337,28 +1428,27 @@ img {
 
 
 /* =========================================================
-   36. RESPONSIVE — MOBILE
+   37. MOBILE — 700PX
    ========================================================= */
 
 @media (max-width: 700px) {
-
-    .sidebar {
-        position: static;
-
-        width: 100%;
-        height: auto;
-
-        border-right: 0;
-        border-bottom: 1px solid #29292e;
-    }
 
     .wiki-layout {
         display: block;
     }
 
-    .main-area {
+    .sidebar {
+        position: relative;
+
         width: 100%;
-        margin-left: 0;
+        height: auto;
+
+        padding: 18px 14px;
+
+        border-right: 0;
+        border-bottom: 1px solid #29292e;
+
+        overflow: visible;
     }
 
     .sidebar-logo {
@@ -1367,7 +1457,10 @@ img {
 
     .sidebar-nav {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
         gap: 3px;
 
         padding-top: 15px;
@@ -1383,10 +1476,16 @@ img {
         margin-top: 15px;
     }
 
+    .main-area {
+        width: 100%;
+
+        margin-left: 0;
+    }
+
     .topbar {
         position: relative;
 
-        height: auto;
+        min-height: auto;
 
         flex-wrap: wrap;
 
@@ -1395,6 +1494,7 @@ img {
 
     .mobile-title {
         display: block;
+
         width: 100%;
     }
 
@@ -1425,7 +1525,8 @@ img {
     }
 
     .wiki-gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .wiki-rightbar {
@@ -1442,7 +1543,7 @@ img {
 
 
 /* =========================================================
-   37. RESPONSIVE — VERY SMALL MOBILE
+   38. SMALL MOBILE — 450PX
    ========================================================= */
 
 @media (max-width: 450px) {
@@ -1462,6 +1563,7 @@ img {
     .wiki-data-table th,
     .wiki-data-table td {
         padding: 9px;
+
         font-size: 11px;
     }
 
