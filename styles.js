@@ -1518,99 +1518,379 @@ if (styleArticle) {
    ARTICLE RENDERER
    ========================================================= */
 
+/* =========================================================
+   WIKI-STYLE ARTICLE RENDERER
+   ========================================================= */
+
 function renderStyleArticle(style) {
 
-    const image =
-        getStyleImage(style);
+    const image = getStyleImage(style);
 
-
-    document.title =
-        `${style.name} — UBG Wiki`;
+    document.title = `${style.name} — UBG Wiki`;
 
 
     /* -----------------------------------------------------
-       Strengths
+       HELPERS
     ----------------------------------------------------- */
 
-    let strengthsHTML = "";
+    function listHTML(items) {
 
+        if (!Array.isArray(items) || !items.length) {
+            return "";
+        }
 
-    if (Array.isArray(style.strengths)) {
-
-        strengthsHTML =
-            style.strengths
-                .map(item =>
-                    `<li>${escapeHTML(item)}</li>`
-                )
-                .join("");
-
-    } else if (style.strengths) {
-
-        strengthsHTML =
-            `<li>${escapeHTML(
-                style.strengths
-            )}</li>`;
+        return items
+            .map(item => `<li>${escapeHTML(item)}</li>`)
+            .join("");
 
     }
 
 
-    /* -----------------------------------------------------
-       Weaknesses
-    ----------------------------------------------------- */
+    function sectionHTML(title, content) {
 
-    let weaknessesHTML = "";
+        if (!content) {
+            return "";
+        }
 
+        return `
+            <section class="wiki-article-section">
 
-    if (Array.isArray(style.weaknesses)) {
+                <h2>
+                    ${escapeHTML(title)}
+                </h2>
 
-        weaknessesHTML =
-            style.weaknesses
-                .map(item =>
-                    `<li>${escapeHTML(item)}</li>`
-                )
-                .join("");
+                <div class="wiki-section-content">
+                    ${content}
+                </div>
 
-    } else if (style.weaknesses) {
-
-        weaknessesHTML =
-            `<li>${escapeHTML(
-                style.weaknesses
-            )}</li>`;
+            </section>
+        `;
 
     }
 
 
-    /* -----------------------------------------------------
-       Shiny / base relationship
-    ----------------------------------------------------- */
+    function movePreview(label, filename) {
 
-    let variantHTML = "";
+        if (!filename) {
+            return `
+                <div class="wiki-move-preview unavailable">
+                    <span>NO IMAGE</span>
+                </div>
+            `;
+        }
 
+        const src =
+            `./assets/styles/${filename}`;
 
-    if (style.baseStyle) {
+        return `
+            <div class="wiki-move-preview">
 
-        variantHTML = `
+                <img
+                    src="${escapeAttribute(src)}"
+                    alt="${escapeAttribute(label)}"
+                    loading="lazy"
+                    onerror="
+                        this.parentElement.classList.add('unavailable');
+                        this.style.display='none';
+                    "
+                >
 
-            <div class="infobox-row">
-
-                <span>
-                    Base Style
+                <span class="wiki-move-label">
+                    ${escapeHTML(label)}
                 </span>
 
-                <strong>
+            </div>
+        `;
 
-                    <a
-                        href="style.html?style=${encodeURIComponent(style.baseStyle)}"
-                        style="
-                            color:#ff4652;
-                        "
-                    >
-                        ${escapeHTML(style.baseStyle)}
-                    </a>
+    }
 
-                </strong>
+
+    /* -----------------------------------------------------
+       LISTS
+    ----------------------------------------------------- */
+
+    const strengthsHTML =
+        listHTML(style.strengths);
+
+    const weaknessesHTML =
+        listHTML(style.weaknesses);
+
+
+    /* -----------------------------------------------------
+       MOVES
+       ----------------------------------------------------- */
+
+    const moveFiles = {
+
+        light: null,
+        heavy: null,
+        dash: null,
+        ability: null,
+        ultimate: null
+
+    };
+
+
+    /*
+     * Match the style's known animation files.
+     * These are only used when the file actually exists
+     * in your downloaded assets folder.
+     */
+
+    const moveMap = {
+
+        "Basic": {
+            light: "Basic_Lights.gif",
+            heavy: "Basic_Heavies.gif",
+            dash: "Basic_Dashes.gif",
+            ultimate: "Basic-ult-.gif"
+        },
+
+        "Smash": {
+            light: "Smash_Lights.gif",
+            heavy: "Smash_Heavy.gif",
+            dash: "Smash_Dashes.gif"
+        },
+
+        "Long Guard": {
+            light: "LG_Lights.gif",
+            heavy: "LG_Heavy.gif",
+            dash: "LG_Dashes.gif"
+        },
+
+        "Counter": {
+            light: "Counter_Lights.gif",
+            heavy: "Counter_Heavy.gif",
+            dash: "Counter_Dashes.gif"
+        },
+
+        "Turtle": {
+            light: "Turtle_Lights.gif",
+            heavy: "Turtle_Heavy.gif",
+            dash: "Turtle_Dashes.gif"
+        },
+
+        "Corkscrew": {
+            light: "Corkscrew_Lights.gif",
+            heavy: "Corkscrew_Heavy.gif",
+            dash: "Corkscrew_Dashes.gif"
+        },
+
+        "Charge": {
+            light: "Charge_Lights.gif",
+            heavy: "Charge_Heavy.gif",
+            dash: "Charge_Dashes.gif",
+            ability: "Stampede.gif"
+        },
+
+        "Hammer": {
+            light: "Hammer_Lights.gif",
+            heavy: "Hammer_Heavy.gif",
+            dash: "Hammer_Dashes.gif",
+            ability: "Body_Blow.gif"
+        },
+
+        "Trickster": {
+            light: "Trickster_Lights.gif",
+            heavy: "Trickster_Heavy.gif",
+            dash: "Trickster_Dashes.gif"
+        },
+
+        "Dragonfish": {
+            light: "Kimura_Lights.gif",
+            heavy: "Kimura_Heavy.gif",
+            dash: "Kimura_Dashes.gif"
+        },
+
+        "Dempsey": {
+            light: "Ippo_Lights.gif",
+            heavy: "Ippo_Heavy.gif",
+            dash: "Ippo_Dashes.gif",
+            ability: "Dempsey_Roll.gif"
+        },
+
+        "Hitman": {
+            light: "Hitman_Lights.gif",
+            heavy: "Hitman_Heavy.gif",
+            dash: "Hitman_Dashes.gif"
+        },
+
+        "Hands Low": {
+            light: "HL_Lights.gif",
+            heavy: "HL_Heavy.gif",
+            dash: "HL_Dashes.gif"
+        },
+
+        "Wolf": {
+            light: "Wolf_Lights.gif",
+            heavy: "Wolf_Heavy.gif",
+            dash: "Wolf_Dashes.gif",
+            ability: "White_Fang_storage_showcase.gif"
+        },
+
+        "Bullet": {
+            light: "Bullet_Lights.gif",
+            heavy: "Bullet_Heavy.gif",
+            dash: "Bullet_Dashes.gif"
+        },
+
+        "Switch Hit": {
+            light: "SH_Light.gif",
+            heavy: "SH_Heavy.gif",
+            dash: "SH_Dashes.gif",
+            ability: "Static_PD.gif"
+        },
+
+        "Slugger": {
+            light: "Slugger_Lights.gif",
+            heavy: "Slugger_Heavy.gif",
+            dash: "Slugger_Dashes.gif"
+        },
+
+        "Hawk": {
+            light: "Hawk_Lights.gif",
+            heavy: "Hawk_Heavies.gif",
+            dash: "Hawk_Dashes.gif"
+        },
+
+        "Ghost": {
+            light: "Ghost_Lights.gif",
+            heavy: "Ghost_Heavy.gif",
+            dash: "Ghost_Dashes.gif",
+            ability: "Ghost_Jab.gif"
+        },
+
+        "Iron Fist": {
+            light: "IF_Lights.gif",
+            heavy: "IF_Heavy.gif",
+            dash: "IF_Dashes.gif"
+        },
+
+        "Shotgun": {
+            light: "Shotgun_Lights.gif",
+            heavy: "Shotgun_Heavy.gif",
+            dash: "Shotgun_Dashes.gif",
+            ability: "Single_barrage.gif"
+        },
+
+        "Freedom": {
+            light: "Freedom_Lights.gif",
+            heavy: "Freedom_Heavy.gif",
+            dash: "Freedom_Dashes.gif",
+            ability: "Freedom_Switching.gif"
+        },
+
+        "Chronos": {
+            light: "Chronos_Lights.gif",
+            heavy: "Chronos_Heavy.gif",
+            dash: "Chronos_Dashes.gif",
+            ability: "Chronos_Focus_showcase.gif"
+        },
+
+        "White Ash": {
+            light: "WA_Lights.gif",
+            heavy: "WA_Heavy.gif",
+            dash: "WA_Dashes.gif",
+            ability: "Joe_Burn_Showcase.gif",
+            ultimate: "Joe_Ult_Showcase.gif"
+        },
+
+        "Supernova": {
+            light: "AttackPlaceholder.png"
+        },
+
+        "Deimos": {
+            light: "AttackPlaceholder.png"
+        }
+
+    };
+
+
+    if (moveMap[style.name]) {
+
+        Object.assign(
+            moveFiles,
+            moveMap[style.name]
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       MOVEMENT SECTION
+       ----------------------------------------------------- */
+
+    let movesetHTML = "";
+
+    if (
+        moveFiles.light ||
+        moveFiles.heavy ||
+        moveFiles.dash ||
+        moveFiles.ability ||
+        moveFiles.ultimate
+    ) {
+
+        movesetHTML = `
+
+            <div class="wiki-moveset-grid">
+
+                ${
+                    moveFiles.light
+                        ? movePreview(
+                            "Light",
+                            moveFiles.light
+                        )
+                        : ""
+                }
+
+                ${
+                    moveFiles.heavy
+                        ? movePreview(
+                            "Heavy",
+                            moveFiles.heavy
+                        )
+                        : ""
+                }
+
+                ${
+                    moveFiles.dash
+                        ? movePreview(
+                            "Dash",
+                            moveFiles.dash
+                        )
+                        : ""
+                }
+
+                ${
+                    moveFiles.ability
+                        ? movePreview(
+                            style.ability || "Ability",
+                            moveFiles.ability
+                        )
+                        : ""
+                }
+
+                ${
+                    moveFiles.ultimate
+                        ? movePreview(
+                            style.ultimateName || "Ultimate",
+                            moveFiles.ultimate
+                        )
+                        : ""
+                }
 
             </div>
+
+        `;
+
+    } else {
+
+        movesetHTML = `
+
+            <p class="wiki-muted">
+                A complete moveset showcase has not yet
+                been documented for this style.
+            </p>
 
         `;
 
@@ -1618,654 +1898,353 @@ function renderStyleArticle(style) {
 
 
     /* -----------------------------------------------------
-       Render
-    ----------------------------------------------------- */
+       VARIANT INFORMATION
+       ----------------------------------------------------- */
 
-    styleArticle.innerHTML = `
+    let variantInfo = "";
 
 
-        <!-- BREADCRUMB -->
+    if (style.baseStyle) {
 
-        <div class="breadcrumb">
+        variantInfo += `
 
-            <a href="index.html">
-                Home
-            </a>
+            <tr>
 
-            <span>
-                /
-            </span>
+                <th>
+                    Base style
+                </th>
 
-            <a href="styles.html">
-                Styles
-            </a>
+                <td>
 
-            <span>
-                /
+                    <a href="
+                        style.html?style=${encodeURIComponent(
+                            style.baseStyle
+                        )}
+                    ">
+
+                        ${escapeHTML(
+                            style.baseStyle
+                        )}
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+
+    if (style.shiny) {
+
+        variantInfo += `
+
+            <tr>
+
+                <th>
+                    Shiny
+                </th>
+
+                <td>
+
+                    <a href="
+                        style.html?style=${encodeURIComponent(
+                            style.shiny
+                        )}
+                    ">
+
+                        ${escapeHTML(
+                            style.shiny
+                        )}
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+
+    /* -----------------------------------------------------
+       INFOBOX
+       ----------------------------------------------------- */
+
+    const infobox = `
+
+        <aside class="wiki-infobox">
+
+            <div class="wiki-infobox-title">
+
                 ${escapeHTML(style.name)}
-            </span>
 
-        </div>
-
+            </div>
 
 
-        <!-- ARTICLE HEADER -->
+            <div class="wiki-infobox-image">
 
-        <section class="style-article-header">
+                ${
+                    image
 
-            <div>
+                        ? `
 
-                <div class="eyebrow">
+                            <img
+                                src="${escapeAttribute(image)}"
+                                alt="${escapeAttribute(style.name)}"
+                            >
 
-                    ${escapeHTML(style.rarity)}
+                          `
 
-                </div>
+                        : `
+
+                            <span>
+                                IMAGE UNAVAILABLE
+                            </span>
+
+                          `
+                }
+
+            </div>
 
 
-                <h1>
+            <table>
 
-                    ${escapeHTML(style.name)}
+                <tr>
 
-                </h1>
+                    <th>
+                        Rarity
+                    </th>
+
+                    <td>
+                        <span class="
+                            wiki-rarity
+                            ${getRarityClass(style.rarity)}
+                        ">
+                            ${escapeHTML(style.rarity)}
+                        </span>
+                    </td>
+
+                </tr>
 
 
                 ${
                     style.ranked
                         ? `
 
-                            <div class="article-ranked">
+                            <tr>
 
-                                ${escapeHTML(
-                                    style.ranked
-                                )}
+                                <th>
+                                    Ranked
+                                </th>
 
-                            </div>
+                                <td>
+                                    ${escapeHTML(
+                                        style.ranked
+                                    )}
+                                </td>
+
+                            </tr>
 
                           `
                         : ""
                 }
+
+
+                ${variantInfo}
+
+
+                ${
+                    style.hp
+                        ? `
+                            <tr>
+                                <th>Health</th>
+                                <td>${escapeHTML(style.hp)}</td>
+                            </tr>
+                          `
+                        : ""
+                }
+
+
+                ${
+                    style.dash
+                        ? `
+                            <tr>
+                                <th>Dash</th>
+                                <td>${escapeHTML(style.dash)}</td>
+                            </tr>
+                          `
+                        : ""
+                }
+
+
+                ${
+                    style.range
+                        ? `
+                            <tr>
+                                <th>Range</th>
+                                <td>${escapeHTML(style.range)}</td>
+                            </tr>
+                          `
+                        : ""
+                }
+
+
+                ${
+                    style.block
+                        ? `
+                            <tr>
+                                <th>Block</th>
+                                <td>${escapeHTML(style.block)}</td>
+                            </tr>
+                          `
+                        : ""
+                }
+
+
+                ${
+                    style.ultimate
+                        ? `
+                            <tr>
+                                <th>Ultimate</th>
+                                <td>${escapeHTML(style.ultimate)}</td>
+                            </tr>
+                          `
+                        : ""
+                }
+
+            </table>
+
+
+            ${
+                style.obtain
+
+                    ? `
+
+                        <div class="wiki-infobox-obtain">
+
+                            <strong>
+                                Obtained
+                            </strong>
+
+                            <p>
+                                ${escapeHTML(
+                                    style.obtain
+                                )}
+                            </p>
+
+                        </div>
+
+                      `
+
+                    : ""
+            }
+
+        </aside>
+
+    `;
+
+
+    /* -----------------------------------------------------
+       WIP
+       ----------------------------------------------------- */
+
+    const wipNotice = style.wip
+
+        ? `
+
+            <div class="wiki-wip">
+
+                <strong>
+                    ⚠ This article is a work in progress
+                </strong>
+
+                <p>
+                    Some information on this page has not
+                    yet been fully documented. Information
+                    marked as incomplete should be treated
+                    as provisional.
+                </p>
+
+            </div>
+
+          `
+
+        : "";
+
+
+    /* -----------------------------------------------------
+       ARTICLE
+       ----------------------------------------------------- */
+
+    styleArticle.innerHTML = `
+
+        <div class="wiki-article-wrap">
+
+
+            <!-- BREADCRUMB -->
+
+            <div class="wiki-breadcrumb">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <span>›</span>
+
+                <a href="styles.html">
+                    Styles
+                </a>
+
+                <span>›</span>
+
+                <span>
+                    ${escapeHTML(style.name)}
+                </span>
 
             </div>
 
 
-            ${
-                style.wip
 
-                    ? `
+            <!-- ARTICLE HEADER -->
 
-                        <div class="
-                            article-status
-                            wip-status
-                        ">
+            <header class="wiki-article-header">
 
-                            WIP / IN DEVELOPMENT
+                <div>
 
-                        </div>
+                    <div class="wiki-article-kicker">
 
-                      `
-
-                    : `
-
-                        <div class="
-                            article-status
-                        ">
-
-                            <span
-                                class="status-dot"
-                            ></span>
-
-                            STYLE ARTICLE
-
-                        </div>
-
-                      `
-            }
-
-        </section>
-
-
-
-        <!-- ARTICLE LAYOUT -->
-
-        <div class="style-article-layout">
-
-
-            <!-- MAIN ARTICLE -->
-
-            <article>
-
-
-                <!-- HERO IMAGE -->
-
-                <section class="
-                    wiki-panel
-                    style-hero-panel
-                ">
-
-                    <div class="
-                        style-hero-image
-                    ">
-
-                        ${
-                            image
-
-                                ? `
-
-                                    <img
-                                        src="${escapeAttribute(image)}"
-                                        alt="${escapeAttribute(style.name)}"
-                                    >
-
-                                  `
-
-                                : `
-
-                                    <div
-                                        class="
-                                            image-unavailable
-                                        "
-                                    >
-
-                                        IMAGE UNAVAILABLE
-
-                                    </div>
-
-                                  `
-                        }
+                        ${escapeHTML(style.rarity)}
+                        Style
 
                     </div>
 
-                </section>
 
+                    <h1>
 
+                        ${escapeHTML(style.name)}
 
-                <!-- OVERVIEW -->
+                    </h1>
 
-                ${
-                    style.description
-
-                        ? `
-
-                            <section
-                                class="article-section"
-                            >
-
-                                <h2>
-                                    Overview
-                                </h2>
-
-
-                                <p>
-
-                                    ${escapeHTML(
-                                        style.description
-                                    )}
-
-                                </p>
-
-                            </section>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- BASE INFORMATION -->
-
-                <section class="
-                    article-section
-                ">
-
-                    <h2>
-                        Base Information
-                    </h2>
-
-
-                    <div class="
-                        stats-table
-                    ">
-
-
-                        <div>
-
-                            <span>
-                                Health
-                            </span>
-
-                            <strong>
-                                ${escapeHTML(
-                                    style.hp || "—"
-                                )}
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Dash
-                            </span>
-
-                            <strong>
-                                ${escapeHTML(
-                                    style.dash || "—"
-                                )}
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Range
-                            </span>
-
-                            <strong>
-                                ${escapeHTML(
-                                    style.range || "—"
-                                )}
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Block
-                            </span>
-
-                            <strong>
-                                ${escapeHTML(
-                                    style.block || "—"
-                                )}
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Ultimate
-                            </span>
-
-                            <strong>
-                                ${escapeHTML(
-                                    style.ultimate || "—"
-                                )}
-                            </strong>
-
-                        </div>
-
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- PASSIVE -->
-
-                ${
-                    style.passive
-
-                        ? `
-
-                            <section
-                                class="article-section"
-                            >
-
-                                <h2>
-                                    Passive
-                                </h2>
-
-
-                                <div
-                                    class="ability-box"
-                                >
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.passive
-                                        )}
-                                    </strong>
-
-                                </div>
-
-                            </section>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- ABILITY -->
-
-                ${
-                    style.ability
-
-                        ? `
-
-                            <section
-                                class="article-section"
-                            >
-
-                                <h2>
-                                    Ability
-                                </h2>
-
-
-                                <div
-                                    class="ability-box"
-                                >
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.ability
-                                        )}
-                                    </strong>
-
-                                </div>
-
-                            </section>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- ULTIMATE -->
-
-                ${
-                    style.ultimateName
-
-                        ? `
-
-                            <section
-                                class="article-section"
-                            >
-
-                                <h2>
-                                    Ultimate
-                                </h2>
-
-
-                                <div
-                                    class="
-                                        ability-box
-                                        ultimate-box
-                                    "
-                                >
-
-                                    <strong>
-                                        ${escapeHTML(
-                                            style.ultimateName
-                                        )}
-                                    </strong>
-
-                                </div>
-
-                            </section>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- STRENGTHS / WEAKNESSES -->
-
-                ${
-                    strengthsHTML ||
-                    weaknessesHTML
-
-                        ? `
-
-                            <div
-                                class="
-                                    article-columns
-                                "
-                            >
-
-
-                                ${
-                                    strengthsHTML
-
-                                        ? `
-
-                                            <section
-                                                class="
-                                                    article-section
-                                                "
-                                            >
-
-                                                <h2>
-                                                    Strengths
-                                                </h2>
-
-
-                                                <ul
-                                                    class="
-                                                        article-list
-                                                    "
-                                                >
-
-                                                    ${strengthsHTML}
-
-                                                </ul>
-
-                                            </section>
-
-                                          `
-
-                                        : ""
-                                }
-
-
-                                ${
-                                    weaknessesHTML
-
-                                        ? `
-
-                                            <section
-                                                class="
-                                                    article-section
-                                                "
-                                            >
-
-                                                <h2>
-                                                    Weaknesses
-                                                </h2>
-
-
-                                                <ul
-                                                    class="
-                                                        article-list
-                                                    "
-                                                >
-
-                                                    ${weaknessesHTML}
-
-                                                </ul>
-
-                                            </section>
-
-                                          `
-
-                                        : ""
-                                }
-
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- OBTAINMENT -->
-
-                ${
-                    style.obtain
-
-                        ? `
-
-                            <section
-                                class="
-                                    article-section
-                                "
-                            >
-
-                                <h2>
-                                    Obtaining the Style
-                                </h2>
-
-
-                                <p>
-
-                                    ${escapeHTML(
-                                        style.obtain
-                                    )}
-
-                                </p>
-
-                            </section>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- WIP NOTICE -->
-
-                ${
-                    style.wip
-
-                        ? `
-
-                            <section
-                                class="
-                                    article-section
-                                "
-                            >
-
-                                <div
-                                    class="
-                                        wiki-panel
-                                    "
-                                    style="
-                                        border-color:
-                                        rgba(
-                                            255,
-                                            180,
-                                            91,
-                                            0.25
-                                        );
-
-                                        background:
-                                        rgba(
-                                            255,
-                                            180,
-                                            91,
-                                            0.04
-                                        );
-                                    "
-                                >
-
-                                    <div
-                                        class="
-                                            panel-label
-                                        "
-                                        style="
-                                            color:
-                                            #ffb45b;
-                                        "
-                                    >
-
-                                        <span
-                                            style="
-                                                background:
-                                                #ffb45b;
-                                            "
-                                        ></span>
-
-                                        WIP NOTICE
-
-                                    </div>
-
-
-                                    <p>
-
-                                        Some information
-                                        about this style is
-                                        still being developed
-                                        for this fan wiki.
-                                        Treat incomplete
-                                        sections as provisional
-                                        until they are updated.
-
-                                    </p>
-
-                                </div>
-
-                            </section>
-
-                          `
-
-                        : ""
-                }
-
-
-            </article>
-
-
-
-            <!-- INFOBOX -->
-
-            <aside
-                class="style-infobox"
-            >
-
-
-                <div class="
-                    infobox-title
-                ">
-
-                    ${escapeHTML(
-                        style.name
-                    )}
-
-                </div>
-
-
-
-                <div class="
-                    infobox-image
-                ">
 
                     ${
-                        image
+                        style.ranked
 
                             ? `
 
-                                <img
-                                    src="${escapeAttribute(image)}"
-                                    alt=""
-                                >
+                                <div class="wiki-ranked-name">
+
+                                    Ranked name:
+                                    <strong>
+                                        ${escapeHTML(
+                                            style.ranked
+                                        )}
+                                    </strong>
+
+                                </div>
 
                               `
 
@@ -2275,279 +2254,414 @@ function renderStyleArticle(style) {
                 </div>
 
 
-
-                <!-- RARITY -->
-
-                <div class="
-                    infobox-row
-                ">
-
-                    <span>
-                        Rarity
-                    </span>
-
-
-                    <strong>
-
-                        ${escapeHTML(
-                            style.rarity
-                        )}
-
-                    </strong>
-
-                </div>
-
-
-
-                <!-- RANKED -->
-
                 ${
-                    style.ranked
+                    style.wip
 
                         ? `
 
-                            <div class="
-                                infobox-row
-                            ">
-
-                                <span>
-                                    Ranked
-                                </span>
-
-
-                                <strong>
-
-                                    ${escapeHTML(
-                                        style.ranked
-                                    )}
-
-                                </strong>
-
-                            </div>
+                            <span class="wiki-wip-tag">
+                                WIP
+                            </span>
 
                           `
 
                         : ""
                 }
 
-
-
-                <!-- BASE STYLE -->
-
-                ${variantHTML}
+            </header>
 
 
 
-                <!-- SHINY -->
+            <!-- ARTICLE BODY -->
 
-                ${
-                    style.shiny
-
-                        ? `
-
-                            <div class="
-                                infobox-row
-                            ">
-
-                                <span>
-                                    Shiny
-                                </span>
+            <div class="wiki-article-grid">
 
 
-                                <strong>
+                <!-- MAIN CONTENT -->
 
-                                    <a
-                                        href="style.html?style=${encodeURIComponent(style.shiny)}"
-                                        style="
-                                            color:#ffe47a;
-                                        "
-                                    >
-
-                                        ${escapeHTML(
-                                            style.shiny
-                                        )}
-
-                                    </a>
-
-                                </strong>
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
+                <main class="wiki-main-content">
 
 
+                    ${
+                        style.description
 
-                <!-- HP -->
+                            ? `
 
-                ${
-                    style.hp
-
-                        ? `
-
-                            <div class="
-                                infobox-row
-                            ">
-
-                                <span>
-                                    Health
-                                </span>
-
-
-                                <strong>
+                                <p class="
+                                    wiki-lead
+                                ">
 
                                     ${escapeHTML(
-                                        style.hp
-                                    )}
-
-                                </strong>
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- DASH -->
-
-                ${
-                    style.dash
-
-                        ? `
-
-                            <div class="
-                                infobox-row
-                            ">
-
-                                <span>
-                                    Dash
-                                </span>
-
-
-                                <strong>
-
-                                    ${escapeHTML(
-                                        style.dash
-                                    )}
-
-                                </strong>
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- RANGE -->
-
-                ${
-                    style.range
-
-                        ? `
-
-                            <div class="
-                                infobox-row
-                            ">
-
-                                <span>
-                                    Range
-                                </span>
-
-
-                                <strong>
-
-                                    ${escapeHTML(
-                                        style.range
-                                    )}
-
-                                </strong>
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- BLOCK -->
-
-                ${
-                    style.block
-
-                        ? `
-
-                            <div class="
-                                infobox-row
-                            ">
-
-                                <span>
-                                    Block
-                                </span>
-
-
-                                <strong>
-
-                                    ${escapeHTML(
-                                        style.block
-                                    )}
-
-                                </strong>
-
-                            </div>
-
-                          `
-
-                        : ""
-                }
-
-
-
-                <!-- OBTAIN -->
-
-                ${
-                    style.obtain
-
-                        ? `
-
-                            <div
-                                class="
-                                    infobox-obtain
-                                "
-                            >
-
-                                <span>
-                                    OBTAIN
-                                </span>
-
-
-                                <p>
-
-                                    ${escapeHTML(
-                                        style.obtain
+                                        style.description
                                     )}
 
                                 </p>
 
+                              `
+
+                            : ""
+                    }
+
+
+                    ${wipNotice}
+
+
+
+                    <!-- OVERVIEW -->
+
+                    ${sectionHTML(
+                        "Overview",
+                        `
+                            <p>
+                                ${escapeHTML(
+                                    style.description ||
+                                    "No overview has been written for this style yet."
+                                )}
+                            </p>
+                        `
+                    )}
+
+
+
+                    <!-- INFORMATION -->
+
+                    ${sectionHTML(
+                        "Style information",
+                        `
+
+                            <table class="
+                                wiki-data-table
+                            ">
+
+                                <tr>
+                                    <th>Health</th>
+                                    <td>
+                                        ${escapeHTML(
+                                            style.hp || "—"
+                                        )}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Dash</th>
+                                    <td>
+                                        ${escapeHTML(
+                                            style.dash || "—"
+                                        )}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Range</th>
+                                    <td>
+                                        ${escapeHTML(
+                                            style.range || "—"
+                                        )}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Block</th>
+                                    <td>
+                                        ${escapeHTML(
+                                            style.block || "—"
+                                        )}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Ultimate meter</th>
+                                    <td>
+                                        ${escapeHTML(
+                                            style.ultimate || "—"
+                                        )}
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        `
+                    )}
+
+
+
+                    <!-- PASSIVE -->
+
+                    ${
+                        style.passive &&
+                        style.passive !== "None"
+
+                            ? sectionHTML(
+                                "Passive",
+                                `
+                                    <div class="
+                                        wiki-ability
+                                    ">
+
+                                        <strong>
+                                            ${escapeHTML(
+                                                style.passive
+                                            )}
+                                        </strong>
+
+                                    </div>
+                                `
+                            )
+
+                            : ""
+                    }
+
+
+
+                    <!-- ABILITY -->
+
+                    ${
+                        style.ability &&
+                        style.ability !== "None"
+
+                            ? sectionHTML(
+                                "Ability",
+                                `
+                                    <div class="
+                                        wiki-ability
+                                    ">
+
+                                        <strong>
+                                            ${escapeHTML(
+                                                style.ability
+                                            )}
+                                        </strong>
+
+                                    </div>
+                                `
+                            )
+
+                            : ""
+                    }
+
+
+
+                    <!-- ULTIMATE -->
+
+                    ${
+                        style.ultimateName
+
+                            ? sectionHTML(
+                                "Ultimate",
+                                `
+                                    <div class="
+                                        wiki-ability
+                                        wiki-ultimate
+                                    ">
+
+                                        <strong>
+                                            ${escapeHTML(
+                                                style.ultimateName
+                                            )}
+                                        </strong>
+
+                                    </div>
+                                `
+                            )
+
+                            : ""
+                    }
+
+
+
+                    <!-- MOVESET -->
+
+                    ${sectionHTML(
+                        "Moveset",
+                        movesetHTML
+                    )}
+
+
+
+                    <!-- STRENGTHS -->
+
+                    ${
+                        strengthsHTML
+
+                            ? sectionHTML(
+                                "Strengths",
+                                `
+                                    <ul class="
+                                        wiki-list
+                                    ">
+
+                                        ${strengthsHTML}
+
+                                    </ul>
+                                `
+                            )
+
+                            : ""
+                    }
+
+
+
+                    <!-- WEAKNESSES -->
+
+                    ${
+                        weaknessesHTML
+
+                            ? sectionHTML(
+                                "Weaknesses",
+                                `
+                                    <ul class="
+                                        wiki-list
+                                    ">
+
+                                        ${weaknessesHTML}
+
+                                    </ul>
+                                `
+                            )
+
+                            : ""
+                    }
+
+
+
+                    <!-- STRATEGY -->
+
+                    ${sectionHTML(
+                        "Strategy",
+                        `
+                            <p>
+                                ${
+                                    style.description
+                                        ? `
+                                            ${escapeHTML(
+                                                style.name
+                                            )} rewards players
+                                            who understand its
+                                            strengths and avoid
+                                            situations that expose
+                                            its weaknesses.
+                                          `
+                                        : `
+                                            Strategy information
+                                            for this style has not
+                                            yet been documented.
+                                          `
+                                }
+                            </p>
+
+                            <p class="wiki-muted">
+                                Community strategy and matchup
+                                information can be expanded here
+                                as the wiki develops.
+                            </p>
+                        `
+                    )}
+
+
+
+                    <!-- OBTAINMENT -->
+
+                    ${
+                        style.obtain
+
+                            ? sectionHTML(
+                                "Obtaining the style",
+                                `
+                                    <p>
+                                        ${escapeHTML(
+                                            style.obtain
+                                        )}
+                                    </p>
+                                `
+                            )
+
+                            : ""
+                    }
+
+
+
+                    <!-- GALLERY -->
+
+                    ${sectionHTML(
+                        "Gallery",
+                        `
+                            <div class="
+                                wiki-gallery
+                            ">
+
+                                ${
+                                    image
+
+                                        ? `
+
+                                            <figure>
+
+                                                <img
+                                                    src="${escapeAttribute(image)}"
+                                                    alt="${escapeAttribute(style.name)}"
+                                                >
+
+                                                <figcaption>
+                                                    ${escapeHTML(
+                                                        style.name
+                                                    )} idle animation
+                                                </figcaption>
+
+                                            </figure>
+
+                                          `
+
+                                        : `
+                                            <p class="wiki-muted">
+                                                No gallery images are
+                                                currently available.
+                                            </p>
+                                          `
+                                }
+
                             </div>
-
-                          `
-
-                        : ""
-                }
+                        `
+                    )}
 
 
-            </aside>
 
+                    <!-- CATEGORIES -->
+
+                    <div class="wiki-categories">
+
+                        <strong>
+                            Categories:
+                        </strong>
+
+                        <a href="
+                            styles.html?rarity=${encodeURIComponent(
+                                style.rarity
+                            )}
+                        ">
+                            ${escapeHTML(style.rarity)} styles
+                        </a>
+
+                        <a href="styles.html">
+                            Styles
+                        </a>
+
+                        <a href="index.html">
+                            Untitled Boxing Game
+                        </a>
+
+                    </div>
+
+
+                </main>
+
+
+
+                <!-- INFOBOX -->
+
+                ${infobox}
+
+
+            </div>
 
         </div>
 
