@@ -1,230 +1,231 @@
-/* =========================================
-   UBG COMPANION
-   INTERACTION SCRIPT
-========================================= */
+/* =========================================================
+   UBG FAN WIKI
+   Global JavaScript
+   ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================================
-   INTRO
-========================================= */
+    /* -----------------------------------------------------
+       MOBILE SIDEBAR
+    ----------------------------------------------------- */
 
-const intro = document.getElementById("intro");
-const skipIntro = document.getElementById("skipIntro");
-const loadingText = document.getElementById("loadingText");
-const loadingDots = document.getElementById("loadingDots");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const sidebar = document.getElementById("sidebar");
 
-let dots = 0;
+    if (mobileMenu && sidebar) {
 
-const dotInterval = setInterval(() => {
-
-    dots++;
-
-    if (dots > 3) {
-        dots = 0;
-    }
-
-    loadingDots.textContent = ".".repeat(dots);
-
-}, 350);
-
-
-function hideIntro() {
-
-    clearInterval(dotInterval);
-
-    intro.classList.add("hidden");
-
-    setTimeout(() => {
-        intro.style.display = "none";
-    }, 900);
-
-}
-
-
-setTimeout(hideIntro, 3200);
-
-skipIntro.addEventListener("click", hideIntro);
-
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-        hideIntro();
-    }
-
-});
-
-
-/* =========================================
-   RANDOM HUD EFFECT
-========================================= */
-
-const healthBars = document.querySelectorAll(".health-fill");
-
-setInterval(() => {
-
-    healthBars.forEach((bar) => {
-
-        const current = parseFloat(
-            bar.style.width.replace("%", "")
-        );
-
-        const change = (Math.random() * 3) - 1.5;
-
-        let next = current + change;
-
-        next = Math.max(25, Math.min(100, next));
-
-        bar.style.width = `${next}%`;
-
-    });
-
-}, 1800);
-
-
-/* =========================================
-   ULTIMATE CHARGE
-========================================= */
-
-const ultFill = document.querySelector(".ult-fill");
-const ultPercent = document.querySelector(".ult-percent");
-
-let ultimate = 74;
-
-setInterval(() => {
-
-    ultimate += Math.random() * 0.8;
-
-    if (ultimate >= 100) {
-        ultimate = 0;
-    }
-
-    ultFill.style.width = `${ultimate}%`;
-    ultPercent.textContent = `${Math.floor(ultimate)}%`;
-
-}, 700);
-
-
-/* =========================================
-   SCROLL NAVIGATION
-========================================= */
-
-document.querySelectorAll(".navbar a[href^='#']").forEach(link => {
-
-    link.addEventListener("click", (event) => {
-
-        const target = document.querySelector(
-            link.getAttribute("href")
-        );
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth"
+        mobileMenu.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
         });
 
-    });
+        document.addEventListener("click", (event) => {
 
-});
+            if (
+                window.innerWidth <= 650 &&
+                sidebar.classList.contains("open") &&
+                !sidebar.contains(event.target) &&
+                !mobileMenu.contains(event.target)
+            ) {
+                sidebar.classList.remove("open");
+            }
 
-
-/* =========================================
-   STYLE CARD HOVER
-========================================= */
-
-document.querySelectorAll(".style-card").forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.boxShadow =
-            "0 20px 60px rgba(0,0,0,0.45)";
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.boxShadow = "none";
-
-    });
-
-});
+        });
+    }
 
 
-/* =========================================
-   INTERSECTION ANIMATION
-========================================= */
+    /* -----------------------------------------------------
+       GLOBAL SEARCH
+    ----------------------------------------------------- */
 
-const animatedElements = document.querySelectorAll(
-    ".explore-card, .style-card, .mechanic-card, .collection-card, .ranked-panel"
-);
+    const searchInput = document.getElementById("globalSearch");
+    const searchResults = document.getElementById("searchResults");
 
-const observer = new IntersectionObserver(
-    (entries) => {
+    if (searchInput && searchResults) {
 
-        entries.forEach(entry => {
+        searchInput.addEventListener("input", () => {
 
-            if (entry.isIntersecting) {
+            const query = searchInput.value
+                .trim()
+                .toLowerCase();
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
+            if (!query) {
+                searchResults.classList.remove("show");
+                searchResults.innerHTML = "";
+                return;
+            }
 
-                observer.unobserve(entry.target);
+            /*
+             * styles.js exposes the style database as
+             * window.UBG_STYLES.
+             */
+
+            const database = window.UBG_STYLES || [];
+
+            const results = database
+                .filter(style => {
+
+                    const name =
+                        style.name?.toLowerCase() || "";
+
+                    const ranked =
+                        style.ranked?.toLowerCase() || "";
+
+                    const rarity =
+                        style.rarity?.toLowerCase() || "";
+
+                    return (
+                        name.includes(query) ||
+                        ranked.includes(query) ||
+                        rarity.includes(query)
+                    );
+                })
+                .slice(0, 7);
+
+
+            if (!results.length) {
+
+                searchResults.innerHTML = `
+                    <div style="
+                        padding:12px;
+                        color:#85858e;
+                        font-size:11px;
+                    ">
+                        No results found.
+                    </div>
+                `;
+
+                searchResults.classList.add("show");
+
+                return;
+            }
+
+
+            searchResults.innerHTML = results
+                .map(style => {
+
+                    const image =
+                        style.animation
+                            ? `assets/styles/${style.animation}`
+                            : "";
+
+                    return `
+                        <a
+                            class="search-result"
+                            href="style.html?style=${encodeURIComponent(style.name)}"
+                        >
+
+                            <div class="search-result-image">
+                                ${
+                                    image
+                                        ? `<img src="${image}" alt="">`
+                                        : ""
+                                }
+                            </div>
+
+                            <div class="search-result-info">
+
+                                <strong>
+                                    ${style.name}
+                                </strong>
+
+                                <span>
+                                    ${style.rarity}
+                                    ${
+                                        style.ranked
+                                            ? ` · ${style.ranked}`
+                                            : ""
+                                    }
+                                </span>
+
+                            </div>
+
+                        </a>
+                    `;
+                })
+                .join("");
+
+            searchResults.classList.add("show");
+        });
+
+
+        document.addEventListener("click", event => {
+
+            if (!searchInput.contains(event.target) &&
+                !searchResults.contains(event.target)) {
+
+                searchResults.classList.remove("show");
 
             }
 
         });
 
-    },
-    {
-        threshold: 0.12
+
+        /* CTRL + K */
+
+        document.addEventListener("keydown", event => {
+
+            if (
+                (event.ctrlKey || event.metaKey) &&
+                event.key.toLowerCase() === "k"
+            ) {
+
+                event.preventDefault();
+
+                searchInput.focus();
+
+            }
+
+        });
+
     }
-);
 
 
-animatedElements.forEach(element => {
+    /* -----------------------------------------------------
+       ACTIVE SIDEBAR LINK
+    ----------------------------------------------------- */
 
-    element.style.opacity = "0";
-    element.style.transform = "translateY(25px)";
-    element.style.transition =
-        "opacity 0.6s ease, transform 0.6s ease";
+    const currentPage =
+        document.body.dataset.page;
 
-    observer.observe(element);
+    document
+        .querySelectorAll(".sidebar-link")
+        .forEach(link => {
+
+            const href =
+                link.getAttribute("href");
+
+            if (!href) return;
+
+            const page =
+                href.split("/").pop();
+
+            const current =
+                window.location.pathname
+                    .split("/")
+                    .pop() || "index.html";
+
+            if (
+                (currentPage === "home" &&
+                    page === "index.html") ||
+
+                (currentPage === "styles" &&
+                    page === "styles.html") ||
+
+                (currentPage === "mechanics" &&
+                    page === "mechanics.html") ||
+
+                (currentPage === "ranked" &&
+                    page === "ranked.html") ||
+
+                (currentPage === "guides" &&
+                    page === "guides.html") ||
+
+                (currentPage === "collection" &&
+                    page === "collection.html")
+            ) {
+                link.classList.add("active");
+            }
+
+        });
 
 });
-
-
-/* =========================================
-   RANDOM COMBAT FLASH
-========================================= */
-
-const hero = document.querySelector(".hero");
-
-setInterval(() => {
-
-    if (Math.random() > 0.75) {
-
-        hero.animate(
-            [
-                {
-                    transform: "translateX(0)"
-                },
-                {
-                    transform: "translateX(-3px)"
-                },
-                {
-                    transform: "translateX(3px)"
-                },
-                {
-                    transform: "translateX(0)"
-                }
-            ],
-            {
-                duration: 120,
-                iterations: 1
-            }
-        );
-
-    }
-
-}, 2500);
