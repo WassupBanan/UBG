@@ -3426,3 +3426,396 @@ body[data-page="guides"] .featured-guide {
 ```
 
 }
+/* =========================================
+   BEGINNER GUIDE
+========================================= */
+
+body[data-page="guides"] .guide-intro-panel {
+    padding: 24px;
+}
+
+body[data-page="guides"] .guide-intro-panel p {
+    max-width: 850px;
+    color: var(--text-soft);
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0 0 14px;
+}
+
+body[data-page="guides"] .guide-intro-panel p:last-of-type {
+    margin-bottom: 20px;
+}
+
+body[data-page="guides"] .guide-intro-panel strong {
+    color: white;
+}
+
+body[data-page="guides"] .guide-callout {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 17px;
+    border-left: 3px solid var(--red);
+    background: rgba(226,29,47,.055);
+}
+
+body[data-page="guides"] .guide-callout strong {
+    flex-shrink: 0;
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .13em;
+}
+
+body[data-page="guides"] .guide-callout span {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* CONTROLS */
+
+body[data-page="guides"] .controls-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .control-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    padding: 19px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+body[data-page="guides"] .control-card:hover {
+    background: var(--panel-light);
+    border-color: var(--border-red);
+    transform: translateY(-2px);
+}
+
+body[data-page="guides"] .control-key {
+    width: 58px;
+    height: 42px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #08090b;
+    border: 1px solid var(--border-light);
+
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .04em;
+
+    box-shadow:
+        inset 0 -3px 0 rgba(255,255,255,.025);
+}
+
+body[data-page="guides"] .control-card h3 {
+    margin: 1px 0 5px;
+    color: white;
+    font-size: 14px;
+}
+
+body[data-page="guides"] .control-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* COMBAT FLOW */
+
+body[data-page="guides"] .combat-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+body[data-page="guides"] .combat-step {
+    flex: 1;
+    min-width: 0;
+    padding: 20px 15px;
+    background: #0d0f12;
+    border: 1px solid var(--border);
+}
+
+body[data-page="guides"] .combat-step-number {
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .1em;
+}
+
+body[data-page="guides"] .combat-step h3 {
+    margin: 0 0 7px;
+    color: white;
+    font-size: 15px;
+}
+
+body[data-page="guides"] .combat-step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+body[data-page="guides"] .combat-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--red);
+    font-size: 18px;
+}
+
+
+/* MISTAKES */
+
+body[data-page="guides"] .mistake-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+body[data-page="guides"] .mistake-card {
+    display: flex;
+    gap: 15px;
+    padding: 18px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--red-dark);
+
+    transition:
+        background var(--transition),
+        border-color var(--transition);
+}
+
+body[data-page="guides"] .mistake-card:hover {
+    background: var(--panel-light);
+    border-left-color: var(--red);
+}
+
+body[data-page="guides"] .mistake-number {
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+body[data-page="guides"] .mistake-card h3 {
+    margin: 0 0 5px;
+    color: white;
+    font-size: 13px;
+}
+
+body[data-page="guides"] .mistake-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* PRACTICE */
+
+body[data-page="guides"] .practice-panel {
+    padding: 0;
+    overflow: hidden;
+}
+
+body[data-page="guides"] .practice-row {
+    display: flex;
+    gap: 20px;
+    padding: 19px 22px;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: background var(--transition);
+}
+
+body[data-page="guides"] .practice-row:last-child {
+    border-bottom: none;
+}
+
+body[data-page="guides"] .practice-row:hover {
+    background: var(--panel-light);
+}
+
+body[data-page="guides"] .practice-time {
+    flex-shrink: 0;
+
+    color: var(--red-light);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+body[data-page="guides"] .practice-row h3 {
+    margin: 0 0 5px;
+    color: white;
+    font-size: 13px;
+}
+
+body[data-page="guides"] .practice-row p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+
+/* NEXT GUIDE */
+
+body[data-page="guides"] .next-guide {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(226,29,47,.10),
+            rgba(226,29,47,.025) 55%,
+            #101216
+        );
+
+    border: 1px solid var(--border-red);
+    border-radius: var(--radius);
+}
+
+body[data-page="guides"] .next-guide::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--red);
+}
+
+body[data-page="guides"] .next-guide h2 {
+    margin: 5px 0 7px;
+
+    color: white;
+    font-size: 22px;
+    letter-spacing: -.025em;
+}
+
+body[data-page="guides"] .next-guide p {
+    margin: 0;
+    max-width: 600px;
+
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+body[data-page="guides"] .next-guide .red-button {
+    flex-shrink: 0;
+}
+
+
+/* BACK LINK */
+
+body[data-page="guides"] .guide-back {
+    margin-top: 25px;
+}
+
+body[data-page="guides"] .guide-back a {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+body[data-page="guides"] .guide-back a:hover {
+    color: var(--red-light);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    body[data-page="guides"] .controls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .combat-flow {
+        flex-direction: column;
+    }
+
+    body[data-page="guides"] .combat-arrow {
+        transform: rotate(90deg);
+    }
+
+    body[data-page="guides"] .mistake-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="guides"] .next-guide {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    body[data-page="guides"] .guide-intro-panel {
+        padding: 18px;
+    }
+
+    body[data-page="guides"] .guide-callout {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    body[data-page="guides"] .control-card {
+        padding: 15px;
+    }
+
+    body[data-page="guides"] .control-key {
+        width: 50px;
+        height: 38px;
+    }
+
+    body[data-page="guides"] .next-guide {
+        padding: 20px;
+    }
+
+}
