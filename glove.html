@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Glove — Untitled Boxing Game Wiki</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gloves.css">
+
+    <style>
+
+        .glove-page {
+            padding: 45px 0 70px;
+        }
+
+        .glove-breadcrumb {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .glove-breadcrumb a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .glove-breadcrumb a:hover {
+            color: var(--red-light);
+        }
+
+        .glove-detail {
+            display: grid;
+            grid-template-columns: minmax(280px, .75fr) minmax(0, 1.4fr);
+            gap: 25px;
+        }
+
+        .glove-showcase {
+            position: relative;
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(226,29,47,.09),
+                    transparent 60%
+                ),
+                var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .glove-showcase img {
+            width: 72%;
+            height: 72%;
+            object-fit: contain;
+        }
+
+        .glove-showcase-placeholder {
+            font-size: 80px;
+            opacity: .25;
+        }
+
+        .detail-status {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 6px 8px;
+            border: 1px solid var(--border-red);
+            border-radius: 4px;
+            background: rgba(0,0,0,.6);
+            color: var(--red-light);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .glove-detail-info {
+            padding: 10px 0;
+        }
+
+        .detail-kicker {
+            color: var(--red-light);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .15em;
+        }
+
+        .glove-detail-info h1 {
+            margin: 8px 0 5px;
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1;
+            letter-spacing: -.05em;
+        }
+
+        .detail-subtitle {
+            margin-bottom: 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .detail-description {
+            max-width: 700px;
+            margin-bottom: 25px;
+            color: var(--text-soft);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .detail-meta {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .detail-meta-item {
+            padding: 15px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .detail-meta-item span {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .detail-meta-item strong {
+            color: var(--white);
+            font-size: 12px;
+        }
+
+        .detail-note {
+            padding: 16px;
+            background: rgba(226,29,47,.06);
+            border: 1px solid var(--border-red);
+            border-radius: var(--radius);
+            color: var(--text-soft);
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .detail-note strong {
+            color: var(--red-light);
+        }
+
+        .back-gloves {
+            display: inline-flex;
+            margin-top: 25px;
+            padding: 10px 14px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-soft);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .back-gloves:hover {
+            border-color: var(--border-red);
+            color: var(--white);
+        }
+
+        @media (max-width: 800px) {
+
+            .glove-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .glove-showcase {
+                min-height: 320px;
+            }
+
+        }
+
+        @media (max-width: 450px) {
+
+            .detail-meta {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body data-page="glove">
+
+<div class="site-shell">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="logo-mark">
+                UBG
+            </div>
+
+            <div>
+                <strong>UNTITLED</strong>
+                <span>BOXING GAME</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-label">
+                GAME
+            </div>
+
+            <a href="index.html">Home</a>
+            <a href="styles.html">Styles</a>
+            <a href="mechanics.html">Mechanics</a>
+            <a href="ranked.html">Ranked</a>
+            <a href="guides.html">Guides</a>
+
+
+            <div class="nav-label">
+                COLLECTION
+            </div>
+
+            <a href="gloves.html" class="active">
+                Gloves
+            </a>
+
+            <a href="#">Emotes</a>
+            <a href="#">Knockdowns</a>
+            <a href="#">Ranked Entrances</a>
+            <a href="#">Maps</a>
+            <a href="#">Titles</a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <span>
+                UBG FAN WIKI
+            </span>
+
+            <small>
+                Unofficial community project
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="breadcrumbs">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <span>/</span>
+
+                <a href="gloves.html">
+                    Gloves
+                </a>
+
+                <span>/</span>
+
+                <strong id="breadcrumbName">
+                    Glove
+                </strong>
+
+            </div>
+
+        </header>
+
+
+        <section class="glove-page">
+
+            <div class="glove-breadcrumb">
+
+                <a href="gloves.html">
+                    ← All Gloves
+                </a>
+
+            </div>
+
+
+            <div
+                id="gloveDetail"
+                class="glove-detail"
+            >
+            </div>
+
+        </section>
+
+
+        <footer class="wiki-footer">
+
+            <div>
+
+                <strong>
+                    UNTITLED BOXING GAME WIKI
+                </strong>
+
+                <span>
+                    Unofficial community project
+                </span>
+
+            </div>
+
+            <a href="gloves.html">
+                ← Back to Gloves
+            </a>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="gloves.js"></script>
+
+<script>
+
+"use strict";
+
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const gloveId =
+    params.get("glove");
+
+
+const glove =
+    window.UBG_GLOVES.find(
+        item => item.id === gloveId
+    );
+
+
+const detail =
+    document.getElementById(
+        "gloveDetail"
+    );
+
+
+const breadcrumb =
+    document.getElementById(
+        "breadcrumbName"
+    );
+
+
+if (!glove) {
+
+    document.title =
+        "Glove Not Found — Untitled Boxing Game Wiki";
+
+    breadcrumb.textContent =
+        "Not Found";
+
+    detail.innerHTML = `
+
+        <div
+            style="
+                grid-column:1/-1;
+                padding:70px 20px;
+                text-align:center;
+                background:var(--panel);
+                border:1px solid var(--border);
+                border-radius:var(--radius);
+            "
+        >
+
+            <div style="font-size:50px;opacity:.4;">
+                🥊
+            </div>
+
+            <h1>
+                Glove Not Found
+            </h1>
+
+            <p style="color:var(--muted);">
+                The glove you're looking for does not exist
+                in the current database.
+            </p>
+
+            <a
+                href="gloves.html"
+                class="back-gloves"
+            >
+                ← Return to Gloves
+            </a>
+
+        </div>
+
+    `;
+
+} else {
+
+    document.title =
+        `${glove.name} — Untitled Boxing Game Wiki`;
+
+    breadcrumb.textContent =
+        glove.name;
+
+
+    let imageHTML = "";
+
+    if (glove.image) {
+
+        imageHTML = `
+            <img
+                src="${glove.image}"
+                alt="${glove.name}"
+            >
+        `;
+
+    } else {
+
+        imageHTML = `
+            <div class="glove-showcase-placeholder">
+                🥊
+            </div>
+        `;
+
+    }
+
+
+    let statusHTML = "";
+
+    if (glove.wip) {
+
+        statusHTML = `
+            <div class="detail-status">
+                WIP / UNOBTAINABLE
+            </div>
+        `;
+
+    } else if (glove.obtainable) {
+
+        statusHTML = `
+            <div
+                class="detail-status"
+                style="
+                    color:var(--green);
+                    border-color:rgba(101,201,138,.3);
+                "
+            >
+                CURRENTLY AVAILABLE
+            </div>
+        `;
+
+    } else {
+
+        statusHTML = `
+            <div class="detail-status">
+                UNOBTAINABLE
+            </div>
+        `;
+
+    }
+
+
+    const tradable =
+        glove.tradable === false
+            ? "Not tradable"
+            : "Tradable";
+
+
+    detail.innerHTML = `
+
+        <div class="glove-showcase">
+
+            ${statusHTML}
+
+            ${imageHTML}
+
+        </div>
+
+
+        <div class="glove-detail-info">
+
+            <div class="detail-kicker">
+                ${glove.category}
+            </div>
+
+
+            <h1>
+                ${glove.name}
+            </h1>
+
+
+            ${
+                glove.subtitle
+                    ? `
+                        <div class="detail-subtitle">
+                            ${glove.subtitle}
+                        </div>
+                    `
+                    : ""
+            }
+
+
+            <p class="detail-description">
+                ${glove.description}
+            </p>
+
+
+            <div class="detail-meta">
+
+                <div class="detail-meta-item">
+
+                    <span>
+                        Rarity
+                    </span>
+
+                    <strong>
+                        ${glove.rarity}
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-meta-item">
+
+                    <span>
+                        Availability
+                    </span>
+
+                    <strong>
+                        ${
+                            glove.obtainable
+                                ? "Available"
+                                : "Unobtainable"
+                        }
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-meta-item">
+
+                    <span>
+                        Obtaining
+                    </span>
+
+                    <strong>
+                        ${glove.obtain}
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-meta-item">
+
+                    <span>
+                        Trading
+                    </span>
+
+                    <strong>
+                        ${tradable}
+                    </strong>
+
+                </div>
+
+
+                ${
+                    glove.rank
+                        ? `
+                            <div class="detail-meta-item">
+
+                                <span>
+                                    Ranked Requirement
+                                </span>
+
+                                <strong>
+                                    ${glove.rank}
+                                </strong>
+
+                            </div>
+                        `
+                        : ""
+                }
+
+
+                ${
+                    glove.series
+                        ? `
+                            <div class="detail-meta-item">
+
+                                <span>
+                                    Series
+                                </span>
+
+                                <strong>
+                                    ${glove.series}
+                                </strong>
+
+                            </div>
+                        `
+                        : ""
+                }
+
+            </div>
+
+
+            ${
+                glove.mobileNote
+                    ? `
+                        <div class="detail-note">
+
+                            <strong>
+                                MOBILE NOTE
+                            </strong>
+
+                            <br>
+
+                            ${glove.mobileNote}
+
+                        </div>
+                    `
+                    : ""
+            }
+
+
+            ${
+                glove.unusual
+                    ? `
+                        <div
+                            class="detail-note"
+                            style="margin-top:10px;"
+                        >
+
+                            <strong>
+                                UNUSUAL EFFECT
+                            </strong>
+
+                            <br>
+
+                            This glove has the
+                            <strong>
+                                ${glove.unusual}
+                            </strong>
+                            unusual effect.
+
+                        </div>
+                    `
+                    : ""
+            }
+
+
+            <a
+                href="gloves.html"
+                class="back-gloves"
+            >
+                ← Back to Gloves
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+</script>
+
+</body>
+</html>
