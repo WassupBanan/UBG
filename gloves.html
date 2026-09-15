@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gloves — Untitled Boxing Game Wiki</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gloves.css">
+</head>
+
+<body data-page="gloves">
+
+<div class="site-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-mark">UBG</div>
+            <div>
+                <strong>UNTITLED</strong>
+                <span>BOXING GAME</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-label">GAME</div>
+
+            <a href="index.html">Home</a>
+            <a href="styles.html">Styles</a>
+            <a href="mechanics.html">Mechanics</a>
+            <a href="ranked.html">Ranked</a>
+            <a href="guides.html">Guides</a>
+
+            <div class="nav-label">COLLECTION</div>
+
+            <a href="gloves.html" class="active">Gloves</a>
+            <a href="#">Emotes</a>
+            <a href="#">Knockdowns</a>
+            <a href="#">Ranked Entrances</a>
+            <a href="#">Maps</a>
+            <a href="#">Titles</a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <span>UBG FAN WIKI</span>
+            <small>Unofficial community project</small>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Collection</span>
+                <span>/</span>
+                <strong>Gloves</strong>
+            </div>
+
+        </header>
+
+
+        <!-- HERO -->
+        <section class="gloves-hero">
+
+            <div class="hero-eyebrow">
+                COLLECTION
+            </div>
+
+            <h1>GLOVES</h1>
+
+            <p>
+                The cosmetic collection of Untitled Boxing Game.
+                Collect rare gloves, event exclusives and unusual effects.
+            </p>
+
+            <div class="hero-facts">
+
+                <div>
+                    <strong>Cosmetic</strong>
+                    <span>No gameplay effects</span>
+                </div>
+
+                <div>
+                    <strong>4</strong>
+                    <span>Core rarities</span>
+                </div>
+
+                <div>
+                    <strong>~1%</strong>
+                    <span>Unusual chance</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OVERVIEW -->
+        <section class="gloves-overview">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">ABOUT</span>
+                    <h2>Gloves</h2>
+                </div>
+
+            </div>
+
+            <div class="overview-grid">
+
+                <div class="overview-main">
+
+                    <p>
+                        Gloves are the main cosmetic items in UBG. They can be
+                        obtained through crates in the shop, Ranked rewards,
+                        trading and limited-time events.
+                    </p>
+
+                    <p>
+                        Gloves are <strong>purely cosmetic</strong> and have no
+                        impact on gameplay statistics.
+                    </p>
+
+                    <p>
+                        Gloves come in four main rarities:
+                        <strong>Uncommon, Rare, Mythic and Legendary.</strong>
+                        Gloves obtained from crates can also have a rare
+                        <strong>Unusual</strong> effect.
+                    </p>
+
+                </div>
+
+                <div class="overview-card">
+
+                    <div class="overview-card-title">
+                        CRATE SYSTEM
+                    </div>
+
+                    <div class="overview-stat">
+                        <span>Standard crate</span>
+                        <strong>$3,000</strong>
+                    </div>
+
+                    <div class="overview-stat">
+                        <span>Gloves per crate</span>
+                        <strong>10</strong>
+                    </div>
+
+                    <div class="overview-stat">
+                        <span>Unusual chance</span>
+                        <strong>~1%</strong>
+                    </div>
+
+                    <div class="overview-stat">
+                        <span>Shop rotation</span>
+                        <strong>6 hours</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <section class="glove-browser">
+
+            <div class="browser-header">
+
+                <div>
+                    <span class="section-kicker">DATABASE</span>
+                    <h2>Glove Collection</h2>
+                </div>
+
+                <span id="gloveCount" class="glove-count">
+                    0 gloves
+                </span>
+
+            </div>
+
+
+            <div class="glove-controls">
+
+                <div class="glove-search">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="gloveSearch"
+                        placeholder="Search gloves..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="glove-filters">
+
+                    <button
+                        class="filter-button active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="Standard Crates"
+                    >
+                        Standard
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="Holiday Crates"
+                    >
+                        Holiday
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="Ranked Gloves"
+                    >
+                        Ranked
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="Event Gloves"
+                    >
+                        Events
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="Original / Beta"
+                    >
+                        Beta
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="Style Gloves"
+                    >
+                        Style
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="gloveSections"></div>
+
+
+            <div
+                id="noResults"
+                class="no-results"
+                hidden
+            >
+                <div>🥊</div>
+                <h3>No gloves found</h3>
+                <p>Try a different search or category.</p>
+            </div>
+
+        </section>
+
+
+        <!-- UNUSUAL -->
+        <section class="unusual-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">SPECIAL COSMETICS</span>
+                    <h2>Unusual Effects</h2>
+                </div>
+
+            </div>
+
+            <div class="unusual-banner">
+
+                <div class="unusual-symbol">✦</div>
+
+                <div>
+
+                    <h3>Rare. Unique. Cosmetic.</h3>
+
+                    <p>
+                        Certain gloves obtained from crates have a small chance
+                        of rolling an Unusual effect. These effects add unique
+                        particles and punching VFX to the gloves.
+                    </p>
+
+                </div>
+
+                <strong>~1%</strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="wiki-footer">
+
+            <div>
+                <strong>UNTITLED BOXING GAME WIKI</strong>
+                <span>Unofficial community project</span>
+            </div>
+
+            <a href="index.html">Return Home →</a>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="gloves.js"></script>
+<script src="gloves-page.js"></script>
+
+</body>
+</html>
