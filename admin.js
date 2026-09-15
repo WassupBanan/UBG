@@ -1,130 +1,480 @@
-/* =========================================================
-   UBG WIKI — ADMIN DASHBOARD
-   ========================================================= */
-
 const STORAGE_KEY = "UBG_ADMIN_STYLES";
 
-let styles = [];
-let selectedStyleName = null;
-let activeRarity = "all";
+let adminStyles = [];
+let selectedStyleIndex = -1;
 
 
-/* =========================================================
-   INITIALISE
-   ========================================================= */
+// ===============================
+// INITIALISE
+// ===============================
 
-function initialiseDatabase() {
+function initialiseAdmin() {
+    console.log("ADMIN: Initialising...");
 
-    console.log("UBG Admin: starting...");
-
-    /*
-     * styles.js should create:
-     *
-     * window.UBG_STYLES
-     */
-
-    if (!window.UBG_STYLES) {
-
-        console.error(
-            "UBG Admin: window.UBG_STYLES was not found."
-        );
-
-        alert(
-            "The style database could not be loaded.\n\n" +
-            "Make sure styles.js is loaded before admin.js."
-        );
-
-        return false;
+    if (!window.UBG_STYLES || !Array.isArray(window.UBG_STYLES)) {
+        console.error("ADMIN: UBG_STYLES was not found.");
+        showToast("Could not load style database.", true);
+        return;
     }
-
-
-    if (!Array.isArray(window.UBG_STYLES)) {
-
-        console.error(
-            "UBG Admin: UBG_STYLES is not an array.",
-            window.UBG_STYLES
-        );
-
-        alert(
-            "The style database has an invalid format."
-        );
-
-        return false;
-    }
-
 
     console.log(
-        "UBG Admin: loaded",
+        "ADMIN: Loaded",
         window.UBG_STYLES.length,
-        "styles."
+        "styles from styles.js"
     );
 
-
-    /*
-     * Check whether we already have locally saved
-     * admin changes.
-     */
-
-    const saved =
-        localStorage.getItem(STORAGE_KEY);
-
+    // Load saved admin edits
+    const saved = localStorage.getItem(STORAGE_KEY);
 
     if (saved) {
-
         try {
-
-            styles = JSON.parse(saved);
-
-            if (!Array.isArray(styles)) {
-                throw new Error(
-                    "Saved database is not an array."
-                );
-            }
-
-            console.log(
-                "UBG Admin: loaded saved local database."
-            );
-
+            adminStyles = JSON.parse(saved);
+            console.log("ADMIN: Loaded saved database.");
         } catch (error) {
-
-            console.warn(
-                "UBG Admin: saved database was invalid. " +
-                "Using original database.",
-                error
-            );
-
-            styles =
-                JSON.parse(
-                    JSON.stringify(
-                        window.UBG_STYLES
-                    )
-                );
+            console.error("ADMIN: Saved database is invalid.", error);
+            adminStyles = structuredClone(window.UBG_STYLES);
         }
-
     } else {
-
-        /*
-         * Clone the original database so we don't
-         * accidentally modify styles.js directly.
-         */
-
-        styles =
-            JSON.parse(
-                JSON.stringify(
-                    window.UBG_STYLES
-                )
-            );
-
+        adminStyles = structuredClone(window.UBG_STYLES);
+        console.log("ADMIN: Created editable copy.");
     }
 
+    renderStyleList();
+    updateStats();
 
-    return true;
+    if (adminStyles.length > 0) {
+        selectStyle(0);
+    }
 }
 
 
-/* =========================================================
-   HTML ESCAPE
-   ========================================================= */
+// ===============================
+// STYLE LIST
+// ===============================
+
+function renderStyleList() {
+    const list = document.getElementById("styleList");
+
+    if (!list) {
+        console.error("ADMIN: #styleList not found.");
+        return;
+    }
+
+    const searchInput = document.getElementById("styleSearch");
+    const rarityFilter = document.getElementById("rarityFilter");
+
+    const search = searchInput
+        ? searchInput.value.toLowerCase().trim()
+        : "";
+
+    const rarity = rarityFilter
+        ? rarityFilter.value
+        : "all";
+
+    list.innerHTML = "";
+
+    adminStyles.forEach((style, index) => {
+
+        const name = style.name || "Unnamed Style";
+        const styleRarity = style.rarity || "Unknown";
+
+        if (
+            search &&
+            !name.toLowerCase().includes(search)
+        ) {
+            return;
+        }
+
+        if (
+            rarity !== "all" &&
+            styleRarity.toLowerCase() !== rarity.toLowerCase()
+        ) {
+            return;
+        }
+
+        const item = document.createElement("button");
+
+        item.className = "style-list-item";
+
+        if (index === selectedStyleIndex) {
+            item.classList.add("active");
+        }
+
+        item.innerHTML = `
+            <strong>${escapeHTML(name)}</strong>
+            <span>${escapeHTML(styleRarity)}</span>
+        `;
+
+        item.addEventListener("click", () => {
+            selectStyle(index);
+        });
+
+        list.appendChild(item);
+    });
+}
+
+
+// ===============================
+// SELECT STYLE
+// ===============================
+
+function selectStyle(index) {
+
+    if (!adminStyles[index]) {
+        return;
+    }
+
+    selectedStyleIndex = index;
+
+    const style = adminStyles[index];
+
+    console.log("ADMIN: Selected", style.name);
+
+    const editor = document.getElementById("editor");
+
+    if (editor) {
+        editor.classList.remove("hidden");
+    }
+
+    setValue("styleName", style.name);
+    setValue("styleRarity", style.rarity);
+    setValue("rankedName", style.ranked);
+    setValue("baseStyle", style.baseStyle);
+
+    setValue("styleHP", style.hp);
+    setValue("styleDash", style.dash);
+    setValue("styleRange", style.range);
+    setValue("styleBlock", style.block);
+
+    setValue("styleUltimate", style.ultimate);
+
+    setValue("stylePassive", style.passive);
+    setValue("styleAbility", style.ability);
+    setValue("styleUltimateName", style.ultimateName);
+
+    setValue("styleDescription", style.description);
+    setValue("styleStrengths", style.strengths);
+    setValue("styleWeaknesses", style.weaknesses);
+    setValue("styleObtain", style.obtain);
+
+    setValue("styleAnimation", style.animation);
+
+    const wip = document.getElementById("styleWIP");
+
+    if (wip) {
+        wip.checked = Boolean(style.wip);
+    }
+
+    renderStyleList();
+}
+
+
+// ===============================
+// SAVE STYLE
+// ===============================
+
+function saveCurrentStyle() {
+
+    if (
+        selectedStyleIndex < 0 ||
+        !adminStyles[selectedStyleIndex]
+    ) {
+        showToast("Select a style first.", true);
+        return;
+    }
+
+    const style = adminStyles[selectedStyleIndex];
+
+    style.name = getValue("styleName");
+    style.rarity = getValue("styleRarity");
+    style.ranked = getValue("rankedName");
+    style.baseStyle = getValue("baseStyle");
+
+    style.hp = getValue("styleHP");
+    style.dash = getValue("styleDash");
+    style.range = getValue("styleRange");
+    style.block = getValue("styleBlock");
+
+    style.ultimate = getValue("styleUltimate");
+
+    style.passive = getValue("stylePassive");
+    style.ability = getValue("styleAbility");
+    style.ultimateName = getValue("styleUltimateName");
+
+    style.description = getValue("styleDescription");
+    style.strengths = getValue("styleStrengths");
+    style.weaknesses = getValue("styleWeaknesses");
+    style.obtain = getValue("styleObtain");
+
+    style.animation = getValue("styleAnimation");
+
+    const wip = document.getElementById("styleWIP");
+
+    if (wip) {
+        style.wip = wip.checked;
+    }
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(adminStyles)
+    );
+
+    renderStyleList();
+    updateStats();
+
+    showToast(`${style.name} saved.`);
+}
+
+
+// ===============================
+// RESET CURRENT STYLE
+// ===============================
+
+function resetCurrentStyle() {
+
+    if (selectedStyleIndex < 0) {
+        return;
+    }
+
+    if (!window.UBG_STYLES[selectedStyleIndex]) {
+        return;
+    }
+
+    adminStyles[selectedStyleIndex] =
+        structuredClone(window.UBG_STYLES[selectedStyleIndex]);
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(adminStyles)
+    );
+
+    selectStyle(selectedStyleIndex);
+
+    updateStats();
+
+    showToast("Style reset.");
+}
+
+
+// ===============================
+// RESET EVERYTHING
+// ===============================
+
+function resetAllChanges() {
+
+    const confirmed = confirm(
+        "Reset ALL admin changes?\n\nThis cannot be undone."
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    adminStyles =
+        structuredClone(window.UBG_STYLES);
+
+    localStorage.removeItem(STORAGE_KEY);
+
+    selectedStyleIndex = -1;
+
+    renderStyleList();
+    updateStats();
+
+    if (adminStyles.length > 0) {
+        selectStyle(0);
+    }
+
+    showToast("All changes reset.");
+}
+
+
+// ===============================
+// EXPORT
+// ===============================
+
+function exportDatabase() {
+
+    const data = JSON.stringify(
+        adminStyles,
+        null,
+        4
+    );
+
+    const blob = new Blob(
+        [data],
+        { type: "application/json" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "ubg-styles-database.json";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+    URL.revokeObjectURL(url);
+
+    showToast("Database exported.");
+}
+
+
+// ===============================
+// IMPORT
+// ===============================
+
+function importDatabase(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+
+        try {
+
+            const imported =
+                JSON.parse(reader.result);
+
+            if (!Array.isArray(imported)) {
+                throw new Error(
+                    "Database must contain an array."
+                );
+            }
+
+            adminStyles = imported;
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(adminStyles)
+            );
+
+            selectedStyleIndex = -1;
+
+            renderStyleList();
+            updateStats();
+
+            if (adminStyles.length > 0) {
+                selectStyle(0);
+            }
+
+            showToast("Database imported.");
+
+        } catch (error) {
+
+            console.error(error);
+
+            showToast(
+                "Invalid database file.",
+                true
+            );
+        }
+    };
+
+    reader.readAsText(file);
+}
+
+
+// ===============================
+// PREVIEW
+// ===============================
+
+function previewStyle() {
+
+    if (
+        selectedStyleIndex < 0 ||
+        !adminStyles[selectedStyleIndex]
+    ) {
+        showToast("Select a style first.", true);
+        return;
+    }
+
+    const style = adminStyles[selectedStyleIndex];
+
+    window.open(
+        `style.html?style=${encodeURIComponent(style.name)}`,
+        "_blank"
+    );
+}
+
+
+// ===============================
+// STATS
+// ===============================
+
+function updateStats() {
+
+    const total = document.getElementById("totalStyles");
+    const wip = document.getElementById("wipStyles");
+    const edited = document.getElementById("editedStyles");
+
+    if (total) {
+        total.textContent = adminStyles.length;
+    }
+
+    if (wip) {
+        wip.textContent =
+            adminStyles.filter(style => style.wip).length;
+    }
+
+    if (edited) {
+
+        const original =
+            window.UBG_STYLES || [];
+
+        let count = 0;
+
+        adminStyles.forEach((style, index) => {
+
+            if (
+                JSON.stringify(style) !==
+                JSON.stringify(original[index])
+            ) {
+                count++;
+            }
+
+        });
+
+        edited.textContent = count;
+    }
+}
+
+
+// ===============================
+// HELPERS
+// ===============================
+
+function getValue(id) {
+
+    const element =
+        document.getElementById(id);
+
+    return element
+        ? element.value
+        : "";
+}
+
+
+function setValue(id, value) {
+
+    const element =
+        document.getElementById(id);
+
+    if (element) {
+        element.value =
+            value ?? "";
+    }
+}
+
 
 function escapeHTML(value) {
 
@@ -137,1346 +487,118 @@ function escapeHTML(value) {
 }
 
 
-/* =========================================================
-   CHECK EDITED
-   ========================================================= */
-
-function isStyleEdited(name) {
-
-    const original =
-        window.UBG_STYLES.find(
-            style => style.name === name
-        );
-
-    const current =
-        styles.find(
-            style => style.name === name
-        );
-
-
-    if (!original || !current) {
-        return false;
-    }
-
-
-    return JSON.stringify(original) !==
-           JSON.stringify(current);
-}
-
-
-/* =========================================================
-   DASHBOARD STATISTICS
-   ========================================================= */
-
-function updateDashboardStats() {
-
-    const total =
-        styles.length;
-
-
-    const wip =
-        styles.filter(
-            style => style.wip === true
-        ).length;
-
-
-    const edited =
-        styles.filter(
-            style => isStyleEdited(style.name)
-        ).length;
-
-
-    const totalElement =
-        document.getElementById(
-            "totalStyles"
-        );
-
-
-    const wipElement =
-        document.getElementById(
-            "wipStyles"
-        );
-
-
-    const editedElement =
-        document.getElementById(
-            "editedStyles"
-        );
-
-
-    if (totalElement) {
-        totalElement.textContent = total;
-    }
-
-
-    if (wipElement) {
-        wipElement.textContent = wip;
-    }
-
-
-    if (editedElement) {
-        editedElement.textContent = edited;
-    }
-
-}
-
-
-/* =========================================================
-   RENDER STYLE LIST
-   ========================================================= */
-
-function renderStyleList() {
-
-    const list =
-        document.getElementById(
-            "adminStyleList"
-        );
-
-
-    if (!list) return;
-
-
-    const searchInput =
-        document.getElementById(
-            "adminSearch"
-        );
-
-
-    const search =
-        searchInput
-            ? searchInput.value
-                .trim()
-                .toLowerCase()
-            : "";
-
-
-    const filtered =
-        styles.filter(style => {
-
-            const rarity =
-                String(
-                    style.rarity || ""
-                ).toLowerCase();
-
-
-            const name =
-                String(
-                    style.name || ""
-                ).toLowerCase();
-
-
-            const ranked =
-                String(
-                    style.ranked || ""
-                ).toLowerCase();
-
-
-            const rarityMatches =
-                activeRarity === "all" ||
-                rarity ===
-                    activeRarity.toLowerCase();
-
-
-            const searchMatches =
-                !search ||
-                name.includes(search) ||
-                ranked.includes(search);
-
-
-            return (
-                rarityMatches &&
-                searchMatches
-            );
-
-        });
-
-
-    if (filtered.length === 0) {
-
-        list.innerHTML = `
-            <div style="
-                padding: 25px;
-                text-align: center;
-                color: #858992;
-                font-size: 13px;
-            ">
-                No styles found.
-            </div>
-        `;
-
-        return;
-    }
-
-
-    list.innerHTML =
-        filtered.map(style => {
-
-            const edited =
-                isStyleEdited(style.name);
-
-
-            return `
-
-                <button
-                    type="button"
-                    class="admin-style-item ${
-                        selectedStyleName ===
-                        style.name
-                            ? "active"
-                            : ""
-                    }"
-                    data-style-name="${escapeHTML(
-                        style.name
-                    )}"
-                >
-
-                    <div>
-
-                        <div class="style-item-name">
-                            ${escapeHTML(
-                                style.name
-                            )}
-                        </div>
-
-                        <div class="style-item-meta">
-
-                            <span class="style-item-rarity">
-                                ${escapeHTML(
-                                    style.rarity ||
-                                    "Unknown"
-                                )}
-                            </span>
-
-                            ${
-                                style.wip
-                                    ? `
-                                        <span class="style-item-rarity">
-                                            WIP
-                                        </span>
-                                    `
-                                    : ""
-                            }
-
-                        </div>
-
-                    </div>
-
-
-                    ${
-                        edited
-                            ? `
-                                <span
-                                    class="edited-dot"
-                                    title="Edited"
-                                ></span>
-                            `
-                            : ""
-                    }
-
-                </button>
-
-            `;
-
-        }).join("");
-
-
-    list
-        .querySelectorAll(
-            ".admin-style-item"
-        )
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    selectStyle(
-                        button.dataset.styleName
-                    );
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   SELECT STYLE
-   ========================================================= */
-
-function selectStyle(name) {
-
-    const style =
-        styles.find(
-            item => item.name === name
-        );
-
-
-    if (!style) {
-
-        console.warn(
-            "Could not find style:",
-            name
-        );
-
-        return;
-    }
-
-
-    selectedStyleName =
-        name;
-
-
-    const emptyEditor =
-        document.getElementById(
-            "emptyEditor"
-        );
-
-
-    const editor =
-        document.getElementById(
-            "styleEditor"
-        );
-
-
-    if (emptyEditor) {
-        emptyEditor.classList.add(
-            "hidden"
-        );
-    }
-
-
-    if (editor) {
-        editor.classList.remove(
-            "hidden"
-        );
-    }
-
-
-    populateEditor(style);
-
-    renderStyleList();
-
-}
-
-
-/* =========================================================
-   POPULATE EDITOR
-   ========================================================= */
-
-function populateEditor(style) {
-
-    setValue(
-        "fieldName",
-        style.name
-    );
-
-
-    setValue(
-        "fieldRarity",
-        style.rarity
-    );
-
-
-    setValue(
-        "fieldRanked",
-        style.ranked
-    );
-
-
-    setValue(
-        "fieldBaseStyle",
-        style.baseStyle
-    );
-
-
-    setValue(
-        "fieldHP",
-        style.hp
-    );
-
-
-    setValue(
-        "fieldDash",
-        style.dash
-    );
-
-
-    setValue(
-        "fieldRange",
-        style.range
-    );
-
-
-    setValue(
-        "fieldBlock",
-        style.block
-    );
-
-
-    setValue(
-        "fieldUltimate",
-        style.ultimate
-    );
-
-
-    setValue(
-        "fieldPassive",
-        style.passive
-    );
-
-
-    setValue(
-        "fieldAbility",
-        style.ability
-    );
-
-
-    setValue(
-        "fieldUltimateName",
-        style.ultimateName
-    );
-
-
-    setValue(
-        "fieldDescription",
-        style.description
-    );
-
-
-    setValue(
-        "fieldStrengths",
-        style.strengths
-    );
-
-
-    setValue(
-        "fieldWeaknesses",
-        style.weaknesses
-    );
-
-
-    setValue(
-        "fieldObtain",
-        style.obtain
-    );
-
-
-    setValue(
-        "fieldAnimation",
-        style.animation
-    );
-
-
-    const wip =
-        document.getElementById(
-            "fieldWIP"
-        );
-
-
-    if (wip) {
-        wip.checked =
-            Boolean(style.wip);
-    }
-
-
-    const title =
-        document.getElementById(
-            "editorTitle"
-        );
-
-
-    if (title) {
-        title.textContent =
-            style.name;
-    }
-
-
-    const rarity =
-        document.getElementById(
-            "editorRarity"
-        );
-
-
-    if (rarity) {
-        rarity.textContent =
-            style.rarity || "Unknown";
-    }
-
-}
-
-
-/* =========================================================
-   SET INPUT VALUE
-   ========================================================= */
-
-function setValue(id, value) {
-
-    const element =
-        document.getElementById(id);
-
-
-    if (!element) return;
-
-
-    element.value =
-        value ?? "";
-
-}
-
-
-/* =========================================================
-   READ EDITOR
-   ========================================================= */
-
-function readEditor() {
-
-    const hpValue =
-        document.getElementById(
-            "fieldHP"
-        )?.value;
-
-
-    return {
-
-        name:
-            document.getElementById(
-                "fieldName"
-            )?.value.trim() || "",
-
-
-        rarity:
-            document.getElementById(
-                "fieldRarity"
-            )?.value || "Uncommon",
-
-
-        ranked:
-            document.getElementById(
-                "fieldRanked"
-            )?.value.trim() || "",
-
-
-        baseStyle:
-            document.getElementById(
-                "fieldBaseStyle"
-            )?.value.trim() || "",
-
-
-        hp:
-            hpValue === ""
-                ? ""
-                : Number(hpValue),
-
-
-        dash:
-            document.getElementById(
-                "fieldDash"
-            )?.value.trim() || "",
-
-
-        range:
-            document.getElementById(
-                "fieldRange"
-            )?.value.trim() || "",
-
-
-        block:
-            document.getElementById(
-                "fieldBlock"
-            )?.value.trim() || "",
-
-
-        ultimate:
-            document.getElementById(
-                "fieldUltimate"
-            )?.value.trim() || "",
-
-
-        passive:
-            document.getElementById(
-                "fieldPassive"
-            )?.value.trim() || "",
-
-
-        ability:
-            document.getElementById(
-                "fieldAbility"
-            )?.value.trim() || "",
-
-
-        ultimateName:
-            document.getElementById(
-                "fieldUltimateName"
-            )?.value.trim() || "",
-
-
-        description:
-            document.getElementById(
-                "fieldDescription"
-            )?.value.trim() || "",
-
-
-        strengths:
-            document.getElementById(
-                "fieldStrengths"
-            )?.value.trim() || "",
-
-
-        weaknesses:
-            document.getElementById(
-                "fieldWeaknesses"
-            )?.value.trim() || "",
-
-
-        obtain:
-            document.getElementById(
-                "fieldObtain"
-            )?.value.trim() || "",
-
-
-        animation:
-            document.getElementById(
-                "fieldAnimation"
-            )?.value.trim() || "",
-
-
-        wip:
-            document.getElementById(
-                "fieldWIP"
-            )?.checked || false
-
-    };
-
-}
-
-
-/* =========================================================
-   SAVE CURRENT STYLE
-   ========================================================= */
-
-function saveCurrentStyle() {
-
-    if (!selectedStyleName) {
-
-        showToast(
-            "Select a style first."
-        );
-
-        return;
-    }
-
-
-    const index =
-        styles.findIndex(
-            style =>
-                style.name ===
-                selectedStyleName
-        );
-
-
-    if (index === -1) {
-
-        showToast(
-            "Could not find this style."
-        );
-
-        return;
-    }
-
-
-    const oldStyle =
-        styles[index];
-
-
-    const newData =
-        readEditor();
-
-
-    /*
-     * Prevent an empty style name.
-     */
-
-    if (!newData.name) {
-
-        alert(
-            "Style name cannot be empty."
-        );
-
-        return;
-    }
-
-
-    /*
-     * Preserve any fields that aren't
-     * currently exposed in the editor.
-     */
-
-    styles[index] = {
-
-        ...oldStyle,
-
-        ...newData
-
-    };
-
-
-    selectedStyleName =
-        newData.name;
-
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(styles)
-    );
-
-
-    populateEditor(
-        styles[index]
-    );
-
-
-    renderStyleList();
-
-    updateDashboardStats();
-
-
-    showToast(
-        "Style saved locally."
-    );
-
-}
-
-
-/* =========================================================
-   RESET CURRENT STYLE
-   ========================================================= */
-
-function resetCurrentStyle() {
-
-    if (!selectedStyleName) {
-
-        showToast(
-            "Select a style first."
-        );
-
-        return;
-    }
-
-
-    const confirmed =
-        confirm(
-            `Reset "${selectedStyleName}" to its original data?`
-        );
-
-
-    if (!confirmed) return;
-
-
-    const original =
-        window.UBG_STYLES.find(
-            style =>
-                style.name ===
-                selectedStyleName
-        );
-
-
-    if (!original) return;
-
-
-    const index =
-        styles.findIndex(
-            style =>
-                style.name ===
-                selectedStyleName
-        );
-
-
-    if (index === -1) return;
-
-
-    styles[index] =
-        JSON.parse(
-            JSON.stringify(original)
-        );
-
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(styles)
-    );
-
-
-    populateEditor(
-        styles[index]
-    );
-
-
-    renderStyleList();
-
-    updateDashboardStats();
-
-
-    showToast(
-        "Style reset."
-    );
-
-}
-
-
-/* =========================================================
-   SAVE ALL
-   ========================================================= */
-
-function saveAll() {
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(styles)
-    );
-
-
-    updateDashboardStats();
-
-    renderStyleList();
-
-
-    showToast(
-        "All changes saved locally."
-    );
-
-}
-
-
-/* =========================================================
-   EXPORT DATABASE
-   ========================================================= */
-
-function exportDatabase() {
-
-    const data =
-        JSON.stringify(
-            styles,
-            null,
-            2
-        );
-
-
-    const blob =
-        new Blob(
-            [data],
-            {
-                type:
-                    "application/json"
-            }
-        );
-
-
-    const url =
-        URL.createObjectURL(
-            blob
-        );
-
-
-    const link =
-        document.createElement(
-            "a"
-        );
-
-
-    link.href = url;
-
-    link.download =
-        "ubg-styles-updated.json";
-
-
-    document.body.appendChild(
-        link
-    );
-
-
-    link.click();
-
-
-    link.remove();
-
-
-    URL.revokeObjectURL(
-        url
-    );
-
-
-    showToast(
-        "Database exported."
-    );
-
-}
-
-
-/* =========================================================
-   IMPORT DATABASE
-   ========================================================= */
-
-function importDatabase(event) {
-
-    const file =
-        event.target.files?.[0];
-
-
-    if (!file) return;
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function () {
-
-            try {
-
-                const imported =
-                    JSON.parse(
-                        reader.result
-                    );
-
-
-                if (!Array.isArray(imported)) {
-
-                    throw new Error(
-                        "The file does not contain a valid style array."
-                    );
-
-                }
-
-
-                styles =
-                    imported;
-
-
-                localStorage.setItem(
-                    STORAGE_KEY,
-                    JSON.stringify(styles)
-                );
-
-
-                selectedStyleName =
-                    null;
-
-
-                document
-                    .getElementById(
-                        "emptyEditor"
-                    )
-                    ?.classList.remove(
-                        "hidden"
-                    );
-
-
-                document
-                    .getElementById(
-                        "styleEditor"
-                    )
-                    ?.classList.add(
-                        "hidden"
-                    );
-
-
-                renderStyleList();
-
-                updateDashboardStats();
-
-
-                showToast(
-                    "Database imported."
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    error
-                );
-
-
-                alert(
-                    "Could not import database.\n\n" +
-                    error.message
-                );
-
-            }
-
-
-            /*
-             * Allows importing the same file again.
-             */
-
-            event.target.value = "";
-
-        };
-
-
-    reader.readAsText(file);
-
-}
-
-
-/* =========================================================
-   RESET EVERYTHING
-   ========================================================= */
-
-function resetEverything() {
-
-    const confirmed =
-        confirm(
-            "Reset ALL admin changes?\n\n" +
-            "This will restore the original styles.js database."
-        );
-
-
-    if (!confirmed) return;
-
-
-    styles =
-        JSON.parse(
-            JSON.stringify(
-                window.UBG_STYLES
-            )
-        );
-
-
-    localStorage.removeItem(
-        STORAGE_KEY
-    );
-
-
-    selectedStyleName =
-        null;
-
-
-    document
-        .getElementById(
-            "emptyEditor"
-        )
-        ?.classList.remove(
-            "hidden"
-        );
-
-
-    document
-        .getElementById(
-            "styleEditor"
-        )
-        ?.classList.add(
-            "hidden"
-        );
-
-
-    renderStyleList();
-
-    updateDashboardStats();
-
-
-    showToast(
-        "All changes reset."
-    );
-
-}
-
-
-/* =========================================================
-   PREVIEW
-   ========================================================= */
-
-function previewStyle() {
-
-    if (!selectedStyleName) {
-
-        showToast(
-            "Select a style first."
-        );
-
-        return;
-    }
-
-
-    /*
-     * Save first so the public style page
-     * can use the local data later.
-     */
-
-    saveCurrentStyle();
-
-
-    const url =
-        `style.html?style=${encodeURIComponent(
-            selectedStyleName
-        )}`;
-
-
-    window.open(
-        url,
-        "_blank"
-    );
-
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-function setupSearch() {
-
-    const search =
-        document.getElementById(
-            "adminSearch"
-        );
-
-
-    if (!search) return;
-
-
-    search.addEventListener(
-        "input",
-        () => {
-
-            renderStyleList();
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   RARITY FILTER
-   ========================================================= */
-
-function setupRarityFilters() {
-
-    document
-        .querySelectorAll(
-            ".rarity-filter"
-        )
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    document
-                        .querySelectorAll(
-                            ".rarity-filter"
-                        )
-                        .forEach(
-                            item =>
-                                item.classList.remove(
-                                    "active"
-                                )
-                        );
-
-
-                    button.classList.add(
-                        "active"
-                    );
-
-
-                    activeRarity =
-                        button.dataset.rarity ||
-                        "all";
-
-
-                    renderStyleList();
-
-                }
-            );
-
-        });
-
-}
-
-
-/* =========================================================
-   EDITOR BUTTONS
-   ========================================================= */
-
-function setupEditor() {
-
-    const editor =
-        document.getElementById(
-            "styleEditor"
-        );
-
-
-    if (editor) {
-
-        editor.addEventListener(
-            "submit",
-            event => {
-
-                event.preventDefault();
-
-                saveCurrentStyle();
-
-            }
-        );
-
-    }
-
-
-    document
-        .getElementById(
-            "resetButton"
-        )
-        ?.addEventListener(
-            "click",
-            resetCurrentStyle
-        );
-
-
-    document
-        .getElementById(
-            "previewButton"
-        )
-        ?.addEventListener(
-            "click",
-            previewStyle
-        );
-
-
-    document
-        .getElementById(
-            "previewButtonBottom"
-        )
-        ?.addEventListener(
-            "click",
-            previewStyle
-        );
-
-
-    document
-        .getElementById(
-            "saveAllButton"
-        )
-        ?.addEventListener(
-            "click",
-            saveAll
-        );
-
-
-    document
-        .getElementById(
-            "exportButton"
-        )
-        ?.addEventListener(
-            "click",
-            exportDatabase
-        );
-
-
-    document
-        .getElementById(
-            "importButton"
-        )
-        ?.addEventListener(
-            "change",
-            importDatabase
-        );
-
-
-    document
-        .getElementById(
-            "clearButton"
-        )
-        ?.addEventListener(
-            "click",
-            resetEverything
-        );
-
-}
-
-
-/* =========================================================
-   TOAST
-   ========================================================= */
-
-let toastTimer = null;
-
-
-function showToast(message) {
+function showToast(message, error = false) {
 
     const toast =
-        document.getElementById(
-            "adminToast"
-        );
+        document.getElementById("toast");
 
+    if (!toast) {
+        return;
+    }
 
-    if (!toast) return;
+    toast.textContent = message;
 
-
-    toast.textContent =
-        message;
-
-
-    toast.classList.add(
-        "show"
+    toast.classList.toggle(
+        "error",
+        error
     );
 
+    toast.classList.add("show");
 
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toastTimer =
-        setTimeout(
-            () => {
-
-                toast.classList.remove(
-                    "show"
-                );
-
-            },
-            2500
-        );
-
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
 }
 
 
-/* =========================================================
-   START
-   ========================================================= */
+// ===============================
+// EVENT LISTENERS
+// ===============================
 
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        const success =
-            initialiseDatabase();
+        const search =
+            document.getElementById("styleSearch");
 
+        const rarity =
+            document.getElementById("rarityFilter");
 
-        if (!success) {
-            return;
+        const save =
+            document.getElementById("saveStyle");
+
+        const reset =
+            document.getElementById("resetStyle");
+
+        const preview =
+            document.getElementById("previewStyle");
+
+        const exportButton =
+            document.getElementById("exportDatabase");
+
+        const importInput =
+            document.getElementById("importDatabase");
+
+        const resetAll =
+            document.getElementById("resetAllChanges");
+
+        if (search) {
+            search.addEventListener(
+                "input",
+                renderStyleList
+            );
         }
 
+        if (rarity) {
+            rarity.addEventListener(
+                "change",
+                renderStyleList
+            );
+        }
 
-        renderStyleList();
+        if (save) {
+            save.addEventListener(
+                "click",
+                saveCurrentStyle
+            );
+        }
 
-        updateDashboardStats();
+        if (reset) {
+            reset.addEventListener(
+                "click",
+                resetCurrentStyle
+            );
+        }
 
-        setupSearch();
+        if (preview) {
+            preview.addEventListener(
+                "click",
+                previewStyle
+            );
+        }
 
-        setupRarityFilters();
+        if (exportButton) {
+            exportButton.addEventListener(
+                "click",
+                exportDatabase
+            );
+        }
 
-        setupEditor();
+        if (importInput) {
+            importInput.addEventListener(
+                "change",
+                importDatabase
+            );
+        }
 
+        if (resetAll) {
+            resetAll.addEventListener(
+                "click",
+                resetAllChanges
+            );
+        }
 
-        console.log(
-            "UBG Admin: ready."
-        );
-
+        initialiseAdmin();
     }
 );
