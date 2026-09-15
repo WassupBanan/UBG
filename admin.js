@@ -1,5 +1,5 @@
 // ============================================
-// UBG ADMIN DASHBOARD
+// UBG WIKI — ADMIN DASHBOARD
 // ============================================
 
 const STORAGE_KEY = "UBG_ADMIN_STYLES";
@@ -18,14 +18,26 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("UBG ADMIN: Starting...");
 
     if (!window.UBG_STYLES) {
-        console.error("UBG ADMIN: window.UBG_STYLES does not exist.");
-        showToast("Style database failed to load.");
+        console.error(
+            "UBG ADMIN: window.UBG_STYLES does not exist."
+        );
+
+        showToast(
+            "Style database failed to load."
+        );
+
         return;
     }
 
     if (!Array.isArray(window.UBG_STYLES)) {
-        console.error("UBG ADMIN: UBG_STYLES is not an array.");
-        showToast("Style database is invalid.");
+        console.error(
+            "UBG ADMIN: UBG_STYLES is not an array."
+        );
+
+        showToast(
+            "Style database is invalid."
+        );
+
         return;
     }
 
@@ -36,8 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     loadDatabase();
+
     setupEvents();
+
     renderStyles();
+
     updateStats();
 
     if (adminStyles.length > 0) {
@@ -47,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ============================================
-// DATABASE
+// DATABASE LOADING
 // ============================================
 
 function loadDatabase() {
@@ -59,11 +74,16 @@ function loadDatabase() {
 
         try {
 
-            adminStyles = JSON.parse(saved);
+            const parsed =
+                JSON.parse(saved);
 
-            if (!Array.isArray(adminStyles)) {
-                throw new Error("Invalid database.");
+            if (!Array.isArray(parsed)) {
+                throw new Error(
+                    "Saved database is not an array."
+                );
             }
+
+            adminStyles = parsed;
 
             console.log(
                 "UBG ADMIN: Loaded saved database:",
@@ -75,15 +95,19 @@ function loadDatabase() {
         } catch (error) {
 
             console.warn(
-                "UBG ADMIN: Saved database was invalid. Using original."
+                "UBG ADMIN: Saved database invalid.",
+                error
             );
         }
     }
 
-    // Make a copy of the original database
-    adminStyles = window.UBG_STYLES.map(style => ({
-        ...style
-    }));
+
+    // Copy original database
+    adminStyles =
+        window.UBG_STYLES.map(style => ({
+            ...style
+        }));
+
 
     console.log(
         "UBG ADMIN: Loaded original database:",
@@ -93,7 +117,7 @@ function loadDatabase() {
 
 
 // ============================================
-// EVENTS
+// EVENT LISTENERS
 // ============================================
 
 function setupEvents() {
@@ -103,6 +127,7 @@ function setupEvents() {
         document.getElementById("adminSearch");
 
     if (search) {
+
         search.addEventListener(
             "input",
             renderStyles
@@ -110,26 +135,37 @@ function setupEvents() {
     }
 
 
-    // Rarity buttons
+    // Rarity filters
     document
         .querySelectorAll(".rarity-filter")
         .forEach(button => {
 
-            button.addEventListener("click", () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                document
-                    .querySelectorAll(".rarity-filter")
-                    .forEach(btn =>
-                        btn.classList.remove("active")
+                    document
+                        .querySelectorAll(".rarity-filter")
+                        .forEach(btn => {
+                            btn.classList.remove(
+                                "active"
+                            );
+                        });
+
+
+                    button.classList.add(
+                        "active"
                     );
 
-                button.classList.add("active");
 
-                currentRarity =
-                    button.dataset.rarity || "all";
+                    currentRarity =
+                        button.dataset.rarity ||
+                        "all";
 
-                renderStyles();
-            });
+
+                    renderStyles();
+                }
+            );
         });
 
 
@@ -151,11 +187,12 @@ function setupEvents() {
     }
 
 
-    // Reset
+    // Reset current style
     const reset =
         document.getElementById("resetButton");
 
     if (reset) {
+
         reset.addEventListener(
             "click",
             resetCurrentStyle
@@ -168,6 +205,7 @@ function setupEvents() {
         document.getElementById("previewButton");
 
     if (preview) {
+
         preview.addEventListener(
             "click",
             previewStyle
@@ -175,10 +213,14 @@ function setupEvents() {
     }
 
 
+    // Bottom preview
     const previewBottom =
-        document.getElementById("previewButtonBottom");
+        document.getElementById(
+            "previewButtonBottom"
+        );
 
     if (previewBottom) {
+
         previewBottom.addEventListener(
             "click",
             previewStyle
@@ -188,9 +230,12 @@ function setupEvents() {
 
     // Save all
     const saveAll =
-        document.getElementById("saveAllButton");
+        document.getElementById(
+            "saveAllButton"
+        );
 
     if (saveAll) {
+
         saveAll.addEventListener(
             "click",
             saveDatabase
@@ -200,9 +245,12 @@ function setupEvents() {
 
     // Export
     const exportButton =
-        document.getElementById("exportButton");
+        document.getElementById(
+            "exportButton"
+        );
 
     if (exportButton) {
+
         exportButton.addEventListener(
             "click",
             exportDatabase
@@ -212,7 +260,9 @@ function setupEvents() {
 
     // Import
     const importButton =
-        document.getElementById("importButton");
+        document.getElementById(
+            "importButton"
+        );
 
     if (importButton) {
 
@@ -225,7 +275,9 @@ function setupEvents() {
 
     // Reset everything
     const clearButton =
-        document.getElementById("clearButton");
+        document.getElementById(
+            "clearButton"
+        );
 
     if (clearButton) {
 
@@ -244,97 +296,141 @@ function setupEvents() {
 function renderStyles() {
 
     const container =
-        document.getElementById("adminStyleList");
+        document.getElementById(
+            "adminStyleList"
+        );
+
 
     if (!container) {
+
         console.error(
             "UBG ADMIN: #adminStyleList not found."
         );
+
         return;
     }
 
+
     const searchInput =
-        document.getElementById("adminSearch");
-
-    const search =
-        searchInput
-            ? searchInput.value.toLowerCase().trim()
-            : "";
-
-    container.innerHTML = "";
-
-    adminStyles.forEach((style, index) => {
-
-        const name =
-            style.name || "Unnamed";
-
-        const rarity =
-            style.rarity || "Unknown";
-
-
-        // Search filter
-        if (
-            search &&
-            !name.toLowerCase().includes(search)
-        ) {
-            return;
-        }
-
-
-        // Rarity filter
-        if (
-            currentRarity !== "all" &&
-            rarity.toLowerCase() !==
-            currentRarity.toLowerCase()
-        ) {
-            return;
-        }
-
-
-        const button =
-            document.createElement("button");
-
-        button.type = "button";
-
-        button.className =
-            "admin-style-item";
-
-
-        if (index === selectedIndex) {
-            button.classList.add("active");
-        }
-
-
-        button.innerHTML = `
-            <span class="style-item-name">
-                ${escapeHTML(name)}
-            </span>
-
-            <span class="style-item-rarity">
-                ${escapeHTML(rarity)}
-            </span>
-        `;
-
-
-        button.addEventListener(
-            "click",
-            () => selectStyle(index)
+        document.getElementById(
+            "adminSearch"
         );
 
 
-        container.appendChild(button);
-    });
+    const search =
+        searchInput
+            ? searchInput.value
+                .toLowerCase()
+                .trim()
+            : "";
 
 
-    // If nothing matches
-    if (!container.children.length) {
+    container.innerHTML = "";
+
+
+    let visibleCount = 0;
+
+
+    adminStyles.forEach(
+        (style, index) => {
+
+            const name =
+                style.name ||
+                "Unnamed Style";
+
+
+            const rarity =
+                style.rarity ||
+                "Unknown";
+
+
+            // Search
+            if (
+                search &&
+                !name
+                    .toLowerCase()
+                    .includes(search)
+            ) {
+                return;
+            }
+
+
+            // Rarity
+            if (
+                currentRarity !== "all" &&
+                rarity
+                    .toLowerCase() !==
+                currentRarity
+                    .toLowerCase()
+            ) {
+                return;
+            }
+
+
+            visibleCount++;
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type = "button";
+
+
+            button.className =
+                "style-list-item";
+
+
+            if (
+                index === selectedIndex
+            ) {
+                button.classList.add(
+                    "active"
+                );
+            }
+
+
+            button.innerHTML = `
+                <span class="style-item-left">
+
+                    <span class="style-item-name">
+                        ${escapeHTML(name)}
+                    </span>
+
+                    <span class="style-item-rarity">
+                        ${escapeHTML(rarity)}
+                    </span>
+
+                </span>
+
+                <span class="style-item-arrow">
+                    →
+                </span>
+            `;
+
+
+            button.addEventListener(
+                "click",
+                () => {
+                    selectStyle(index);
+                }
+            );
+
+
+            container.appendChild(
+                button
+            );
+        }
+    );
+
+
+    // Nothing found
+    if (visibleCount === 0) {
 
         container.innerHTML = `
-            <div style="
-                padding:20px;
-                color:#92959d;
-                text-align:center;
-            ">
+            <div class="no-styles">
                 No styles found.
             </div>
         `;
@@ -352,7 +448,9 @@ function selectStyle(index) {
         return;
     }
 
+
     selectedIndex = index;
+
 
     const style =
         adminStyles[index];
@@ -364,21 +462,33 @@ function selectStyle(index) {
     );
 
 
-    // Hide empty screen
-    const empty =
-        document.getElementById("emptyEditor");
+    // Hide empty state
+    const emptyEditor =
+        document.getElementById(
+            "emptyEditor"
+        );
 
-    if (empty) {
-        empty.classList.add("hidden");
+
+    if (emptyEditor) {
+
+        emptyEditor.classList.add(
+            "hidden"
+        );
     }
 
 
     // Show editor
     const editor =
-        document.getElementById("styleEditor");
+        document.getElementById(
+            "styleEditor"
+        );
+
 
     if (editor) {
-        editor.classList.remove("hidden");
+
+        editor.classList.remove(
+            "hidden"
+        );
     }
 
 
@@ -388,27 +498,31 @@ function selectStyle(index) {
         style.name
     );
 
+
     setText(
         "editorRarity",
         style.rarity
     );
 
 
-    // Basic information
+    // Basic
     setValue(
         "fieldName",
         style.name
     );
+
 
     setValue(
         "fieldRarity",
         style.rarity
     );
 
+
     setValue(
         "fieldRanked",
         style.ranked
     );
+
 
     setValue(
         "fieldBaseStyle",
@@ -416,26 +530,30 @@ function selectStyle(index) {
     );
 
 
-    // Core stats
+    // Stats
     setValue(
         "fieldHP",
         style.hp
     );
+
 
     setValue(
         "fieldDash",
         style.dash
     );
 
+
     setValue(
         "fieldRange",
         style.range
     );
 
+
     setValue(
         "fieldBlock",
         style.block
     );
+
 
     setValue(
         "fieldUltimate",
@@ -449,10 +567,12 @@ function selectStyle(index) {
         style.passive
     );
 
+
     setValue(
         "fieldAbility",
         style.ability
     );
+
 
     setValue(
         "fieldUltimateName",
@@ -466,15 +586,18 @@ function selectStyle(index) {
         style.description
     );
 
+
     setValue(
         "fieldStrengths",
         style.strengths
     );
 
+
     setValue(
         "fieldWeaknesses",
         style.weaknesses
     );
+
 
     setValue(
         "fieldObtain",
@@ -482,7 +605,7 @@ function selectStyle(index) {
     );
 
 
-    // Media
+    // Animation
     setValue(
         "fieldAnimation",
         style.animation
@@ -491,9 +614,13 @@ function selectStyle(index) {
 
     // WIP
     const wip =
-        document.getElementById("fieldWIP");
+        document.getElementById(
+            "fieldWIP"
+        );
+
 
     if (wip) {
+
         wip.checked =
             Boolean(style.wip);
     }
@@ -513,7 +640,11 @@ function saveCurrentStyle() {
         selectedIndex < 0 ||
         !adminStyles[selectedIndex]
     ) {
-        showToast("Select a style first.");
+
+        showToast(
+            "Select a style first."
+        );
+
         return;
     }
 
@@ -526,11 +657,14 @@ function saveCurrentStyle() {
     style.name =
         getValue("fieldName");
 
+
     style.rarity =
         getValue("fieldRarity");
 
+
     style.ranked =
         getValue("fieldRanked");
+
 
     style.baseStyle =
         getValue("fieldBaseStyle");
@@ -538,16 +672,22 @@ function saveCurrentStyle() {
 
     // Stats
     style.hp =
-        getNumberOrValue("fieldHP");
+        getNumberOrValue(
+            "fieldHP"
+        );
+
 
     style.dash =
         getValue("fieldDash");
 
+
     style.range =
         getValue("fieldRange");
 
+
     style.block =
         getValue("fieldBlock");
+
 
     style.ultimate =
         getValue("fieldUltimate");
@@ -557,46 +697,72 @@ function saveCurrentStyle() {
     style.passive =
         getValue("fieldPassive");
 
+
     style.ability =
         getValue("fieldAbility");
 
+
     style.ultimateName =
-        getValue("fieldUltimateName");
+        getValue(
+            "fieldUltimateName"
+        );
 
 
     // Documentation
     style.description =
-        getValue("fieldDescription");
+        getValue(
+            "fieldDescription"
+        );
+
 
     style.strengths =
-        getValue("fieldStrengths");
+        getValue(
+            "fieldStrengths"
+        );
+
 
     style.weaknesses =
-        getValue("fieldWeaknesses");
+        getValue(
+            "fieldWeaknesses"
+        );
+
 
     style.obtain =
-        getValue("fieldObtain");
+        getValue(
+            "fieldObtain"
+        );
 
 
-    // Media
+    // Animation
     style.animation =
-        getValue("fieldAnimation");
+        getValue(
+            "fieldAnimation"
+        );
 
 
     // WIP
     const wip =
-        document.getElementById("fieldWIP");
+        document.getElementById(
+            "fieldWIP"
+        );
+
 
     if (wip) {
+
         style.wip =
             wip.checked;
     }
 
 
-    saveDatabase();
+    saveDatabase(
+        false
+    );
+
 
     renderStyles();
+
     updateStats();
+
 
     showToast(
         `${style.name} saved.`
@@ -608,35 +774,68 @@ function saveCurrentStyle() {
 // SAVE DATABASE
 // ============================================
 
-function saveDatabase() {
+function saveDatabase(
+    showMessage = true
+) {
 
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(adminStyles)
-    );
+    try {
 
-    console.log(
-        "UBG ADMIN: Database saved."
-    );
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(
+                adminStyles
+            )
+        );
 
-    showToast(
-        "Changes saved."
-    );
+
+        console.log(
+            "UBG ADMIN: Database saved."
+        );
+
+
+        if (showMessage) {
+
+            showToast(
+                "Changes saved."
+            );
+        }
+
+    } catch (error) {
+
+        console.error(
+            "UBG ADMIN: Failed to save.",
+            error
+        );
+
+
+        showToast(
+            "Could not save database."
+        );
+    }
 }
 
 
 // ============================================
-// RESET CURRENT
+// RESET CURRENT STYLE
 // ============================================
 
 function resetCurrentStyle() {
 
     if (selectedIndex < 0) {
+
+        showToast(
+            "Select a style first."
+        );
+
         return;
     }
 
+
     const original =
-        window.UBG_STYLES[selectedIndex];
+        window.UBG_STYLES[
+            selectedIndex
+        ];
+
 
     if (!original) {
         return;
@@ -648,21 +847,29 @@ function resetCurrentStyle() {
             "Reset this style to its original data?"
         );
 
+
     if (!confirmed) {
         return;
     }
 
 
-    adminStyles[selectedIndex] = {
+    adminStyles[
+        selectedIndex
+    ] = {
         ...original
     };
 
 
-    saveDatabase();
+    saveDatabase(false);
 
-    selectStyle(selectedIndex);
+
+    selectStyle(
+        selectedIndex
+    );
+
 
     updateStats();
+
 
     showToast(
         "Style reset."
@@ -681,15 +888,18 @@ function resetEverything() {
             "Reset ALL admin changes?\n\nThis cannot be undone."
         );
 
+
     if (!confirmed) {
         return;
     }
 
 
     adminStyles =
-        window.UBG_STYLES.map(style => ({
-            ...style
-        }));
+        window.UBG_STYLES.map(
+            style => ({
+                ...style
+            })
+        );
 
 
     localStorage.removeItem(
@@ -701,10 +911,12 @@ function resetEverything() {
 
 
     renderStyles();
+
     updateStats();
 
 
     if (adminStyles.length > 0) {
+
         selectStyle(0);
     }
 
@@ -733,31 +945,45 @@ function exportDatabase() {
         new Blob(
             [json],
             {
-                type: "application/json"
+                type:
+                    "application/json"
             }
         );
 
 
     const url =
-        URL.createObjectURL(blob);
+        URL.createObjectURL(
+            blob
+        );
 
 
     const link =
-        document.createElement("a");
+        document.createElement(
+            "a"
+        );
+
 
     link.href = url;
+
 
     link.download =
         "ubg-styles-database.json";
 
 
-    document.body.appendChild(link);
+    document.body.appendChild(
+        link
+    );
+
 
     link.click();
 
+
     link.remove();
 
-    URL.revokeObjectURL(url);
+
+    URL.revokeObjectURL(
+        url
+    );
 
 
     showToast(
@@ -775,6 +1001,7 @@ function importDatabase(event) {
     const file =
         event.target.files[0];
 
+
     if (!file) {
         return;
     }
@@ -789,10 +1016,17 @@ function importDatabase(event) {
         try {
 
             const imported =
-                JSON.parse(reader.result);
+                JSON.parse(
+                    reader.result
+                );
 
 
-            if (!Array.isArray(imported)) {
+            if (
+                !Array.isArray(
+                    imported
+                )
+            ) {
+
                 throw new Error(
                     "Database must be an array."
                 );
@@ -805,7 +1039,9 @@ function importDatabase(event) {
 
             localStorage.setItem(
                 STORAGE_KEY,
-                JSON.stringify(adminStyles)
+                JSON.stringify(
+                    adminStyles
+                )
             );
 
 
@@ -813,10 +1049,14 @@ function importDatabase(event) {
 
 
             renderStyles();
+
             updateStats();
 
 
-            if (adminStyles.length > 0) {
+            if (
+                adminStyles.length > 0
+            ) {
+
                 selectStyle(0);
             }
 
@@ -831,6 +1071,7 @@ function importDatabase(event) {
                 "Import error:",
                 error
             );
+
 
             showToast(
                 "Invalid database file."
@@ -853,6 +1094,7 @@ function previewStyle() {
         selectedIndex < 0 ||
         !adminStyles[selectedIndex]
     ) {
+
         showToast(
             "Select a style first."
         );
@@ -862,33 +1104,46 @@ function previewStyle() {
 
 
     const style =
-        adminStyles[selectedIndex];
+        adminStyles[
+            selectedIndex
+        ];
 
 
     window.open(
-        `style.html?style=${encodeURIComponent(style.name)}`,
+        `style.html?style=${encodeURIComponent(
+            style.name
+        )}`,
         "_blank"
     );
 }
 
 
 // ============================================
-// STATS
+// UPDATE STATS
 // ============================================
 
 function updateStats() {
 
     const total =
-        document.getElementById("totalStyles");
+        document.getElementById(
+            "totalStyles"
+        );
+
 
     const wip =
-        document.getElementById("wipStyles");
+        document.getElementById(
+            "wipStyles"
+        );
+
 
     const edited =
-        document.getElementById("editedStyles");
+        document.getElementById(
+            "editedStyles"
+        );
 
 
     if (total) {
+
         total.textContent =
             adminStyles.length;
     }
@@ -898,7 +1153,8 @@ function updateStats() {
 
         wip.textContent =
             adminStyles.filter(
-                style => style.wip
+                style =>
+                    Boolean(style.wip)
             ).length;
     }
 
@@ -912,13 +1168,20 @@ function updateStats() {
             (style, index) => {
 
                 const original =
-                    window.UBG_STYLES[index];
+                    window.UBG_STYLES[
+                        index
+                    ];
 
 
                 if (
-                    JSON.stringify(style) !==
-                    JSON.stringify(original)
+                    JSON.stringify(
+                        style
+                    ) !==
+                    JSON.stringify(
+                        original
+                    )
                 ) {
+
                     count++;
                 }
             }
@@ -940,6 +1203,7 @@ function getValue(id) {
     const element =
         document.getElementById(id);
 
+
     return element
         ? element.value
         : "";
@@ -951,12 +1215,15 @@ function getNumberOrValue(id) {
     const value =
         getValue(id);
 
+
     if (value === "") {
         return "";
     }
 
+
     const number =
         Number(value);
+
 
     return Number.isNaN(number)
         ? value
@@ -964,10 +1231,14 @@ function getNumberOrValue(id) {
 }
 
 
-function setValue(id, value) {
+function setValue(
+    id,
+    value
+) {
 
     const element =
         document.getElementById(id);
+
 
     if (element) {
 
@@ -977,10 +1248,14 @@ function setValue(id, value) {
 }
 
 
-function setText(id, value) {
+function setText(
+    id,
+    value
+) {
 
     const element =
         document.getElementById(id);
+
 
     if (element) {
 
@@ -992,19 +1267,39 @@ function setText(id, value) {
 
 function escapeHTML(value) {
 
-    return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 }
 
 
 function showToast(message) {
 
     const toast =
-        document.getElementById("adminToast");
+        document.getElementById(
+            "adminToast"
+        );
+
 
     if (!toast) {
         return;
@@ -1015,12 +1310,25 @@ function showToast(message) {
         message;
 
 
-    toast.classList.add("show");
+    toast.classList.add(
+        "show"
+    );
 
 
-    setTimeout(() => {
+    clearTimeout(
+        window.adminToastTimer
+    );
 
-        toast.classList.remove("show");
 
-    }, 2500);
+    window.adminToastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2500
+        );
 }
