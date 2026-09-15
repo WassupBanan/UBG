@@ -1,0 +1,16 @@
+/* =========================================================
+   GLOVES PAGE SPACING
+   ========================================================= */
+
+/* Adds a comfortable breathing space between the sidebar and Gloves content. */
+body[data-page="gloves"] .main-content {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+@media (max-width: 700px) {
+    body[data-page="gloves"] .main-content {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
