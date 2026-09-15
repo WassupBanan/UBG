@@ -1,0 +1,268 @@
+/* =========================================================
+   UBG WIKI — SHARED SITE STANDARD
+   Loaded last so every section uses the same shell and typography.
+========================================================= */
+
+:root {
+    --site-bg: #07080a;
+    --site-sidebar: #0c0d10;
+    --site-panel: #111318;
+    --site-border: #252830;
+    --site-red: #e21d2f;
+    --site-red-bright: #ff3347;
+    --site-text: #f3f3f3;
+    --site-muted: #92959d;
+    --site-muted-2: #676b74;
+}
+
+html,
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+body {
+    background: var(--site-bg) !important;
+    color: var(--site-text) !important;
+}
+
+/* Shared modern sidebar */
+.sidebar {
+    width: 245px !important;
+    min-width: 245px !important;
+    background: linear-gradient(180deg, #0d0e11, #090a0c) !important;
+    border-right: 1px solid var(--site-border) !important;
+    font-family: inherit !important;
+}
+
+.sidebar-section {
+    padding: 24px 13px 0 !important;
+}
+
+.sidebar-heading,
+.nav-heading {
+    margin: 0 10px 9px !important;
+    color: var(--site-muted-2) !important;
+    font-size: 9px !important;
+    font-weight: 900 !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase !important;
+}
+
+.sidebar-section + .sidebar-section,
+.nav-heading:not(:first-child) {
+    margin-top: 0;
+}
+
+.sidebar-link,
+.sidebar-sub,
+.nav-link {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 38px !important;
+    margin-bottom: 2px !important;
+    padding: 0 10px !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    color: #aeb0b7 !important;
+    font-family: inherit !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    transform: none !important;
+}
+
+.sidebar-link {
+    gap: 11px !important;
+}
+
+.sidebar-sub {
+    padding-left: 39px !important;
+    font-size: 11px !important;
+}
+
+.sidebar-link span,
+.nav-link span {
+    width: 18px !important;
+    color: var(--site-muted-2) !important;
+    font-size: 13px !important;
+    text-align: center !important;
+}
+
+.sidebar-link:hover,
+.sidebar-sub:hover,
+.nav-link:hover {
+    background: rgba(255,255,255,.035) !important;
+    color: white !important;
+    transform: none !important;
+}
+
+.sidebar-link.active,
+.nav-link.active {
+    background: linear-gradient(90deg, rgba(226,29,47,.16), rgba(226,29,47,.035)) !important;
+    color: white !important;
+}
+
+.sidebar-link.active::before,
+.nav-link.active::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 7px !important;
+    bottom: 7px !important;
+    width: 2px !important;
+    background: var(--site-red-bright) !important;
+    box-shadow: 0 0 10px rgba(255,51,71,.6) !important;
+}
+
+.sidebar-bottom {
+    margin-top: auto !important;
+    padding: 18px 18px 22px !important;
+    border-top: 1px solid var(--site-border) !important;
+}
+
+.sidebar-note,
+.wiki-status {
+    color: var(--site-muted) !important;
+    font-family: inherit !important;
+    font-size: 9px !important;
+}
+
+.sidebar-version {
+    color: var(--site-muted-2) !important;
+    font-family: inherit !important;
+    font-size: 9px !important;
+}
+
+/* Shared top bar */
+.topbar {
+    height: 64px !important;
+    padding: 0 22px !important;
+    background: linear-gradient(180deg, rgba(15,16,20,.98), rgba(9,10,13,.98)) !important;
+    border-bottom: 1px solid var(--site-border) !important;
+    font-family: inherit !important;
+}
+
+.wiki-brand {
+    min-width: 220px !important;
+}
+
+.brand-text strong,
+.brand-text small {
+    font-family: inherit !important;
+}
+
+.play-button,
+.top-play {
+    border-radius: 5px !important;
+    font-family: inherit !important;
+}
+
+/* Legacy mechanics shell */
+.main-area {
+    width: calc(100% - 245px) !important;
+    margin-left: 245px !important;
+}
+
+.main-area .sidebar {
+    top: 64px !important;
+    height: calc(100vh - 64px) !important;
+}
+
+.main-area .mobile-title {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 220px !important;
+    min-width: 220px !important;
+    font-size: 0 !important;
+    line-height: 1.1 !important;
+    letter-spacing: .1em !important;
+    text-transform: uppercase !important;
+}
+
+.main-area .mobile-title::before {
+    content: "UNTITLED BOXING";
+    font-size: 12px;
+}
+
+.main-area .mobile-title::after {
+    content: "FAN WIKI";
+    margin-top: 4px;
+    color: var(--site-muted);
+    font-size: 9px;
+    letter-spacing: .18em;
+}
+
+.main-area .search-box {
+    height: 38px !important;
+    max-width: 620px !important;
+    padding: 0 72px 0 37px !important;
+    background: #0b0c0f !important;
+    border: 1px solid var(--site-border) !important;
+    border-radius: 5px !important;
+}
+
+.main-area .search-box input {
+    font-family: inherit !important;
+    font-size: 12px !important;
+}
+
+.main-area .top-button {
+    display: none !important;
+}
+
+.main-area .top-play {
+    min-height: 36px !important;
+    padding: 0 15px !important;
+    border: 1px solid var(--site-red) !important;
+    background: linear-gradient(135deg, var(--site-red), #8d101d) !important;
+}
+
+/* Shared content rhythm */
+.wiki-main,
+.main-area .content-wrapper {
+    font-family: inherit !important;
+}
+
+.wiki-main {
+    padding-top: 30px !important;
+}
+
+.main-area .content-wrapper {
+    max-width: 1500px !important;
+    padding: 30px 48px 60px !important;
+}
+
+.breadcrumb {
+    font-family: inherit !important;
+    font-size: 10px !important;
+}
+
+.wiki-footer {
+    font-family: inherit !important;
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: 245px !important;
+        min-width: 245px !important;
+    }
+
+    .main-area {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .main-area .mobile-title {
+        display: none !important;
+    }
+
+    .main-area .topbar {
+        height: 62px !important;
+        padding: 0 14px !important;
+    }
+
+    .main-area .content-wrapper {
+        padding: 22px 15px 50px !important;
+    }
+}
