@@ -1,3 +1,4 @@
+```javascript
 "use strict";
 
 /*
@@ -8,7 +9,6 @@ UBG ADMIN DASHBOARD
 IMPORTANT:
 - styles.js must load BEFORE this file.
 - styles.js creates window.UBG_STYLES.
-- Do NOT declare another "styles" variable here.
 - Changes are stored in localStorage.
 ==========================================================
 */
@@ -64,11 +64,6 @@ function normaliseStyle(style) {
         ...style
     };
 
-    /*
-    Add combat data if the style doesn't have it yet.
-    This means your existing 32 styles won't break.
-    */
-
     result.combat = {
         ...createDefaultCombat(),
         ...(style.combat || {})
@@ -84,10 +79,6 @@ function normaliseStyle(style) {
 
 function loadDatabase() {
 
-    /*
-    Make sure styles.js loaded correctly.
-    */
-
     if (!window.UBG_STYLES || !Array.isArray(window.UBG_STYLES)) {
 
         console.error(
@@ -102,13 +93,7 @@ function loadDatabase() {
         return;
     }
 
-
-    /*
-    Check for locally saved data.
-    */
-
     const saved = localStorage.getItem(STORAGE_KEY);
-
 
     if (saved) {
 
@@ -118,13 +103,13 @@ function loadDatabase() {
 
             if (Array.isArray(parsed)) {
 
-                adminStyles = parsed.map(normaliseStyle);
+                adminStyles =
+                    parsed.map(normaliseStyle);
 
             } else {
 
                 adminStyles =
                     window.UBG_STYLES.map(normaliseStyle);
-
             }
 
         } catch (error) {
@@ -136,20 +121,13 @@ function loadDatabase() {
 
             adminStyles =
                 window.UBG_STYLES.map(normaliseStyle);
-
         }
 
     } else {
 
-        /*
-        First time opening the admin dashboard.
-        Copy the original database.
-        */
-
         adminStyles =
             window.UBG_STYLES.map(normaliseStyle);
     }
-
 
     updateStats();
     renderStyleList();
@@ -200,18 +178,12 @@ function updateStats() {
     const total =
         adminStyles.length;
 
-
     const wip =
-        adminStyles.filter(style => style.wip === true).length;
-
-
-    /*
-    Compare the edited database against the original
-    styles.js database.
-    */
+        adminStyles.filter(
+            style => style.wip === true
+        ).length;
 
     let edited = 0;
-
 
     if (
         window.UBG_STYLES &&
@@ -225,17 +197,14 @@ function updateStats() {
                     item => item.name === style.name
                 );
 
-
             if (!original) {
 
                 edited++;
                 return;
             }
 
-
             const originalNormalised =
                 normaliseStyle(original);
-
 
             if (
                 JSON.stringify(style) !==
@@ -247,7 +216,6 @@ function updateStats() {
 
         });
     }
-
 
     $("totalStyles").textContent = total;
     $("wipStyles").textContent = wip;
@@ -264,24 +232,19 @@ function renderStyleList() {
     const container =
         $("adminStyleList");
 
-
     if (!container) {
         return;
     }
 
-
     container.innerHTML = "";
-
 
     const searchInput =
         $("adminSearch");
-
 
     const search =
         searchInput
             ? searchInput.value.trim().toLowerCase()
             : "";
-
 
     const filtered =
         adminStyles
@@ -294,25 +257,21 @@ function renderStyleList() {
                 const style =
                     item.style;
 
-
                 const matchesSearch =
                     !search ||
                     style.name
                         .toLowerCase()
                         .includes(search);
 
-
                 const matchesRarity =
                     currentRarity === "all" ||
                     style.rarity === currentRarity;
-
 
                 return (
                     matchesSearch &&
                     matchesRarity
                 );
             });
-
 
     if (filtered.length === 0) {
 
@@ -325,32 +284,25 @@ function renderStyleList() {
         return;
     }
 
-
     filtered.forEach(item => {
 
         const style =
             item.style;
 
-
         const index =
             item.index;
 
-
         const button =
             document.createElement("button");
-
 
         button.type = "button";
 
         button.className =
             "style-list-item";
 
-
         if (index === selectedIndex) {
-
             button.classList.add("active");
         }
-
 
         button.innerHTML = `
 
@@ -372,15 +324,12 @@ function renderStyleList() {
 
         `;
 
-
         button.addEventListener(
             "click",
             () => selectStyle(index)
         );
 
-
         container.appendChild(button);
-
     });
 }
 
@@ -398,33 +347,19 @@ function selectStyle(index) {
         return;
     }
 
-
     selectedIndex =
         index;
-
 
     const style =
         adminStyles[index];
 
-
     populateEditor(style);
-
-
-    /*
-    Hide empty state.
-    */
 
     $("emptyEditor").style.display =
         "none";
 
-
-    /*
-    Show editor.
-    */
-
     $("styleEditor").style.display =
         "block";
-
 
     renderStyleList();
 
@@ -441,14 +376,11 @@ function updateEditorHeader(style) {
     $("editorTitle").textContent =
         style.name || "Unnamed Style";
 
-
     $("editorRarity").textContent =
         style.rarity || "Unknown";
 
-
     $("editorRarity").className =
         "rarity-badge";
-
 
     if (style.rarity) {
 
@@ -465,29 +397,21 @@ function updateEditorHeader(style) {
 
 function populateEditor(style) {
 
-    /*
-    Make sure combat data exists.
-    */
-
     const combat = {
         ...createDefaultCombat(),
         ...(style.combat || {})
     };
-
 
     /* BASIC INFORMATION */
 
     $("fieldName").value =
         style.name || "";
 
-
     $("fieldRarity").value =
         style.rarity || "Uncommon";
 
-
     $("fieldRanked").checked =
         style.ranked === true;
-
 
     $("fieldBaseStyle").value =
         style.baseStyle || "";
@@ -498,18 +422,14 @@ function populateEditor(style) {
     $("fieldHP").value =
         style.hp ?? "";
 
-
     $("fieldDash").value =
         style.dash || "";
-
 
     $("fieldRange").value =
         style.range || "";
 
-
     $("fieldBlock").value =
         style.block || "";
-
 
     $("fieldUltimate").value =
         style.ultimate || "";
@@ -520,30 +440,23 @@ function populateEditor(style) {
     $("fieldM1Damage").value =
         combat.m1Damage ?? 0;
 
-
     $("fieldM2Damage").value =
         combat.m2Damage ?? 0;
-
 
     $("fieldCounterDamage").value =
         combat.counterDamage ?? 0;
 
-
     $("fieldUltimateDamage").value =
         combat.ultimateDamage ?? 0;
-
 
     $("fieldM1Cooldown").value =
         combat.m1Cooldown ?? 0;
 
-
     $("fieldM2Cooldown").value =
         combat.m2Cooldown ?? 0;
 
-
     $("fieldM1Stamina").value =
         combat.m1Stamina ?? 0;
-
 
     $("fieldM2Stamina").value =
         combat.m2Stamina ?? 0;
@@ -554,10 +467,8 @@ function populateEditor(style) {
     $("fieldPassive").value =
         style.passive || "";
 
-
     $("fieldAbility").value =
         style.ability || "";
-
 
     $("fieldUltimateName").value =
         style.ultimateName || "";
@@ -568,10 +479,8 @@ function populateEditor(style) {
     $("fieldDescription").value =
         style.description || "";
 
-
     $("fieldStrengths").value =
         convertToTextarea(style.strengths);
-
 
     $("fieldWeaknesses").value =
         convertToTextarea(style.weaknesses);
@@ -606,14 +515,8 @@ function readEditor() {
         return null;
     }
 
-
     const oldStyle =
         adminStyles[selectedIndex];
-
-
-    /*
-    Read the combat values.
-    */
 
     const combat = {
 
@@ -642,15 +545,9 @@ function readEditor() {
             readNumber("fieldM2Stamina")
     };
 
-
-    /*
-    Create updated style.
-    */
-
     const updatedStyle = {
 
         ...oldStyle,
-
 
         /* BASIC INFORMATION */
 
@@ -739,7 +636,6 @@ function readEditor() {
             $("fieldWIP").checked
     };
 
-
     return updatedStyle;
 }
 
@@ -762,15 +658,12 @@ function saveCurrentStyle(
         return false;
     }
 
-
     const updated =
         readEditor();
-
 
     if (!updated) {
         return false;
     }
-
 
     if (!updated.name) {
 
@@ -782,23 +675,20 @@ function saveCurrentStyle(
         return false;
     }
 
-
     adminStyles[selectedIndex] =
         normaliseStyle(updated);
-
 
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(adminStyles)
     );
 
-
     updateStats();
     renderStyleList();
+
     updateEditorHeader(
         adminStyles[selectedIndex]
     );
-
 
     if (showMessage) {
 
@@ -807,7 +697,6 @@ function saveCurrentStyle(
             "success"
         );
     }
-
 
     return true;
 }
@@ -820,19 +709,15 @@ function saveCurrentStyle(
 function saveAll() {
 
     if (selectedIndex >= 0) {
-
         saveCurrentStyle(false);
     }
-
 
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(adminStyles)
     );
 
-
     updateStats();
-
 
     showToast(
         "All changes saved.",
@@ -857,32 +742,23 @@ function resetCurrentStyle() {
         return;
     }
 
-
     const style =
         adminStyles[selectedIndex];
-
 
     const confirmed =
         confirm(
             `Reset "${style.name}" to its original database values?`
         );
 
-
     if (!confirmed) {
         return;
     }
-
-
-    /*
-    Find the original style.
-    */
 
     const original =
         window.UBG_STYLES.find(
             item =>
                 item.name === style.name
         );
-
 
     if (!original) {
 
@@ -894,7 +770,6 @@ function resetCurrentStyle() {
         return;
     }
 
-
     adminStyles[selectedIndex] =
         normaliseStyle(
             JSON.parse(
@@ -902,26 +777,21 @@ function resetCurrentStyle() {
             )
         );
 
-
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(adminStyles)
     );
 
-
     populateEditor(
         adminStyles[selectedIndex]
     );
-
 
     updateEditorHeader(
         adminStyles[selectedIndex]
     );
 
-
     updateStats();
     renderStyleList();
-
 
     showToast(
         `${style.name} has been reset.`,
@@ -941,11 +811,9 @@ function resetDatabase() {
             "Reset the entire local database to the original styles? This will remove all local changes."
         );
 
-
     if (!confirmed) {
         return;
     }
-
 
     adminStyles =
         window.UBG_STYLES.map(
@@ -957,26 +825,20 @@ function resetDatabase() {
                 )
         );
 
-
     selectedIndex = -1;
-
 
     localStorage.removeItem(
         STORAGE_KEY
     );
 
-
     $("styleEditor").style.display =
         "none";
-
 
     $("emptyEditor").style.display =
         "flex";
 
-
     updateStats();
     renderStyleList();
-
 
     showToast(
         "Database reset.",
@@ -990,7 +852,6 @@ function resetDatabase() {
 ======================================================== */
 
 function handleSearch() {
-
     renderStyleList();
 }
 
@@ -1004,11 +865,9 @@ function handleRarityFilter(event) {
     const button =
         event.currentTarget;
 
-
     currentRarity =
         button.dataset.rarity ||
         "all";
-
 
     document
         .querySelectorAll(".rarity-filter")
@@ -1017,14 +876,11 @@ function handleRarityFilter(event) {
             filter.classList.remove(
                 "active"
             );
-
         });
-
 
     button.classList.add(
         "active"
     );
-
 
     renderStyleList();
 }
@@ -1046,26 +902,17 @@ function previewStyle() {
         return;
     }
 
-
-    /*
-    Save current changes before previewing.
-    */
-
     saveCurrentStyle(false);
-
 
     const style =
         adminStyles[selectedIndex];
-
 
     if (!style.name) {
         return;
     }
 
-
     const url =
         `style.html?style=${encodeURIComponent(style.name)}`;
-
 
     window.open(
         url,
@@ -1075,7 +922,7 @@ function previewStyle() {
 
 
 /* ========================================================
-   EXPORT DATABASE
+   EXPORT JSON DATABASE
 ======================================================== */
 
 function exportDatabase() {
@@ -1085,15 +932,16 @@ function exportDatabase() {
     */
 
     if (selectedIndex >= 0) {
-
         saveCurrentStyle(false);
     }
 
 
     const data = {
         version: "1.0",
+
         exportedAt:
             new Date().toISOString(),
+
         styles:
             adminStyles
     };
@@ -1127,7 +975,6 @@ function exportDatabase() {
     link.href =
         url;
 
-
     link.download =
         "ubg-styles-database.json";
 
@@ -1136,9 +983,7 @@ function exportDatabase() {
         link
     );
 
-
     link.click();
-
 
     link.remove();
 
@@ -1149,7 +994,111 @@ function exportDatabase() {
 
 
     showToast(
-        "Database exported.",
+        "JSON database exported.",
+        "success"
+    );
+}
+
+
+/* ========================================================
+   EXPORT styles.js
+======================================================== */
+
+function exportStylesJS() {
+
+    /*
+    Save the currently edited style first.
+    */
+
+    if (selectedIndex >= 0) {
+        saveCurrentStyle(false);
+    }
+
+
+    /*
+    Create a clean copy.
+
+    JSON serialization removes any accidental
+    references and gives us a safe standalone database.
+    */
+
+    const cleanStyles =
+        JSON.parse(
+            JSON.stringify(adminStyles)
+        );
+
+
+    /*
+    Convert the database into JavaScript.
+
+    JSON is valid JavaScript object syntax, so
+    JSON.stringify is perfect here.
+    */
+
+    const jsContent =
+`/*
+==========================================================
+UNTITLED BOXING GAME
+STYLE DATABASE
+==========================================================
+
+Generated by the UBG Admin Dashboard.
+
+Do not edit this file through the admin panel manually.
+==========================================================
+*/
+
+const styles = ${JSON.stringify(
+    cleanStyles,
+    null,
+    4
+)};
+
+window.UBG_STYLES = styles;
+`;
+
+
+    const blob =
+        new Blob(
+            [jsContent],
+            {
+                type:
+                    "application/javascript"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href =
+        url;
+
+    link.download =
+        "styles.js";
+
+
+    document.body.appendChild(
+        link
+    );
+
+    link.click();
+
+    link.remove();
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+
+    showToast(
+        "styles.js generated successfully.",
         "success"
     );
 }
@@ -1164,14 +1113,11 @@ function importDatabase() {
     const input =
         document.createElement("input");
 
-
     input.type =
         "file";
 
-
     input.accept =
         ".json,application/json";
-
 
     input.addEventListener(
         "change",
@@ -1180,15 +1126,12 @@ function importDatabase() {
             const file =
                 event.target.files[0];
 
-
             if (!file) {
                 return;
             }
 
-
             const reader =
                 new FileReader();
-
 
             reader.onload =
                 function () {
@@ -1200,16 +1143,6 @@ function importDatabase() {
                                 reader.result
                             );
 
-
-                        /*
-                        Support both:
-                        {
-                            styles: [...]
-                        }
-
-                        and directly:
-                        [...]
-                        */
 
                         const importedStyles =
                             Array.isArray(parsed)
@@ -1250,7 +1183,6 @@ function importDatabase() {
                         $("styleEditor").style.display =
                             "none";
 
-
                         $("emptyEditor").style.display =
                             "flex";
 
@@ -1272,7 +1204,6 @@ function importDatabase() {
                             error
                         );
 
-
                         showToast(
                             "Invalid database file.",
                             "error"
@@ -1280,11 +1211,9 @@ function importDatabase() {
                     }
                 };
 
-
             reader.readAsText(file);
         }
     );
-
 
     input.click();
 }
@@ -1299,17 +1228,14 @@ function readNumber(id) {
     const element =
         $(id);
 
-
     if (!element) {
         return 0;
     }
-
 
     const value =
         parseFloat(
             element.value
         );
-
 
     return Number.isFinite(value)
         ? value
@@ -1333,16 +1259,12 @@ function textareaToArray(value) {
 function convertToTextarea(value) {
 
     if (Array.isArray(value)) {
-
         return value.join("\n");
     }
 
-
     if (typeof value === "string") {
-
         return value;
     }
-
 
     return "";
 }
@@ -1375,34 +1297,27 @@ function showToast(
     const toast =
         $("adminToast");
 
-
     if (!toast) {
         return;
     }
 
-
     toast.textContent =
         message;
 
-
     toast.className =
         "admin-toast";
-
 
     toast.classList.add(
         type
     );
 
-
     toast.classList.add(
         "show"
     );
 
-
     clearTimeout(
         showToast.timeout
     );
-
 
     showToast.timeout =
         setTimeout(
@@ -1424,12 +1339,10 @@ function showToast(
 
 function setupEvents() {
 
-
     /* SEARCH */
 
     const search =
         $("adminSearch");
-
 
     if (search) {
 
@@ -1459,7 +1372,6 @@ function setupEvents() {
     const editor =
         $("styleEditor");
 
-
     if (editor) {
 
         editor.addEventListener(
@@ -1479,7 +1391,6 @@ function setupEvents() {
     const reset =
         $("resetButton");
 
-
     if (reset) {
 
         reset.addEventListener(
@@ -1493,7 +1404,6 @@ function setupEvents() {
 
     const preview =
         $("previewButton");
-
 
     if (preview) {
 
@@ -1509,7 +1419,6 @@ function setupEvents() {
     const previewBottom =
         $("previewButtonBottom");
 
-
     if (previewBottom) {
 
         previewBottom.addEventListener(
@@ -1524,7 +1433,6 @@ function setupEvents() {
     const saveAllButton =
         $("saveAllButton");
 
-
     if (saveAllButton) {
 
         saveAllButton.addEventListener(
@@ -1534,11 +1442,10 @@ function setupEvents() {
     }
 
 
-    /* EXPORT */
+    /* EXPORT JSON */
 
     const exportButton =
         $("exportButton");
-
 
     if (exportButton) {
 
@@ -1554,7 +1461,6 @@ function setupEvents() {
     const importButton =
         $("importButton");
 
-
     if (importButton) {
 
         importButton.addEventListener(
@@ -1569,12 +1475,36 @@ function setupEvents() {
     const clearButton =
         $("clearButton");
 
-
     if (clearButton) {
 
         clearButton.addEventListener(
             "click",
             resetDatabase
+        );
+    }
+
+
+    /*
+    NEW:
+    Export styles.js button.
+
+    This supports either:
+    #exportStylesButton
+
+    or
+
+    #exportJSButton
+    */
+
+    const exportStylesButton =
+        $("exportStylesButton") ||
+        $("exportJSButton");
+
+    if (exportStylesButton) {
+
+        exportStylesButton.addEventListener(
+            "click",
+            exportStylesJS
         );
     }
 }
@@ -1594,3 +1524,4 @@ document.addEventListener(
 
     }
 );
+```
