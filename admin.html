@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard — UBG Wiki</title>
+    <title>UBG Admin Dashboard</title>
 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="admin.css">
 </head>
 
-<body>
+<body data-page="admin">
 
     <!-- =========================
-         TOPBAR
+         TOP BAR
     ========================== -->
-
     <header class="admin-topbar">
 
         <div class="admin-brand">
-
-            <div class="brand-mark">
-                U
-            </div>
+            <span class="admin-brand-mark">🥊</span>
 
             <div>
-                <strong>UBG WIKI</strong>
+                <strong>UNTITLED BOXING GAME</strong>
                 <span>ADMIN PANEL</span>
             </div>
-
         </div>
 
+        <div class="admin-topbar-actions">
 
-        <div class="topbar-actions">
-
-            <a href="index.html" class="topbar-link">
-                ← Wiki
+            <a href="index.html" class="btn secondary">
+                Back to Wiki
             </a>
 
-            <button id="saveAllButton" class="save-button">
-                Save Changes
+            <button
+                type="button"
+                id="saveAllButton"
+                class="btn primary"
+            >
+                Save All Changes
             </button>
 
         </div>
@@ -48,48 +46,43 @@
 
 
     <!-- =========================
-         PAGE
+         MAIN CONTENT
     ========================== -->
-
     <main class="admin-container">
 
-
-        <!-- HEADER -->
-
-        <section class="dashboard-header">
+        <!-- =========================
+             PAGE HEADER
+        ========================== -->
+        <section class="admin-page-header">
 
             <div>
 
-                <div class="eyebrow">
-                    UNTITLED BOXING GAME
-                </div>
+                <span class="eyebrow">
+                    LOCAL DATABASE
+                </span>
 
-                <h1>Admin Dashboard</h1>
+                <h1>
+                    Admin Dashboard
+                </h1>
 
                 <p>
-                    Manage style information, balance values and
-                    wiki documentation from one place.
+                    Manage style information, balance values and wiki
+                    documentation from one place.
                 </p>
 
-            </div>
-
-            <div class="status-pill">
-                <span></span>
-                LOCAL DATABASE
             </div>
 
         </section>
 
 
         <!-- =========================
-             STAT CARDS
+             DATABASE STATS
         ========================== -->
+        <section class="admin-stats">
 
-        <section class="dashboard-stats">
+            <div class="admin-stat-card">
 
-            <div class="dashboard-stat">
-
-                <span class="stat-label">
+                <span class="admin-stat-label">
                     TOTAL STYLES
                 </span>
 
@@ -100,9 +93,9 @@
             </div>
 
 
-            <div class="dashboard-stat">
+            <div class="admin-stat-card">
 
-                <span class="stat-label">
+                <span class="admin-stat-label">
                     WIP STYLES
                 </span>
 
@@ -113,9 +106,9 @@
             </div>
 
 
-            <div class="dashboard-stat">
+            <div class="admin-stat-card">
 
-                <span class="stat-label">
+                <span class="admin-stat-label">
                     EDITED
                 </span>
 
@@ -126,9 +119,9 @@
             </div>
 
 
-            <div class="dashboard-stat">
+            <div class="admin-stat-card">
 
-                <span class="stat-label">
+                <span class="admin-stat-label">
                     DATABASE
                 </span>
 
@@ -142,47 +135,49 @@
 
 
         <!-- =========================
-             MAIN GRID
+             DATABASE LAYOUT
         ========================== -->
-
         <section class="admin-layout">
 
 
-            <!-- =====================
-                 STYLE LIST
-            ====================== -->
-
+            <!-- =========================
+                 STYLE SELECTOR
+            ========================== -->
             <aside class="style-selector">
 
                 <div class="panel-header">
 
                     <div>
-
-                        <span class="panel-eyebrow">
+                        <span class="eyebrow">
                             DATABASE
                         </span>
 
-                        <h2>Styles</h2>
-
+                        <h2>
+                            Styles
+                        </h2>
                     </div>
 
                 </div>
 
 
-                <div class="style-search">
+                <!-- SEARCH -->
+                <div class="admin-search">
 
                     <input
+                        type="search"
                         id="adminSearch"
-                        type="text"
                         placeholder="Search styles..."
+                        autocomplete="off"
                     >
 
                 </div>
 
 
+                <!-- RARITY FILTERS -->
                 <div class="rarity-filters">
 
                     <button
+                        type="button"
                         class="rarity-filter active"
                         data-rarity="all"
                     >
@@ -190,6 +185,7 @@
                     </button>
 
                     <button
+                        type="button"
                         class="rarity-filter"
                         data-rarity="Uncommon"
                     >
@@ -197,6 +193,7 @@
                     </button>
 
                     <button
+                        type="button"
                         class="rarity-filter"
                         data-rarity="Rare"
                     >
@@ -204,6 +201,7 @@
                     </button>
 
                     <button
+                        type="button"
                         class="rarity-filter"
                         data-rarity="Mythic"
                     >
@@ -211,6 +209,7 @@
                     </button>
 
                     <button
+                        type="button"
                         class="rarity-filter"
                         data-rarity="Legendary"
                     >
@@ -218,6 +217,7 @@
                     </button>
 
                     <button
+                        type="button"
                         class="rarity-filter"
                         data-rarity="Shiny"
                     >
@@ -227,71 +227,81 @@
                 </div>
 
 
-                <div id="adminStyleList" class="admin-style-list">
-                    <!-- Generated by admin.js -->
-                </div>
+                <!-- STYLE LIST -->
+                <div
+                    id="adminStyleList"
+                    class="admin-style-list"
+                ></div>
 
             </aside>
 
 
-            <!-- =====================
+            <!-- =========================
                  EDITOR
-            ====================== -->
-
+            ========================== -->
             <section class="editor-panel">
 
+
+                <!-- EMPTY STATE -->
                 <div
                     id="emptyEditor"
                     class="empty-editor"
                 >
 
-                    <div class="empty-icon">
+                    <div class="empty-editor-icon">
                         🥊
                     </div>
 
-                    <h2>Select a style</h2>
+                    <h2>
+                        Select a style
+                    </h2>
 
                     <p>
-                        Choose a style from the database
-                        to begin editing.
+                        Choose a style from the database to begin editing.
                     </p>
 
                 </div>
 
 
+                <!-- STYLE EDITOR -->
                 <form
                     id="styleEditor"
-                    class="style-editor hidden"
+                    class="style-editor"
+                    style="display: none;"
                 >
 
-                    <!-- EDITOR HEADER -->
 
+                    <!-- =========================
+                         EDITOR HEADER
+                    ========================== -->
                     <div class="editor-header">
 
                         <div>
 
-                            <span class="panel-eyebrow">
+                            <span class="eyebrow">
                                 STYLE EDITOR
                             </span>
 
                             <h2 id="editorTitle">
-                                Style
+                                Basic
                             </h2>
 
-                            <span id="editorRarity"
-                                  class="editor-rarity">
-                                Rarity
+                            <span
+                                id="editorRarity"
+                                class="rarity-badge"
+                            >
+                                Uncommon
                             </span>
 
                         </div>
 
 
-                        <div class="editor-actions">
+                        <div class="editor-header-actions">
 
                             <button
                                 type="button"
                                 id="previewButton"
-                                class="secondary-button"
+                                class="btn secondary"
                             >
                                 Preview
                             </button>
@@ -299,14 +309,14 @@
                             <button
                                 type="button"
                                 id="resetButton"
-                                class="danger-button"
+                                class="btn secondary"
                             >
                                 Reset
                             </button>
 
                             <button
                                 type="submit"
-                                class="save-button"
+                                class="btn primary"
                             >
                                 Save
                             </button>
@@ -316,390 +326,621 @@
                     </div>
 
 
-                    <!-- =====================
+                    <!-- =========================
                          BASIC INFORMATION
-                    ====================== -->
+                    ========================== -->
+                    <section class="editor-section">
 
-                    <div class="editor-section">
+                        <div class="section-heading">
 
-                        <div class="section-title">
-                            Basic Information
+                            <h3>
+                                Basic Information
+                            </h3>
+
                         </div>
 
 
                         <div class="form-grid">
 
-                            <label class="form-field">
 
-                                <span>
+                            <div class="form-group">
+
+                                <label for="fieldName">
                                     Style Name
-                                </span>
+                                </label>
 
                                 <input
-                                    id="fieldName"
                                     type="text"
+                                    id="fieldName"
+                                    placeholder="Style name"
                                 >
 
-                            </label>
+                            </div>
 
 
-                            <label class="form-field">
+                            <div class="form-group">
 
-                                <span>
+                                <label for="fieldRarity">
                                     Rarity
-                                </span>
+                                </label>
 
                                 <select id="fieldRarity">
 
-                                    <option>
+                                    <option value="Uncommon">
                                         Uncommon
                                     </option>
 
-                                    <option>
+                                    <option value="Rare">
                                         Rare
                                     </option>
 
-                                    <option>
+                                    <option value="Mythic">
                                         Mythic
                                     </option>
 
-                                    <option>
+                                    <option value="Legendary">
                                         Legendary
                                     </option>
 
-                                    <option>
+                                    <option value="Shiny">
                                         Shiny
                                     </option>
 
                                 </select>
 
-                            </label>
+                            </div>
 
 
-                            <label class="form-field">
+                            <div class="form-group checkbox-group">
 
-                                <span>
-                                    Ranked Name
-                                </span>
+                                <label class="checkbox-label">
 
-                                <input
-                                    id="fieldRanked"
-                                    type="text"
-                                >
+                                    <input
+                                        type="checkbox"
+                                        id="fieldRanked"
+                                    >
 
-                            </label>
+                                    <span>
+                                        Ranked
+                                    </span>
+
+                                </label>
+
+                            </div>
 
 
-                            <label class="form-field">
+                            <div class="form-group">
 
-                                <span>
+                                <label for="fieldBaseStyle">
                                     Base Style
-                                </span>
+                                </label>
 
                                 <input
+                                    type="text"
                                     id="fieldBaseStyle"
-                                    type="text"
-                                    placeholder="Only for variants"
+                                    placeholder="Base style"
                                 >
 
-                            </label>
+                            </div>
 
                         </div>
 
-                    </div>
+                    </section>
 
 
-                    <!-- =====================
-                         STATS
-                    ====================== -->
+                    <!-- =========================
+                         CORE STATS
+                    ========================== -->
+                    <section class="editor-section">
 
-                    <div class="editor-section">
+                        <div class="section-heading">
 
-                        <div class="section-title">
-                            Core Stats
-                        </div>
+                            <h3>
+                                Core Stats
+                            </h3>
 
-
-                        <div class="form-grid stats-grid">
-
-                            <label class="form-field">
-
-                                <span>
-                                    Health
-                                </span>
-
-                                <input
-                                    id="fieldHP"
-                                    type="number"
-                                >
-
-                            </label>
-
-
-                            <label class="form-field">
-
-                                <span>
-                                    Dash
-                                </span>
-
-                                <input
-                                    id="fieldDash"
-                                    type="text"
-                                >
-
-                            </label>
-
-
-                            <label class="form-field">
-
-                                <span>
-                                    Range
-                                </span>
-
-                                <input
-                                    id="fieldRange"
-                                    type="text"
-                                >
-
-                            </label>
-
-
-                            <label class="form-field">
-
-                                <span>
-                                    Block
-                                </span>
-
-                                <input
-                                    id="fieldBlock"
-                                    type="text"
-                                >
-
-                            </label>
-
-
-                            <label class="form-field">
-
-                                <span>
-                                    Ultimate Requirement
-                                </span>
-
-                                <input
-                                    id="fieldUltimate"
-                                    type="text"
-                                >
-
-                            </label>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- =====================
-                         MOVES
-                    ====================== -->
-
-                    <div class="editor-section">
-
-                        <div class="section-title">
-                            Abilities & Moves
                         </div>
 
 
                         <div class="form-grid">
 
-                            <label class="form-field">
 
-                                <span>
+                            <div class="form-group">
+
+                                <label for="fieldHP">
+                                    Health
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldHP"
+                                    min="0"
+                                    step="1"
+                                    placeholder="100"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="fieldDash">
+                                    Dash
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fieldDash"
+                                    placeholder="Average"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="fieldRange">
+                                    Range
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fieldRange"
+                                    placeholder="Good"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="fieldBlock">
+                                    Block
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fieldBlock"
+                                    placeholder="Good"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="fieldUltimate">
+                                    Ultimate Requirement
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fieldUltimate"
+                                    placeholder="50%"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================
+                         COMBAT VALUES
+                    ========================== -->
+                    <section class="editor-section">
+
+                        <div class="section-heading">
+
+                            <h3>
+                                Combat Values
+                            </h3>
+
+                            <p>
+                                Damage, cooldown and stamina values for
+                                this style.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <!-- M1 DAMAGE -->
+                            <div class="form-group">
+
+                                <label for="fieldM1Damage">
+                                    M1 Damage
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldM1Damage"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+
+                            <!-- M2 DAMAGE -->
+                            <div class="form-group">
+
+                                <label for="fieldM2Damage">
+                                    M2 Damage
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldM2Damage"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+
+                            <!-- COUNTER DAMAGE -->
+                            <div class="form-group">
+
+                                <label for="fieldCounterDamage">
+                                    Counter Damage
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldCounterDamage"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+
+                            <!-- ULTIMATE DAMAGE -->
+                            <div class="form-group">
+
+                                <label for="fieldUltimateDamage">
+                                    Ultimate Damage
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldUltimateDamage"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+
+                            <!-- M1 COOLDOWN -->
+                            <div class="form-group">
+
+                                <label for="fieldM1Cooldown">
+                                    M1 Cooldown
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldM1Cooldown"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+
+                            <!-- M2 COOLDOWN -->
+                            <div class="form-group">
+
+                                <label for="fieldM2Cooldown">
+                                    M2 Cooldown
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldM2Cooldown"
+                                    min="0"
+                                    step="0.01"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+
+                            <!-- M1 STAMINA -->
+                            <div class="form-group">
+
+                                <label for="fieldM1Stamina">
+                                    M1 Stamina
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldM1Stamina"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+
+                            <!-- M2 STAMINA -->
+                            <div class="form-group">
+
+                                <label for="fieldM2Stamina">
+                                    M2 Stamina
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="fieldM2Stamina"
+                                    min="0"
+                                    step="0.1"
+                                    placeholder="0"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================
+                         ABILITIES & MOVES
+                    ========================== -->
+                    <section class="editor-section">
+
+                        <div class="section-heading">
+
+                            <h3>
+                                Abilities & Moves
+                            </h3>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="fieldPassive">
                                     Passive
-                                </span>
+                                </label>
 
                                 <input
+                                    type="text"
                                     id="fieldPassive"
-                                    type="text"
+                                    placeholder="Passive name"
                                 >
 
-                            </label>
+                            </div>
 
 
-                            <label class="form-field">
+                            <div class="form-group">
 
-                                <span>
+                                <label for="fieldAbility">
                                     Ability
-                                </span>
+                                </label>
 
                                 <input
+                                    type="text"
                                     id="fieldAbility"
-                                    type="text"
+                                    placeholder="Ability name"
                                 >
 
-                            </label>
+                            </div>
 
 
-                            <label class="form-field full">
+                            <div class="form-group">
 
-                                <span>
+                                <label for="fieldUltimateName">
                                     Ultimate Name
-                                </span>
+                                </label>
 
                                 <input
-                                    id="fieldUltimateName"
                                     type="text"
+                                    id="fieldUltimateName"
+                                    placeholder="Ultimate name"
                                 >
 
-                            </label>
+                            </div>
 
                         </div>
 
-                    </div>
+                    </section>
 
 
-                    <!-- =====================
-                         DESCRIPTION
-                    ====================== -->
+                    <!-- =========================
+                         DOCUMENTATION
+                    ========================== -->
+                    <section class="editor-section">
 
-                    <div class="editor-section">
+                        <div class="section-heading">
 
-                        <div class="section-title">
-                            Documentation
+                            <h3>
+                                Documentation
+                            </h3>
+
                         </div>
 
 
-                        <label class="form-field">
+                        <div class="form-group full-width">
 
-                            <span>
+                            <label for="fieldDescription">
                                 Description
-                            </span>
+                            </label>
 
                             <textarea
                                 id="fieldDescription"
-                                rows="4"
+                                rows="6"
+                                placeholder="Describe this style..."
                             ></textarea>
 
-                        </label>
+                        </div>
 
 
                         <div class="form-grid">
 
-                            <label class="form-field">
 
-                                <span>
+                            <div class="form-group">
+
+                                <label for="fieldStrengths">
                                     Strengths
-                                </span>
+                                </label>
 
                                 <textarea
                                     id="fieldStrengths"
-                                    rows="4"
+                                    rows="5"
+                                    placeholder="One strength per line"
                                 ></textarea>
 
-                            </label>
+                            </div>
 
 
-                            <label class="form-field">
+                            <div class="form-group">
 
-                                <span>
+                                <label for="fieldWeaknesses">
                                     Weaknesses
-                                </span>
+                                </label>
 
                                 <textarea
                                     id="fieldWeaknesses"
-                                    rows="4"
+                                    rows="5"
+                                    placeholder="One weakness per line"
                                 ></textarea>
 
-                            </label>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================
+                         OBTAINING
+                    ========================== -->
+                    <section class="editor-section">
+
+                        <div class="section-heading">
+
+                            <h3>
+                                Obtaining
+                            </h3>
 
                         </div>
 
 
-                        <label class="form-field">
+                        <div class="form-group full-width">
 
-                            <span>
-                                Obtaining
-                            </span>
+                            <label for="fieldObtain">
+                                How to Obtain
+                            </label>
 
                             <textarea
                                 id="fieldObtain"
-                                rows="3"
+                                rows="4"
+                                placeholder="How is this style obtained?"
                             ></textarea>
 
-                        </label>
+                        </div>
 
-                    </div>
+                    </section>
 
 
-                    <!-- =====================
+                    <!-- =========================
                          MEDIA
-                    ====================== -->
+                    ========================== -->
+                    <section class="editor-section">
 
-                    <div class="editor-section">
+                        <div class="section-heading">
 
-                        <div class="section-title">
-                            Media
+                            <h3>
+                                Media
+                            </h3>
+
                         </div>
 
 
-                        <div class="form-grid">
+                        <div class="form-group">
 
-                            <label class="form-field full">
+                            <label for="fieldAnimation">
+                                Idle Animation Filename
+                            </label>
 
-                                <span>
-                                    Idle Animation Filename
-                                </span>
+                            <input
+                                type="text"
+                                id="fieldAnimation"
+                                placeholder="Basic_Idle.gif"
+                            >
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================
+                         WIKI STATUS
+                    ========================== -->
+                    <section class="editor-section">
+
+                        <div class="section-heading">
+
+                            <h3>
+                                Wiki Status
+                            </h3>
+
+                        </div>
+
+
+                        <div class="form-group checkbox-group">
+
+                            <label class="checkbox-label">
 
                                 <input
-                                    id="fieldAnimation"
-                                    type="text"
-                                    placeholder="Example: Ghost_Idle.gif"
+                                    type="checkbox"
+                                    id="fieldWIP"
                                 >
+
+                                <span>
+                                    Mark this style as Work In Progress
+                                </span>
 
                             </label>
 
                         </div>
 
-                    </div>
+                    </section>
 
 
-                    <!-- =====================
-                         STATUS
-                    ====================== -->
-
-                    <div class="editor-section">
-
-                        <div class="section-title">
-                            Wiki Status
-                        </div>
-
-
-                        <label class="checkbox-field">
-
-                            <input
-                                id="fieldWIP"
-                                type="checkbox"
-                            >
-
-                            <span>
-                                Mark this style as Work In Progress
-                            </span>
-
-                        </label>
-
-                    </div>
-
-
-                    <div class="editor-bottom-actions">
+                    <!-- =========================
+                         BOTTOM ACTIONS
+                    ========================== -->
+                    <div class="editor-actions">
 
                         <button
                             type="button"
                             id="previewButtonBottom"
-                            class="secondary-button"
+                            class="btn secondary"
                         >
                             Preview Style
                         </button>
 
+
                         <button
                             type="submit"
-                            class="save-button large"
+                            class="btn primary"
                         >
                             Save Style Changes
                         </button>
@@ -716,16 +957,26 @@
         <!-- =========================
              DATABASE TOOLS
         ========================== -->
-
         <section class="database-tools">
 
-            <div>
+            <div class="panel-header">
 
-                <span class="panel-eyebrow">
-                    DATABASE TOOLS
-                </span>
+                <div>
 
-                <h2>Manage Data</h2>
+                    <span class="eyebrow">
+                        DATABASE TOOLS
+                    </span>
+
+                    <h2>
+                        Manage Data
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="database-tools-content">
 
                 <p>
                     Your changes are stored locally in this browser.
@@ -733,61 +984,64 @@
                     your changes to GitHub.
                 </p>
 
-            </div>
 
+                <div class="database-tool-buttons">
 
-            <div class="tool-buttons">
-
-                <button
-                    id="exportButton"
-                    class="save-button"
-                >
-                    Export Database
-                </button>
-
-                <label class="secondary-button file-button">
-
-                    Import Database
-
-                    <input
-                        id="importButton"
-                        type="file"
-                        accept=".json"
-                        hidden
+                    <button
+                        type="button"
+                        id="exportButton"
+                        class="btn secondary"
                     >
+                        Export Database
+                    </button>
 
-                </label>
+
+                    <button
+                        type="button"
+                        id="importButton"
+                        class="btn secondary"
+                    >
+                        Import Database
+                    </button>
 
 
-                <button
-                    id="clearButton"
-                    class="danger-button"
-                >
-                    Reset All Changes
-                </button>
+                    <button
+                        type="button"
+                        id="clearButton"
+                        class="btn danger"
+                    >
+                        Reset Database
+                    </button>
+
+                </div>
 
             </div>
 
         </section>
 
-
-        <!-- =========================
-             TOAST
-        ========================== -->
-
-        <div
-            id="adminToast"
-            class="admin-toast"
-        >
-            Changes saved.
-        </div>
-
     </main>
 
+
+    <!-- =========================
+         TOAST
+    ========================== -->
+    <div
+        id="adminToast"
+        class="admin-toast"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+
+    <!-- IMPORTANT:
+         styles.js MUST load before admin.js
+    -->
 
     <script src="styles.js"></script>
     <script src="admin.js"></script>
 
 </body>
-
 </html>
