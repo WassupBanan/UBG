@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UBG Admin — Wiki Control Panel</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="admin-app">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
+            <div class="brand-mark">UBG</div>
+
+            <div>
+                <strong>ADMIN</strong>
+                <span>WIKI CONTROL</span>
+            </div>
+        </div>
+
+        <div class="sidebar-label">CONTROL PANEL</div>
+
+        <button class="nav-item active" data-section="dashboard">
+            <span>⌂</span>
+            Dashboard
+        </button>
+
+        <button class="nav-item" data-section="styles">
+            <span>🥊</span>
+            Styles
+        </button>
+
+        <button class="nav-item" data-section="mechanics">
+            <span>⚙</span>
+            Mechanics
+        </button>
+
+        <button class="nav-item" data-section="patches">
+            <span>▣</span>
+            Patch Notes
+        </button>
+
+        <div class="sidebar-label">DATABASE</div>
+
+        <button class="nav-item" data-section="data">
+            <span>◆</span>
+            Data Management
+        </button>
+
+        <div class="sidebar-spacer"></div>
+
+        <div class="admin-status">
+
+            <div class="status-dot"></div>
+
+            <div>
+                <strong>LOCAL MODE</strong>
+                <span>Changes stored locally</span>
+            </div>
+
+        </div>
+
+        <a href="index.html" class="back-site">
+            ← Back to Wiki
+        </a>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="admin-main">
+
+        <!-- TOPBAR -->
+        <header class="admin-topbar">
+
+            <div>
+                <div class="topbar-eyebrow">UNTITLED BOXING GAME</div>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+
+            <div class="topbar-actions">
+
+                <div id="saveIndicator" class="save-indicator">
+                    <span></span>
+                    All changes saved
+                </div>
+
+                <button id="exportTop" class="top-button">
+                    Export
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboardSection" class="admin-section active">
+
+            <div class="hero-panel">
+
+                <div>
+                    <div class="hero-label">UBG WIKI ADMINISTRATION</div>
+
+                    <h2>
+                        Control the
+                        <span>database.</span>
+                    </h2>
+
+                    <p>
+                        Manage styles, combat values, mechanics and
+                        documentation from one place.
+                    </p>
+                </div>
+
+                <div class="hero-number">
+                    UBG
+                </div>
+
+            </div>
+
+
+            <div class="stat-grid">
+
+                <div class="dashboard-stat">
+                    <span>Total Styles</span>
+                    <strong id="totalStyles">0</strong>
+                    <small>Database entries</small>
+                </div>
+
+                <div class="dashboard-stat">
+                    <span>Legendary</span>
+                    <strong id="legendaryCount">0</strong>
+                    <small>Legendary styles</small>
+                </div>
+
+                <div class="dashboard-stat">
+                    <span>Shiny</span>
+                    <strong id="shinyCount">0</strong>
+                    <small>Shiny variants</small>
+                </div>
+
+                <div class="dashboard-stat">
+                    <span>WIP</span>
+                    <strong id="wipCount">0</strong>
+                    <small>Incomplete entries</small>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span>QUICK ACCESS</span>
+                            <h3>Style Database</h3>
+                        </div>
+
+                        <button class="small-button" data-section-jump="styles">
+                            Open
+                        </button>
+                    </div>
+
+                    <p>
+                        Edit style information, combat statistics,
+                        abilities and descriptions.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span>DATABASE STATUS</span>
+                            <h3>Local Storage</h3>
+                        </div>
+
+                        <div class="status-badge">
+                            ACTIVE
+                        </div>
+                    </div>
+
+                    <p>
+                        Your edits are saved in this browser until
+                        you export the updated database.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="warning-panel">
+
+                <strong>⚠ Important</strong>
+
+                <p>
+                    This admin panel currently runs in
+                    <b>local mode</b>. Saving changes does not
+                    automatically change the public GitHub Pages site.
+                    Use <b>Export</b> to generate the updated
+                    database file.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- STYLES -->
+        <section id="stylesSection" class="admin-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-eyebrow">DATABASE</div>
+                    <h2>Style Editor</h2>
+                    <p>
+                        Select a style to edit its information.
+                    </p>
+                </div>
+
+                <button id="newStyleButton" class="danger-button">
+                    + New Style
+                </button>
+
+            </div>
+
+
+            <div class="styles-layout">
+
+                <!-- STYLE LIST -->
+                <aside class="style-list-panel">
+
+                    <div class="style-search">
+
+                        <input
+                            id="adminStyleSearch"
+                            type="search"
+                            placeholder="Search styles..."
+                        >
+
+                    </div>
+
+
+                    <div class="rarity-tabs">
+
+                        <button class="rarity-tab active" data-rarity="all">
+                            All
+                        </button>
+
+                        <button class="rarity-tab" data-rarity="Uncommon">
+                            Uncommon
+                        </button>
+
+                        <button class="rarity-tab" data-rarity="Rare">
+                            Rare
+                        </button>
+
+                        <button class="rarity-tab" data-rarity="Mythic">
+                            Mythic
+                        </button>
+
+                        <button class="rarity-tab" data-rarity="Legendary">
+                            Legendary
+                        </button>
+
+                        <button class="rarity-tab" data-rarity="Shiny">
+                            Shiny
+                        </button>
+
+                    </div>
+
+
+                    <div id="styleList" class="style-list"></div>
+
+                </aside>
+
+
+                <!-- EDITOR -->
+                <div class="editor-area">
+
+                    <div id="emptyEditor" class="empty-editor">
+
+                        <div>🥊</div>
+
+                        <h3>Select a style</h3>
+
+                        <p>
+                            Choose a style from the database
+                            to begin editing.
+                        </p>
+
+                    </div>
+
+
+                    <form id="styleEditor" class="style-editor hidden">
+
+                        <div class="editor-header">
+
+                            <div>
+
+                                <div class="editor-eyebrow">
+                                    STYLE DATABASE
+                                </div>
+
+                                <h2 id="editorStyleName">
+                                    Style
+                                </h2>
+
+                                <div id="editorStyleRarity"
+                                     class="editor-rarity">
+                                </div>
+
+                            </div>
+
+                            <div class="editor-actions">
+
+                                <button
+                                    type="button"
+                                    id="deleteStyleButton"
+                                    class="delete-button"
+                                >
+                                    Delete
+                                </button>
+
+                                <button
+                                    type="button"
+                                    id="resetStyleButton"
+                                    class="secondary-button"
+                                >
+                                    Reset
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    class="save-button"
+                                >
+                                    Save Changes
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BASIC INFO -->
+                        <div class="editor-panel">
+
+                            <div class="editor-panel-heading">
+
+                                <span>01</span>
+
+                                <div>
+                                    <strong>Basic Information</strong>
+                                    <small>Identity and classification</small>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <label>
+                                    <span>Style Name</span>
+                                    <input id="fieldName" type="text">
+                                </label>
+
+                                <label>
+                                    <span>Ranked Name</span>
+                                    <input id="fieldRanked" type="text">
+                                </label>
+
+                                <label>
+                                    <span>Rarity</span>
+
+                                    <select id="fieldRarity">
+
+                                        <option>Uncommon</option>
+                                        <option>Rare</option>
+                                        <option>Mythic</option>
+                                        <option>Legendary</option>
+                                        <option>Shiny</option>
+
+                                    </select>
+
+                                </label>
+
+                                <label>
+                                    <span>Base Style</span>
+                                    <input
+                                        id="fieldBaseStyle"
+                                        type="text"
+                                        placeholder="Only for variants"
+                                    >
+                                </label>
+
+                                <label>
+                                    <span>Animation</span>
+                                    <input id="fieldAnimation" type="text">
+                                </label>
+
+                                <label class="checkbox-label">
+
+                                    <input
+                                        id="fieldWip"
+                                        type="checkbox"
+                                    >
+
+                                    <span>
+                                        Mark as Work in Progress
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- COMBAT -->
+                        <div class="editor-panel combat-panel">
+
+                            <div class="editor-panel-heading">
+
+                                <span>02</span>
+
+                                <div>
+                                    <strong>Combat Values</strong>
+                                    <small>Damage and gameplay statistics</small>
+                                </div>
+
+                            </div>
+
+
+                            <div class="combat-grid">
+
+                                <label class="combat-field">
+
+                                    <span>M1 DAMAGE</span>
+
+                                    <input
+                                        id="fieldM1"
+                                        type="number"
+                                        step="0.1"
+                                        placeholder="Not documented"
+                                    >
+
+                                    <small>
+                                        Light punch damage
+                                    </small>
+
+                                </label>
+
+
+                                <label class="combat-field">
+
+                                    <span>M2 DAMAGE</span>
+
+                                    <input
+                                        id="fieldM2"
+                                        type="number"
+                                        step="0.1"
+                                        placeholder="Not documented"
+                                    >
+
+                                    <small>
+                                        Heavy punch damage
+                                    </small>
+
+                                </label>
+
+
+                                <label class="combat-field">
+
+                                    <span>COUNTER DAMAGE</span>
+
+                                    <input
+                                        id="fieldCounter"
+                                        type="number"
+                                        step="0.1"
+                                        placeholder="Not documented"
+                                    >
+
+                                    <small>
+                                        Counter hit damage
+                                    </small>
+
+                                </label>
+
+
+                                <label class="combat-field ultimate-field">
+
+                                    <span>ULTIMATE DAMAGE</span>
+
+                                    <input
+                                        id="fieldUltimateDamage"
+                                        type="number"
+                                        step="0.1"
+                                        placeholder="Not documented"
+                                    >
+
+                                    <small>
+                                        Ultimate damage
+                                    </small>
+
+                                </label>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <label>
+                                    <span>Health</span>
+                                    <input
+                                        id="fieldHP"
+                                        type="number"
+                                        step="1"
+                                    >
+                                </label>
+
+                                <label>
+                                    <span>Ultimate Requirement</span>
+                                    <input
+                                        id="fieldUltimate"
+                                        type="text"
+                                    >
+                                </label>
+
+                                <label>
+                                    <span>Dash</span>
+                                    <input id="fieldDash" type="text">
+                                </label>
+
+                                <label>
+                                    <span>Range</span>
+                                    <input id="fieldRange" type="text">
+                                </label>
+
+                                <label>
+                                    <span>Block</span>
+                                    <input id="fieldBlock" type="text">
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ABILITIES -->
+                        <div class="editor-panel">
+
+                            <div class="editor-panel-heading">
+
+                                <span>03</span>
+
+                                <div>
+                                    <strong>Abilities</strong>
+                                    <small>Passive, ability and ultimate</small>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <label>
+                                    <span>Passive</span>
+                                    <input id="fieldPassive" type="text">
+                                </label>
+
+                                <label>
+                                    <span>Ability</span>
+                                    <input id="fieldAbility" type="text">
+                                </label>
+
+                                <label>
+                                    <span>Ultimate Name</span>
+                                    <input id="fieldUltimateName" type="text">
+                                </label>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DOCUMENTATION -->
+                        <div class="editor-panel">
+
+                            <div class="editor-panel-heading">
+
+                                <span>04</span>
+
+                                <div>
+                                    <strong>Documentation</strong>
+                                    <small>Wiki content</small>
+                                </div>
+
+                            </div>
+
+
+                            <label class="full-field">
+
+                                <span>Description</span>
+
+                                <textarea
+                                    id="fieldDescription"
+                                    rows="5"
+                                ></textarea>
+
+                            </label>
+
+
+                            <div class="form-grid">
+
+                                <label>
+
+                                    <span>Strengths</span>
+
+                                    <textarea
+                                        id="fieldStrengths"
+                                        rows="4"
+                                    ></textarea>
+
+                                </label>
+
+
+                                <label>
+
+                                    <span>Weaknesses</span>
+
+                                    <textarea
+                                        id="fieldWeaknesses"
+                                        rows="4"
+                                    ></textarea>
+
+                                </label>
+
+                            </div>
+
+
+                            <label class="full-field">
+
+                                <span>Obtaining</span>
+
+                                <textarea
+                                    id="fieldObtain"
+                                    rows="3"
+                                ></textarea>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- PREVIEW -->
+                        <div class="editor-panel preview-panel">
+
+                            <div class="editor-panel-heading">
+
+                                <span>05</span>
+
+                                <div>
+                                    <strong>Preview</strong>
+                                    <small>How the data currently looks</small>
+                                </div>
+
+                            </div>
+
+
+                            <div id="stylePreview"
+                                 class="style-preview">
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MECHANICS -->
+        <section id="mechanicsSection" class="admin-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-eyebrow">DATABASE</div>
+
+                    <h2>Mechanics</h2>
+
+                    <p>
+                        Mechanics editing will connect to your
+                        existing mechanics database.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="coming-soon-panel">
+
+                <div class="coming-icon">⚙</div>
+
+                <h3>Mechanics Editor</h3>
+
+                <p>
+                    The mechanics database editor is next.
+                    It will use the same system as the style editor.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PATCH NOTES -->
+        <section id="patchesSection" class="admin-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-eyebrow">DOCUMENTATION</div>
+
+                    <h2>Patch Notes</h2>
+
+                    <p>
+                        Keep track of changes made to the wiki database.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="patch-editor">
+
+                <label>
+                    <span>Patch / Update Title</span>
+                    <input
+                        id="patchTitle"
+                        type="text"
+                        placeholder="e.g. Ghost damage update"
+                    >
+                </label>
+
+                <label>
+                    <span>Changes</span>
+                    <textarea
+                        id="patchContent"
+                        rows="8"
+                        placeholder="Describe what changed..."
+                    ></textarea>
+                </label>
+
+                <button id="addPatchButton" class="save-button">
+                    Add Patch Note
+                </button>
+
+            </div>
+
+
+            <div id="patchList" class="patch-list"></div>
+
+        </section>
+
+
+        <!-- DATA -->
+        <section id="dataSection" class="admin-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-eyebrow">DATABASE</div>
+
+                    <h2>Data Management</h2>
+
+                    <p>
+                        Import, export and manage your local database.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="data-grid">
+
+                <div class="data-card">
+
+                    <div class="data-icon">↓</div>
+
+                    <h3>Export Database</h3>
+
+                    <p>
+                        Download your current edited database
+                        as a new <code>styles.js</code> file.
+                    </p>
+
+                    <button id="exportDatabase"
+                            class="save-button">
+                        Export styles.js
+                    </button>
+
+                </div>
+
+
+                <div class="data-card">
+
+                    <div class="data-icon">↻</div>
+
+                    <h3>Reset Local Changes</h3>
+
+                    <p>
+                        Remove all browser-stored edits and
+                        return to the original database.
+                    </p>
+
+                    <button id="resetDatabase"
+                            class="secondary-button">
+                        Reset Everything
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="danger-panel">
+
+                <strong>⚠ Local database only</strong>
+
+                <p>
+                    Exported files must still be uploaded to
+                    GitHub before the public wiki changes.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="styles.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
