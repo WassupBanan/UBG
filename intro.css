@@ -1,0 +1,25 @@
+/* CINEMATIC UBG LOADING SCREEN */
+#ubg-loader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#050506;color:#fff;overflow:hidden;transition:opacity .8s ease,visibility .8s ease}
+#ubg-loader.is-done{opacity:0;visibility:hidden;pointer-events:none}
+.loader-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(226,29,47,.16),transparent 28%),linear-gradient(115deg,transparent 0 47%,rgba(255,255,255,.025) 48%,transparent 49%),#050506}
+.loader-grid{position:absolute;inset:0;opacity:.16;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,transparent,black 25%,black 75%,transparent)}
+.loader-vignette{position:absolute;inset:0;box-shadow:inset 0 0 180px #000}
+.loader-content{position:relative;width:min(620px,88vw);text-align:center;animation:loaderIn .9s ease both}
+.loader-kicker{font-size:10px;font-weight:900;letter-spacing:.42em;color:#8e8e96;margin-bottom:22px}
+.loader-logo{font-size:clamp(60px,13vw,118px);font-weight:1000;line-height:.8;letter-spacing:-.08em;text-shadow:0 0 40px rgba(226,29,47,.2);font-style:italic}
+.loader-logo span{color:#e21d2f}
+.loader-sub{margin-top:18px;font-size:11px;letter-spacing:.34em;font-weight:800;color:#aaaab2}
+.loader-status{margin:55px auto 13px;display:flex;justify-content:space-between;width:min(430px,78vw);font-size:9px;font-weight:900;letter-spacing:.18em;color:#777780;text-transform:uppercase}
+.loader-status strong{color:#e21d2f;font-weight:900}
+.loader-track{height:2px;width:min(430px,78vw);margin:auto;background:rgba(255,255,255,.1);overflow:hidden}
+.loader-bar{height:100%;width:0;background:#e21d2f;box-shadow:0 0 16px rgba(226,29,47,.8);transition:width .18s linear}
+.loader-bottom{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:18px;align-items:center;color:#55555d;font-size:8px;font-weight:800;letter-spacing:.2em;white-space:nowrap}
+.loader-bottom b{color:#888890}
+.loader-skip{position:absolute;right:28px;bottom:28px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.025);color:#8e8e96;padding:9px 12px;font:900 9px/1 inherit;letter-spacing:.14em;cursor:pointer;transition:.2s}
+.loader-skip:hover{color:#fff;border-color:rgba(226,29,47,.5);background:rgba(226,29,47,.08)}
+.loader-flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#ubg-loader.final-flash .loader-flash{animation:loaderFlash .45s ease-out}
+@keyframes loaderIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes loaderFlash{0%{opacity:0}18%{opacity:.12}100%{opacity:0}}
+@media(max-width:600px){.loader-kicker{letter-spacing:.28em}.loader-sub{letter-spacing:.22em}.loader-status{margin-top:40px}.loader-bottom{bottom:20px}.loader-skip{right:18px;bottom:18px}}
+@media(prefers-reduced-motion:reduce){#ubg-loader,.loader-content{animation:none;transition:none}.loader-bar{transition:none}}
