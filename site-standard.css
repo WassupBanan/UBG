@@ -242,6 +242,27 @@ body {
     font-family: inherit !important;
 }
 
+/* Cross-platform symbol rendering.
+   Some Windows desktop fonts render UBG's Unicode icons inconsistently. */
+.sidebar-link > span,
+.nav-link > span,
+.league-icon,
+.reward-symbol,
+.rt-arrow,
+.mobile-menu,
+.play-button > span {
+    font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "Arial Unicode MS", Arial, sans-serif !important;
+    font-variant-emoji: text !important;
+    font-synthesis: none !important;
+}
+
+/* Ranked page: keep league markers simple and consistent on desktop/mobile. */
+body[data-page="ranked"] .league-icon {
+    font-family: Arial, "Segoe UI", sans-serif !important;
+    font-weight: 700 !important;
+    font-variant-numeric: lining-nums tabular-nums !important;
+}
+
 @media (max-width: 700px) {
     .sidebar {
         width: 245px !important;
