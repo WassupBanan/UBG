@@ -9,44 +9,26 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="site-standard.css">
     <link rel="stylesheet" href="guide-page-polish.css">
+    <link rel="stylesheet" href="brand-fix.css">
 </head>
 
-<body data-page="guides">
+<bod data-page="guides">
 
     <!-- TOPBAR -->
     <header class="topbar">
-
-        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
-            ☰
-        </button>
-
-        <a href="index.html" class="brand">
-            <span class="brand-mark">UBG</span>
-            <span class="brand-text">WIKI</span>
-        </a>
-
-        <div class="global-search-wrap">
-            <input
-                type="text"
-                id="globalSearch"
-                class="global-search"
-                placeholder="Search the wiki..."
-                autocomplete="off"
-            >
-
-            <div id="searchResults" class="search-results"></div>
-        </div>
-
-        <a
-            href="https://www.roblox.com/games/13621938427/untitled-boxing-game"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="play-button"
-        >
-            PLAY UBG
-        </a>
-
-    </header>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+    <a href="index.html" class="wiki-brand" aria-label="Untitled Boxing Game Wiki home">
+        <span class="brand-mark"><img class="brand-icon" src="https://i.ytimg.com/vi/clviPNGycOk/maxresdefault.jpg" alt="Untitled Boxing Game"></span>
+        <span class="brand-text"><strong>UNTITLED BOXING</strong><small>FAN WIKI</small></span>
+    </a>
+    <div class="global-search">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="globalSearch" placeholder="Search the UBG Wiki..." autocomplete="off">
+        <kbd>CTRL K</kbd>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+    <a class="play-button" href="https://www.roblox.com/games/13621938427/untitled-boxing-game" target="_blank" rel="noopener noreferrer">PLAY UBG <span>↗</span></a>
+</header>
 
 
     <!-- PAGE LAYOUT -->
@@ -662,5 +644,6 @@
 
     <script src="script.js"></script>
 
+    <script src="ubg-brand.js"></script>
 </body>
 </html>

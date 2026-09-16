@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="gloves-spacing.css">
 <link rel="stylesheet" href="site-standard.css">
 <link rel="stylesheet" href="unusual-effects.css">
+    <link rel="stylesheet" href="brand-fix.css">
 </head>
-<body data-page="gloves">
+<bod data-page="collection">
 <div class="site-shell">
 <aside class="sidebar" id="sidebar">
               <div class="sidebar-section"><div class="sidebar-heading">NAVIGATION</div>
@@ -25,7 +26,20 @@
               <div class="sidebar-bottom"><div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div><div class="sidebar-version">UBG Wiki Redesign</div></div>
           </aside>
 <main class="main-content">
-<header class="topbar"><div class="breadcrumbs"><a href="index.html">Home</a><span>/</span><span>Collection</span><span>/</span><strong>Gloves</strong></div></header>
+<header class="topbar">
+    <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+    <a href="index.html" class="wiki-brand" aria-label="Untitled Boxing Game Wiki home">
+        <span class="brand-mark"><img class="brand-icon" src="https://i.ytimg.com/vi/clviPNGycOk/maxresdefault.jpg" alt="Untitled Boxing Game"></span>
+        <span class="brand-text"><strong>UNTITLED BOXING</strong><small>FAN WIKI</small></span>
+    </a>
+    <div class="global-search">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="globalSearch" placeholder="Search the UBG Wiki..." autocomplete="off">
+        <kbd>CTRL K</kbd>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+    <a class="play-button" href="https://www.roblox.com/games/13621938427/untitled-boxing-game" target="_blank" rel="noopener noreferrer">PLAY UBG <span>↗</span></a>
+</header>
 <section class="gloves-hero"><div class="hero-eyebrow">COLLECTION</div><h1>GLOVES</h1><p>The cosmetic collection of Untitled Boxing Game. Collect rare gloves, event exclusives and unusual effects.</p><div class="hero-facts"><div><strong>Cosmetic</strong><span>No gameplay effects</span></div><div><strong>4</strong><span>Core rarities</span></div><div><strong>~1%</strong><span>Unusual chance</span></div></div></section>
 <section class="gloves-overview" id="gloves-overview"><div class="section-heading"><div><span class="section-kicker">ABOUT</span><h2>Gloves</h2></div></div><div class="overview-grid"><div class="overview-main"><p>Gloves are the main cosmetic items in UBG. They can be obtained through crates in the shop, Ranked rewards, trading and limited-time events.</p><p>Gloves are <strong>purely cosmetic</strong> and have no impact on gameplay statistics.</p><p>Gloves come in four main rarities: <strong>Uncommon, Rare, Mythic and Legendary.</strong> Gloves obtained from crates can also have a rare <strong>Unusual</strong> effect.</p></div><div class="overview-card"><div class="overview-card-title">CRATE SYSTEM</div><div class="overview-stat"><span>Standard crate</span><strong>$3,000</strong></div><div class="overview-stat"><span>Gloves per crate</span><strong>10</strong></div><div class="overview-stat"><span>Unusual chance</span><strong>~1%</strong></div><div class="overview-stat"><span>Shop rotation</span><strong>6 hours</strong></div></div></div></section>
 <section class="glove-browser" id="glove-browser"><div class="browser-header"><div><span class="section-kicker">DATABASE</span><h2>Glove Collection</h2></div><span id="gloveCount" class="glove-count">0 gloves</span></div><div class="glove-controls"><div class="glove-search"><span>⌕</span><input type="text" id="gloveSearch" placeholder="Search gloves..." autocomplete="off"></div><div class="glove-filters"><button class="filter-button active" data-filter="all">All</button><button class="filter-button" data-filter="Standard Crates">Standard</button><button class="filter-button" data-filter="Holiday Crates">Holiday</button><button class="filter-button" data-filter="Ranked Gloves">Ranked</button><button class="filter-button" data-filter="Event Gloves">Events</button><button class="filter-button" data-filter="Original / Beta">Beta</button><button class="filter-button" data-filter="Style Gloves">Style</button></div></div><div id="gloveSections"></div><div id="noResults" class="no-results" hidden><div>🥊</div><h3>No gloves found</h3><p>Try a different search or category.</p></div></section>
@@ -38,5 +52,6 @@
 <footer class="wiki-footer"><div><strong>UNTITLED BOXING GAME WIKI</strong><span>Unofficial community project</span></div><a href="index.html">Return Home →</a></footer>
 </main></div>
 <script src="gloves.js"></script><script src="gloves-page.js"></script><script src="unusual-effects.js"></script>
+    <script src="ubg-brand.js"></script>
 </body>
 </html>
