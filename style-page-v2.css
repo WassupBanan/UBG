@@ -1,0 +1,253 @@
+/* UBG STYLE DOSSIER V2 — cleaner individual style pages */
+
+body[data-page="style"] {
+  --v2-red:#e21d2f;
+  --v2-bg:#07090c;
+  --v2-panel:#0d1015;
+  --v2-panel2:#11151b;
+  --v2-line:rgba(255,255,255,.075);
+  --v2-muted:#8d96a3;
+}
+
+@media (min-width:761px){
+  body[data-page="style"] .wiki-main{
+    max-width:none;
+    padding:22px 38px 70px;
+    background:var(--v2-bg);
+  }
+
+  body[data-page="style"] .breadcrumb{
+    max-width:1420px;
+    margin:0 auto 14px;
+    padding:0 4px;
+  }
+
+  body[data-page="style"] .article-container{
+    max-width:1420px;
+    margin:0 auto;
+  }
+
+  body[data-page="style"] .style-page{display:block;}
+
+  /* HERO: less giant, more like an actual game database header */
+  body[data-page="style"] .style-header{
+    min-height:250px;
+    grid-template-columns:minmax(0,1fr) 250px;
+    gap:30px;
+    padding:38px 44px;
+    border:1px solid var(--v2-line);
+    border-top:3px solid var(--v2-red);
+    border-radius:8px;
+    background:
+      linear-gradient(90deg,rgba(226,29,47,.08),transparent 48%),
+      linear-gradient(135deg,#15191f,#090b0f 75%);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+  }
+
+  body[data-page="style"] .style-header::after{
+    content:"STYLE DATABASE";
+    position:absolute;
+    right:36px;
+    bottom:18px;
+    color:rgba(255,255,255,.035);
+    font-size:54px;
+    line-height:1;
+    font-weight:950;
+    letter-spacing:-.05em;
+    pointer-events:none;
+  }
+
+  body[data-page="style"] .style-header h1{
+    font-size:clamp(48px,6vw,78px);
+    line-height:.9;
+    letter-spacing:-.045em;
+  }
+
+  body[data-page="style"] .style-subtitle{
+    margin-top:12px;
+    color:#707987;
+    letter-spacing:.22em;
+  }
+
+  body[data-page="style"] .style-header-actions{
+    align-self:end;
+    justify-content:flex-end;
+    margin:0 0 2px;
+  }
+
+  body[data-page="style"] .article-button{
+    min-height:36px;
+    border-radius:5px;
+  }
+
+  /* Main dossier */
+  body[data-page="style"] .style-layout{
+    grid-template-columns:minmax(0,1fr) 292px;
+    gap:14px;
+    margin-top:14px;
+  }
+
+  body[data-page="style"] .style-content{
+    border-radius:8px;
+    background:#090b0f;
+  }
+
+  /* Lead becomes a proper character/style showcase */
+  body[data-page="style"] .style-lead{
+    grid-template-columns:390px minmax(0,1fr);
+    min-height:300px;
+    background:#0b0e13;
+  }
+
+  body[data-page="style"] .style-lead-image{
+    min-height:300px;
+    padding:24px;
+    border-right:1px solid var(--v2-line);
+    background:
+      radial-gradient(circle at 50% 45%,rgba(226,29,47,.18),transparent 55%),
+      linear-gradient(145deg,#11151b,#07090c);
+  }
+
+  body[data-page="style"] .style-lead-image img{
+    max-width:330px;
+    max-height:270px;
+    filter:drop-shadow(0 22px 28px rgba(0,0,0,.55));
+  }
+
+  body[data-page="style"] .style-lead-text{
+    padding:38px 42px;
+  }
+
+  body[data-page="style"] .style-lead-text::before{
+    content:"STYLE OVERVIEW";
+    display:block;
+    margin-bottom:14px;
+    color:var(--v2-red);
+    font-size:9px;
+    font-weight:950;
+    letter-spacing:.18em;
+  }
+
+  body[data-page="style"] .style-lead-text p{
+    max-width:650px;
+    color:#b7bec8;
+    font-size:15px;
+    line-height:1.75;
+  }
+
+  /* Sections: compact, horizontal wiki rhythm instead of endless cards */
+  body[data-page="style"] .style-content > .wiki-section{
+    padding:27px 34px;
+  }
+
+  body[data-page="style"] .wiki-section h2{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+    padding-left:0;
+    font-size:16px;
+    letter-spacing:.01em;
+  }
+
+  body[data-page="style"] .wiki-section h2::before{
+    position:static;
+    width:3px;
+    height:18px;
+    flex:none;
+  }
+
+  body[data-page="style"] .wiki-section > p{
+    max-width:900px;
+    color:#a6aeba;
+    font-size:13px;
+    line-height:1.7;
+  }
+
+  /* Stats become a clean five-column data strip */
+  body[data-page="style"] .stat-table{gap:6px;}
+  body[data-page="style"] .stat-row{
+    padding:13px 12px;
+    border-radius:5px;
+    background:#0e1116;
+  }
+  body[data-page="style"] .stat-row span{font-size:8px;color:#69727f;}
+  body[data-page="style"] .stat-row strong{font-size:13px;}
+
+  /* Ability panels */
+  body[data-page="style"] .ability-box,
+  body[data-page="style"] .strength-box,
+  body[data-page="style"] .weakness-box,
+  body[data-page="style"] .obtain-box{
+    border-radius:5px;
+    background:#0e1116;
+    box-shadow:none;
+  }
+
+  body[data-page="style"] .ability-name{font-size:17px;}
+
+  /* Moves: media-first, no excessive rounded-card styling */
+  body[data-page="style"] .move-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;}
+  body[data-page="style"] .move-card{border-radius:5px;background:#07090c;}
+  body[data-page="style"] .move-title{padding:9px 11px;font-size:8px;}
+  body[data-page="style"] .move-preview{min-height:145px;}
+
+  /* Side dossier */
+  body[data-page="style"] .style-side{top:78px;gap:10px;}
+  body[data-page="style"] .wiki-infobox,
+  body[data-page="style"] .wiki-side-panel{
+    border-radius:7px;
+    background:#0b0e12;
+  }
+  body[data-page="style"] .infobox-title{
+    padding:13px 14px;
+    font-size:12px;
+    border-left:3px solid var(--v2-red);
+  }
+  body[data-page="style"] .infobox-image{height:165px;background:#080a0d;}
+  body[data-page="style"] .infobox-image img{max-width:190px;max-height:145px;}
+  body[data-page="style"] .infobox-row{padding:10px 14px;}
+
+  /* Strength + weakness side-by-side when space allows */
+  body[data-page="style"] #strengths,
+  body[data-page="style"] #weaknesses{display:inline-block;width:50%;vertical-align:top;}
+
+  body[data-page="style"] .style-pagination{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    padding:20px 34px 30px;
+  }
+
+  body[data-page="style"] .pagination-card{
+    min-height:70px;
+    padding:14px 16px;
+    border:1px solid var(--v2-line);
+    border-radius:5px;
+    background:#0d1015;
+  }
+
+  body[data-page="style"] .pagination-card:hover{border-color:rgba(226,29,47,.45);}
+
+  body[data-page="style"] .style-categories{
+    padding:18px 34px;
+    border-top:1px solid var(--v2-line);
+  }
+
+  body[data-page="style"] .wiki-footer{
+    max-width:1420px;
+    margin:22px auto 0;
+  }
+}
+
+@media (min-width:761px) and (max-width:1150px){
+  body[data-page="style"] .style-header{grid-template-columns:1fr;}
+  body[data-page="style"] .style-header-actions{justify-content:flex-start;}
+  body[data-page="style"] .style-layout{grid-template-columns:1fr;}
+  body[data-page="style"] .style-side{position:static;grid-template-columns:1fr 1fr;}
+  body[data-page="style"] .move-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+@media (max-width:760px){
+  /* V2 deliberately does not redesign mobile; existing mobile CSS remains authoritative. */
+}
