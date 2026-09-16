@@ -1,265 +1,724 @@
 /* =========================================================
-   UBG WIKI — INDIVIDUAL STYLE PAGE POLISH
-   Desktop + mobile article layout
-========================================================= */
+   UBG WIKI — STYLE DOSSIER REDESIGN
+   Individual style pages
+   ========================================================= */
+
+body[data-page="style"] {
+    --style-red: #e21d2f;
+    --style-red-bright: #ff4052;
+    --style-panel: #0d0f13;
+    --style-panel-2: #11141a;
+    --style-line: rgba(255,255,255,.08);
+}
 
 body[data-page="style"] .wiki-main {
     width: 100%;
-    max-width: 1500px;
-    padding: 30px clamp(18px, 3vw, 52px) 56px;
+    max-width: 1580px;
+    padding: 26px clamp(18px, 3vw, 48px) 64px;
+}
+
+body[data-page="style"] .breadcrumb {
+    margin-bottom: 18px;
+    opacity: .8;
 }
 
 body[data-page="style"] .article-container {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
-    gap: 24px;
-    align-items: start;
+    display: block;
 }
 
+/* Hide the old outer article card. The renderer now becomes the page itself. */
 body[data-page="style"] .style-article {
     min-width: 0;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    background: linear-gradient(145deg, #111318, #0c0e11);
-    box-shadow: 0 18px 45px rgba(0,0,0,.18);
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 body[data-page="style"] .article-sidebar {
+    display: none;
+}
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+body[data-page="style"] .style-page {
+    position: relative;
     min-width: 0;
-    position: sticky;
-    top: 86px;
+}
+
+body[data-page="style"] .style-breadcrumb {
+    display: none;
+}
+
+body[data-page="style"] .style-header {
+    position: relative;
+    min-height: 300px;
     display: grid;
-    gap: 14px;
-}
-
-body[data-page="style"] .infobox-container,
-body[data-page="style"] .side-panel {
-    min-width: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
+    align-items: center;
+    gap: 32px;
+    padding: clamp(34px, 5vw, 68px);
     overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: #101216;
+    border: 1px solid var(--style-line);
+    border-radius: 14px;
+    background:
+        radial-gradient(circle at 82% 42%, rgba(226,29,47,.20), transparent 31%),
+        linear-gradient(135deg, #15181e 0%, #0c0e12 58%, #090a0d 100%);
+    box-shadow: 0 24px 70px rgba(0,0,0,.28);
 }
 
-body[data-page="style"] .side-panel-title {
-    padding: 13px 15px;
-    border-bottom: 1px solid var(--border);
-    color: var(--muted);
+body[data-page="style"] .style-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 46px 46px;
+    mask-image: linear-gradient(to right, black, transparent 85%);
+    opacity: .45;
+}
+
+body[data-page="style"] .style-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+body[data-page="style"] .style-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+body[data-page="style"] .rarity-badge,
+body[data-page="style"] .wip-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 0 10px;
+    border: 1px solid rgba(255,255,255,.11);
+    border-radius: 5px;
+    background: rgba(255,255,255,.055);
     font-size: 9px;
     font-weight: 900;
-    letter-spacing: .14em;
+    letter-spacing: .13em;
+    text-transform: uppercase;
 }
 
-body[data-page="style"] .side-panel a {
+body[data-page="style"] .wip-badge {
+    border-color: rgba(226,29,47,.35);
+    color: #ff6978;
+}
+
+body[data-page="style"] .style-header h1 {
+    margin: 0;
+    max-width: 900px;
+    font-size: clamp(48px, 7vw, 92px);
+    line-height: .88;
+    letter-spacing: -.055em;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+body[data-page="style"] .style-subtitle {
+    margin-top: 17px;
+    color: #a7adb8;
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: .28em;
+}
+
+body[data-page="style"] .style-header-actions {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 0;
-    padding: 10px 15px;
-    border-bottom: 1px solid rgba(255,255,255,.035);
-    color: var(--text-soft);
-    font-size: 12px;
-    transition: background .15s ease, color .15s ease;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 25px;
 }
 
-body[data-page="style"] .side-panel a:last-child {
+body[data-page="style"] .article-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 39px;
+    padding: 0 14px;
+    border: 1px solid var(--style-line);
+    border-radius: 6px;
+    background: rgba(255,255,255,.035);
+    color: #d9dde5;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+body[data-page="style"] .article-button:hover {
+    border-color: rgba(255,255,255,.18);
+    background: rgba(255,255,255,.07);
+}
+
+body[data-page="style"] .article-button.primary {
+    border-color: var(--style-red);
+    background: var(--style-red);
+    color: #fff;
+}
+
+body[data-page="style"] .article-button.primary:hover {
+    background: var(--style-red-bright);
+}
+
+/* The first lead image becomes a large visual panel. */
+body[data-page="style"] .style-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 20px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+body[data-page="style"] .style-content {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--style-line);
+    border-radius: 12px;
+    background: #0b0d10;
+}
+
+body[data-page="style"] .style-lead {
+    display: grid;
+    grid-template-columns: minmax(220px, 42%) minmax(0, 1fr);
+    min-height: 250px;
+    border-bottom: 1px solid var(--style-line);
+    background: linear-gradient(120deg, #111419, #0c0e12);
+}
+
+body[data-page="style"] .style-lead-image {
+    min-height: 250px;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    background: radial-gradient(circle, rgba(226,29,47,.13), transparent 67%), #090b0e;
+    border-right: 1px solid var(--style-line);
+}
+
+body[data-page="style"] .style-lead-image img {
+    width: 100%;
+    max-width: 370px;
+    max-height: 250px;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 22px rgba(0,0,0,.4));
+}
+
+body[data-page="style"] .style-lead-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(24px, 4vw, 44px);
+}
+
+body[data-page="style"] .style-lead-text p {
+    margin: 0;
+    color: #b8bec8;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+body[data-page="style"] .style-variant-note {
+    margin-top: 20px !important;
+    padding: 12px 14px;
+    border-left: 2px solid var(--style-red);
+    background: rgba(226,29,47,.055);
+    font-size: 12px !important;
+}
+
+/* ---------------------------------------------------------
+   CONTENT SECTIONS
+   --------------------------------------------------------- */
+
+body[data-page="style"] .style-content > .wiki-section {
+    padding: 30px clamp(22px, 3vw, 40px);
+    border-bottom: 1px solid var(--style-line);
+}
+
+body[data-page="style"] .style-content > .wiki-section:last-of-type {
     border-bottom: 0;
 }
 
-body[data-page="style"] .side-panel a:hover {
-    background: rgba(226,29,47,.07);
-    color: var(--white);
+body[data-page="style"] .wiki-section h2 {
+    position: relative;
+    margin: 0 0 18px;
+    padding-left: 14px;
+    font-size: 18px;
+    font-weight: 950;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
 }
 
-body[data-page="style"] .side-panel a span {
-    width: 25px;
-    height: 22px;
+body[data-page="style"] .wiki-section h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    bottom: 2px;
+    width: 3px;
+    border-radius: 2px;
+    background: var(--style-red);
+}
+
+body[data-page="style"] .wiki-section > p {
+    color: #aeb5c0;
+    line-height: 1.75;
+}
+
+/* Stats become a compact dashboard rather than a plain list. */
+body[data-page="style"] .stat-table {
     display: grid;
-    place-items: center;
-    flex: 0 0 25px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    color: var(--red-bright);
-    font-family: Arial, sans-serif !important;
-    font-size: 9px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+}
+
+body[data-page="style"] .stat-row {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px 14px;
+    border: 1px solid var(--style-line);
+    border-radius: 7px;
+    background: linear-gradient(145deg, #11141a, #0d0f13);
+}
+
+body[data-page="style"] .stat-row span {
+    color: #727987;
+    font-size: 8px;
     font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
 }
 
-/* Dynamic article content: keep hero/header areas compact and readable. */
-body[data-page="style"] .style-article img {
-    max-width: 100%;
-    height: auto;
-}
-
-body[data-page="style"] .style-article h1,
-body[data-page="style"] .style-article h2,
-body[data-page="style"] .style-article h3,
-body[data-page="style"] .style-article p {
+body[data-page="style"] .stat-row strong {
+    color: #f2f4f7;
+    font-size: 14px;
     overflow-wrap: anywhere;
 }
 
-body[data-page="style"] .style-article table {
-    width: 100%;
-    border-collapse: collapse;
+/* Abilities / strengths / weaknesses get distinct visual weight. */
+body[data-page="style"] .ability-box,
+body[data-page="style"] .strength-box,
+body[data-page="style"] .weakness-box,
+body[data-page="style"] .obtain-box {
+    padding: 18px 20px;
+    border: 1px solid var(--style-line);
+    border-radius: 8px;
+    background: linear-gradient(145deg, #12151a, #0d0f13);
 }
 
-body[data-page="style"] .style-article pre,
-body[data-page="style"] .style-article code {
-    max-width: 100%;
-    overflow-x: auto;
+body[data-page="style"] .ability-name {
+    color: #f5f6f8;
+    font-size: 18px;
+    font-weight: 950;
+    text-transform: uppercase;
 }
 
-/* Common dynamic blocks used by the style renderer. */
-body[data-page="style"] .style-hero,
-body[data-page="style"] .style-header,
-body[data-page="style"] .style-overview,
-body[data-page="style"] .style-section {
-    min-width: 0;
+body[data-page="style"] .ability-box p,
+body[data-page="style"] .strength-box p,
+body[data-page="style"] .weakness-box p {
+    margin: 8px 0 0;
+    color: #9ea6b2;
+    line-height: 1.65;
 }
 
-body[data-page="style"] .style-hero,
-body[data-page="style"] .style-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(180px, 320px);
-    gap: 24px;
-    align-items: center;
-    padding: clamp(22px, 3vw, 38px);
-    border-bottom: 1px solid var(--border);
+body[data-page="style"] .ultimate-box {
+    border-color: rgba(226,29,47,.32);
+    background: linear-gradient(145deg, rgba(226,29,47,.10), #0d0f13 60%);
 }
 
-body[data-page="style"] .style-hero img,
-body[data-page="style"] .style-header img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    margin-inline: auto;
+body[data-page="style"] .ultimate-meter {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid var(--style-line);
+    color: #777f8d;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
 }
 
-body[data-page="style"] .style-article section,
-body[data-page="style"] .style-article .style-section,
-body[data-page="style"] .style-article .style-overview {
-    padding: clamp(20px, 3vw, 34px);
-    border-bottom: 1px solid rgba(255,255,255,.045);
+body[data-page="style"] .ultimate-meter strong {
+    color: #ff6573;
 }
 
-body[data-page="style"] .style-article section:last-child,
-body[data-page="style"] .style-article .style-section:last-child {
-    border-bottom: 0;
+body[data-page="style"] .strength-box {
+    border-left: 3px solid #4caf70;
 }
 
-body[data-page="style"] .style-article .stat-grid,
-body[data-page="style"] .style-article .stats-grid,
-body[data-page="style"] .style-article .move-grid,
-body[data-page="style"] .style-article .moves-grid {
+body[data-page="style"] .weakness-box {
+    border-left: 3px solid var(--style-red);
+}
+
+body[data-page="style"] .obtain-box {
+    color: #d4d8df;
+    font-weight: 700;
+}
+
+/* Move cards become media tiles. */
+body[data-page="style"] .move-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
 }
 
-body[data-page="style"] .style-article .stat-card,
-body[data-page="style"] .style-article .move-card {
+body[data-page="style"] .move-card {
     min-width: 0;
-    padding: 14px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    background: rgba(255,255,255,.018);
+    overflow: hidden;
+    border: 1px solid var(--style-line);
+    border-radius: 8px;
+    background: #0a0c0f;
 }
 
-body[data-page="style"] .style-article .gallery,
-body[data-page="style"] .style-article .gallery-grid {
+body[data-page="style"] .move-title {
+    padding: 11px 13px;
+    border-bottom: 1px solid var(--style-line);
+    color: #b9bec7;
+    font-size: 9px;
+    font-weight: 950;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+body[data-page="style"] .move-preview {
+    min-height: 155px;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    place-items: center;
+    padding: 8px;
+    background: #07090c;
+}
+
+body[data-page="style"] .move-preview img {
+    display: block;
+    width: 100%;
+    max-height: 210px;
+    object-fit: contain;
+}
+
+body[data-page="style"] .missing-data {
+    margin: 0;
+    padding: 16px;
+    border: 1px dashed rgba(255,255,255,.12);
+    border-radius: 7px;
+    color: #737b88;
+    font-size: 12px;
+}
+
+/* Gallery */
+body[data-page="style"] .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
 }
 
-body[data-page="style"] .style-article .gallery img,
-body[data-page="style"] .style-article .gallery-grid img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: contain;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    background: #090a0d;
+body[data-page="style"] .gallery-item {
+    overflow: hidden;
+    border: 1px solid var(--style-line);
+    border-radius: 8px;
+    background: #07090c;
 }
 
-/* Prevent long move names/stat values from wrecking the grid. */
-body[data-page="style"] .style-article .stat-card > *,
-body[data-page="style"] .style-article .move-card > * {
+body[data-page="style"] .gallery-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
+/* WIP notice */
+body[data-page="style"] .wip-notice {
+    margin: 18px 22px 0;
+    padding: 15px 17px;
+    border: 1px solid rgba(226,29,47,.28);
+    border-radius: 8px;
+    background: rgba(226,29,47,.06);
+}
+
+body[data-page="style"] .wip-notice strong {
+    color: #ff6877;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+body[data-page="style"] .wip-notice p {
+    margin: 7px 0 0;
+    color: #9da4af;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   RIGHT DOSSIER SIDEBAR
+   --------------------------------------------------------- */
+
+body[data-page="style"] .style-side {
+    position: sticky;
+    top: 84px;
     min-width: 0;
+    display: grid;
+    gap: 12px;
+}
+
+body[data-page="style"] .wiki-infobox,
+body[data-page="style"] .wiki-side-panel {
+    overflow: hidden;
+    border: 1px solid var(--style-line);
+    border-radius: 10px;
+    background: #0c0f13;
+}
+
+body[data-page="style"] .infobox-title {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--style-line);
+    font-size: 13px;
+    font-weight: 950;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+body[data-page="style"] .infobox-image {
+    height: 190px;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    background: radial-gradient(circle, rgba(226,29,47,.13), transparent 68%), #080a0d;
+    border-bottom: 1px solid var(--style-line);
+}
+
+body[data-page="style"] .infobox-image img {
     max-width: 100%;
+    max-height: 155px;
+    object-fit: contain;
+}
+
+body[data-page="style"] .infobox-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255,255,255,.035);
+}
+
+body[data-page="style"] .infobox-row:last-child {
+    border-bottom: 0;
+}
+
+body[data-page="style"] .infobox-row span {
+    color: #6f7785;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+body[data-page="style"] .infobox-row strong,
+body[data-page="style"] .infobox-row a {
+    max-width: 160px;
+    color: #dfe2e8;
+    font-size: 10px;
+    font-weight: 900;
+    text-align: right;
     overflow-wrap: anywhere;
 }
 
-@media (max-width: 1050px) {
-    body[data-page="style"] .article-container {
-        grid-template-columns: minmax(0, 1fr) 260px;
-        gap: 16px;
+body[data-page="style"] .wiki-side-panel .side-panel-title {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--style-line);
+    color: #727a87;
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: .15em;
+}
+
+body[data-page="style"] .wiki-side-panel a {
+    display: block;
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255,255,255,.035);
+    color: #9fa6b1;
+    font-size: 10px;
+}
+
+body[data-page="style"] .wiki-side-panel a:last-child {
+    border-bottom: 0;
+}
+
+body[data-page="style"] .wiki-side-panel a:hover {
+    padding-left: 17px;
+    background: rgba(226,29,47,.055);
+    color: #fff;
+}
+
+/* Categories and previous/next */
+body[data-page="style"] .style-categories,
+body[data-page="style"] .style-pagination {
+    margin: 18px 0 0;
+}
+
+body[data-page="style"] .style-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--style-line);
+    color: #6e7683;
+    font-size: 10px;
+}
+
+body[data-page="style"] .style-categories a {
+    padding: 5px 8px;
+    border: 1px solid var(--style-line);
+    border-radius: 4px;
+    color: #aeb4bf;
+}
+
+body[data-page="style"] .style-pagination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+body[data-page="style"] .pagination-card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 16px 18px;
+    border: 1px solid var(--style-line);
+    border-radius: 8px;
+    background: #0d1014;
+}
+
+body[data-page="style"] .pagination-card:hover {
+    border-color: rgba(226,29,47,.35);
+    background: #111318;
+}
+
+body[data-page="style"] .pagination-card span {
+    color: #707886;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+body[data-page="style"] .pagination-card strong {
+    color: #e5e7eb;
+    font-size: 13px;
+}
+
+body[data-page="style"] .pagination-card.next {
+    text-align: right;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+    body[data-page="style"] .style-layout {
+        grid-template-columns: minmax(0, 1fr) 280px;
     }
 
-    body[data-page="style"] .style-hero,
     body[data-page="style"] .style-header {
-        grid-template-columns: minmax(0, 1fr) 210px;
+        grid-template-columns: minmax(0, 1fr) 300px;
+    }
+
+    body[data-page="style"] .stat-table {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+    body[data-page="style"] .style-header {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    body[data-page="style"] .style-layout {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="style"] .style-side {
+        position: static;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-page="style"] .wiki-infobox {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 680px) {
     body[data-page="style"] .wiki-main {
-        padding: 22px 16px 42px;
+        padding: 16px 12px 42px;
     }
 
-    body[data-page="style"] .article-container {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+    body[data-page="style"] .style-header {
+        padding: 28px 22px;
+        border-radius: 10px;
     }
 
-    body[data-page="style"] .style-article,
-    body[data-page="style"] .article-sidebar {
+    body[data-page="style"] .style-header h1 {
+        font-size: clamp(42px, 15vw, 64px);
+    }
+
+    body[data-page="style"] .style-lead {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="style"] .style-lead-image {
+        min-height: 190px;
+        border-right: 0;
+        border-bottom: 1px solid var(--style-line);
+    }
+
+    body[data-page="style"] .style-content > .wiki-section {
+        padding: 24px 18px;
+    }
+
+    body[data-page="style"] .stat-table {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-page="style"] .move-grid,
+    body[data-page="style"] .gallery-grid,
+    body[data-page="style"] .style-pagination {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="style"] .style-side {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="style"] .wiki-infobox {
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 430px) {
+    body[data-page="style"] .style-header-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="style"] .article-button {
         width: 100%;
     }
 
-    body[data-page="style"] .article-sidebar {
-        position: static;
-        order: 2;
+    body[data-page="style"] .stat-table {
+        grid-template-columns: 1fr 1fr;
     }
 
-    body[data-page="style"] .style-hero,
-    body[data-page="style"] .style-header {
-        grid-template-columns: 1fr;
-        text-align: left;
-    }
-
-    body[data-page="style"] .style-hero img,
-    body[data-page="style"] .style-header img {
-        max-height: 240px;
-        order: -1;
-    }
-
-    body[data-page="style"] .style-article .stat-grid,
-    body[data-page="style"] .style-article .stats-grid,
-    body[data-page="style"] .style-article .move-grid,
-    body[data-page="style"] .style-article .moves-grid,
-    body[data-page="style"] .style-article .gallery,
-    body[data-page="style"] .style-article .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    body[data-page="style"] .wiki-main {
-        padding-inline: 12px;
-    }
-
-    body[data-page="style"] .style-article section,
-    body[data-page="style"] .style-article .style-section,
-    body[data-page="style"] .style-article .style-overview,
-    body[data-page="style"] .style-hero,
-    body[data-page="style"] .style-header {
-        padding: 18px;
-    }
-
-    body[data-page="style"] .side-panel a {
-        padding: 9px 12px;
+    body[data-page="style"] .style-subtitle {
+        letter-spacing: .17em;
     }
 }
