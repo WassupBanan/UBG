@@ -71,6 +71,21 @@ jobs:
               </div>''',
           }
 
+          canonical_topbar = '''<header class="topbar">
+              <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+              <a href="index.html" class="wiki-brand" aria-label="Untitled Boxing Game Wiki home">
+                  <span class="brand-mark"><img class="brand-icon" src="https://i.ytimg.com/vi/clviPNGycOk/maxresdefault.jpg" alt="Untitled Boxing Game"></span>
+                  <span class="brand-text"><strong>UNTITLED BOXING</strong><small>FAN WIKI</small></span>
+              </a>
+              <div class="global-search">
+                  <span class="search-icon">⌕</span>
+                  <input type="text" id="globalSearch" placeholder="Search the UBG Wiki..." autocomplete="off">
+                  <kbd>CTRL K</kbd>
+                  <div id="searchResults" class="search-results"></div>
+              </div>
+              <a class="play-button" href="https://www.roblox.com/games/13621938427/untitled-boxing-game" target="_blank" rel="noopener noreferrer">PLAY UBG <span>↗</span></a>
+          </header>'''
+
           def active_target(name):
               if name in {'index.html'}:
                   return 'home'
@@ -116,6 +131,16 @@ jobs:
                   )
 
               target = active_target(path.name)
+
+              if target:
+                  text = re.sub(
+                      r'<body\b([^>]*)>',
+                      lambda m: re.sub(r'\sdata-page=["\'][^"\']*["\']', '', m.group(0)[:-1])[:-1] + f' data-page="{target}">',
+                      text,
+                      count=1,
+                      flags=re.I,
+                  )
+
               sidebar_parts = [nav]
               if target in contextual_sections:
                   sidebar_parts.append(contextual_sections[target])
@@ -133,6 +158,15 @@ jobs:
               text, count = re.subn(
                   r'<aside\b[^>]*class=["\']sidebar["\'][^>]*>.*?</aside>',
                   sidebar,
+                  text,
+                  count=1,
+                  flags=re.S | re.I,
+              )
+
+              # Replace every legacy topbar with the same canonical UBG shell.
+              text, topbar_count = re.subn(
+                  r'<header\b[^>]*class=["\']topbar["\'][^>]*>.*?</header>',
+                  canonical_topbar,
                   text,
                   count=1,
                   flags=re.S | re.I,
@@ -168,5 +202,5 @@ jobs:
             echo "No page changes to commit."
             exit 0
           fi
-          git commit -m "Standardize page-specific sidebar navigation"
+          git commit -m "Unify UBG topbar and navigation shell"
           git push
