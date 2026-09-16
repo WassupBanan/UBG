@@ -263,6 +263,109 @@ body[data-page="ranked"] .league-icon {
     font-variant-numeric: lining-nums tabular-nums !important;
 }
 
+/* =========================================================
+   LEGACY SIDEBAR COMPATIBILITY
+   Mechanics and Gloves used older sidebar markup. Keep their
+   navigation visually aligned with the homepage sidebar.
+========================================================= */
+
+/* Mechanics legacy sidebar */
+body:not([data-page="home"]) .sidebar-logo {
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+body[data-page="mechanics"] .sidebar-logo {
+    display: none !important;
+}
+
+body[data-page="mechanics"] .sidebar-nav {
+    padding: 24px 13px 0 !important;
+}
+
+body[data-page="mechanics"] .sidebar-nav .nav-heading {
+    margin: 0 10px 9px !important;
+}
+
+body[data-page="mechanics"] .sidebar-nav .nav-link {
+    min-height: 38px !important;
+    margin-bottom: 2px !important;
+    padding: 0 10px !important;
+    gap: 11px !important;
+    border-radius: 5px !important;
+}
+
+body[data-page="mechanics"] .sidebar-nav .nav-link span {
+    width: 18px !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    color: var(--site-muted-2) !important;
+}
+
+body[data-page="mechanics"] .sidebar-bottom {
+    padding: 18px 18px 22px !important;
+}
+
+/* Gloves/collection legacy sidebar */
+body[data-page="gloves"] .sidebar-nav {
+    padding: 24px 13px 0 !important;
+}
+
+body[data-page="gloves"] .sidebar-nav .nav-label {
+    margin: 0 10px 9px !important;
+    color: var(--site-muted-2) !important;
+    font-size: 9px !important;
+    font-weight: 900 !important;
+    letter-spacing: .16em !important;
+    text-transform: uppercase !important;
+}
+
+body[data-page="gloves"] .sidebar-nav > a {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 38px !important;
+    margin-bottom: 2px !important;
+    padding: 0 10px 0 39px !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    color: #aeb0b7 !important;
+    font-family: inherit !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+body[data-page="gloves"] .sidebar-nav > a:hover {
+    background: rgba(255,255,255,.035) !important;
+    color: white !important;
+}
+
+body[data-page="gloves"] .sidebar-nav > a.active {
+    background: linear-gradient(90deg, rgba(226,29,47,.16), rgba(226,29,47,.035)) !important;
+    color: white !important;
+}
+
+body[data-page="gloves"] .sidebar-nav > a.active::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 7px !important;
+    bottom: 7px !important;
+    width: 2px !important;
+    background: var(--site-red-bright) !important;
+    box-shadow: 0 0 10px rgba(255,51,71,.6) !important;
+}
+
+body[data-page="gloves"] .sidebar-footer {
+    margin-top: auto !important;
+    padding: 18px !important;
+    border-top: 1px solid var(--site-border) !important;
+    color: var(--site-muted) !important;
+}
+
 @media (max-width: 700px) {
     .sidebar {
         width: 245px !important;
