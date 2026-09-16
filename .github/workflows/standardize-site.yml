@@ -95,34 +95,22 @@ jobs:
           </header>'''
 
           def active_target(name):
-              if name == 'index.html':
-                  return 'home'
-              if name == 'styles.html':
-                  return 'styles'
-              if name == 'style.html':
-                  return 'style'
-              if name.startswith('style-'):
-                  return 'styles'
-              if name in {'mechanics.html', 'mechanic.html'} or name.startswith('mechanic-'):
-                  return 'mechanics'
-              if name == 'ranked.html':
-                  return 'ranked'
-              if name == 'guides.html' or name.startswith('guide-'):
-                  return 'guides'
-              if name in {'glove.html'} or name.startswith('glove-'):
-                  return 'collection'
+              if name == 'index.html': return 'home'
+              if name == 'styles.html': return 'styles'
+              if name == 'style.html': return 'style'
+              if name.startswith('style-'): return 'styles'
+              if name in {'mechanics.html', 'mechanic.html'} or name.startswith('mechanic-'): return 'mechanics'
+              if name == 'ranked.html': return 'ranked'
+              if name == 'guides.html' or name.startswith('guide-'): return 'guides'
+              if name in {'glove.html'} or name.startswith('glove-'): return 'collection'
               return None
 
           for path in sorted(Path('.').glob('*.html')):
-              if path.name in skip:
-                  continue
-
+              if path.name in skip: continue
               text = path.read_text(encoding='utf-8')
               original = text
               marker = '</head>'
-
-              if marker not in text:
-                  continue
+              if marker not in text: continue
 
               text = re.sub(r'<bod(?=\s|>)', '<body', text, count=1, flags=re.I)
 
@@ -130,55 +118,31 @@ jobs:
                   text = text.replace(marker, '    <link rel="stylesheet" href="site-standard.css">\n' + marker, 1)
 
               extra = page_styles.get(path.name)
-              if path.name.startswith('guide-'):
-                  extra = 'guide-page-polish.css'
-
+              if path.name.startswith('guide-'): extra = 'guide-page-polish.css'
               if extra and extra not in text:
                   text = text.replace(marker, f'    <link rel="stylesheet" href="{extra}">\n' + marker, 1)
 
               target = active_target(path.name)
-
               if target:
                   def normalize_body(match):
-                      attrs = match.group(1)
-                      attrs = re.sub(r'\sdata-page=["\'][^"\']*["\']', '', attrs, flags=re.I)
+                      attrs = re.sub(r'\sdata-page=["\'][^"\']*["\']', '', match.group(1), flags=re.I)
                       return '<body' + attrs + f' data-page="{target}">'
                   text = re.sub(r'<body\b([^>]*)>', normalize_body, text, count=1, flags=re.I)
 
               sidebar_parts = [nav]
-              if target in contextual_sections:
-                  sidebar_parts.append(contextual_sections[target])
-
-              sidebar_parts.append('''<div class="sidebar-bottom"><div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div><div class="sidebar-version">UBG Wiki Redesign</div>''')
-              sidebar_parts[-1] += '</div>'
+              if target in contextual_sections: sidebar_parts.append(contextual_sections[target])
+              sidebar_parts.append('''<div class="sidebar-bottom"><div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div><div class="sidebar-version">UBG Wiki Redesign</div></div>''')
               sidebar = '<aside class="sidebar" id="sidebar">\n              ' + '\n              '.join(sidebar_parts) + '\n          </aside>'
 
-              if target:
-                  sidebar = sidebar.replace(
-                      f'data-nav="{target}" class="sidebar-link"',
-                      f'data-nav="{target}" class="sidebar-link active"',
-                      1,
-                  )
+              nav_target = 'styles' if target == 'style' else target
+              if nav_target:
+                  sidebar = sidebar.replace(f'data-nav="{nav_target}" class="sidebar-link"', f'data-nav="{nav_target}" class="sidebar-link active"', 1)
 
-              text, _ = re.subn(
-                  r'<aside\b[^>]*class=["\']sidebar["\'][^>]*>.*?</aside>',
-                  sidebar,
-                  text,
-                  count=1,
-                  flags=re.S | re.I,
-              )
-
-              text, _ = re.subn(
-                  r'<header\b[^>]*class=["\']topbar["\'][^>]*>.*?</header>',
-                  canonical_topbar,
-                  text,
-                  count=1,
-                  flags=re.S | re.I,
-              )
+              text, _ = re.subn(r'<aside\b[^>]*class=["\']sidebar["\'][^>]*>.*?</aside>', sidebar, text, count=1, flags=re.S | re.I)
+              text, _ = re.subn(r'<header\b[^>]*class=["\']topbar["\'][^>]*>.*?</header>', canonical_topbar, text, count=1, flags=re.S | re.I)
 
               if 'class="wiki-brand"' in text and 'brand-fix.css' not in text:
                   text = text.replace(marker, '    <link rel="stylesheet" href="brand-fix.css">\n' + marker, 1)
-
               if 'class="wiki-brand"' in text and 'ubg-brand.js' not in text:
                   text = text.replace('</body>', '    <script src="ubg-brand.js"></script>\n</body>', 1)
 
