@@ -90,6 +90,9 @@ jobs:
                   )
 
               extra = page_styles.get(path.name)
+              if path.name.startswith('guide-'):
+                  extra = 'guide-page-polish.css'
+
               if extra and extra not in text:
                   text = text.replace(
                       marker,
