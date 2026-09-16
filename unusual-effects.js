@@ -1,7 +1,6 @@
 "use strict";
 
-/* UBG unusual-effect showcase gallery.
-   The GIFs are archived showcase placeholders, matching the source wiki's presentation. */
+/* UBG unusual-effect showcase gallery. */
 
 const UBG_UNUSUAL_EFFECTS = [
     {
@@ -72,7 +71,7 @@ const UBG_UNUSUAL_EFFECTS = [
     },
     {
         title: "Christmas 2023 (Holly Jolly)",
-        note: "Frostbite and Santa's Rage were reran. No showcase GIFs are currently available for Arctic, Firecracker, or Merry.",
+        note: "Frostbite and Santa's Rage were reran. Some effects do not currently have showcase GIFs.",
         items: [
             ["Frostbite", "assets/gloves/unusual/175px-Unusual_HJolly_-_Frostbite.gif"],
             ["Grinch", "assets/gloves/unusual/175px-Unusual_HJolly_-_Grinch.gif"],
@@ -83,7 +82,7 @@ const UBG_UNUSUAL_EFFECTS = [
     },
     {
         title: "Halloween 2024",
-        note: "The Possessed effect was reran for the Halloween 2024 crate after winning a community poll.",
+        note: "The Possessed effect was reran for the Halloween 2024 crate.",
         items: [
             ["Dusk", "assets/gloves/unusual/175px-Unusual_HW2024_-_Dusk.gif"],
             ["Ecto", "assets/gloves/unusual/175px-Unusual_HW2024_-_Ecto.gif"],
@@ -117,7 +116,7 @@ const UBG_UNUSUAL_EFFECTS = [
     }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
+function renderUnusualEffects() {
     const root = document.getElementById("unusualEffectsGallery");
     if (!root) return;
 
@@ -132,15 +131,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const cards = section.items.length
             ? `<div class="unusual-effect-grid">${section.items.map(([name, src]) => `
                 <figure class="unusual-effect-card">
-                    <div class="unusual-effect-media"><img src="${escapeHTML(src)}" alt="${escapeHTML(name)} unusual effect" loading="lazy" decoding="async"></div>
+                    <div class="unusual-effect-media">
+                        <img src="${escapeHTML(src)}" alt="${escapeHTML(name)} unusual effect" loading="lazy" decoding="async">
+                    </div>
                     <figcaption>${escapeHTML(name)}</figcaption>
                 </figure>`).join("")}</div>`
             : `<div class="unusual-empty">No showcase GIFs currently available.</div>`;
 
         return `<section class="unusual-effect-group">
-            <div class="unusual-group-heading"><h3>${escapeHTML(section.title)}</h3><span>${section.items.length ? `${section.items.length} SHOWCASES` : "NO GIFS"}</span></div>
+            <div class="unusual-group-heading">
+                <h3>${escapeHTML(section.title)}</h3>
+                <span>${section.items.length ? `${section.items.length} SHOWCASES` : "NO GIFS"}</span>
+            </div>
             <p class="unusual-group-note">${escapeHTML(section.note)}</p>
             ${cards}
         </section>`;
     }).join("");
-});
+}
+
+/* Works whether this file is loaded before or after DOMContentLoaded. */
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderUnusualEffects, { once: true });
+} else {
+    renderUnusualEffects();
+}
