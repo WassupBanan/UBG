@@ -112,6 +112,9 @@ jobs:
               if marker not in text:
                   continue
 
+              # Repair malformed body tags from older generated pages before normalising them.
+              text = re.sub(r'<bod(?=\s|>)', '<body', text, count=1, flags=re.I)
+
               if 'site-standard.css' not in text:
                   text = text.replace(marker, '    <link rel="stylesheet" href="site-standard.css">\n' + marker, 1)
 
