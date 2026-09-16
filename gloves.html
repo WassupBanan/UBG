@@ -12,19 +12,29 @@
 <link rel="stylesheet" href="unusual-effects.css">
 <link rel="stylesheet" href="brand-fix.css">
 </head>
-<body data-page="collection">
+<body data-page="gloves">
 <div class="site-shell">
 <aside class="sidebar" id="sidebar">
-              <div class="sidebar-section"><div class="sidebar-heading">NAVIGATION</div>
-        <a href="index.html" data-nav="home" class="sidebar-link"><span>⌂</span>Home</a>
-        <a href="styles.html" data-nav="styles" class="sidebar-link"><span>◈</span>Styles</a>
-        <a href="mechanics.html" data-nav="mechanics" class="sidebar-link"><span>⚙</span>Mechanics</a>
-        <a href="ranked.html" data-nav="ranked" class="sidebar-link"><span>♛</span>Ranked</a>
-        <a href="guides.html" data-nav="guides" class="sidebar-link"><span>▤</span>Guides</a>
-        <a href="collection.html" data-nav="collection" class="sidebar-link active"><span>◇</span>Collection</a>
-    </div>
-              <div class="sidebar-bottom"><div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div><div class="sidebar-version">UBG Wiki Redesign</div></div>
-          </aside>
+  <div class="sidebar-section">
+    <div class="sidebar-heading">NAVIGATION</div>
+    <a href="index.html" data-nav="home" class="sidebar-link"><span>⌂</span>Home</a>
+    <a href="styles.html" data-nav="styles" class="sidebar-link"><span>◈</span>Styles</a>
+    <a href="mechanics.html" data-nav="mechanics" class="sidebar-link"><span>⚙</span>Mechanics</a>
+    <a href="ranked.html" data-nav="ranked" class="sidebar-link"><span>♛</span>Ranked</a>
+    <a href="guides.html" data-nav="guides" class="sidebar-link"><span>▤</span>Guides</a>
+    <a href="collection.html" data-nav="collection" class="sidebar-link active"><span>◇</span>Collection</a>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-heading">COLLECTION</div>
+    <a href="gloves.html#gloves-overview" class="sidebar-sub">Overview</a>
+    <a href="gloves.html#glove-browser" class="sidebar-sub">Glove Collection</a>
+    <a href="gloves.html#unusual-effects" class="sidebar-sub">Unusual Effects</a>
+  </div>
+  <div class="sidebar-bottom">
+    <div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div>
+    <div class="sidebar-version">UBG Wiki Redesign</div>
+  </div>
+</aside>
 <main class="main-content">
 <header class="topbar">
     <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
@@ -43,9 +53,14 @@
 <section class="gloves-hero"><div class="hero-eyebrow">COLLECTION</div><h1>GLOVES</h1><p>The cosmetic collection of Untitled Boxing Game. Collect rare gloves, event exclusives and unusual effects.</p><div class="hero-facts"><div><strong>Cosmetic</strong><span>No gameplay effects</span></div><div><strong>4</strong><span>Core rarities</span></div><div><strong>~1%</strong><span>Unusual chance</span></div></div></section>
 <section class="gloves-overview" id="gloves-overview"><div class="section-heading"><div><span class="section-kicker">ABOUT</span><h2>Gloves</h2></div></div><div class="overview-grid"><div class="overview-main"><p>Gloves are the main cosmetic items in UBG. They can be obtained through crates in the shop, Ranked rewards, trading and limited-time events.</p><p>Gloves are <strong>purely cosmetic</strong> and have no impact on gameplay statistics.</p><p>Gloves come in four main rarities: <strong>Uncommon, Rare, Mythic and Legendary.</strong> Gloves obtained from crates can also have a rare <strong>Unusual</strong> effect.</p></div><div class="overview-card"><div class="overview-card-title">CRATE SYSTEM</div><div class="overview-stat"><span>Standard crate</span><strong>$3,000</strong></div><div class="overview-stat"><span>Gloves per crate</span><strong>10</strong></div><div class="overview-stat"><span>Unusual chance</span><strong>~1%</strong></div><div class="overview-stat"><span>Shop rotation</span><strong>6 hours</strong></div></div></div></section>
 <section class="glove-browser" id="glove-browser"><div class="browser-header"><div><span class="section-kicker">DATABASE</span><h2>Glove Collection</h2></div><span id="gloveCount" class="glove-count">0 gloves</span></div><div class="glove-controls"><div class="glove-search"><span>⌕</span><input type="text" id="gloveSearch" placeholder="Search gloves..." autocomplete="off"></div><div class="glove-filters"><button class="filter-button active" data-filter="all">All</button><button class="filter-button" data-filter="Standard Crates">Standard</button><button class="filter-button" data-filter="Holiday Crates">Holiday</button><button class="filter-button" data-filter="Ranked Gloves">Ranked</button><button class="filter-button" data-filter="Event Gloves">Events</button><button class="filter-button" data-filter="Original / Beta">Beta</button><button class="filter-button" data-filter="Style Gloves">Style</button></div></div><div id="gloveSections"></div><div id="noResults" class="no-results" hidden><div>🥊</div><h3>No gloves found</h3><p>Try a different search or category.</p></div></section>
-<section class="unusual-section unusual-effects-wrap" id="unusual-effects"><div class="section-heading"><div><span class="section-kicker">SPECIAL COSMETICS</span><h2>Unusual Effects</h2></div></section>
-<section class="unusual-section unusual-effects-wrap" id="unusual-effects"><div class="section-heading"><div><span class="section-kicker">SPECIAL COSMETICS</span><h2>Unusual Effects</h2></div></section>
-<section class="unusual-section unusual-effects-wrap" id="unusual-effects"><div class="section-heading"><div><span class="section-kicker">SPECIAL COSMETICS</span><h2>Unusual Effects</h2></div><p class="unusual-intro"><strong>Unusual effects</strong> are special cosmetic effects that can appear on gloves obtained from crates. Each crate has five possible effects, and unusual gloves also gain unique punching VFX.</p><p class="unusual-disclaimer"><strong>DISCLAIMER:</strong> The showcase GIFs in this section are archived effect demonstrations. The glove/effect combinations shown are generally placeholders and do not necessarily exist as obtainable combinations in the actual game, except where noted.</p><div id="unusualEffectsGallery"></div></section>
+<section class="unusual-section unusual-effects-wrap" id="unusual-effects">
+  <div class="section-heading">
+    <div><span class="section-kicker">SPECIAL COSMETICS</span><h2>Unusual Effects</h2></div>
+  </div>
+  <p class="unusual-intro"><strong>Unusual effects</strong> are special cosmetic effects that can appear on gloves obtained from crates. Each crate has five possible effects, and unusual gloves also gain unique punching VFX.</p>
+  <p class="unusual-disclaimer"><strong>DISCLAIMER:</strong> The showcase GIFs in this section are archived effect demonstrations. The glove/effect combinations shown are generally placeholders and do not necessarily exist as obtainable combinations in the actual game, except where noted.</p>
+  <div id="unusualEffectsGallery"></div>
+</section>
 <footer class="wiki-footer"><div><strong>UNTITLED BOXING GAME WIKI</strong><span>Unofficial community project</span></div><a href="index.html">Return Home →</a></footer>
 </main></div>
 <script src="gloves.js"></script><script src="gloves-page.js"></script><script src="unusual-effects.js"></script><script src="ubg-brand.js"></script>
