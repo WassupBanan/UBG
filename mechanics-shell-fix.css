@@ -1,12 +1,93 @@
-/* Final shell compatibility for the legacy Mechanics page. */
+/* Final shell compatibility for the Mechanics page. */
 .mechanics-page,
-.content-wrapper { min-width: 0; }
-.mechanics-page .mechanic-grid { min-width: 0; }
-.mechanics-page .mechanic-card { min-width: 0; }
+.content-wrapper {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.mechanics-page .mechanic-grid,
+.mechanics-page .mechanic-card {
+    min-width: 0 !important;
+}
+
 .mechanics-page .mechanic-card h3,
-.mechanics-page .mechanic-card p { overflow-wrap: anywhere; }
+.mechanics-page .mechanic-card p {
+    overflow-wrap: anywhere;
+}
+
+/* The canonical UBG topbar is used here too. Prevent legacy mechanics rules
+   from squeezing, overflowing, or visually shifting the header. */
+body[data-page="mechanics"] .main-area {
+    width: calc(100% - 245px) !important;
+    margin-left: 245px !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+body[data-page="mechanics"] .main-area .topbar {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+}
+
+body[data-page="mechanics"] .main-area .wiki-brand {
+    flex: 0 1 250px !important;
+    width: 250px !important;
+    min-width: 190px !important;
+    box-sizing: border-box !important;
+}
+
+body[data-page="mechanics"] .main-area .global-search {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+body[data-page="mechanics"] .main-area .global-search input {
+    min-width: 0 !important;
+}
+
+body[data-page="mechanics"] .main-area .play-button {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+}
+
+body[data-page="mechanics"] .content-wrapper {
+    width: 100% !important;
+    max-width: 1500px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
 @media (max-width: 700px) {
-  .mechanics-page .page-header h1 { font-size: clamp(34px, 11vw, 54px); }
-  .mechanics-page .mechanic-grid { grid-template-columns: 1fr !important; }
-  .mechanics-page .mechanic-card { width: 100%; }
+    body[data-page="mechanics"] .main-area {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    body[data-page="mechanics"] .main-area .topbar {
+        gap: 10px !important;
+        padding: 0 14px !important;
+    }
+
+    body[data-page="mechanics"] .main-area .wiki-brand {
+        min-width: 0 !important;
+        width: auto !important;
+        flex: 1 1 auto !important;
+    }
+
+    .mechanics-page .page-header h1 {
+        font-size: clamp(34px, 11vw, 54px);
+    }
+
+    .mechanics-page .mechanic-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .mechanics-page .mechanic-card {
+        width: 100%;
+    }
 }
