@@ -77,6 +77,12 @@ jobs:
                   <a href="guide-ranked.html" class="sidebar-sub">Ranked Guide</a>
                   <a href="guide-advanced.html" class="sidebar-sub">Advanced Techniques</a>
               </div>''',
+              'collection': '''<div class="sidebar-section"><div class="sidebar-heading">COLLECTION</div>
+                  <a href="emotes.html" class="sidebar-sub">Emotes</a>
+                  <a href="gloves.html#gloves-overview" class="sidebar-sub">Gloves</a>
+                  <a href="gloves.html#unusual-effects" class="sidebar-sub">Unusual Effects</a>
+                  <a href="knockdowns.html" class="sidebar-sub">Knockdowns</a>
+              </div>''',
           }
 
           canonical_topbar = '''<header class="topbar">
@@ -103,6 +109,7 @@ jobs:
               if name == 'ranked.html': return 'ranked'
               if name == 'guides.html' or name.startswith('guide-'): return 'guides'
               if name in {'glove.html'} or name.startswith('glove-'): return 'collection'
+              if name in {'emotes.html', 'knockdowns.html'}: return 'collection'
               return None
 
           for path in sorted(Path('.').glob('*.html')):
