@@ -50,6 +50,17 @@ jobs:
                   <a href="styles.html?rarity=Legendary" class="sidebar-sub">Legendary</a>
                   <a href="styles.html?rarity=Shiny" class="sidebar-sub">Shiny</a>
               </div>''',
+              'mechanics': '''<div class="sidebar-section"><div class="sidebar-heading">MECHANICS</div>
+                  <a href="mechanics.html#combat-basics" class="sidebar-sub">Combat Basics</a>
+                  <a href="mechanics.html#advanced-combat" class="sidebar-sub">Advanced Combat</a>
+                  <a href="mechanics.html#special-systems" class="sidebar-sub">Special Systems</a>
+              </div>''',
+              'ranked': '''<div class="sidebar-section"><div class="sidebar-heading">RANKED</div>
+                  <a href="ranked.html#overview" class="sidebar-sub">Overview</a>
+                  <a href="ranked.html#how-ranked-works" class="sidebar-sub">How Ranked Works</a>
+                  <a href="ranked.html#placement-matches" class="sidebar-sub">Placement Matches</a>
+                  <a href="ranked.html#ranks" class="sidebar-sub">Ranks</a>
+              </div>''',
               'guides': '''<div class="sidebar-section"><div class="sidebar-heading">GUIDES</div>
                   <a href="guide-beginner.html" class="sidebar-sub">Getting Started</a>
                   <a href="guide-combat.html" class="sidebar-sub">Combat Fundamentals</a>
@@ -104,8 +115,6 @@ jobs:
                       1,
                   )
 
-              # Keep the Gloves page as the visual reference, but make the
-              # sidebar's secondary content relevant to the current page.
               target = active_target(path.name)
               sidebar_parts = [nav]
               if target in contextual_sections:
