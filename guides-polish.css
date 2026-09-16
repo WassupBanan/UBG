@@ -28,11 +28,6 @@ body[data-page="guides"] .intro-panel p { max-width: 820px; margin: 0; color: va
 body[data-page="guides"] .content-section { margin-top: 48px; }
 body[data-page="guides"] .section-heading { margin-bottom: 20px; }
 
-/*
-   Browse Guides is deliberately wider and less dense than before.
-   Two columns gives every card enough horizontal room for natural
-   paragraph wrapping instead of forcing the copy into narrow strips.
-*/
 body[data-page="guides"] .guide-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -46,7 +41,7 @@ body[data-page="guides"] .guide-card {
     min-width: 0;
     min-height: 190px;
     display: grid;
-    grid-template-columns: 52px minmax(0, 1fr) auto;
+    grid-template-columns: 52px minmax(0, 1fr);
     gap: 18px;
     align-items: start;
     padding: 25px 26px;
@@ -92,18 +87,8 @@ body[data-page="guides"] .guide-card-content { min-width: 0; padding-right: 8px;
 body[data-page="guides"] .guide-card h3 { margin: 8px 0 8px; font-size: 19px; line-height: 1.2; }
 body[data-page="guides"] .guide-card p { max-width: 520px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
 
-body[data-page="guides"] .guide-arrow {
-    width: 30px;
-    height: 30px;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--muted);
-    font-size: 15px;
-    font-weight: 800;
-}
-body[data-page="guides"] .guide-arrow::after { content: none; }
+/* Guide cards are clean clickable panels; no trailing arrow badge. */
+body[data-page="guides"] .guide-arrow { display: none !important; }
 
 body[data-page="guides"] .featured-guide {
     display: grid;
