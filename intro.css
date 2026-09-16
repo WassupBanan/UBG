@@ -27,22 +27,42 @@
 .brand-mark{position:relative;overflow:hidden;background:#050506!important;border-color:rgba(226,29,47,.45)!important;box-shadow:0 0 22px rgba(226,29,47,.22)!important}
 .brand-mark img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(1) sepia(1) saturate(12) hue-rotate(318deg) brightness(.9) contrast(1.3);transform:scale(1.75);display:block}
 
+/* MOBILE LOADER
+   Keep the desktop composition intact, but make the phone version a compact
+   viewport-safe stack. The bottom metadata and skip control never overlap it. */
 @media(max-width:600px){
-    .loader-content{width:92vw}
-    .loader-kicker{font-size:8px;letter-spacing:.22em;margin-bottom:16px}
-    .loader-logo-image-wrap{width:92vw;max-width:430px;height:auto;aspect-ratio:16/9;max-height:none}
+    #ubg-loader{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);box-sizing:border-box}
+    .loader-content{width:min(90vw,430px);max-height:calc(100dvh - 118px);display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .loader-kicker{font-size:8px;line-height:1.2;letter-spacing:.18em;margin:0 0 12px;white-space:nowrap}
+    .loader-logo-image-wrap{width:min(88vw,390px);height:auto;aspect-ratio:16/9;max-height:31dvh;flex:0 1 auto}
     .loader-logo-image{object-fit:contain}
-    .loader-sub{margin-top:14px;font-size:9px;letter-spacing:.14em}
-    .loader-status{margin-top:30px;width:84vw}
-    .loader-track{width:84vw}
-    .loader-bottom{bottom:16px;gap:10px;font-size:7px;letter-spacing:.12em}
-    .loader-skip{right:14px;bottom:14px;padding:8px 10px}
+    .loader-sub{margin-top:11px;font-size:8px;line-height:1.3;letter-spacing:.12em;white-space:nowrap}
+    .loader-status{margin:22px auto 9px;width:min(84vw,360px);font-size:8px;letter-spacing:.13em}
+    .loader-track{width:min(84vw,360px);height:2px}
+    .loader-bottom{left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));transform:none;justify-content:center;gap:9px;font-size:6px;letter-spacing:.1em;white-space:normal;text-align:center}
+    .loader-skip{right:12px;top:auto;bottom:max(42px,calc(env(safe-area-inset-bottom) + 34px));padding:8px 10px;font-size:8px;letter-spacing:.1em}
     .brand-mark{width:38px;height:38px}
 }
-@media(max-height:600px) and (orientation:landscape){
-    .loader-content{transform:scale(.78);transform-origin:center}
-    .loader-status{margin-top:24px}
-    .loader-bottom{bottom:10px}
-    .loader-skip{bottom:10px}
+
+/* Very short phones: prioritize the actual loading UI over decorative spacing. */
+@media(max-width:600px) and (max-height:700px){
+    .loader-content{max-height:calc(100dvh - 96px)}
+    .loader-kicker{margin-bottom:8px}
+    .loader-logo-image-wrap{max-height:24dvh}
+    .loader-sub{margin-top:8px;font-size:7px}
+    .loader-status{margin-top:14px;margin-bottom:7px}
+    .loader-skip{bottom:max(36px,calc(env(safe-area-inset-bottom) + 28px))}
 }
+
+/* Landscape phones */
+@media(max-width:900px) and (max-height:600px) and (orientation:landscape){
+    .loader-content{width:min(82vw,620px);max-height:calc(100dvh - 42px);transform:scale(.82);transform-origin:center}
+    .loader-kicker{margin-bottom:8px}
+    .loader-logo-image-wrap{width:min(55vw,390px);max-height:42dvh}
+    .loader-sub{margin-top:8px;font-size:8px}
+    .loader-status{margin-top:14px;margin-bottom:7px}
+    .loader-bottom{bottom:max(7px,env(safe-area-inset-bottom));font-size:6px}
+    .loader-skip{right:10px;bottom:max(10px,env(safe-area-inset-bottom));padding:7px 9px}
+}
+
 @media(prefers-reduced-motion:reduce){#ubg-loader,.loader-content{animation:none;transition:none}.loader-bar{transition:none}}
