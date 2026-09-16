@@ -1,6 +1,6 @@
 /* =========================================================
    UBG WIKI — GUIDES PAGE POLISH
-   Desktop-first layout + CSS-only navigation markers
+   Desktop-first layout; preserve the original mobile layout.
 ========================================================= */
 
 body[data-page="guides"] .wiki-main {
@@ -58,7 +58,7 @@ body[data-page="guides"] .section-heading {
     margin-bottom: 16px;
 }
 
-/* Six cards become three clean desktop columns instead of awkward stretched rows. */
+/* Desktop: six cards in a clean three-column layout. */
 body[data-page="guides"] .guide-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -93,6 +93,7 @@ body[data-page="guides"] .guide-card-featured {
     box-shadow: inset 0 1px 0 rgba(255,255,255,.025), 0 14px 35px rgba(0,0,0,.18);
 }
 
+/* Keep the original emoji icons instead of replacing them with number markers. */
 body[data-page="guides"] .guide-card-icon {
     width: 44px;
     height: 44px;
@@ -104,18 +105,17 @@ body[data-page="guides"] .guide-card-icon {
     border-radius: 7px;
     background: rgba(226,29,47,.08);
     color: var(--red-bright);
-    font-size: 0;
-    font-weight: 900;
-    letter-spacing: .04em;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
+    font-size: 24px !important;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-variant-emoji: emoji !important;
 }
 
-/* No emoji / Unicode glyphs: the card markers are plain CSS labels. */
-body[data-page="guides"] .guide-card:nth-child(1) .guide-card-icon::after { content: "01"; }
-body[data-page="guides"] .guide-card:nth-child(2) .guide-card-icon::after { content: "02"; }
-body[data-page="guides"] .guide-card:nth-child(3) .guide-card-icon::after { content: "03"; }
-body[data-page="guides"] .guide-card:nth-child(4) .guide-card-icon::after { content: "04"; }
-body[data-page="guides"] .guide-card:nth-child(5) .guide-card-icon::after { content: "05"; }
-body[data-page="guides"] .guide-card:nth-child(6) .guide-card-icon::after { content: "06"; }
+body[data-page="guides"] .guide-card-icon::after {
+    content: none !important;
+}
 
 body[data-page="guides"] .guide-card-content {
     min-width: 0;
@@ -142,13 +142,12 @@ body[data-page="guides"] .guide-arrow {
     border: 1px solid var(--border);
     border-radius: 5px;
     color: var(--muted);
-    font-size: 0;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 body[data-page="guides"] .guide-arrow::after {
-    content: ">";
-    font-size: 14px;
-    font-weight: 800;
+    content: none;
 }
 
 body[data-page="guides"] .featured-guide {
@@ -223,7 +222,7 @@ body[data-page="guides"] .quick-tip p {
     line-height: 1.5;
 }
 
-/* Sidebar: replace Unicode symbols with stable text markers. */
+/* Use the same emoji treatment as the Mechanics page for the guide sidebar. */
 body[data-page="guides"] .sidebar-link > span {
     width: 25px;
     height: 25px;
@@ -235,22 +234,12 @@ body[data-page="guides"] .sidebar-link > span {
     border-radius: 5px;
     background: #101216;
     color: var(--muted);
-    font-family: Arial, sans-serif !important;
-    font-size: 8px !important;
-    font-weight: 900;
-    letter-spacing: .02em;
-    font-variant-emoji: normal !important;
-}
-
-body[data-page="guides"] .sidebar-link:nth-of-type(1) > span::after { content: "HM"; }
-body[data-page="guides"] .sidebar-link:nth-of-type(2) > span::after { content: "ST"; }
-body[data-page="guides"] .sidebar-link:nth-of-type(3) > span::after { content: "MX"; }
-body[data-page="guides"] .sidebar-link:nth-of-type(4) > span::after { content: "RK"; }
-body[data-page="guides"] .sidebar-link:nth-of-type(5) > span::after { content: "GD"; }
-body[data-page="guides"] .sidebar-link:nth-of-type(6) > span::after { content: "CL"; }
-
-body[data-page="guides"] .sidebar-link > span {
-    font-size: 0 !important;
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    font-variant-emoji: emoji !important;
 }
 
 body[data-page="guides"] .sidebar-link.active > span {
@@ -269,6 +258,7 @@ body[data-page="guides"] .sidebar-link.active > span {
     }
 }
 
+/* Keep the original mobile layout: only stack the already-existing desktop grid. */
 @media (max-width: 760px) {
     body[data-page="guides"] .wiki-main {
         padding: 24px 16px 42px;
