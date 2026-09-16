@@ -26,6 +26,7 @@ jobs:
           skip = {
               'admin.html',
               'collection.html',
+              'gloves.html',
           }
 
           page_styles = {
@@ -39,11 +40,18 @@ jobs:
                   <a href="mechanics.html" data-nav="mechanics" class="sidebar-link"><span>⚙</span>Mechanics</a>
                   <a href="ranked.html" data-nav="ranked" class="sidebar-link"><span>♛</span>Ranked</a>
                   <a href="guides.html" data-nav="guides" class="sidebar-link"><span>▤</span>Guides</a>
-                  <a href="collection.html" data-nav="collection" class="sidebar-link"><span>◇</span>Collection</a>
+                  <a href="gloves.html" data-nav="collection" class="sidebar-link"><span>◇</span>Collection</a>
               </div>'''
 
           contextual_sections = {
               'styles': '''<div class="sidebar-section"><div class="sidebar-heading">STYLES</div>
+                  <a href="styles.html?rarity=Uncommon" class="sidebar-sub">Uncommon</a>
+                  <a href="styles.html?rarity=Rare" class="sidebar-sub">Rare</a>
+                  <a href="styles.html?rarity=Mythic" class="sidebar-sub">Mythic</a>
+                  <a href="styles.html?rarity=Legendary" class="sidebar-sub">Legendary</a>
+                  <a href="styles.html?rarity=Shiny" class="sidebar-sub">Shiny</a>
+              </div>''',
+              'style': '''<div class="sidebar-section"><div class="sidebar-heading">STYLES</div>
                   <a href="styles.html?rarity=Uncommon" class="sidebar-sub">Uncommon</a>
                   <a href="styles.html?rarity=Rare" class="sidebar-sub">Rare</a>
                   <a href="styles.html?rarity=Mythic" class="sidebar-sub">Mythic</a>
@@ -89,7 +97,11 @@ jobs:
           def active_target(name):
               if name == 'index.html':
                   return 'home'
-              if name in {'styles.html', 'style.html'} or name.startswith('style-'):
+              if name == 'styles.html':
+                  return 'styles'
+              if name == 'style.html':
+                  return 'style'
+              if name.startswith('style-'):
                   return 'styles'
               if name in {'mechanics.html', 'mechanic.html'} or name.startswith('mechanic-'):
                   return 'mechanics'
@@ -97,7 +109,7 @@ jobs:
                   return 'ranked'
               if name == 'guides.html' or name.startswith('guide-'):
                   return 'guides'
-              if name in {'gloves.html', 'glove.html'} or name.startswith('glove-'):
+              if name in {'glove.html'} or name.startswith('glove-'):
                   return 'collection'
               return None
 
@@ -112,7 +124,6 @@ jobs:
               if marker not in text:
                   continue
 
-              # Repair malformed body tags from older generated pages before normalising them.
               text = re.sub(r'<bod(?=\s|>)', '<body', text, count=1, flags=re.I)
 
               if 'site-standard.css' not in text:
@@ -138,7 +149,8 @@ jobs:
               if target in contextual_sections:
                   sidebar_parts.append(contextual_sections[target])
 
-              sidebar_parts.append('''<div class="sidebar-bottom"><div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div><div class="sidebar-version">UBG Wiki Redesign</div></div>''')
+              sidebar_parts.append('''<div class="sidebar-bottom"><div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div><div class="sidebar-version">UBG Wiki Redesign</div>''')
+              sidebar_parts[-1] += '</div>'
               sidebar = '<aside class="sidebar" id="sidebar">\n              ' + '\n              '.join(sidebar_parts) + '\n          </aside>'
 
               if target:
