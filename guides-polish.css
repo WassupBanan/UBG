@@ -17,67 +17,42 @@ body[data-page="guides"] .article-header {
     margin-bottom: 26px;
 }
 
-body[data-page="guides"] .article-header > div:first-child {
-    max-width: 820px;
-}
+body[data-page="guides"] .article-header > div:first-child { max-width: 820px; }
+body[data-page="guides"] .article-header h1 { margin: 4px 0 8px; font-size: clamp(34px, 4vw, 52px); line-height: 1; }
+body[data-page="guides"] .article-header p { max-width: 700px; margin: 0; color: var(--muted); font-size: 14px; }
 
-body[data-page="guides"] .article-header h1 {
-    margin: 4px 0 8px;
-    font-size: clamp(34px, 4vw, 52px);
-    line-height: 1;
-}
+body[data-page="guides"] .intro-panel { margin-bottom: 42px; padding: 30px 32px; }
+body[data-page="guides"] .intro-panel h2 { margin: 5px 0 8px; font-size: clamp(22px, 2.2vw, 30px); }
+body[data-page="guides"] .intro-panel p { max-width: 820px; margin: 0; color: var(--text-soft); }
 
-body[data-page="guides"] .article-header p {
-    max-width: 700px;
-    margin: 0;
-    color: var(--muted);
-    font-size: 14px;
-}
+body[data-page="guides"] .content-section { margin-top: 48px; }
+body[data-page="guides"] .section-heading { margin-bottom: 20px; }
 
-body[data-page="guides"] .intro-panel {
-    margin-bottom: 38px;
-    padding: 30px 32px;
-}
-
-body[data-page="guides"] .intro-panel h2 {
-    margin: 5px 0 8px;
-    font-size: clamp(22px, 2.2vw, 30px);
-}
-
-body[data-page="guides"] .intro-panel p {
-    max-width: 820px;
-    margin: 0;
-    color: var(--text-soft);
-}
-
-body[data-page="guides"] .content-section {
-    margin-top: 42px;
-}
-
-body[data-page="guides"] .section-heading {
-    margin-bottom: 16px;
-}
-
-/* Desktop: six cards in a clean three-column layout. */
+/*
+   Browse Guides is deliberately wider and less dense than before.
+   Two columns gives every card enough horizontal room for natural
+   paragraph wrapping instead of forcing the copy into narrow strips.
+*/
 body[data-page="guides"] .guide-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
     align-items: stretch;
+    max-width: 1320px;
 }
 
 body[data-page="guides"] .guide-card {
     position: relative;
     min-width: 0;
-    min-height: 188px;
+    min-height: 190px;
     display: grid;
-    grid-template-columns: 44px minmax(0, 1fr) auto;
-    gap: 16px;
+    grid-template-columns: 52px minmax(0, 1fr) auto;
+    gap: 18px;
     align-items: start;
-    padding: 22px;
+    padding: 25px 26px;
     overflow: hidden;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 9px;
     background: linear-gradient(145deg, #111318, #0d0f12);
     transition: transform .18s ease, border-color .18s ease, background .18s ease;
 }
@@ -93,62 +68,42 @@ body[data-page="guides"] .guide-card-featured {
     box-shadow: inset 0 1px 0 rgba(255,255,255,.025), 0 14px 35px rgba(0,0,0,.18);
 }
 
-/* Keep the original emoji icons instead of replacing them with number markers. */
 body[data-page="guides"] .guide-card-icon {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 44px;
+    flex: 0 0 52px;
     border: 1px solid rgba(226,29,47,.42);
-    border-radius: 7px;
+    border-radius: 8px;
     background: rgba(226,29,47,.08);
     color: var(--red-bright);
     font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
-    font-size: 24px !important;
+    font-size: 27px !important;
     line-height: 1;
     font-weight: 400;
     letter-spacing: 0;
     font-variant-emoji: emoji !important;
 }
 
-body[data-page="guides"] .guide-card-icon::after {
-    content: none !important;
-}
-
-body[data-page="guides"] .guide-card-content {
-    min-width: 0;
-}
-
-body[data-page="guides"] .guide-card h3 {
-    margin: 7px 0 6px;
-    font-size: 17px;
-    line-height: 1.2;
-}
-
-body[data-page="guides"] .guide-card p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.55;
-}
+body[data-page="guides"] .guide-card-icon::after { content: none !important; }
+body[data-page="guides"] .guide-card-content { min-width: 0; padding-right: 8px; }
+body[data-page="guides"] .guide-card h3 { margin: 8px 0 8px; font-size: 19px; line-height: 1.2; }
+body[data-page="guides"] .guide-card p { max-width: 520px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
 
 body[data-page="guides"] .guide-arrow {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     display: grid;
     place-items: center;
     border: 1px solid var(--border);
-    border-radius: 5px;
+    border-radius: 6px;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
 }
-
-body[data-page="guides"] .guide-arrow::after {
-    content: none;
-}
+body[data-page="guides"] .guide-arrow::after { content: none; }
 
 body[data-page="guides"] .featured-guide {
     display: grid;
@@ -158,137 +113,36 @@ body[data-page="guides"] .featured-guide {
     padding: 32px;
     overflow: hidden;
 }
+body[data-page="guides"] .featured-guide-content { max-width: 760px; }
+body[data-page="guides"] .featured-guide h2 { margin: 8px 0 8px; font-size: clamp(26px, 3vw, 38px); line-height: 1; }
+body[data-page="guides"] .featured-guide p { max-width: 720px; margin: 0 0 22px; color: var(--muted); }
+body[data-page="guides"] .featured-guide-number { align-self: center; justify-self: end; color: rgba(226,29,47,.22); font-size: 76px; line-height: 1; font-weight: 900; letter-spacing: -.08em; }
 
-body[data-page="guides"] .featured-guide-content {
-    max-width: 760px;
-}
+body[data-page="guides"] .quick-tips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+body[data-page="guides"] .quick-tip { min-width: 0; min-height: 138px; padding: 18px; border: 1px solid var(--border); border-radius: 7px; background: var(--panel); }
+body[data-page="guides"] .quick-tip-number { display: block; margin-bottom: 16px; color: var(--red); font-size: 10px; font-weight: 900; letter-spacing: .12em; }
+body[data-page="guides"] .quick-tip strong { display: block; margin-bottom: 5px; font-size: 13px; }
+body[data-page="guides"] .quick-tip p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
 
-body[data-page="guides"] .featured-guide h2 {
-    margin: 8px 0 8px;
-    font-size: clamp(26px, 3vw, 38px);
-    line-height: 1;
-}
-
-body[data-page="guides"] .featured-guide p {
-    max-width: 720px;
-    margin: 0 0 22px;
-    color: var(--muted);
-}
-
-body[data-page="guides"] .featured-guide-number {
-    align-self: center;
-    justify-self: end;
-    color: rgba(226,29,47,.22);
-    font-size: 76px;
-    line-height: 1;
-    font-weight: 900;
-    letter-spacing: -.08em;
-}
-
-body[data-page="guides"] .quick-tips {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-}
-
-body[data-page="guides"] .quick-tip {
-    min-width: 0;
-    min-height: 138px;
-    padding: 18px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    background: var(--panel);
-}
-
-body[data-page="guides"] .quick-tip-number {
-    display: block;
-    margin-bottom: 16px;
-    color: var(--red);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: .12em;
-}
-
-body[data-page="guides"] .quick-tip strong {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 13px;
-}
-
-body[data-page="guides"] .quick-tip p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-/* Use the same emoji treatment as the Mechanics page for the guide sidebar. */
 body[data-page="guides"] .sidebar-link > span {
-    width: 25px;
-    height: 25px;
-    display: inline-grid;
-    place-items: center;
-    flex: 0 0 25px;
-    margin-right: 9px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    background: #101216;
-    color: var(--muted);
+    width: 25px; height: 25px; display: inline-grid; place-items: center; flex: 0 0 25px;
+    margin-right: 9px; border: 1px solid var(--border); border-radius: 5px; background: #101216; color: var(--muted);
     font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif !important;
-    font-size: 16px !important;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    font-variant-emoji: emoji !important;
+    font-size: 16px !important; font-weight: 400; line-height: 1; letter-spacing: 0; font-variant-emoji: emoji !important;
 }
-
-body[data-page="guides"] .sidebar-link.active > span {
-    border-color: rgba(226,29,47,.5);
-    background: rgba(226,29,47,.12);
-    color: var(--red-bright);
-}
+body[data-page="guides"] .sidebar-link.active > span { border-color: rgba(226,29,47,.5); background: rgba(226,29,47,.12); color: var(--red-bright); }
 
 @media (max-width: 1100px) {
-    body[data-page="guides"] .guide-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    body[data-page="guides"] .quick-tips {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    body[data-page="guides"] .guide-grid { grid-template-columns: 1fr; max-width: 900px; }
+    body[data-page="guides"] .quick-tips { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* Keep the original mobile layout: only stack the already-existing desktop grid. */
 @media (max-width: 760px) {
-    body[data-page="guides"] .wiki-main {
-        padding: 24px 16px 42px;
-    }
-
-    body[data-page="guides"] .article-header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 14px;
-    }
-
-    body[data-page="guides"] .intro-panel {
-        padding: 22px;
-    }
-
-    body[data-page="guides"] .guide-grid,
-    body[data-page="guides"] .quick-tips {
-        grid-template-columns: 1fr;
-    }
-
-    body[data-page="guides"] .guide-card {
-        min-height: 0;
-    }
-
-    body[data-page="guides"] .featured-guide {
-        grid-template-columns: 1fr;
-        padding: 24px;
-    }
-
-    body[data-page="guides"] .featured-guide-number {
-        display: none;
-    }
+    body[data-page="guides"] .wiki-main { padding: 24px 16px 42px; }
+    body[data-page="guides"] .article-header { align-items: flex-start; flex-direction: column; gap: 14px; }
+    body[data-page="guides"] .intro-panel { padding: 22px; }
+    body[data-page="guides"] .guide-grid, body[data-page="guides"] .quick-tips { grid-template-columns: 1fr; }
+    body[data-page="guides"] .guide-card { min-height: 0; }
+    body[data-page="guides"] .featured-guide { grid-template-columns: 1fr; padding: 24px; }
+    body[data-page="guides"] .featured-guide-number { display: none; }
 }
