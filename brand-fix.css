@@ -1,11 +1,11 @@
 /* =========================================================
-   UBG TOPBAR BRAND — OFFICIAL GAME ICON + WORDMARK
+   UBG TOPBAR BRAND — UBG TITLE ARTWORK
 ========================================================= */
 
 .wiki-brand {
     min-width: 0 !important;
-    width: 222px;
-    flex: 0 0 222px;
+    width: 270px;
+    flex: 0 0 270px;
     height: 46px;
     display: flex;
     align-items: center;
@@ -13,49 +13,37 @@
     text-decoration: none;
 }
 
+/* The actual UBG artwork is intentionally treated as the logo — no fake
+   border, no generic Roblox icon frame, and no fallback "UBG" text. */
 .wiki-brand .brand-mark {
-    width: 42px;
-    min-width: 42px;
+    width: 112px;
+    min-width: 112px;
     height: 42px;
     position: relative;
     overflow: hidden;
-    display: grid;
-    place-items: center;
+    display: block;
     box-sizing: border-box;
-    background: #090a0d;
-    border: 1px solid rgba(255,255,255,.12) !important;
-    border-radius: 8px;
-    box-shadow:
-        0 0 0 1px rgba(226,29,47,.18),
-        0 6px 18px rgba(0,0,0,.28);
+    background: #050507;
+    border: 0 !important;
+    border-radius: 5px;
+    box-shadow: none;
 }
 
 .wiki-brand .brand-mark img {
     display: block !important;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 7px;
+    object-position: center;
+    border-radius: 5px;
 }
 
-/* Small fallback shown before the official Roblox icon loads. */
 .wiki-brand .brand-mark::after {
-    content: "UBG";
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    z-index: 0;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: 13px;
-    font-style: italic;
-    color: #fff;
-    text-shadow: 1px 1px 0 #e21d2f;
-}
-
-.wiki-brand .brand-mark img {
-    position: relative;
-    z-index: 1;
+    display: none !important;
+    content: none !important;
 }
 
 .wiki-brand .brand-text {
@@ -70,8 +58,8 @@
 .wiki-brand .brand-text strong {
     display: block;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: 17px;
-    letter-spacing: .45px;
+    font-size: 15px;
+    letter-spacing: .35px;
     font-style: italic;
     font-weight: 900;
     color: #fff;
@@ -90,65 +78,46 @@
 }
 
 .wiki-brand:hover .brand-mark {
-    border-color: rgba(226,29,47,.65) !important;
-    box-shadow:
-        0 0 0 1px rgba(226,29,47,.28),
-        0 7px 20px rgba(0,0,0,.34);
-}
-
-.wiki-brand:hover .brand-text strong {
-    color: #f5f5f5;
+    filter: brightness(1.08);
 }
 
 @media (max-width: 900px) {
     .wiki-brand {
-        width: 188px;
-        flex-basis: 188px;
-        gap: 8px;
+        width: 205px;
+        flex-basis: 205px;
+        gap: 7px;
     }
 
     .wiki-brand .brand-mark {
-        width: 38px;
-        min-width: 38px;
-        height: 38px;
-        border-radius: 7px;
-    }
-
-    .wiki-brand .brand-mark img {
-        border-radius: 6px;
+        width: 88px;
+        min-width: 88px;
+        height: 36px;
     }
 
     .wiki-brand .brand-text strong {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .wiki-brand .brand-text small {
-        font-size: 7px;
-        letter-spacing: 1.6px;
+        font-size: 6px;
+        letter-spacing: 1.5px;
     }
 }
 
 @media (max-width: 520px) {
     .wiki-brand {
-        width: 150px;
-        flex-basis: 150px;
-        gap: 7px;
+        width: 112px;
+        flex-basis: 112px;
+        gap: 0;
     }
 
     .wiki-brand .brand-mark {
-        width: 34px;
-        min-width: 34px;
+        width: 112px;
+        min-width: 112px;
         height: 34px;
     }
 
-    .wiki-brand .brand-text strong {
-        font-size: 12px;
-        letter-spacing: .2px;
-    }
-
-    .wiki-brand .brand-text small {
-        margin-top: 3px;
-        font-size: 6px;
-        letter-spacing: 1.25px;
+    .wiki-brand .brand-text {
+        display: none !important;
     }
 }
