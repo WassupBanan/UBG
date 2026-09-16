@@ -1,0 +1,208 @@
+/* UBG MECHANICS — FINAL MODERN PAGE PASS */
+
+body[data-page="mechanics"] .content-wrapper {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 30px 38px 70px !important;
+  min-width: 0 !important;
+}
+
+body[data-page="mechanics"] .mechanics-page {
+  width: min(1420px, 100%) !important;
+  margin: 0 auto !important;
+  min-width: 0 !important;
+}
+
+body[data-page="mechanics"] .breadcrumb {
+  margin-bottom: 20px !important;
+  color: #737780 !important;
+}
+
+body[data-page="mechanics"] .page-header {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 22px !important;
+  padding: 30px 32px 28px !important;
+  border: 1px solid rgba(255,255,255,.07) !important;
+  border-top: 2px solid #e21d2f !important;
+  border-radius: 9px !important;
+  background:
+    radial-gradient(circle at 88% 15%, rgba(226,29,47,.14), transparent 30%),
+    linear-gradient(135deg,#12151a,#0b0d10 72%) !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,.22) !important;
+}
+
+body[data-page="mechanics"] .page-header::after {
+  content: "COMBAT SYSTEMS";
+  position: absolute;
+  right: 24px;
+  bottom: 14px;
+  color: rgba(255,255,255,.025);
+  font-size: clamp(32px,5vw,72px);
+  font-weight: 950;
+  letter-spacing: -.06em;
+  pointer-events: none;
+}
+
+body[data-page="mechanics"] .page-header-label {
+  margin-bottom: 10px !important;
+  padding: 5px 8px !important;
+  border: 1px solid rgba(255,51,71,.22) !important;
+  border-radius: 4px !important;
+  background: rgba(226,29,47,.08) !important;
+  color: #ff4052 !important;
+  font-size: 9px !important;
+  letter-spacing: .15em !important;
+}
+
+body[data-page="mechanics"] .page-header h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 8px !important;
+  font-size: clamp(42px,5vw,70px) !important;
+  letter-spacing: -.055em !important;
+}
+
+body[data-page="mechanics"] .page-header p {
+  position: relative;
+  z-index: 1;
+  max-width: 780px !important;
+  color: #aeb2ba !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+
+body[data-page="mechanics"] .intro-panel {
+  display: grid !important;
+  grid-template-columns: 50px minmax(0,1fr) !important;
+  gap: 18px !important;
+  margin-bottom: 42px !important;
+  padding: 22px !important;
+  border: 1px solid rgba(255,255,255,.07) !important;
+  border-left: 3px solid #e21d2f !important;
+  border-radius: 8px !important;
+  background: linear-gradient(135deg,#12151a,#0d0f12) !important;
+  box-shadow: 0 14px 35px rgba(0,0,0,.16) !important;
+}
+
+body[data-page="mechanics"] .intro-icon {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 8px !important;
+  background: rgba(226,29,47,.08) !important;
+  border: 1px solid rgba(226,29,47,.2) !important;
+}
+
+body[data-page="mechanics"] .intro-panel h2 { font-size: 19px !important; }
+body[data-page="mechanics"] .intro-panel p { line-height: 1.7 !important; }
+
+body[data-page="mechanics"] .mechanic-section {
+  margin-bottom: 48px !important;
+  scroll-margin-top: 86px !important;
+}
+
+body[data-page="mechanics"] .section-heading {
+  gap: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+body[data-page="mechanics"] .section-number {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 6px !important;
+  background: rgba(226,29,47,.08) !important;
+  border-color: rgba(226,29,47,.24) !important;
+}
+
+body[data-page="mechanics"] .section-heading h2 {
+  font-size: 24px !important;
+  letter-spacing: -.02em !important;
+}
+
+body[data-page="mechanics"] .mechanic-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+}
+
+body[data-page="mechanics"] .mechanic-card {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: 44px minmax(0,1fr) !important;
+  gap: 14px !important;
+  min-width: 0 !important;
+  min-height: 168px !important;
+  padding: 18px !important;
+  border: 1px solid rgba(255,255,255,.065) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(145deg,#111419,#0c0e11) !important;
+  box-shadow: none !important;
+  transition: transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease !important;
+}
+
+body[data-page="mechanics"] .mechanic-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(226,29,47,.28) !important;
+  background: linear-gradient(145deg,#15181e,#0d0f12) !important;
+  box-shadow: 0 14px 32px rgba(0,0,0,.22),0 0 24px rgba(226,29,47,.045) !important;
+}
+
+body[data-page="mechanics"] .card-icon {
+  width: 44px !important;
+  height: 44px !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 1px solid rgba(226,29,47,.18) !important;
+  border-radius: 7px !important;
+  background: rgba(226,29,47,.07) !important;
+  font-size: 18px !important;
+}
+
+body[data-page="mechanics"] .card-content { min-width: 0 !important; }
+body[data-page="mechanics"] .card-category { margin-bottom: 4px !important; font-size: 8px !important; letter-spacing: .15em !important; color: #6e737c !important; }
+body[data-page="mechanics"] .mechanic-card h3 { margin: 0 0 7px !important; font-size: 16px !important; line-height: 1.25 !important; color: #f4f4f5 !important; }
+body[data-page="mechanics"] .mechanic-card p { color: #969ba4 !important; font-size: 12px !important; line-height: 1.6 !important; }
+body[data-page="mechanics"] .read-more { display: inline-block !important; margin-top: 11px !important; color: #ff4052 !important; font-size: 10px !important; font-weight: 800 !important; letter-spacing: .04em !important; }
+
+body[data-page="mechanics"] .tips-section {
+  margin-top: 8px !important;
+  padding: 20px !important;
+  border: 1px solid rgba(255,255,255,.07) !important;
+  border-radius: 8px !important;
+  background: #0e1014 !important;
+}
+
+body[data-page="mechanics"] .tips-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+  gap: 10px !important;
+}
+
+body[data-page="mechanics"] .tip {
+  min-width: 0 !important;
+  padding: 15px !important;
+  border: 1px solid rgba(255,255,255,.055) !important;
+  border-radius: 6px !important;
+  background: rgba(255,255,255,.018) !important;
+}
+
+body[data-page="mechanics"] .tip strong { color: #ff4052 !important; font-size: 10px !important; }
+body[data-page="mechanics"] .tip p { margin-top: 7px !important; color: #a0a5ad !important; font-size: 11px !important; line-height: 1.55 !important; }
+
+@media (max-width:1100px) {
+  body[data-page="mechanics"] .mechanic-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  body[data-page="mechanics"] .tips-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+}
+
+@media (max-width:700px) {
+  body[data-page="mechanics"] .content-wrapper { padding: 20px 15px 50px !important; }
+  body[data-page="mechanics"] .page-header { padding: 24px 20px !important; }
+  body[data-page="mechanics"] .page-header h1 { font-size: 44px !important; }
+  body[data-page="mechanics"] .intro-panel { grid-template-columns: 1fr !important; }
+  body[data-page="mechanics"] .mechanic-grid,
+  body[data-page="mechanics"] .tips-grid { grid-template-columns: 1fr !important; }
+  body[data-page="mechanics"] .mechanic-card { min-height: 0 !important; }
+}
