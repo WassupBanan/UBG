@@ -23,15 +23,14 @@ jobs:
 
           changed = []
 
-          skip = {
-              'admin.html',
-              'collection.html',
-              'gloves.html',
-          }
+          skip = {'admin.html', 'collection.html', 'gloves.html'}
 
           page_styles = {
               'guides.html': 'guides-polish.css',
               'style.html': 'style-page-polish.css',
+              'mechanics.html': 'mechanics-shell-fix.css',
+              'emotes.html': 'collection-shell-fix.css',
+              'knockdowns.html': 'collection-shell-fix.css',
           }
 
           nav = '''<div class="sidebar-section"><div class="sidebar-heading">NAVIGATION</div>
@@ -41,6 +40,13 @@ jobs:
                   <a href="ranked.html" data-nav="ranked" class="sidebar-link"><span>♛</span>Ranked</a>
                   <a href="guides.html" data-nav="guides" class="sidebar-link"><span>▤</span>Guides</a>
                   <a href="gloves.html" data-nav="collection" class="sidebar-link"><span>◇</span>Collection</a>
+              </div>'''
+
+          collection = '''<div class="sidebar-section"><div class="sidebar-heading">COLLECTION</div>
+                  <a href="emotes.html" class="sidebar-sub">Emotes</a>
+                  <a href="gloves.html#gloves-overview" class="sidebar-sub">Gloves</a>
+                  <a href="gloves.html#unusual-effects" class="sidebar-sub">Unusual Effects</a>
+                  <a href="knockdowns.html" class="sidebar-sub">Knockdowns</a>
               </div>'''
 
           contextual_sections = {
@@ -77,12 +83,9 @@ jobs:
                   <a href="guide-ranked.html" class="sidebar-sub">Ranked Guide</a>
                   <a href="guide-advanced.html" class="sidebar-sub">Advanced Techniques</a>
               </div>''',
-              'collection': '''<div class="sidebar-section"><div class="sidebar-heading">COLLECTION</div>
-                  <a href="emotes.html" class="sidebar-sub">Emotes</a>
-                  <a href="gloves.html#gloves-overview" class="sidebar-sub">Gloves</a>
-                  <a href="gloves.html#unusual-effects" class="sidebar-sub">Unusual Effects</a>
-                  <a href="knockdowns.html" class="sidebar-sub">Knockdowns</a>
-              </div>''',
+              'collection': collection,
+              'emotes': collection,
+              'knockdowns': collection,
           }
 
           canonical_topbar = '''<header class="topbar">
@@ -109,7 +112,8 @@ jobs:
               if name == 'ranked.html': return 'ranked'
               if name == 'guides.html' or name.startswith('guide-'): return 'guides'
               if name in {'glove.html'} or name.startswith('glove-'): return 'collection'
-              if name in {'emotes.html', 'knockdowns.html'}: return 'collection'
+              if name == 'emotes.html': return 'emotes'
+              if name == 'knockdowns.html': return 'knockdowns'
               return None
 
           for path in sorted(Path('.').glob('*.html')):
@@ -121,13 +125,12 @@ jobs:
 
               text = re.sub(r'<bod(?=\s|>)', '<body', text, count=1, flags=re.I)
 
+              for css in [x for x in [page_styles.get(path.name)] if x]:
+                  if css not in text:
+                      text = text.replace(marker, f'    <link rel="stylesheet" href="{css}">\n' + marker, 1)
+
               if 'site-standard.css' not in text:
                   text = text.replace(marker, '    <link rel="stylesheet" href="site-standard.css">\n' + marker, 1)
-
-              extra = page_styles.get(path.name)
-              if path.name.startswith('guide-'): extra = 'guide-page-polish.css'
-              if extra and extra not in text:
-                  text = text.replace(marker, f'    <link rel="stylesheet" href="{extra}">\n' + marker, 1)
 
               target = active_target(path.name)
               if target:
@@ -137,13 +140,20 @@ jobs:
                   text = re.sub(r'<body\b([^>]*)>', normalize_body, text, count=1, flags=re.I)
 
               sidebar_parts = [nav]
-              if target in contextual_sections: sidebar_parts.append(contextual_sections[target])
+              contextual = contextual_sections.get(target)
+              if contextual: sidebar_parts.append(contextual)
               sidebar_parts.append('''<div class="sidebar-bottom"><div class="sidebar-note"><span class="red-dot"></span>Fan-made project</div><div class="sidebar-version">UBG Wiki Redesign</div></div>''')
               sidebar = '<aside class="sidebar" id="sidebar">\n              ' + '\n              '.join(sidebar_parts) + '\n          </aside>'
 
-              nav_target = 'styles' if target == 'style' else target
+              nav_target = 'styles' if target == 'style' else ('collection' if target in {'emotes','knockdowns'} else target)
               if nav_target:
                   sidebar = sidebar.replace(f'data-nav="{nav_target}" class="sidebar-link"', f'data-nav="{nav_target}" class="sidebar-link active"', 1)
+
+              sub_target = None
+              if target == 'emotes': sub_target = 'href="emotes.html"'
+              if target == 'knockdowns': sub_target = 'href="knockdowns.html"'
+              if sub_target:
+                  sidebar = sidebar.replace(sub_target + ' class="sidebar-sub"', sub_target + ' class="sidebar-sub active"', 1)
 
               text, _ = re.subn(r'<aside\b[^>]*class=["\']sidebar["\'][^>]*>.*?</aside>', sidebar, text, count=1, flags=re.S | re.I)
               text, _ = re.subn(r'<header\b[^>]*class=["\']topbar["\'][^>]*>.*?</header>', canonical_topbar, text, count=1, flags=re.S | re.I)
