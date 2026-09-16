@@ -1,0 +1,51 @@
+/* Collection pages share the same available-width shell as the rest of the wiki. */
+body[data-page="emotes"] .main-content,
+body[data-page="knockdowns"] .main-content {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.emotes-page,
+.knockdowns-page {
+    width: 100% !important;
+    max-width: 1480px !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+}
+
+.emote-grid,
+.knockdown-grid,
+.info-grid,
+.emote-facts,
+.knockdown-facts {
+    min-width: 0 !important;
+}
+
+.emote-card,
+.knockdown-card,
+.info-grid > div {
+    min-width: 0 !important;
+}
+
+.emote-card h3,
+.emote-card p,
+.knockdown-card h3,
+.knockdown-card p,
+.emote-detail,
+.knockdown-note {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+    .emotes-page,
+    .knockdowns-page {
+        width: 100% !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
