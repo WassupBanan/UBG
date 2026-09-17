@@ -20,6 +20,80 @@ body[data-page="emotes"] .sidebar,
 body[data-page="knockdowns"] .sidebar {
     flex: 0 0 245px !important;
     min-width: 245px !important;
+    box-sizing: border-box !important;
+    padding-bottom: 0 !important;
+}
+
+/* Collection navigation: clear hierarchy and a proper active state. */
+body[data-page="emotes"] .sidebar-section,
+body[data-page="knockdowns"] .sidebar-section {
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+}
+
+body[data-page="emotes"] .sidebar-section + .sidebar-section,
+body[data-page="knockdowns"] .sidebar-section + .sidebar-section {
+    margin-top: 14px !important;
+    padding-top: 14px !important;
+    border-top: 1px solid rgba(255,255,255,.055) !important;
+}
+
+body[data-page="emotes"] .sidebar-sub,
+body[data-page="knockdowns"] .sidebar-sub {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    min-height: 34px !important;
+    margin: 0 0 2px !important;
+    padding: 0 10px 0 39px !important;
+    border-radius: 5px !important;
+    background: transparent !important;
+    color: #858992 !important;
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    transition: background .15s ease, color .15s ease !important;
+}
+
+body[data-page="emotes"] .sidebar-sub::before,
+body[data-page="knockdowns"] .sidebar-sub::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 20px !important;
+    top: 50% !important;
+    width: 5px !important;
+    height: 5px !important;
+    border: 1px solid #555a63 !important;
+    border-radius: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+body[data-page="emotes"] .sidebar-sub:hover,
+body[data-page="knockdowns"] .sidebar-sub:hover {
+    background: rgba(255,255,255,.035) !important;
+    color: #f2f2f2 !important;
+}
+
+body[data-page="emotes"] .sidebar-sub.active,
+body[data-page="knockdowns"] .sidebar-sub.active {
+    background: linear-gradient(90deg, rgba(226,29,47,.13), rgba(226,29,47,.025)) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+body[data-page="emotes"] .sidebar-sub.active::before,
+body[data-page="knockdowns"] .sidebar-sub.active::before {
+    width: 6px !important;
+    height: 6px !important;
+    border: 0 !important;
+    background: var(--site-red-bright) !important;
+    box-shadow: 0 0 8px rgba(255,51,71,.55) !important;
+}
+
+body[data-page="emotes"] .sidebar-bottom,
+body[data-page="knockdowns"] .sidebar-bottom {
+    margin-top: auto !important;
 }
 
 body[data-page="emotes"] .main-content,
@@ -79,5 +153,11 @@ body[data-page="knockdowns"] .main-content {
         width: 100% !important;
         padding-left: 16px !important;
         padding-right: 16px !important;
+    }
+
+    body[data-page="emotes"] .sidebar-section + .sidebar-section,
+    body[data-page="knockdowns"] .sidebar-section + .sidebar-section {
+        margin-top: 10px !important;
+        padding-top: 10px !important;
     }
 }
