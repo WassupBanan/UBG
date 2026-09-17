@@ -53,13 +53,9 @@
 .wiki-brand .brand-mark:not(:has(img)) { font-size: 0; }
 .wiki-brand .brand-mark:not(:has(img))::before { font-size: 21px; }
 .wiki-brand .brand-mark::after { display: none !important; content: none !important; }
-
-/* The image already contains the UBG wordmark; don't duplicate it with text. */
 .wiki-brand .brand-text { display: none !important; }
-
 .wiki-brand:hover .brand-mark { filter: brightness(1.08); }
 
-/* Keep the search field centred between the logo and Play button. */
 .topbar .wiki-brand + .global-search {
     flex: 1 1 auto !important;
     min-width: 180px !important;
@@ -86,31 +82,102 @@ body[data-page="ranked"] .breadcrumb {
     display: flex !important;
     align-items: center;
     gap: 8px;
-    margin-bottom: 16px !important;
+    margin-bottom: 14px !important;
     padding: 0 2px;
 }
 
 body[data-page="ranked"] .breadcrumb a { color: #b9bcc3 !important; text-decoration: none; }
 body[data-page="ranked"] .breadcrumb a:hover { color: #fff !important; }
-body[data-page="ranked"] .ranked-header { padding: 24px 30px 22px !important; margin-bottom: 26px !important; }
-body[data-page="ranked"] .ranked-header .eyebrow { display: inline-flex; width: fit-content; margin-bottom: 12px; padding: 6px 9px; background: rgba(226,29,47,.08); border: 1px solid rgba(226,29,47,.22); color: var(--red-bright); font-size: 8px; font-weight: 900; letter-spacing: 1.8px; }
-body[data-page="ranked"] .ranked-title-row { align-items: center; gap: 26px; }
-body[data-page="ranked"] .ranked-title-row h1 { margin: 0 0 7px; }
-body[data-page="ranked"] .article-lead { margin: 0; }
-body[data-page="ranked"] .ranked-header-badge { min-width: 118px; padding: 12px 17px; }
+
+/* Header: title on the left, artwork beside it, unlock badge on the far right. */
+body[data-page="ranked"] .ranked-header {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) 180px 118px;
+    align-items: center;
+    gap: 22px;
+    padding: 23px 28px !important;
+    margin-bottom: 24px !important;
+    min-height: 175px;
+    overflow: hidden;
+    position: relative;
+}
+
+body[data-page="ranked"] .ranked-header-copy { min-width: 0; }
+body[data-page="ranked"] .ranked-header .eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 9px;
+    padding: 5px 8px;
+    background: rgba(226,29,47,.08);
+    border: 1px solid rgba(226,29,47,.22);
+    color: var(--red-bright);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+body[data-page="ranked"] .ranked-header h1 { margin: 0 0 7px; }
+body[data-page="ranked"] .ranked-header .article-lead { margin: 0; max-width: 650px; }
+body[data-page="ranked"] .ranked-header .article-status { margin-top: 13px !important; }
+
+body[data-page="ranked"] .ranked-header-art {
+    position: relative;
+    width: 180px;
+    height: 145px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(226,29,47,.24);
+    border-radius: 7px;
+    background: radial-gradient(circle at 50% 50%,rgba(255,51,71,.20),transparent 58%),linear-gradient(145deg,#190b0e,#0a0b0e);
+}
+body[data-page="ranked"] .ranked-header-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,transparent 0 48%,rgba(255,255,255,.035) 48.3% 48.7%,transparent 49%),linear-gradient(45deg,transparent 0 68%,rgba(226,29,47,.08) 68.3% 68.8%,transparent 69%);
+    pointer-events: none;
+}
+body[data-page="ranked"] .ranked-header-art img {
+    position: relative;
+    z-index: 1;
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 22px rgba(226,29,47,.45));
+}
+body[data-page="ranked"] .ranked-art-label {
+    position: absolute;
+    z-index: 2;
+    left: 9px;
+    bottom: 7px;
+    color: rgba(255,255,255,.5);
+    font-size: 7px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+body[data-page="ranked"] .ranked-header-badge {
+    min-width: 0;
+    padding: 13px 12px;
+    text-align: center;
+}
 body[data-page="ranked"] .ranked-header-badge strong { font-size: 31px; }
-body[data-page="ranked"] .ranked-header .article-status { margin-top: 15px !important; }
-body[data-page="ranked"] .ranked-overview { grid-template-columns: minmax(245px, 330px) 1fr; padding: 0; overflow: hidden; border-color: rgba(226,27,35,.35); background: #0d0e11; }
-body[data-page="ranked"] .ranked-overview-image { position: relative; min-height: 270px; overflow: hidden; isolation: isolate; border-right: 1px solid rgba(226,27,35,.28); background: radial-gradient(circle at 50% 45%, rgba(255,51,71,.23), transparent 42%), linear-gradient(145deg, #170b0e 0%, #0b0c0f 58%, #08090b 100%); }
-body[data-page="ranked"] .ranked-overview-image::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .8; background-image: linear-gradient(135deg, transparent 0 48%, rgba(255,255,255,.035) 48.2% 48.5%, transparent 48.7%), linear-gradient(45deg, transparent 0 68%, rgba(226,29,47,.08) 68.2% 68.7%, transparent 69%); }
-body[data-page="ranked"] .ranked-overview-image::after { content: "RANKED"; position: absolute; left: 18px; bottom: 15px; color: rgba(255,255,255,.42); font-size: 8px; font-weight: 900; letter-spacing: 3px; }
-body[data-page="ranked"] .ranked-overview-image img { width: 170px !important; height: 170px !important; object-fit: contain !important; opacity: .92; filter: drop-shadow(0 0 25px rgba(226,29,47,.42)); }
-body[data-page="ranked"] .ranked-overview-image img[src$="Ranked.png"] { content: url("https://static.wikitide.net/ubgwiki/thumb/d/dd/Ranked_mode_Icon.png/300px-Ranked_mode_Icon.png"); }
-body[data-page="ranked"] .ranked-overview-content { padding: 25px 28px !important; }
-body[data-page="ranked"] .ranked-overview-content h2 { margin: 5px 0 12px; font-size: 24px; }
-body[data-page="ranked"] .ranked-overview-content p { margin: 0 0 10px; line-height: 1.65; }
-body[data-page="ranked"] .ranked-facts { margin-top: 18px; }
-body[data-page="ranked"] .ranked-fact { padding: 13px 12px; }
+
+/* Overview is now a clean full-width information panel. */
+body[data-page="ranked"] .ranked-overview {
+    display: block !important;
+    padding: 24px 28px !important;
+    overflow: hidden;
+    border-color: rgba(226,27,35,.28);
+    background: linear-gradient(145deg,#111318,#0c0d10);
+}
+body[data-page="ranked"] .ranked-overview-image { display: none !important; }
+body[data-page="ranked"] .ranked-overview-content { padding: 0 !important; }
+body[data-page="ranked"] .ranked-overview-content h2 { margin: 5px 0 10px; font-size: 24px; }
+body[data-page="ranked"] .ranked-overview-content p { margin: 0 0 9px; line-height: 1.62; max-width: 1000px; }
+body[data-page="ranked"] .ranked-facts { margin-top: 17px; }
+body[data-page="ranked"] .ranked-fact { padding: 12px; }
+
 body[data-page="ranked"] .ranked-info-panel { padding: 24px 27px !important; }
 body[data-page="ranked"] .ranked-info-panel > p { margin-bottom: 9px; line-height: 1.65; }
 body[data-page="ranked"] .rt-flow { margin: 20px 0; }
@@ -120,18 +187,28 @@ body[data-page="ranked"] .placement-number { min-height: 205px; padding: 24px; }
 body[data-page="ranked"] .placement-copy { padding: 24px !important; }
 
 @media (max-width: 900px) {
-    body[data-page="ranked"] .ranked-overview { grid-template-columns: 1fr; }
-    body[data-page="ranked"] .ranked-overview-image { min-height: 190px; border-right: none; border-bottom: 1px solid rgba(226,27,35,.28); }
-    body[data-page="ranked"] .ranked-overview-image img { width: 125px !important; height: 125px !important; }
+    body[data-page="ranked"] .ranked-header {
+        grid-template-columns: minmax(0,1fr) 145px;
+        gap: 17px;
+    }
+    body[data-page="ranked"] .ranked-header-badge { grid-column: 1 / -1; justify-self: start; }
+    body[data-page="ranked"] .ranked-header-art { width: 145px; height: 125px; }
+    body[data-page="ranked"] .ranked-header-art img { width: 105px; height: 105px; }
     body[data-page="ranked"] .rt-flow { grid-template-columns: 1fr; gap: 9px; }
     body[data-page="ranked"] .rt-arrow { transform: rotate(90deg); }
 }
 
 @media (max-width: 650px) {
-    body[data-page="ranked"] .ranked-header { padding: 20px !important; }
-    body[data-page="ranked"] .ranked-title-row { align-items: flex-start; flex-direction: column; }
-    body[data-page="ranked"] .ranked-header-badge { align-self: flex-start; }
-    body[data-page="ranked"] .ranked-overview-content { padding: 21px !important; }
+    body[data-page="ranked"] .ranked-header {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px !important;
+    }
+    body[data-page="ranked"] .ranked-header-art { width: 100%; height: 155px; order: 2; }
+    body[data-page="ranked"] .ranked-header-art img { width: 125px; height: 125px; }
+    body[data-page="ranked"] .ranked-header-badge { order: 3; align-self: flex-start; }
+    body[data-page="ranked"] .ranked-overview { padding: 21px !important; }
     body[data-page="ranked"] .ranked-facts { grid-template-columns: 1fr; }
     body[data-page="ranked"] .ranked-fact { border-right: none; border-bottom: 1px solid var(--border); }
     body[data-page="ranked"] .ranked-fact:last-child { border-bottom: none; }
