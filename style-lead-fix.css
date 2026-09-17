@@ -1,0 +1,28 @@
+/* UBG STYLE — responsive lead/overview fix */
+
+/* At narrower desktop widths the persistent left navigation leaves less
+   room for the style content. Keep the image and overview readable instead
+   of squeezing the overview into a very narrow column. */
+@media (min-width:761px) and (max-width:1150px) {
+  body[data-page="style"] .style-lead {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="style"] .style-lead-image {
+    min-height: 300px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--v2-line, rgba(255,255,255,.075)) !important;
+  }
+
+  body[data-page="style"] .style-lead-image img {
+    max-width: 360px !important;
+  }
+
+  body[data-page="style"] .style-lead-text {
+    padding: 30px 34px 34px !important;
+  }
+
+  body[data-page="style"] .style-lead-text p {
+    max-width: none !important;
+  }
+}
