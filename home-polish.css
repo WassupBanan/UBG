@@ -1,0 +1,256 @@
+/* =========================================================
+   UBG HOME — VISUAL POLISH PASS
+   Scoped to the homepage so the rest of the wiki is untouched.
+   Easy to remove/revert if this direction isn't right.
+========================================================= */
+
+body[data-page="home"] {
+    background:
+        radial-gradient(circle at 72% 0%, rgba(226,29,47,.09), transparent 34%),
+        radial-gradient(circle at 18% 20%, rgba(255,255,255,.025), transparent 28%),
+        #07080a !important;
+}
+
+/* Stronger homepage hero */
+body[data-page="home"] .article-header {
+    position: relative;
+    overflow: hidden;
+    min-height: 235px;
+    display: flex;
+    align-items: flex-end;
+    padding: 42px 44px 38px !important;
+    border: 1px solid #292b32 !important;
+    background:
+        linear-gradient(90deg, rgba(7,8,10,.98) 0%, rgba(7,8,10,.86) 48%, rgba(7,8,10,.48) 100%),
+        radial-gradient(circle at 82% 45%, rgba(226,29,47,.22), transparent 34%),
+        linear-gradient(135deg, #17191e, #090a0d 68%);
+    box-shadow: 0 18px 50px rgba(0,0,0,.28);
+}
+
+body[data-page="home"] .article-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(115deg, transparent 0 58%, rgba(255,255,255,.035) 58.2%, transparent 58.5%),
+        repeating-linear-gradient(0deg, transparent 0 5px, rgba(255,255,255,.012) 6px);
+    pointer-events: none;
+}
+
+body[data-page="home"] .article-header::after {
+    content: "UBG / COMMUNITY DATABASE";
+    position: absolute;
+    right: 34px;
+    bottom: 24px;
+    color: rgba(255,255,255,.22);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .22em;
+}
+
+body[data-page="home"] .article-header > div:first-child {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+}
+
+body[data-page="home"] .article-header h1 {
+    margin: 8px 0 12px !important;
+    font-size: clamp(32px, 4vw, 54px) !important;
+    line-height: .98 !important;
+    letter-spacing: -.035em !important;
+    text-transform: uppercase;
+    text-shadow: 0 5px 25px rgba(0,0,0,.45);
+}
+
+body[data-page="home"] .article-header p {
+    max-width: 620px;
+    color: #aeb1b9 !important;
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+}
+
+body[data-page="home"] .article-status {
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    z-index: 2;
+}
+
+/* Make the welcome panel feel like a secondary HUD panel */
+body[data-page="home"] .intro-panel {
+    position: relative;
+    border-color: #292b32 !important;
+    background: linear-gradient(135deg, #111318, #0d0f12) !important;
+    box-shadow: 0 12px 35px rgba(0,0,0,.18);
+}
+
+body[data-page="home"] .intro-panel::before {
+    content: "01";
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    color: #2b2e35;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -.08em;
+}
+
+/* Section headers */
+body[data-page="home"] .section-heading {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+body[data-page="home"] .section-heading::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--site-red-bright);
+    box-shadow: 0 0 12px rgba(255,51,71,.28);
+}
+
+body[data-page="home"] .section-kicker {
+    letter-spacing: .2em !important;
+}
+
+/* Browse cards */
+body[data-page="home"] .category-card {
+    position: relative;
+    overflow: hidden;
+    border-color: #292c33 !important;
+    background: linear-gradient(145deg, #121419, #0d0f12) !important;
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+body[data-page="home"] .category-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: transparent;
+    transition: background .22s ease, box-shadow .22s ease;
+}
+
+body[data-page="home"] .category-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,51,71,.42) !important;
+    background: linear-gradient(145deg, #17191f, #0e1014) !important;
+    box-shadow: 0 14px 30px rgba(0,0,0,.3), 0 0 22px rgba(226,29,47,.07);
+}
+
+body[data-page="home"] .category-card:hover::before,
+body[data-page="home"] .category-red::before {
+    background: var(--site-red-bright);
+    box-shadow: 0 0 12px rgba(255,51,71,.45);
+}
+
+body[data-page="home"] .category-icon {
+    transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+
+body[data-page="home"] .category-card:hover .category-icon {
+    transform: scale(1.045);
+    border-color: rgba(255,51,71,.28) !important;
+    background: rgba(226,29,47,.08) !important;
+}
+
+body[data-page="home"] .category-arrow {
+    transition: transform .22s ease, color .22s ease;
+}
+
+body[data-page="home"] .category-card:hover .category-arrow {
+    transform: translateX(4px);
+    color: #ff5364 !important;
+}
+
+/* Featured styles become the visual centrepiece */
+body[data-page="home"] .featured-style {
+    position: relative;
+    overflow: hidden;
+    border-color: #292c33 !important;
+    background: linear-gradient(180deg, #15171c, #0d0f12) !important;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+body[data-page="home"] .featured-style::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 55%, rgba(226,29,47,.08));
+    pointer-events: none;
+}
+
+body[data-page="home"] .featured-style:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,51,71,.5) !important;
+    box-shadow: 0 18px 38px rgba(0,0,0,.38), 0 0 25px rgba(226,29,47,.1);
+}
+
+body[data-page="home"] .featured-image {
+    overflow: hidden;
+}
+
+body[data-page="home"] .featured-image img {
+    transition: transform .45s cubic-bezier(.2,.75,.25,1), filter .35s ease;
+}
+
+body[data-page="home"] .featured-style:hover .featured-image img {
+    transform: scale(1.055);
+    filter: brightness(1.08) saturate(1.06);
+}
+
+body[data-page="home"] .featured-info {
+    position: relative;
+    z-index: 1;
+}
+
+body[data-page="home"] .featured-info h3 {
+    letter-spacing: -.02em;
+}
+
+body[data-page="home"] .rarity.legendary {
+    color: #ffd36a !important;
+    text-shadow: 0 0 12px rgba(255,211,106,.12);
+}
+
+/* Quick reference keys */
+body[data-page="home"] .fact {
+    transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+body[data-page="home"] .fact:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,51,71,.3) !important;
+    background: #14161b !important;
+}
+
+body[data-page="home"] .fact-key {
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.03), 0 0 15px rgba(226,29,47,.04);
+}
+
+/* Mobile: preserve the hierarchy without making the hero huge */
+@media (max-width: 700px) {
+    body[data-page="home"] .article-header {
+        min-height: 205px;
+        padding: 32px 24px 28px !important;
+    }
+
+    body[data-page="home"] .article-header h1 {
+        font-size: 32px !important;
+    }
+
+    body[data-page="home"] .article-header::after {
+        display: none;
+    }
+
+    body[data-page="home"] .article-status {
+        top: 18px;
+        right: 18px;
+    }
+}
