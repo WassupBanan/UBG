@@ -2,7 +2,6 @@
    UBG TOPBAR BRAND — CLEAN WIKI WORDMARK
 ========================================================= */
 
-/* The topbar should feel like the wiki, not like a generic Roblox UI. */
 .wiki-brand {
     min-width: 0 !important;
     width: 250px;
@@ -14,7 +13,6 @@
     text-decoration: none;
 }
 
-/* Keep the supplied UBG artwork visible without squeezing it into a tiny crop. */
 .wiki-brand .brand-mark {
     width: 112px;
     min-width: 112px;
@@ -42,7 +40,6 @@
     border-radius: 4px;
 }
 
-/* guides.html still has a text-only brand-mark; give it the same wordmark treatment. */
 .wiki-brand .brand-mark:not(:has(img)) {
     color: #fff;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif !important;
@@ -56,14 +53,8 @@
     content: "UNTITLED";
 }
 
-.wiki-brand .brand-mark:not(:has(img)) {
-    font-size: 0;
-}
-
-.wiki-brand .brand-mark:not(:has(img))::before {
-    font-size: 21px;
-}
-
+.wiki-brand .brand-mark:not(:has(img)) { font-size: 0; }
+.wiki-brand .brand-mark:not(:has(img))::before { font-size: 21px; }
 .wiki-brand .brand-mark::after { display: none !important; content: none !important; }
 
 .wiki-brand .brand-text {
@@ -75,7 +66,6 @@
     white-space: nowrap;
 }
 
-/* Use the same clean sans-serif family as the rest of the wiki instead of Impact. */
 .wiki-brand .brand-text strong {
     display: block;
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
@@ -114,4 +104,143 @@
     .wiki-brand { width: 112px; flex-basis: 112px; gap: 0; }
     .wiki-brand .brand-mark { width: 112px; min-width: 112px; height: 34px; }
     .wiki-brand .brand-text { display: none !important; }
+}
+
+/* =========================================================
+   RANKED PAGE POLISH
+   Loaded on ranked.html through the existing brand-fix.css link.
+========================================================= */
+
+body[data-page="ranked"] .breadcrumb {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px !important;
+    padding: 0 2px;
+}
+
+body[data-page="ranked"] .breadcrumb a {
+    color: #b9bcc3 !important;
+    text-decoration: none;
+}
+
+body[data-page="ranked"] .breadcrumb a:hover { color: #fff !important; }
+
+body[data-page="ranked"] .ranked-header {
+    padding: 24px 30px 22px !important;
+    margin-bottom: 26px !important;
+}
+
+body[data-page="ranked"] .ranked-header .eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 6px 9px;
+    background: rgba(226,29,47,.08);
+    border: 1px solid rgba(226,29,47,.22);
+    color: var(--red-bright);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+
+body[data-page="ranked"] .ranked-title-row {
+    align-items: center;
+    gap: 26px;
+}
+
+body[data-page="ranked"] .ranked-title-row h1 { margin: 0 0 7px; }
+body[data-page="ranked"] .article-lead { margin: 0; }
+body[data-page="ranked"] .ranked-header-badge { min-width: 118px; padding: 12px 17px; }
+body[data-page="ranked"] .ranked-header-badge strong { font-size: 31px; }
+body[data-page="ranked"] .ranked-header .article-status { margin-top: 15px !important; }
+
+/* The old local Ranked.png was missing, leaving a huge flat red panel.
+   Keep the red atmosphere, but make the space an intentional graphic. */
+body[data-page="ranked"] .ranked-overview {
+    grid-template-columns: minmax(245px, 330px) 1fr;
+    padding: 0;
+    overflow: hidden;
+    border-color: rgba(226,27,35,.35);
+    background: #0d0e11;
+}
+
+body[data-page="ranked"] .ranked-overview-image {
+    position: relative;
+    min-height: 270px;
+    overflow: hidden;
+    isolation: isolate;
+    border-right: 1px solid rgba(226,27,35,.28);
+    background:
+        radial-gradient(circle at 50% 45%, rgba(255,51,71,.23), transparent 42%),
+        linear-gradient(145deg, #170b0e 0%, #0b0c0f 58%, #08090b 100%);
+}
+
+body[data-page="ranked"] .ranked-overview-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: .8;
+    background-image:
+        linear-gradient(135deg, transparent 0 48%, rgba(255,255,255,.035) 48.2% 48.5%, transparent 48.7%),
+        linear-gradient(45deg, transparent 0 68%, rgba(226,29,47,.08) 68.2% 68.7%, transparent 69%);
+}
+
+body[data-page="ranked"] .ranked-overview-image::after {
+    content: "RANKED";
+    position: absolute;
+    left: 18px;
+    bottom: 15px;
+    color: rgba(255,255,255,.42);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+body[data-page="ranked"] .ranked-overview-image img {
+    width: 170px !important;
+    height: 170px !important;
+    object-fit: contain !important;
+    opacity: .92;
+    filter: drop-shadow(0 0 25px rgba(226,29,47,.42));
+}
+
+/* Use the official UBG ranked icon instead of an empty/missing local image. */
+body[data-page="ranked"] .ranked-overview-image img[src$="Ranked.png"] {
+    content: url("https://static.wikitide.net/ubgwiki/thumb/d/dd/Ranked_mode_Icon.png/300px-Ranked_mode_Icon.png");
+}
+
+body[data-page="ranked"] .ranked-overview-content { padding: 25px 28px !important; }
+body[data-page="ranked"] .ranked-overview-content h2 { margin: 5px 0 12px; font-size: 24px; }
+body[data-page="ranked"] .ranked-overview-content p { margin: 0 0 10px; line-height: 1.65; }
+body[data-page="ranked"] .ranked-facts { margin-top: 18px; }
+body[data-page="ranked"] .ranked-fact { padding: 13px 12px; }
+
+/* Tighten the PC layout so GAME MODE / title / unlock badge read as one header. */
+body[data-page="ranked"] .ranked-info-panel { padding: 24px 27px !important; }
+body[data-page="ranked"] .ranked-info-panel > p { margin-bottom: 9px; line-height: 1.65; }
+body[data-page="ranked"] .rt-flow { margin: 20px 0; }
+body[data-page="ranked"] .rt-box { min-height: 105px; padding: 17px; }
+body[data-page="ranked"] .placement-grid { grid-template-columns: 190px 1fr; gap: 15px; }
+body[data-page="ranked"] .placement-number { min-height: 205px; padding: 24px; }
+body[data-page="ranked"] .placement-copy { padding: 24px !important; }
+
+@media (max-width: 900px) {
+    body[data-page="ranked"] .ranked-overview { grid-template-columns: 1fr; }
+    body[data-page="ranked"] .ranked-overview-image { min-height: 190px; border-right: none; border-bottom: 1px solid rgba(226,29,47,.28); }
+    body[data-page="ranked"] .ranked-overview-image img { width: 125px !important; height: 125px !important; }
+    body[data-page="ranked"] .rt-flow { grid-template-columns: 1fr; gap: 9px; }
+    body[data-page="ranked"] .rt-arrow { transform: rotate(90deg); }
+}
+
+@media (max-width: 650px) {
+    body[data-page="ranked"] .ranked-header { padding: 20px !important; }
+    body[data-page="ranked"] .ranked-title-row { align-items: flex-start; flex-direction: column; }
+    body[data-page="ranked"] .ranked-header-badge { align-self: flex-start; }
+    body[data-page="ranked"] .ranked-overview-content { padding: 21px !important; }
+    body[data-page="ranked"] .ranked-facts { grid-template-columns: 1fr; }
+    body[data-page="ranked"] .ranked-fact { border-right: none; border-bottom: 1px solid var(--border); }
+    body[data-page="ranked"] .ranked-fact:last-child { border-bottom: none; }
+    body[data-page="ranked"] .placement-grid { grid-template-columns: 1fr; }
 }
