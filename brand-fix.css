@@ -4,18 +4,18 @@
 
 .wiki-brand {
     min-width: 0 !important;
-    width: 250px;
-    flex: 0 0 250px;
+    width: 154px;
+    flex: 0 0 154px;
     height: 46px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0;
     text-decoration: none;
 }
 
 .wiki-brand .brand-mark {
-    width: 112px;
-    min-width: 112px;
+    width: 150px;
+    min-width: 150px;
     height: 44px;
     position: relative;
     overflow: hidden;
@@ -23,9 +23,9 @@
     place-items: center;
     box-sizing: border-box;
     background: #050507;
-    border: 0 !important;
+    border: 1px solid rgba(226,29,47,.22) !important;
     border-radius: 4px;
-    box-shadow: none;
+    box-shadow: 0 0 18px rgba(226,29,47,.08);
 }
 
 .wiki-brand .brand-mark img {
@@ -49,66 +49,37 @@
     letter-spacing: -1px;
 }
 
-.wiki-brand .brand-mark:not(:has(img))::before {
-    content: "UNTITLED";
-}
-
+.wiki-brand .brand-mark:not(:has(img))::before { content: "UNTITLED"; }
 .wiki-brand .brand-mark:not(:has(img)) { font-size: 0; }
 .wiki-brand .brand-mark:not(:has(img))::before { font-size: 21px; }
 .wiki-brand .brand-mark::after { display: none !important; content: none !important; }
 
-.wiki-brand .brand-text {
-    min-width: 0;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    line-height: 1;
-    white-space: nowrap;
-}
-
-.wiki-brand .brand-text strong {
-    display: block;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
-    font-size: 13px;
-    line-height: 1.05;
-    letter-spacing: 1.35px;
-    font-style: normal;
-    font-weight: 900;
-    color: #f4f5f7;
-    text-transform: uppercase;
-}
-
-.wiki-brand .brand-text small {
-    display: block;
-    margin-top: 5px;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif !important;
-    font-size: 7px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 2.2px;
-    color: #e21d2f;
-    text-transform: uppercase;
-}
+/* The image already contains the UBG wordmark; don't duplicate it with text. */
+.wiki-brand .brand-text { display: none !important; }
 
 .wiki-brand:hover .brand-mark { filter: brightness(1.08); }
 
+/* Keep the search field centred between the logo and Play button. */
+.topbar .wiki-brand + .global-search {
+    flex: 1 1 auto !important;
+    min-width: 180px !important;
+    max-width: 760px !important;
+    margin: 0 auto !important;
+}
+
 @media (max-width: 900px) {
-    .wiki-brand { width: 205px; flex-basis: 205px; gap: 8px; }
-    .wiki-brand .brand-mark { width: 88px; min-width: 88px; height: 36px; }
-    .wiki-brand .brand-text strong { font-size: 11px; letter-spacing: 1px; }
-    .wiki-brand .brand-text small { font-size: 6px; letter-spacing: 1.5px; }
-    .wiki-brand .brand-mark:not(:has(img))::before { font-size: 17px; }
+    .wiki-brand { width: 124px; flex-basis: 124px; }
+    .wiki-brand .brand-mark { width: 120px; min-width: 120px; height: 38px; }
+    .topbar .wiki-brand + .global-search { min-width: 0 !important; }
 }
 
 @media (max-width: 520px) {
-    .wiki-brand { width: 112px; flex-basis: 112px; gap: 0; }
+    .wiki-brand { width: 112px; flex-basis: 112px; }
     .wiki-brand .brand-mark { width: 112px; min-width: 112px; height: 34px; }
-    .wiki-brand .brand-text { display: none !important; }
 }
 
 /* =========================================================
    RANKED PAGE POLISH
-   Loaded on ranked.html through the existing brand-fix.css link.
 ========================================================= */
 
 body[data-page="ranked"] .breadcrumb {
@@ -119,105 +90,27 @@ body[data-page="ranked"] .breadcrumb {
     padding: 0 2px;
 }
 
-body[data-page="ranked"] .breadcrumb a {
-    color: #b9bcc3 !important;
-    text-decoration: none;
-}
-
+body[data-page="ranked"] .breadcrumb a { color: #b9bcc3 !important; text-decoration: none; }
 body[data-page="ranked"] .breadcrumb a:hover { color: #fff !important; }
-
-body[data-page="ranked"] .ranked-header {
-    padding: 24px 30px 22px !important;
-    margin-bottom: 26px !important;
-}
-
-body[data-page="ranked"] .ranked-header .eyebrow {
-    display: inline-flex;
-    width: fit-content;
-    margin-bottom: 12px;
-    padding: 6px 9px;
-    background: rgba(226,29,47,.08);
-    border: 1px solid rgba(226,29,47,.22);
-    color: var(--red-bright);
-    font-size: 8px;
-    font-weight: 900;
-    letter-spacing: 1.8px;
-}
-
-body[data-page="ranked"] .ranked-title-row {
-    align-items: center;
-    gap: 26px;
-}
-
+body[data-page="ranked"] .ranked-header { padding: 24px 30px 22px !important; margin-bottom: 26px !important; }
+body[data-page="ranked"] .ranked-header .eyebrow { display: inline-flex; width: fit-content; margin-bottom: 12px; padding: 6px 9px; background: rgba(226,29,47,.08); border: 1px solid rgba(226,29,47,.22); color: var(--red-bright); font-size: 8px; font-weight: 900; letter-spacing: 1.8px; }
+body[data-page="ranked"] .ranked-title-row { align-items: center; gap: 26px; }
 body[data-page="ranked"] .ranked-title-row h1 { margin: 0 0 7px; }
 body[data-page="ranked"] .article-lead { margin: 0; }
 body[data-page="ranked"] .ranked-header-badge { min-width: 118px; padding: 12px 17px; }
 body[data-page="ranked"] .ranked-header-badge strong { font-size: 31px; }
 body[data-page="ranked"] .ranked-header .article-status { margin-top: 15px !important; }
-
-/* The old local Ranked.png was missing, leaving a huge flat red panel.
-   Keep the red atmosphere, but make the space an intentional graphic. */
-body[data-page="ranked"] .ranked-overview {
-    grid-template-columns: minmax(245px, 330px) 1fr;
-    padding: 0;
-    overflow: hidden;
-    border-color: rgba(226,27,35,.35);
-    background: #0d0e11;
-}
-
-body[data-page="ranked"] .ranked-overview-image {
-    position: relative;
-    min-height: 270px;
-    overflow: hidden;
-    isolation: isolate;
-    border-right: 1px solid rgba(226,27,35,.28);
-    background:
-        radial-gradient(circle at 50% 45%, rgba(255,51,71,.23), transparent 42%),
-        linear-gradient(145deg, #170b0e 0%, #0b0c0f 58%, #08090b 100%);
-}
-
-body[data-page="ranked"] .ranked-overview-image::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    opacity: .8;
-    background-image:
-        linear-gradient(135deg, transparent 0 48%, rgba(255,255,255,.035) 48.2% 48.5%, transparent 48.7%),
-        linear-gradient(45deg, transparent 0 68%, rgba(226,29,47,.08) 68.2% 68.7%, transparent 69%);
-}
-
-body[data-page="ranked"] .ranked-overview-image::after {
-    content: "RANKED";
-    position: absolute;
-    left: 18px;
-    bottom: 15px;
-    color: rgba(255,255,255,.42);
-    font-size: 8px;
-    font-weight: 900;
-    letter-spacing: 3px;
-}
-
-body[data-page="ranked"] .ranked-overview-image img {
-    width: 170px !important;
-    height: 170px !important;
-    object-fit: contain !important;
-    opacity: .92;
-    filter: drop-shadow(0 0 25px rgba(226,29,47,.42));
-}
-
-/* Use the official UBG ranked icon instead of an empty/missing local image. */
-body[data-page="ranked"] .ranked-overview-image img[src$="Ranked.png"] {
-    content: url("https://static.wikitide.net/ubgwiki/thumb/d/dd/Ranked_mode_Icon.png/300px-Ranked_mode_Icon.png");
-}
-
+body[data-page="ranked"] .ranked-overview { grid-template-columns: minmax(245px, 330px) 1fr; padding: 0; overflow: hidden; border-color: rgba(226,27,35,.35); background: #0d0e11; }
+body[data-page="ranked"] .ranked-overview-image { position: relative; min-height: 270px; overflow: hidden; isolation: isolate; border-right: 1px solid rgba(226,27,35,.28); background: radial-gradient(circle at 50% 45%, rgba(255,51,71,.23), transparent 42%), linear-gradient(145deg, #170b0e 0%, #0b0c0f 58%, #08090b 100%); }
+body[data-page="ranked"] .ranked-overview-image::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .8; background-image: linear-gradient(135deg, transparent 0 48%, rgba(255,255,255,.035) 48.2% 48.5%, transparent 48.7%), linear-gradient(45deg, transparent 0 68%, rgba(226,29,47,.08) 68.2% 68.7%, transparent 69%); }
+body[data-page="ranked"] .ranked-overview-image::after { content: "RANKED"; position: absolute; left: 18px; bottom: 15px; color: rgba(255,255,255,.42); font-size: 8px; font-weight: 900; letter-spacing: 3px; }
+body[data-page="ranked"] .ranked-overview-image img { width: 170px !important; height: 170px !important; object-fit: contain !important; opacity: .92; filter: drop-shadow(0 0 25px rgba(226,29,47,.42)); }
+body[data-page="ranked"] .ranked-overview-image img[src$="Ranked.png"] { content: url("https://static.wikitide.net/ubgwiki/thumb/d/dd/Ranked_mode_Icon.png/300px-Ranked_mode_Icon.png"); }
 body[data-page="ranked"] .ranked-overview-content { padding: 25px 28px !important; }
 body[data-page="ranked"] .ranked-overview-content h2 { margin: 5px 0 12px; font-size: 24px; }
 body[data-page="ranked"] .ranked-overview-content p { margin: 0 0 10px; line-height: 1.65; }
 body[data-page="ranked"] .ranked-facts { margin-top: 18px; }
 body[data-page="ranked"] .ranked-fact { padding: 13px 12px; }
-
-/* Tighten the PC layout so GAME MODE / title / unlock badge read as one header. */
 body[data-page="ranked"] .ranked-info-panel { padding: 24px 27px !important; }
 body[data-page="ranked"] .ranked-info-panel > p { margin-bottom: 9px; line-height: 1.65; }
 body[data-page="ranked"] .rt-flow { margin: 20px 0; }
@@ -228,7 +121,7 @@ body[data-page="ranked"] .placement-copy { padding: 24px !important; }
 
 @media (max-width: 900px) {
     body[data-page="ranked"] .ranked-overview { grid-template-columns: 1fr; }
-    body[data-page="ranked"] .ranked-overview-image { min-height: 190px; border-right: none; border-bottom: 1px solid rgba(226,29,47,.28); }
+    body[data-page="ranked"] .ranked-overview-image { min-height: 190px; border-right: none; border-bottom: 1px solid rgba(226,27,35,.28); }
     body[data-page="ranked"] .ranked-overview-image img { width: 125px !important; height: 125px !important; }
     body[data-page="ranked"] .rt-flow { grid-template-columns: 1fr; gap: 9px; }
     body[data-page="ranked"] .rt-arrow { transform: rotate(90deg); }
