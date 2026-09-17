@@ -1,32 +1,57 @@
-/* Final shell compatibility for the Mechanics page. */
-.mechanics-page,
-.content-wrapper {
+/* =========================================================
+   UBG MECHANICS — CANONICAL PAGE SHELL
+   Keep the legacy mechanics content, but force its outer layout to
+   match the shared UBG Wiki shell used by the newer pages.
+========================================================= */
+
+html,
+body {
     min-width: 0 !important;
-    box-sizing: border-box !important;
+    overflow-x: hidden !important;
 }
 
-.mechanics-page .mechanic-grid,
-.mechanics-page .mechanic-card {
+body[data-page="mechanics"] {
     min-width: 0 !important;
 }
 
-.mechanics-page .mechanic-card h3,
-.mechanics-page .mechanic-card p {
-    overflow-wrap: anywhere;
-}
-
-/* The canonical UBG topbar is used here too. Prevent legacy mechanics rules
-   from squeezing, overflowing, or visually shifting the header. */
-body[data-page="mechanics"] .main-area {
-    width: calc(100% - 245px) !important;
-    margin-left: 245px !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body[data-page="mechanics"] .main-area .topbar {
+/* The mechanics page uses the legacy .wiki-layout markup. Make the
+   sidebar and main area deterministic instead of allowing the old
+   flex/sticky rules to compete with the fixed mechanics shell. */
+body[data-page="mechanics"] .wiki-layout {
+    display: block !important;
     width: 100% !important;
     min-width: 0 !important;
+}
+
+body[data-page="mechanics"] .sidebar {
+    position: fixed !important;
+    top: 64px !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 245px !important;
+    min-width: 245px !important;
+    height: auto !important;
+    z-index: 70 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+body[data-page="mechanics"] .main-area {
+    width: calc(100% - 245px) !important;
+    min-width: 0 !important;
+    margin-left: 245px !important;
+    box-sizing: border-box !important;
+}
+
+/* One canonical topbar. It stays aligned to the main content rather than
+   inheriting width/offset values from the old mechanics stylesheet. */
+body[data-page="mechanics"] .main-area > .topbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 80 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 64px !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
     display: flex !important;
@@ -34,60 +59,98 @@ body[data-page="mechanics"] .main-area .topbar {
     gap: 18px !important;
 }
 
-body[data-page="mechanics"] .main-area .wiki-brand {
+body[data-page="mechanics"] .main-area > .topbar .wiki-brand {
     flex: 0 1 250px !important;
     width: 250px !important;
     min-width: 190px !important;
     box-sizing: border-box !important;
 }
 
-body[data-page="mechanics"] .main-area .global-search {
+body[data-page="mechanics"] .main-area > .topbar .global-search {
     flex: 1 1 auto !important;
     min-width: 0 !important;
+    max-width: 620px !important;
+    margin-left: 0 !important;
 }
 
-body[data-page="mechanics"] .main-area .global-search input {
+body[data-page="mechanics"] .main-area > .topbar .global-search input {
+    width: 100% !important;
     min-width: 0 !important;
 }
 
-body[data-page="mechanics"] .main-area .play-button {
+body[data-page="mechanics"] .main-area > .topbar .play-button {
     flex: 0 0 auto !important;
     white-space: nowrap !important;
 }
 
+/* Content gets exactly one horizontal sizing system. */
 body[data-page="mechanics"] .content-wrapper {
+    display: block !important;
     width: 100% !important;
-    max-width: 1500px !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 30px 38px 70px !important;
+    box-sizing: border-box !important;
+}
+
+body[data-page="mechanics"] .mechanics-page {
+    width: min(1420px, 100%) !important;
+    max-width: 1420px !important;
+    min-width: 0 !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
 }
 
+body[data-page="mechanics"] .mechanic-grid,
+body[data-page="mechanics"] .mechanic-card,
+body[data-page="mechanics"] .card-content,
+body[data-page="mechanics"] .mechanic-card h3,
+body[data-page="mechanics"] .mechanic-card p {
+    min-width: 0 !important;
+}
+
+body[data-page="mechanics"] .mechanic-card h3,
+body[data-page="mechanics"] .mechanic-card p {
+    overflow-wrap: anywhere !important;
+}
+
+/* Keep the mobile breakpoint clean: no desktop sidebar offset and no
+   accidental horizontal scroll. */
 @media (max-width: 700px) {
+    body[data-page="mechanics"] .sidebar {
+        left: -245px !important;
+        width: 245px !important;
+        min-width: 245px !important;
+    }
+
     body[data-page="mechanics"] .main-area {
         width: 100% !important;
+        min-width: 0 !important;
         margin-left: 0 !important;
     }
 
-    body[data-page="mechanics"] .main-area .topbar {
-        gap: 10px !important;
+    body[data-page="mechanics"] .main-area > .topbar {
+        height: 62px !important;
         padding: 0 14px !important;
+        gap: 10px !important;
     }
 
-    body[data-page="mechanics"] .main-area .wiki-brand {
-        min-width: 0 !important;
+    body[data-page="mechanics"] .main-area > .topbar .wiki-brand {
         width: auto !important;
+        min-width: 0 !important;
         flex: 1 1 auto !important;
     }
 
-    .mechanics-page .page-header h1 {
-        font-size: clamp(34px, 11vw, 54px);
+    body[data-page="mechanics"] .main-area > .topbar .global-search {
+        min-width: 0 !important;
     }
 
-    .mechanics-page .mechanic-grid {
-        grid-template-columns: 1fr !important;
+    body[data-page="mechanics"] .content-wrapper {
+        padding: 20px 15px 50px !important;
     }
 
-    .mechanics-page .mechanic-card {
-        width: 100%;
+    body[data-page="mechanics"] .mechanics-page {
+        width: 100% !important;
     }
 }
